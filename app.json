@@ -1,111 +1,46 @@
 {
-  "pages":[
-    "pages/tab-bar-pages/home/index",
-    "pages/tab-bar-pages/cart/index",
-    "pages/tab-bar-pages/mine/index"
+  "pages": [
+    "pages/home/index",
+    "pages/home/subpages/goods-detail/index",
+    "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
+    "pages/home/subpages/order-check/index",
+    "pages/cart/index",
+    "pages/mine/index",
+    "pages/mine/subpages/setting/index",
+    "pages/mine/subpages/setting/subpages/user-info-setting/index",
+    "pages/mine/subpages/address-list/index",
+    "pages/mine/subpages/address-list/subpages/add/index",
+    "pages/mine/subpages/address-list/subpages/edit/index",
+    "pages/mine/subpages/order-center/index",
+    "pages/mine/subpages/order-center/subpages/order-detail/index",
+    "pages/mine/subpages/order-center/subpages/evaluation/index",
+    "pages/mine/subpages/order-center/subpages/shipping/index",
+    "pages/mine/subpages/wallet/index",
+    "pages/common/register/index",
+    "pages/common/webview/index",
+    "pages/common/pay/index",
+    "pages/common/cropper/index",
+    "pages/common/search/index"
   ],
-  "subPackages": [{
-    "root": "pages/subpages/",
-    "pages": [
-      "common/register/index",
-      "common/webview/index",
-      "common/pay/index",
-      "common/cropper/index",
-      "common/search/index",
-      "common/video-play/index",
-      "message-center/index",
-      "home/media/live/create-live/index",
-      "home/media/live/live-notice/index",
-      "home/media/live/live-push/vertical-screen/index",
-      "home/media/live/live-push/horizontal-screen/index",
-      "home/media/live/live-play/index",
-      "home/media/note/index",
-      "home/media/video/index",
-      "home/media/author-center/index",
-      "mall/scenic-spot/index",
-      "mall/scenic-spot/subpages/spot-detail/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/more-info/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/evaluation-list/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/qa-list/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/qa-list/subpages/qa-detail/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/nearby-hotels/index",
-      "mall/scenic-spot/subpages/spot-detail/subpages/nearby-spots/index",
-      "mall/scenic-spot/subpages/order-check/index",
-      "mall/hotel/index",
-      "mall/hotel/subpages/hotel-detail/index",
-      "mall/hotel/subpages/hotel-detail/subpages/more-image/index",
-      "mall/hotel/subpages/hotel-detail/subpages/more-info/index",
-      "mall/hotel/subpages/hotel-detail/subpages/evaluation-list/index",
-      "mall/hotel/subpages/hotel-detail/subpages/qa-list/index",
-      "mall/hotel/subpages/hotel-detail/subpages/qa-list/subpages/qa-detail/index",
-      "mall/hotel/subpages/hotel-detail/subpages/nearby-hotels/index",
-      "mall/hotel/subpages/hotel-detail/subpages/nearby-spots/index",
-      "mall/hotel/subpages/order-check/index",
-      "mall/catering/index",
-      "mall/catering/subpages/restaurant-detail/index",
-      "mall/catering/subpages/restaurant-detail/subpages/more-image/index",
-      "mall/catering/subpages/restaurant-detail/subpages/more-info/index",
-      "mall/catering/subpages/restaurant-detail/subpages/meal-ticket-detail/index",
-      "mall/catering/subpages/restaurant-detail/subpages/set-meal-detail/index",
-      "mall/catering/subpages/restaurant-detail/subpages/evaluation-list/index",
-      "mall/catering/subpages/restaurant-detail/subpages/qa-list/index",
-      "mall/catering/subpages/restaurant-detail/subpages/qa-list/subpages/qa-detail/index",
-      "mall/catering/subpages/meal-ticket-order-check/index",
-      "mall/catering/subpages/set-meal-order-check/index",
-      "mall/goods/index",
-      "mall/goods/subpages/goods-detail/index",
-      "mall/goods/subpages/goods-detail/subpages/evaluation-list/index",
-      "mall/goods/subpages/shop/index",
-      "mall/goods/subpages/cart/index",
-      "mall/goods/subpages/order-check/index",
-      "mine/setting/index",
-      "mine/setting/subpages/user-info-setting/index",
-      "mine/address-list/index",
-      "mine/address-list/subpages/add/index",
-      "mine/address-list/subpages/edit/index",
-      "mine/order-center/index",
-      "mine/order-center/subpages/goods-order-list/index",
-      "mine/order-center/subpages/goods-order-list/subpages/order-detail/index",
-      "mine/order-center/subpages/goods-order-list/subpages/evaluation/index",
-      "mine/order-center/subpages/goods-order-list/subpages/shipping/index",
-      "mine/order-center/subpages/scenic-order-list/index",
-      "mine/order-center/subpages/scenic-order-list/subpages/order-detail/index",
-      "mine/order-center/subpages/scenic-order-list/subpages/evaluation/index",
-      "mine/order-center/subpages/hotel-order-list/index",
-      "mine/order-center/subpages/hotel-order-list/subpages/order-detail/index",
-      "mine/order-center/subpages/hotel-order-list/subpages/evaluation/index",
-      "mine/order-center/subpages/meal-ticket-order-list/index",
-      "mine/order-center/subpages/meal-ticket-order-list/subpages/order-detail/index",
-      "mine/order-center/subpages/meal-ticket-order-list/subpages/evaluation/index",
-      "mine/order-center/subpages/set-meal-order-list/index",
-      "mine/order-center/subpages/set-meal-order-list/subpages/order-detail/index",
-      "mine/order-center/subpages/set-meal-order-list/subpages/evaluation/index",
-      "mine/merchant-center/index",
-      "mine/merchant-center/subpages/scenic-management/index",
-      "mine/merchant-center/subpages/hotel-management/index",
-      "mine/merchant-center/subpages/shop-management/index",
-      "mine/merchant-center/subpages/shop-management/subpages/order-detail/index",
-      "mine/merchant-center/subpages/shop-management/subpages/shipping/index",
-      "mine/merchant-center/subpages/catering-management/index",
-      "mine/merchant-center/subpages/catering-management/subpages/meal-ticket-order-detail/index",
-      "mine/merchant-center/subpages/catering-management/subpages/set-meal-order-detail/index",
-      "mine/create-video/index",
-      "mine/create-note/index",
-      "mine/relative-commodity/index",
-      "mine/fan-follow-list/index"
-    ]
-  }],
   "tabBar": {
-    "custom": true,
     "list": [
       {
-        "pagePath": "pages/tab-bar-pages/home/index"
+        "pagePath": "pages/home/index",
+        "text": "首页",
+        "iconPath": "images/tab-bar/home.png",
+        "selectedIconPath": "images/tab-bar/home_fill.png"
       },
       {
-        "pagePath": "pages/tab-bar-pages/cart/index"
+        "pagePath": "pages/cart/index",
+        "text": "购物车",
+        "iconPath": "images/tab-bar/cart.png",
+        "selectedIconPath": "images/tab-bar/cart_fill.png"
       },
       {
-        "pagePath": "pages/tab-bar-pages/mine/index"
+        "pagePath": "pages/mine/index",
+        "text": "我的",
+        "iconPath": "images/tab-bar/mine.png",
+        "selectedIconPath": "images/tab-bar/mine_fill.png"
       }
     ]
   },
@@ -115,14 +50,6 @@
     "navigationBarTextStyle": "black",
     "backgroundColor": "#f5f6f8"
   },
-  "permission": {
-    "scope.userLocation": {
-      "desc": "你的位置信息将用于定位效果展示"
-    }
-  },
-  "requiredPrivateInfos": [
-    "getLocation"
-  ],
   "sitemapLocation": "sitemap.json",
   "lazyCodeLoading": "requiredComponents"
 }
