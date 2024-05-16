@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "live-item": "/components/live-item/index",
-    "video-item": "/components/video-item/index",
-    "note-item": "/components/note-item/index"
-  }
-}

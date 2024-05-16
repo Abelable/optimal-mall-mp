@@ -1,3 +1,0 @@
-<template name="i-split-line">
-  <view class="split-line">{{desc || '好物推荐'}}</view>
-</template>

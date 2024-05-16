@@ -1,5 +1,0 @@
-<view class="media-item">
-  <live-item wx:if="{{item.type === 1}}" item="{{item}}" mediaScene="{{mediaScene}}" />
-  <video-item wx:if="{{item.type === 2}}" item="{{item}}" mediaScene="{{mediaScene}}" />
-  <note-item wx:if="{{item.type === 3}}" item="{{item}}" mediaScene="{{mediaScene}}" />
-</view>
