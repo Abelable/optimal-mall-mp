@@ -3,9 +3,9 @@
     <image class="icon" src="/images/tab-bar/home{{tabType === 'home' ? '_fill' : ''}}.png" />
     <view class="text {{tabType === 'home' ? 'selected' : ''}}">首页</view>
   </view>
-  <view class="tab" bindtap="switchTab" data-path="/pages/tab-bar-pages/mall/index">
-    <image class="icon" src="/images/tab-bar/mall{{tabType === 'mall' ? '_fill' : ''}}.png" />
-    <view class="text {{tabType === 'home' ? 'selected' : ''}}">商城</view>
+  <view class="tab" bindtap="switchTab" data-path="/pages/tab-bar-pages/cart/index">
+    <image class="icon" src="/images/tab-bar/cart{{tabType === 'cart' ? '_fill' : ''}}.png" />
+    <view class="text {{tabType === 'cart' ? 'selected' : ''}}">购物车</view>
   </view>
   <view class="tab" bindtap="switchTab" data-path="/pages/tab-bar-pages/mine/index">
     <image class="icon" src="/images/tab-bar/mine{{tabType === 'mine' ? '_fill' : ''}}.png" />

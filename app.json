@@ -1,7 +1,7 @@
 {
   "pages":[
     "pages/tab-bar-pages/home/index",
-    "pages/tab-bar-pages/mall/index",
+    "pages/tab-bar-pages/cart/index",
     "pages/tab-bar-pages/mine/index"
   ],
   "subPackages": [{
@@ -102,7 +102,7 @@
         "pagePath": "pages/tab-bar-pages/home/index"
       },
       {
-        "pagePath": "pages/tab-bar-pages/mall/index"
+        "pagePath": "pages/tab-bar-pages/cart/index"
       },
       {
         "pagePath": "pages/tab-bar-pages/mine/index"
