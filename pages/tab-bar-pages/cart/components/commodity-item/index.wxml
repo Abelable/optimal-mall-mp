@@ -1,4 +1,0 @@
-<scenic-item wx:if="{{item.type === 1}}" item="{{item}}" />
-<hotel-item wx:if="{{item.type === 2}}" item="{{item}}" />
-<restaurant-item wx:if="{{item.type === 3}}" item="{{item}}" />
-<goods-item wx:if="{{item.type === 4}}" item="{{item}}" />

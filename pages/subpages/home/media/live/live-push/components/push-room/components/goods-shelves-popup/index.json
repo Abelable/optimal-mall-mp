@@ -1,8 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "popup": "/components/popup/index",
-    "price-unit": "/components/price-unit/index",
-    "empty-illus": "/components/empty-illus/index"
-  }
-}

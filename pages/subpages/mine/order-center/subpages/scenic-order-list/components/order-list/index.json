@@ -1,7 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "price-unit": "/components/price-unit/index",
-    "ticket-item": "../../../../../components/ticket-item/index"
-  }
-}

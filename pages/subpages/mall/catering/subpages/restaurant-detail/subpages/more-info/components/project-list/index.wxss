@@ -1,6 +1,0 @@
-.project-list {
-  display: flex;
-  flex-wrap: nowrap;
-  margin-top: 24rpx;
-  height: 180rpx;
-}

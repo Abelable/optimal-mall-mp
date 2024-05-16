@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "popup": "/components/popup/index",
-    "modal-mask": "/components/modal-mask/index",
-    "input-popup": "../input-popup/index",
-    "comment-item": "./components/comment-item/index"
-  }
-}

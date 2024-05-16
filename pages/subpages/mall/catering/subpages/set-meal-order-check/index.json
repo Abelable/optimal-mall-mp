@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "提交订单",
-  "usingComponents": {
-    "van-stepper": "@vant/weapp/stepper/index",
-    "price-unit": "/components/price-unit/index",
-    "detail-popup": "./components/detail-popup/index",
-    "notice-popup": "./components/notice-popup/index"
-  }
-}

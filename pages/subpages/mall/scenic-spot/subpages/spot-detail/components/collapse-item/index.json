@@ -1,6 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "ticket-item": "../ticket-item/index"
-  }
-}

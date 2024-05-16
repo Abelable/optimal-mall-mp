@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "price-unit": "/components/price-unit/index",
-    "meal-ticket-item": "../../../../../components/meal-ticket-item/index"
-  }
-}

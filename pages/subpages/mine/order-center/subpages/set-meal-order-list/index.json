@@ -1,9 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "nav-bar": "/components/nav-bar/index",
-    "empty-illus": "/components/empty-illus/index",
-    "order-list": "./components/order-list/index"
-  }
-}

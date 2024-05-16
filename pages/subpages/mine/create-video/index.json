@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "创建短视频",
-  "usingComponents": {
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
-    "price-unit": "/components/price-unit/index",
-    "empty-illus": "/components/empty-illus/index"
-  }
-}

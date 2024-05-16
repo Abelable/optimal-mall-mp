@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "price-unit": "/components/price-unit/index",
-    "set-meal-item": "../../../../../components/set-meal-item/index"
-  }
-}

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "选择相关商品",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "price-unit": "/components/price-unit/index",
-    "empty-illus": "/components/empty-illus/index"
-  }
-}

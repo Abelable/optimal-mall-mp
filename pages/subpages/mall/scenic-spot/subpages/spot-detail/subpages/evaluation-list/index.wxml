@@ -1,6 +1,0 @@
-<view class="container">
-  <evaluation-item wx:for="{{evaluationList}}" wx:key="index" item="{{item}}" />
-
-  <empty-illus wx:if="{{finished && !evaluationList.length}}" desc="暂无用户点评" height="520rpx" />
-  <view class="no-more-tips" wx:if="{{finished && evaluationList.length}}">～没有更多了～</view>
-</view>

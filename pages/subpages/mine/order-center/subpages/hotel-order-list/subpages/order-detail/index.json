@@ -1,6 +1,0 @@
-{
-  "usingComponents": {
-    "price-unit": "/components/price-unit/index",
-    "room-item": "../../../../../components/room-item/index"
-  }
-}

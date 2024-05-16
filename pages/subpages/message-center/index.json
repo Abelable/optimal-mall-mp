@@ -1,6 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "usingComponents": {
-    "back-icon": "/components/back-icon/index"
-  }
-}

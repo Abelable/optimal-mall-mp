@@ -1,9 +1,0 @@
-{
-  "navigationBarTitleText": "创建游记",
-  "usingComponents": {
-    "van-uploader": "@vant/weapp/uploader/index",
-    "van-swipe-cell": "@vant/weapp/swipe-cell/index",
-    "price-unit": "/components/price-unit/index",
-    "empty-illus": "/components/empty-illus/index"
-  }
-}

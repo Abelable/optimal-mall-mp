@@ -1,9 +1,0 @@
-{
-  "component": true,
-  "usingComponents": {
-    "scenic-item": "/components/scenic-item/index",
-    "hotel-item": "/components/hotel-item/index",
-    "restaurant-item": "/components/restaurant-item/index",
-    "goods-item": "/components/goods-item/index"
-  }
-}

@@ -1,6 +1,0 @@
-<image-grid 
-  wx:for="{{imagesList}}" 
-  wx:key="index" 
-  imageList="{{item}}" 
-  title="{{menuList[index]}}" 
-/>

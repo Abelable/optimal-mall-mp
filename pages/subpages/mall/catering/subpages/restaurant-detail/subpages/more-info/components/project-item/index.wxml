@@ -1,4 +1,0 @@
-<view class="project-item">
-  <image class="project-image" src="{{info.image}}" />
-  <view class="project-name omit single-line">{{info.name}}</view>
-</view>

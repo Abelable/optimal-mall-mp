@@ -1,7 +1,0 @@
-{
-  "navigationBarTitleText": "创建直播",
-  "usingComponents": {
-    "goods-picker-popup": "./components/goods-picker-popup/index",
-    "date-picker": "./components/date-picker/index"
-  }
-}
