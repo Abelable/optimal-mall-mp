@@ -1,9 +1,0 @@
-export const SCENE_LIVE = 1;
-export const SCENE_VIDEO = 2;
-export const SCENE_NOTE = 3;
-export const SCENE_SCENIC = 4;
-export const SCENE_HOTEL = 5;
-export const SCENE_RESTAURANT = 6;
-export const SCENE_GOODS = 7;
-export const SCENE_SHOP = 8;
-export const SCENE_USER_CENTER = 9;
