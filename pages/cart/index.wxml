@@ -14,7 +14,7 @@
     <view class="cart-list" wx:for="{{cartList}}" wx:key="index">
       <view class="cart-list-header row">
         <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" data-index="{{index}}" bindtap="toggleCartChecked"/>
-        <view class="shop-info" wx:if="{{item.shopInfo}}" bindtap="navToShop" data-id="{{item.shopInfo.id}}">
+        <view class="shop-info" wx:if="{{item.shopInfo}}">
           <image class="shop-img" src="{{item.shopInfo.avatar}}" lazy-load />
           <view>{{item.shopInfo.name}}</view>
           <image style="width: 20rpx; height: 20rpx;" src="https://img.ubo.vip/mp/to-icon.png" />
