@@ -24,7 +24,7 @@ Component({
 
   pageLifetimes: {
     show() {
-      store.setTabType("mall");
+      store.setTabType("cart");
 
       if (!store.locationInfo) {
         mallService.getLocationInfo();
