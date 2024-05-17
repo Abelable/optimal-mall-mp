@@ -1,11 +1,7 @@
-const setActiveMediaItem = require("../../utils/behaviors/setActiveMediaItem");
-
 Component({
   options: {
     multipleSlots: true,
   },
-
-  behaviors: [setActiveMediaItem],
 
   properties: {
     list: {
@@ -25,10 +21,6 @@ Component({
         });
       },
     },
-    mediaScene: {
-      type: Number,
-      value: 1
-    }
   },
 
   data: {

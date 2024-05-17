@@ -1,6 +1,6 @@
-import BaseService from '../../../../../../../services/baseService'
+import MineService from '../../../utils/mineService'
 
-class ShopService extends BaseService {
+class WalletService extends MineService {
   async getShopInfo() {
     return await this.get({
       url: `${this.baseUrl}/shop/my_shop_info`
@@ -47,4 +47,4 @@ class ShopService extends BaseService {
   }
 }
 
-export default ShopService
+export default WalletService

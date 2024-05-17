@@ -1,6 +1,5 @@
 import dayjs from "dayjs";
 import { store } from "../../store/index";
-import { SCENE_GOODS, SCENE_LIVE } from "../../utils/emuns/posterScene";
 
 const descList = [
   "发现精彩直播",

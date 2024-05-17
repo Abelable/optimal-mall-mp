@@ -1,4 +1,4 @@
-import { checkLogin, customBack } from "../../../../utils/index";
+import { checkLogin, customBack } from "../../utils/index";
 import HomeService from "./utils/homeService";
 
 const homeService = new HomeService();

@@ -1,6 +1,6 @@
-import ShopService from '../../utils/shopService'
+import WalletService from '../../utils/walletService'
 
-const shopService = new ShopService()
+const walletService = new WalletService()
 
 Component({
   options: {
@@ -14,14 +14,14 @@ Component({
   methods: {
     cancelOrder(e) {
       const { id, index } = e.currentTarget.dataset
-      shopService.cancelOrder(id, () => {
+      walletService.cancelOrder(id, () => {
         this.triggerEvent('update', { type: 'cancel', index })
       })
     },
 
     deliverOrder(e) {
       const { id, index } = e.currentTarget.dataset
-      shopService.deleteOrder(id, () => {
+      walletService.deleteOrder(id, () => {
         this.triggerEvent('update', { type: 'deliver', index })
       })
     },

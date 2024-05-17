@@ -46,8 +46,6 @@ Component({
 
   pageLifetimes: {
     show() {
-      store.setTabType("mine");
-
       checkLogin(() => {
         this.scrollTopArr = [0, 0, 0, 0];
         wx.pageScrollTo({

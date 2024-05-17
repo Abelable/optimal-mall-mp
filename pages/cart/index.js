@@ -1,4 +1,4 @@
-import { checkLogin, customBack } from "/utils/index";
+import { checkLogin, customBack } from "../../utils/index";
 import CartService from "./utils/cartService";
 
 const cartService = new CartService();

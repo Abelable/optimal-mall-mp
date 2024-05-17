@@ -1,4 +1,4 @@
-import { navigateBack } from "../../utils/index";
+import { navigateBack } from "../../../../utils/index";
 import OrderService from "./utils/orderService";
 
 const orderService = new OrderService();

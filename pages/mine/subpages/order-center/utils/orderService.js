@@ -1,6 +1,6 @@
-import BaseService from '../../../../../../../services/baseService'
+import MineService from '../../../utils/mineService'
 
-class OrderService extends BaseService {
+class OrderService extends MineService {
   async getOrderList({ status, page, limit = 10 }) {
     const { list = [] } =
       (await this.get({

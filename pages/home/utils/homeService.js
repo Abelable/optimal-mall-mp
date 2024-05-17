@@ -1,4 +1,4 @@
-import { cleanObject } from "../../../../../utils/index";
+import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
@@ -25,28 +25,6 @@ class HomeService extends BaseService {
 
   async getCartGoodsNumber() {
     return await this.get({ url: `${this.baseUrl}/cart/goods_number` });
-  }
-
-  async fastAddCart(goodsId, selectedSkuIndex, number) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/fast_add`,
-      data: { goodsId, selectedSkuIndex, number },
-    });
-  }
-
-  async addCart(goodsId, selectedSkuIndex, number) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number },
-    });
-  }
-
-  async editCart(id, goodsId, selectedSkuIndex, number, success) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/edit`,
-      data: { id, goodsId, selectedSkuIndex, number },
-      success,
-    });
   }
 
   async getGoodsInfo(id) {

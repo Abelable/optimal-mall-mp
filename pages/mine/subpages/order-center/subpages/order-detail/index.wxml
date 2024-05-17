@@ -1,5 +1,6 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
-<wxs module="ORDER" src="../../../../../utils/order.wxs" />
+<wxs module="ORDER" src="/utils/filters/order.wxs" />
+
 <view class="container">
   <view class="card">
     <view class="card-header row">
@@ -57,6 +58,7 @@
     </view>
   </view>
 </view>
+
 <view class="bottom-bar">
   <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}">
     查看物流
