@@ -40,14 +40,33 @@ Component({
       mineService.getUserInfo();
     },
 
+    navToOrderCenter(e) {
+      const { status } = e.currentTarget.dataset
+      wx.navigateTo({
+        url: `./subpages/order-center/index?status=${status}`
+      });
+    },
+
+    navToAddress() {
+      wx.navigateTo({
+        url: './subpages/address-list/index'
+      });
+    },
+
+    navToWallet() {
+      wx.navigateTo({
+        url: './subpages/wallet/index'
+      });
+    },
+
     navToSetting() {
       wx.navigateTo({
-        url: "/pages/mine/setting/index"
+        url: "./subpages/setting/index"
       });
     },
 
     navToUserInfoSetting() {
-      const url = "/pages/mine/subpages/setting/subpages/user-info-setting/index";
+      const url = "./subpages/setting/subpages/user-info-setting/index";
       wx.navigateTo({ url });
     }
   }

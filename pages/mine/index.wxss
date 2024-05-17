@@ -85,3 +85,32 @@
   color: #333;
   font-size: 22rpx;
 }
+
+.tool-list {
+  margin: 24rpx;
+  margin-top: 32rpx;
+  padding: 0 24rpx;
+  border-radius: 24rpx;
+  background: #fff;
+}
+.tool-item {
+  height: 100rpx;
+  border-bottom: 1px solid #eee;
+}
+.tool-item:last-child {
+  border-bottom: none;
+}
+.tool-icon {
+  width: 42rpx;
+  height: 42rpx;
+}
+.tool-desc {
+  margin: 0 12rpx;
+  flex: 1;
+  color: #333;
+  font-size: 28rpx;
+}
+.arrow {
+  width: 24rpx;
+  height: 24rpx;
+}

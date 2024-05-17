@@ -13,16 +13,34 @@
     <view class="order-center">
       <view class="title-wrap row between">
         <view class="title">我的订单</view>
-        <view class="check-more-btn row">
+        <view class="check-more-btn row" bindtap="navToOrderCenter" data-status="0">
           <text>查看全部</text>
           <image class="more-icon" src="./images/arrow.png" />
         </view>
       </view>
       <view class="order-btn-wrap row around">
-        <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index">
+        <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index" bindtap="navToOrderCenter" data-status="{{index + 1}}">
           <image class="order-icon" src="./images/{{item.en}}.png" />
           <view class="order-desc">{{item.zh}}</view>
         </view>
+      </view>
+    </view>
+
+    <view class="tool-list">
+      <view class="tool-item row" bindtap="navToAddress">
+        <image class="tool-icon" src="./images/address.png" />
+        <view class="tool-desc">收货地址</view>
+        <image class="arrow" src="./images/arrow.png" />
+      </view>
+      <view class="tool-item row" bindtap="navToWallet">
+        <image class="tool-icon" src="./images/wallet.png" />
+        <view class="tool-desc">我的收益</view>
+        <image class="arrow" src="./images/arrow.png" />
+      </view>
+      <view class="tool-item row" bindtap="navToSetting">
+        <image class="tool-icon" src="./images/setting.png" />
+        <view class="tool-desc">设置中心</view>
+        <image class="arrow" src="./images/arrow.png" />
       </view>
     </view>
   </view>
