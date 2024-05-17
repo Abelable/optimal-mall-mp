@@ -16,7 +16,6 @@ App({
     }
     checkLogin(() => {
       baseService.getUserInfo();
-      baseService.getCartGoodsNumber();
     }, false);
   },
 

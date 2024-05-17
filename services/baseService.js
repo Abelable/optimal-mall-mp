@@ -125,18 +125,9 @@ class BaseService extends Base {
   }
 
   async getCartGoodsNumber() {
-    const cartGoodsNumber = await this.get({
+    return await this.get({
       url: `${this.baseUrl}/cart/goods_number`
     });
-
-    if (cartGoodsNumber) {
-      wx.setTabBarBadge({
-        index: 1,
-        text: `${cartGoodsNumber}`
-      });
-    } else {
-      wx.removeTabBarBadge({ index: 1 });
-    }
   }
 
   async fastAddCart(goodsId, selectedSkuIndex, number) {

@@ -1,36 +1,17 @@
 <wxs module="NUM" src="/utils/filters/num.wxs" />
 
-<view class="nav-bar row" style="padding-top: {{statusBarHeight}}px;">
-  <image class="nav-bg" wx:if="{{navBarVisible}}" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" />
-  <view class="bg-cover" wx:if="{{navBarVisible}}" />
-  <image class="mine-avatar" wx:if="{{navBarVisible}}" src="{{userInfo.avatar}}" />
-  <view class="mine-name" wx:if="{{navBarVisible}}">{{userInfo.nickname}}</view>
-</view>
-
 <view class="container">
   <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
   <view class="content">
     <view class="avatar-wrap">
       <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
-      <view class="data-wrap">
-        <view class="data-item">
-          <view class="data-title">获赞</view>
-          <view class="data">{{NUM.over(userInfo.beLikedTimes, 100000)}}</view>
-        </view>
-        <view class="data-item" bindtap="checkFollowList">
-          <view class="data-title">关注</view>
-          <view class="data">{{NUM.over(userInfo.followedAuthorNumber, 100000)}}</view>
-        </view>
-        <view class="data-item" bindtap="checkFanList">
-          <view class="data-title">粉丝</view>
-          <view class="data">{{NUM.over(userInfo.fansNumber, 100000)}}</view>
-        </view>
-      </view>
     </view>
-    <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
-    <view class="introduce row" bindtap="navToUserInfoSetting">
-      <text>{{ userInfo.signature || '点击添加个性签名'}}</text>
-      <image class="edit-icon" wx:if="{{!userInfo.signature}}" src="https://img.ubo.vip/tiddler/mine/edit.png" />
+    <view>
+      <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
+      <view class="introduce row" bindtap="navToUserInfoSetting">
+        <text>{{ userInfo.signature || '点击添加个性签名'}}</text>
+        <image class="edit-icon" wx:if="{{!userInfo.signature}}" src="https://img.ubo.vip/tiddler/mine/edit.png" />
+      </view>
     </view>
 
     <view class="function-wrap">
@@ -59,57 +40,6 @@
         <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/setting.png" />
         <view class="function-desc">更多设置</view>
       </view>
-    </view>
-
-    <view class="works-wrap {{menuFixed ? 'fixed' : '' }}">
-      <view class="works-menu {{menuFixed ? 'fixed' : '' }}" style="top: {{menuFixed ? statusBarHeight + 44 : 0}}px;">
-        <view wx:for="{{['短视频', '游记', '收藏', '点赞']}}" wx:key="index" class="works-menu-item {{curMenuIndex === index ? 'active' : ''}}" bindtap="switchMenu" data-index="{{index}}">{{item}}</view>
-        <view class="active-underline" style="left: {{curMenuIndex * 25}}vw;"></view>
-      </view>
-      <swiper style="height: {{wrapHeightList[curMenuIndex]}}px;" current="{{curMenuIndex}}" bindchange="swiperChange">
-        <swiper-item>
-          <view class="content-wrap">
-            <view class="total-info row between">
-              <view class="total-tips">共{{videoListTotal}}条短视频</view>
-              <button class="add-btn" bindtap="navToVideoCreate">
-                <image class="add-icon" src="https://img.ubo.vip/tiddler/mine/add.png" />
-                <text>短视频</text>
-              </button>
-            </view>
-            <fall-flow class="fall-flow-0" list="{{videoList}}" mediaScene="{{3}}" generic:item="video-item" bind:finish="setWrapHeight" />
-            <empty-illus wx:if="{{videoFinished && !videoList.length}}" desc="暂无短视频作品，快去发布吧～" height="520rpx" />
-            <view class="no-more-tips" wx:if="{{videoFinished && videoList.length}}">～没有更多了～</view>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="content-wrap">
-            <view class="total-info row between">
-              <view class="total-tips">共{{noteListTotal}}条游记</view>
-              <button class="add-btn" bindtap="navToNoteCreate">
-                <image class="add-icon" src="https://img.ubo.vip/tiddler/mine/add.png" />
-                <text>游记</text>
-              </button>
-            </view>
-            <fall-flow class="fall-flow-1" list="{{noteList}}" mediaScene="{{3}}" generic:item="note-item" bind:finish="setWrapHeight" />
-            <empty-illus wx:if="{{noteFinished && !noteList.length}}" desc="暂无游记作品，快去发布吧～" height="520rpx" />
-            <view class="no-more-tips" wx:if="{{noteFinished && noteList.length}}">～没有更多了～</view>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="content-wrap">
-            <fall-flow class="fall-flow-2" list="{{collectMediaList}}" mediaScene="{{4}}" generic:item="media-item" bind:finish="setWrapHeight" />
-            <empty-illus wx:if="{{collectFinished && !collectMediaList.length}}" desc="您还未收藏任何作品" height="680rpx" />
-            <view class="no-more-tips" wx:if="{{collectFinished && collectMediaList.length}}">～没有更多了～</view>
-          </view>
-        </swiper-item>
-        <swiper-item>
-          <view class="content-wrap">
-            <fall-flow class="fall-flow-3" list="{{likeMediaList}}" mediaScene="{{5}}" generic:item="media-item" bind:finish="setWrapHeight" />
-            <empty-illus wx:if="{{likeFinished && !likeMediaList.length}}" desc="您还未点赞任何作品" height="680rpx" />
-            <view class="no-more-tips" wx:if="{{likeFinished && likeMediaList.length}}">～没有更多了～</view>
-          </view>
-        </swiper-item>
-      </swiper>
     </view>
   </view>
 </view>
