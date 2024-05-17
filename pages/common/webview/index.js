@@ -1,4 +1,4 @@
-import { checkLogin } from '../../../../utils/index'
+import { checkLogin } from '../../../utils/index'
 
 Page({
   data: {
@@ -24,7 +24,7 @@ Page({
   },
 
   onShareAppMessage() {
-    const path = `/pages/subpages/subpages/common/webview/index?url=${this.webviewUrl.replace('?', '&')}`
+    const path = `/pages/common/webview/index?url=${this.webviewUrl.replace('?', '&')}`
     return { path }
   }
 })

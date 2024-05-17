@@ -10,7 +10,7 @@ Component({
   methods: {
     navToGoodsDetail() {
       const { id } = this.properties.item;
-      const url = `/pages/subpages/mall/goods/subpages/goods-detail/index?id=${id}`;
+      const url = `/pages/home/subpages/goods-detail/index?id=${id}`;
       wx.navigateTo({ url });
     }
   }

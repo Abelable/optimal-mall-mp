@@ -18,17 +18,6 @@
   border-radius: 36rpx;
   border: 1px solid #161f4e;
 }
-.calendar-bar {
-  margin-left: 32rpx;
-  padding-right: 20rpx;
-  border-right: 1px solid #e1e1e1;
-}
-.calendar-item {
-  color: var(--theme-color);
-  font-size: 20rpx;
-  font-weight: bold;
-  line-height: 1.2;
-}
 .search-icon {
   margin-left: 20rpx;
   width: 30rpx;
@@ -62,42 +51,6 @@
   color: #fff;
   border-radius: 36rpx;
   background: #161f4e;
-}
-
-.menu-tab-list {
-  display: flex;
-  padding: 0 16rpx;
-  height: 88rpx;
-  white-space: nowrap;
-  border-top: 1px solid #eee;
-}
-.menu-tab {
-  display: inline-block;
-  padding: 0 20rpx;
-  height: 88rpx;
-  color: #999;
-  font-size: 28rpx;
-  line-height: 88rpx;
-  transition: .1s ease;
-}
-.menu-tab.active {
-  position: relative;
-  color: #111;
-  font-size: 32rpx;
-  font-weight: 600;
-  transition: .1s ease;
-}
-.menu-tab.active::before {
-  position: absolute;
-  left: 50%;
-  bottom: 28rpx;
-  transform: translateX(-50%);
-  content: '';
-  width: 68%;
-  height: 8rpx;
-  background: rgba(145, 217, 243, 0.8);
-  border-radius: 4rpx;
-  z-index: -1;
 }
 
 .history-keywords-wrap {

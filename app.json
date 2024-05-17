@@ -1,6 +1,7 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/subpages/index",
     "pages/home/subpages/goods-detail/index",
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
     "pages/home/subpages/order-check/index",
@@ -19,8 +20,8 @@
     "pages/common/register/index",
     "pages/common/webview/index",
     "pages/common/pay/index",
-    "pages/common/cropper/index",
-    "pages/common/search/index"
+    "pages/common/cropper/index"
+    
   ],
   "tabBar": {
     "list": [

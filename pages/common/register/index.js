@@ -1,5 +1,5 @@
-import { WEBVIEW_BASE_URL } from '../../../../config'
-import BaseService from '../../../../services/baseService'
+import { WEBVIEW_BASE_URL } from '../../../config'
+import BaseService from '../../../services/baseService'
 
 const baseService = new BaseService()
 const { statusBarHeight } = getApp().globalData.systemInfo
