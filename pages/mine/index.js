@@ -1,12 +1,12 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
-import { store } from "../../../store/index";
-import { checkLogin } from "../../../utils/index";
+import { store } from "../../store/index";
+import { checkLogin } from "../../utils/index";
 import MineService from "./utils/mineService";
 import {
   SCENE_SWITCH_TAB,
   SCENE_REFRESH,
   SCENE_LOADMORE,
-} from "../../../utils/emuns/listScene";
+} from "../../utils/emuns/listScene";
 
 const mineService = new MineService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
