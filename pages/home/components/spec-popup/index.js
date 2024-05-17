@@ -1,7 +1,7 @@
 import { checkLogin } from '../../../../../../utils/index'
-import GoodsService from '../../../utils/goodsService'
+import HomeService from '../../utils/homeService'
 
-const goodsService = new GoodsService()
+const homeService = new HomeService()
 
 Component({
   options: {
@@ -101,7 +101,7 @@ Component({
       if (this.data.btnActive) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data
-          const cartGoodsNumber = await goodsService.addCart(goodsInfo.id, selectedSkuIndex, count)
+          const cartGoodsNumber = await homeService.addCart(goodsInfo.id, selectedSkuIndex, count)
           cartGoodsNumber && this.triggerEvent('hide', { cartGoodsNumber })
         })
       }
@@ -112,7 +112,7 @@ Component({
       if (this.data.btnActive) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data
-          const cartGoodsId = await goodsService.fastAddCart(goodsInfo.id, selectedSkuIndex, count)
+          const cartGoodsId = await homeService.fastAddCart(goodsInfo.id, selectedSkuIndex, count)
           const cartGoodsIds = JSON.stringify([cartGoodsId])
           const url = `/pages/subpages/mall/goods/subpages/order-check/index?cartGoodsIds=${cartGoodsIds}`
           wx.navigateTo({ url })
@@ -123,7 +123,7 @@ Component({
     editSpec() {
       if (this.data.btnActive) {
         const { cartInfo, selectedSkuIndex, count } = this.data
-        goodsService.editCart(cartInfo.id, cartInfo.goodsId, selectedSkuIndex, count, (res) => {
+        homeService.editCart(cartInfo.id, cartInfo.goodsId, selectedSkuIndex, count, (res) => {
           this.triggerEvent('hide', { cartInfo: res.data })
         })
       }

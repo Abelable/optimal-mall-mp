@@ -1,7 +1,7 @@
 import { checkLogin, customBack } from "../../../../utils/index";
-import GoodsService from "./utils/homeService";
+import HomeService from "./utils/homeService";
 
-const goodsService = new GoodsService();
+const homeService = new HomeService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
@@ -50,7 +50,7 @@ Page({
   },
 
   async setCategoryOptions() {
-    const options = await goodsService.getShopCategoryOptions();
+    const options = await homeService.getShopCategoryOptions();
     this.setData({
       categoryOptions: [{ id: 0, name: "推荐" }, ...options],
     });
@@ -58,7 +58,7 @@ Page({
 
   async setSubCategoryOptions() {
     const { categoryOptions, activeTabIdx } = this.data;
-    const options = await goodsService.getGoodsCategoryOptions(
+    const options = await homeService.getGoodsCategoryOptions(
       categoryOptions[activeTabIdx].id
     );
     this.setData({
@@ -82,7 +82,7 @@ Page({
       goodsList,
     } = this.data;
     const list =
-      (await goodsService.getGoodsList({
+      (await homeService.getGoodsList({
         shopCategoryId: categoryOptions[activeTabIdx].id,
         categoryId: subCategoryOptions.length
           ? subCategoryOptions[activeSubTabIdx].id
@@ -101,7 +101,7 @@ Page({
   },
 
   async setCartGoodsNumber() {
-    const cartGoodsNumber = await goodsService.getCartGoodsNumber();
+    const cartGoodsNumber = await homeService.getCartGoodsNumber();
     this.setData({ cartGoodsNumber });
   },
 

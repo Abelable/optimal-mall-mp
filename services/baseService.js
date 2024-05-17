@@ -107,17 +107,6 @@ class BaseService extends Base {
     });
   }
 
-  async getShopCategoryOptions() {
-    return await this.get({ url: `${this.baseUrl}/shop/category_options` });
-  }
-
-  async getGoodsCategoryOptions(shopCategoryId) {
-    return await this.get({
-      url: `${this.baseUrl}/goods/category_options`,
-      data: { shopCategoryId }
-    });
-  }
-
   async searchGoodsList({
     keywords,
     categoryId,

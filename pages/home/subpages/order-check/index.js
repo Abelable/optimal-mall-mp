@@ -1,6 +1,6 @@
-import GoodsService from '../../utils/goodsService'
+import HomeService from '../../utils/homeService'
 
-const goodsService = new GoodsService()
+const homeService = new HomeService()
 
 Page({
   data: {
@@ -14,7 +14,7 @@ Page({
   },
 
   async setPreOrderInfo() {
-    const preOrderInfo = await goodsService.getPreOrderInfo(this.cartGoodsIds, this.addressId)
+    const preOrderInfo = await homeService.getPreOrderInfo(this.cartGoodsIds, this.addressId)
     this.setData({ preOrderInfo })
   },
 
@@ -44,12 +44,12 @@ Page({
     if (errMsg) {
       return
     }
-    const orderIds = await goodsService.submitOrder(this.cartGoodsIds, addressId)
+    const orderIds = await homeService.submitOrder(this.cartGoodsIds, addressId)
     this.pay(orderIds)
   },
 
   async pay(orderIds) {
-    const payParams = await goodsService.getPayParams(orderIds)
+    const payParams = await homeService.getPayParams(orderIds)
     wx.requestPayment({
       ...payParams,
       success: () => {

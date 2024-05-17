@@ -1,7 +1,7 @@
-import { getQueryString, checkLogin } from "../../../../../../utils/index";
-import GoodsService from "../../utils/goodsService";
+import { getQueryString, checkLogin } from "../../../../utils/index";
+import HomeService from "../../utils/homeService";
 
-const goodsService = new GoodsService();
+const homeService = new HomeService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 const navBarHeight = statusBarHeight + 44;
 
@@ -46,8 +46,8 @@ Page({
   },
 
   async setGoodsInfo() {
-    const goodsInfo = await goodsService.getGoodsInfo(this.goodsId);
-    const evaluationSummary = await goodsService.getGoodsEvaluationSummary(
+    const goodsInfo = await homeService.getGoodsInfo(this.goodsId);
+    const evaluationSummary = await homeService.getGoodsEvaluationSummary(
       this.goodsId
     );
     this.setData({ goodsInfo, evaluationSummary }, () => {
@@ -56,7 +56,7 @@ Page({
   },
 
   async setCartGoodsNumber() {
-    const cartGoodsNumber = await goodsService.getCartGoodsNumber();
+    const cartGoodsNumber = await homeService.getCartGoodsNumber();
     this.setData({ cartGoodsNumber });
   },
 
@@ -163,7 +163,7 @@ Page({
     checkLogin(async () => {
       const scene = `id=${this.goodsId}`;
       const page = "pages/tab-bar-pages/home/index";
-      const qrcode = await goodsService.getQRCode(scene, page);
+      const qrcode = await homeService.getQRCode(scene, page);
 
       const {
         cover,

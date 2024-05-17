@@ -76,9 +76,6 @@
     </view>
   </view>
 
-  <!-- 店铺信息 -->
-  <shop-showcase wx:if="{{goodsInfo.shopInfo}}" shopInfo="{{goodsInfo.shopInfo}}" />
-
   <!-- 商品详情 -->
   <split-line class="goods-detail-line" wx:if="{{goodsInfo.detailImageList.length}}" desc="宝贝详情" />
   <view class="goods-detail" wx:if="{{goodsInfo.detailImageList.length}}">

@@ -1,6 +1,6 @@
-import GoodsService from '../../../../utils/goodsService'
+import HomeService from '../../../../utils/homeService'
 
-const goodsService = new GoodsService()
+const homeService = new HomeService()
 
 Component({
   options: {
@@ -32,7 +32,7 @@ Component({
   
   methods: {
     async setAddressList() {
-      const addressList = await goodsService.getAddressList()
+      const addressList = await homeService.getAddressList()
       this.setData({ addressList })
       
       const { addressId } = this.properties

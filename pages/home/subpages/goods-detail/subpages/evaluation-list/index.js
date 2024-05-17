@@ -1,6 +1,6 @@
-import GoodsService from "../../../../utils/goodsService";
+import HomeService from "../../../../utils/homeService";
 
-const goodsService = new GoodsService();
+const homeService = new HomeService();
 
 Page({
   data: {
@@ -31,7 +31,7 @@ Page({
       this.page = 0;
     }
     const { list = [] } =
-      (await goodsService.getGoodsEvaluationList(this.goodsId, ++this.page)) ||
+      (await homeService.getGoodsEvaluationList(this.goodsId, ++this.page)) ||
       {};
     this.setData({
       evaluationList: init ? list : [...this.data.evaluationList, ...list],

@@ -2,6 +2,17 @@ import { cleanObject } from "../../../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
+  async getShopCategoryOptions() {
+    return await this.get({ url: `${this.baseUrl}/shop/category_options` });
+  }
+
+  async getGoodsCategoryOptions(shopCategoryId) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/category_options`,
+      data: { shopCategoryId }
+    });
+  }
+
   async getGoodsList({ shopCategoryId, categoryId, sort, order, page, limit = 10 }) {
     const { list = [] } =
       (await this.get({
@@ -10,6 +21,32 @@ class HomeService extends BaseService {
         loadingTitle: "加载中...",
       })) || {};
     return list;
+  }
+
+  async getCartGoodsNumber() {
+    return await this.get({ url: `${this.baseUrl}/cart/goods_number` });
+  }
+
+  async fastAddCart(goodsId, selectedSkuIndex, number) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/fast_add`,
+      data: { goodsId, selectedSkuIndex, number },
+    });
+  }
+
+  async addCart(goodsId, selectedSkuIndex, number) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/add`,
+      data: { goodsId, selectedSkuIndex, number },
+    });
+  }
+
+  async editCart(id, goodsId, selectedSkuIndex, number, success) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/edit`,
+      data: { id, goodsId, selectedSkuIndex, number },
+      success,
+    });
   }
 
   async getGoodsInfo(id) {
@@ -45,36 +82,10 @@ class HomeService extends BaseService {
     return list;
   }
 
-  async getCartGoodsNumber() {
-    return await this.get({ url: `${this.baseUrl}/cart/goods_number` });
-  }
-
   async getCartList() {
     return await this.get({
       url: `${this.baseUrl}/cart/list`,
       loadingTitle: "加载中...",
-    });
-  }
-
-  async fastAddCart(goodsId, selectedSkuIndex, number) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/fast_add`,
-      data: { goodsId, selectedSkuIndex, number },
-    });
-  }
-
-  async addCart(goodsId, selectedSkuIndex, number) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number },
-    });
-  }
-
-  async editCart(id, goodsId, selectedSkuIndex, number, success) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/edit`,
-      data: { id, goodsId, selectedSkuIndex, number },
-      success,
     });
   }
 
