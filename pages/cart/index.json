@@ -4,7 +4,7 @@
   "usingComponents": {
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-stepper": "@vant/weapp/stepper/index",
-    "spec-popup": "../../components/spec-popup/index",
+    "spec-popup": "/components/spec-popup/index",
     "split-line": "/components/split-line/index",
     "fall-flow": "/components/fall-flow/index",
     "goods-item": "/components/goods-item/index",

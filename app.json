@@ -21,9 +21,10 @@
     "pages/common/webview/index",
     "pages/common/pay/index",
     "pages/common/cropper/index"
-    
   ],
   "tabBar": {
+    "color": "#999",
+    "selectedColor": "#333",
     "list": [
       {
         "pagePath": "pages/home/index",

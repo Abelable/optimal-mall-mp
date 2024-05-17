@@ -7,7 +7,7 @@
     "split-line": "/components/split-line/index",
     "fall-flow": "/components/fall-flow/index",
     "goods-item": "/components/goods-item/index",
-    "spec-popup": "../../components/spec-popup/index",
+    "spec-popup": "/components/spec-popup/index",
     "modal-mask": "/components/modal-mask/index",
     "poster-modal": "/components/poster-modal/index"
   }

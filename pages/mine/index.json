@@ -4,9 +4,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
-    "fall-flow": "/components/fall-flow/index",
-    "media-item": "/components/media-item/index",
-    "video-item": "/components/video-item/index",
-    "note-item": "/components/note-item/index"
+    "fall-flow": "/components/fall-flow/index"
   }
 }
