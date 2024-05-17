@@ -8,27 +8,15 @@
   box-sizing: initial;
   z-index: 100;
 }
-.nav-bar-btn {
+.edit-btn {
   margin-left: 8px;
-  width: fit-content;
+  width: 120rpx;
   height: 32px;
+  color: #fff;
+  font-size: 15px;
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.3);
   border: 0.5px solid rgba(255,255,255,0.3);
-}
-.nav-back-icon {
-  margin-left: 4px;
-  margin-right: 6px;
-  width: 20px;
-  height: 20px;
-}
-.edit-btn {
-  padding-left: 10px;
-  padding-right: 12px;
-  color: #fff;
-  font-size: 15px;
-  line-height: 1;
-  border-left: 0.5px solid rgba(255,255,255,0.3);
 }
 .navigation-title {
   color: #fff;
@@ -244,7 +232,6 @@
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding-bottom: env(safe-area-inset-bottom);
   width: 100%;
   background-color: #fff;
   box-shadow: 0 -2rpx 2rpx 0 rgba(0,0,0,0.05);

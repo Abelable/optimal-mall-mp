@@ -1,9 +1,6 @@
 <view class="navigation-bar row" style="padding-top: {{statusBarHeight}}px;">
   <view style="flex: 1;">
-    <view class="nav-bar-btn row">
-      <image class="nav-back-icon" bindtap="navBack" src="https://img.ubo.vip/mp/i-back-icon/back-icon.png" />
-      <view class="edit-btn" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
-    </view>
+    <view class="edit-btn row center" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
   </view>
   <view class="navigation-title">购物车</view>
   <view style="flex: 1;"></view>

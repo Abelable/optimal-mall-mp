@@ -125,20 +125,31 @@ class BaseService extends Base {
   }
 
   async getCartGoodsNumber() {
-    return await this.get({ url: `${this.baseUrl}/cart/goods_number` });
+    const cartGoodsNumber = await this.get({
+      url: `${this.baseUrl}/cart/goods_number`
+    });
+
+    if (cartGoodsNumber) {
+      wx.setTabBarBadge({
+        index: 1,
+        text: `${cartGoodsNumber}`
+      });
+    } else {
+      wx.removeTabBarBadge({ index: 1 });
+    }
   }
 
   async fastAddCart(goodsId, selectedSkuIndex, number) {
     return await this.post({
       url: `${this.baseUrl}/cart/fast_add`,
-      data: { goodsId, selectedSkuIndex, number },
+      data: { goodsId, selectedSkuIndex, number }
     });
   }
 
   async addCart(goodsId, selectedSkuIndex, number) {
     return await this.post({
       url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number },
+      data: { goodsId, selectedSkuIndex, number }
     });
   }
 
@@ -146,7 +157,7 @@ class BaseService extends Base {
     return await this.post({
       url: `${this.baseUrl}/cart/edit`,
       data: { id, goodsId, selectedSkuIndex, number },
-      success,
+      success
     });
   }
 }

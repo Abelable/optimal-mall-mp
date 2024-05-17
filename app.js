@@ -16,16 +16,12 @@ App({
     }
     checkLogin(() => {
       baseService.getUserInfo();
+      baseService.getCartGoodsNumber();
     }, false);
   },
 
   onShow() {
     this.update();
-  },
-
-  async setCartGoodsNumber() {
-    const cartGoodsNumber = await baseService.getCartGoodsNumber();
-    this.setData({ cartGoodsNumber });
   },
 
   setSystemInfo() {

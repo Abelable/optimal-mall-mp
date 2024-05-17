@@ -1,4 +1,4 @@
-import { checkLogin, customBack } from "../../utils/index";
+import { checkLogin } from "../../utils/index";
 import CartService from "./utils/cartService";
 
 const cartService = new CartService();
@@ -261,10 +261,6 @@ Page({
     wx.navigateTo({
       url: `/pages/home/subpages/goods-detail/index?id=${e.currentTarget.dataset.id}`
     });
-  },
-
-  navBack() {
-    customBack();
   },
 
   catchtap() {}

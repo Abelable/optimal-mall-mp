@@ -15,9 +15,5 @@
         <text style="font-weight: bold;">{{ item.salesVolume }}</text>
       </view>
     </view>
-    <view class="shop-info row" wx:if="{{item.shopInfo}}" catchtap="navToShop">
-      <image class="shop-avatar" src="{{item.shopInfo.avatar}}" lazy-load />
-      <view class="shop-name omit single-line">{{item.shopInfo.name}}</view>
-    </view>
   </view>
 </view>
