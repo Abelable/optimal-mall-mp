@@ -1,12 +1,8 @@
-<wxs module="NUM" src="/utils/filters/num.wxs" />
-
 <view class="container">
   <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
   <view class="content">
-    <view class="avatar-wrap">
+    <view class="user-info-wrap">
       <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
-    </view>
-    <view>
       <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
       <view class="introduce row" bindtap="navToUserInfoSetting">
         <text>{{ userInfo.signature || '点击添加个性签名'}}</text>
@@ -14,31 +10,19 @@
       </view>
     </view>
 
-    <view class="function-wrap">
-      <navigator class="function-item" url="/pages/subpages/mine/order-center/index" hover-class="none">
-        <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/order.png" />
-        <view class="function-desc">订单中心</view>
-      </navigator>
-      <navigator class="function-item" url="/pages/subpages/mine/address-list/index" hover-class="none">
-        <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/address.png" />
-        <view class="function-desc">收货地址</view>
-      </navigator>
-      <view class="function-item" bindtap="navToLive">
-        <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/live.png" />
-        <view class="function-desc">我的直播</view>
+    <view class="order-center">
+      <view class="title-wrap row between">
+        <view class="title">我的订单</view>
+        <view class="check-more-btn row">
+          <text>查看全部</text>
+          <image class="more-icon" src="./images/arrow.png" />
+        </view>
       </view>
-      <navigator 
-        class="function-item" 
-        wx:if="{{userInfo.merchantId || userInfo.scenicProviderId || userInfo.hotelProviderId || userInfo.cateringProviderId}}" 
-        url="/pages/subpages/mine/merchant-center/index" 
-        hover-class="none"
-      >
-        <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/shop.png" />
-        <view class="function-desc">商家中心</view>
-      </navigator>
-      <view class="function-item" bindtap="navToSetting">
-        <image class="function-icon" src="https://img.ubo.vip/tiddler/mine/setting.png" />
-        <view class="function-desc">更多设置</view>
+      <view class="order-btn-wrap row around">
+        <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index">
+          <image class="order-icon" src="./images/{{item.en}}.png" />
+          <view class="order-desc">{{item.zh}}</view>
+        </view>
       </view>
     </view>
   </view>

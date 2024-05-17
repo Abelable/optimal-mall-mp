@@ -1,6 +1,6 @@
 <view class="container">
   <view class="header row center">
-    <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/tiddler/temp/bg.jpg'}}" mode="aspectFill" />
+    <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" mode="aspectFill" />
     <view class="avatar-wrap" bindtap="cropAvatar">
       <image class="avatar" src="{{userInfo.avatar}}" mode="aspectFill" />
       <view class="avatar-edit-btn row center">

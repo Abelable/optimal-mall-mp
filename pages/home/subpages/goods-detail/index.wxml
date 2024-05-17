@@ -113,7 +113,7 @@
       <image class="shortcut-icon" src="./images/share-icon.png"/>
       <view>分享</view>
     </view>
-    <navigator class="shortcut" url="/pages/subpages/mall/goods/subpages/cart/index" hover-class="none">
+    <navigator class="shortcut" open-type="switchTab" url="/pages/cart/index" hover-class="none">
       <image class="shortcut-icon" src="./images/cart-icon.png"/>
       <view>购物车</view>
       <view class="cart-count" wx:if="{{cartGoodsNumber}}">{{cartGoodsNumber}}</view>

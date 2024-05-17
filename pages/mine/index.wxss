@@ -17,31 +17,28 @@
   border-radius: 30rpx 30rpx 0 0;
   background: #f5f6f8;
 }
-.avatar-wrap {
-  position: absolute;
-  top: -36rpx;
-  display: flex;
-  align-items: center;
-  padding-left: 36rpx;
-  width: 100%;
+
+.user-info-wrap {
+  position: relative;
+  padding: 24rpx 0 24rpx 240rpx;
 }
 .avatar {
+  position: absolute;
+  top: -36rpx;
+  left: 36rpx;
   width: 180rpx;
   height: 180rpx;
   border-radius: 50%;
   border: 10rpx solid #f5f6f8;
   background: #f5f6f8;
 }
-
 .name {
-  padding: 160rpx 36rpx 0;
   color: #333;
   font-size: 40rpx;
   font-weight: bold;
 }
 .introduce {
   padding-top: 6rpx;
-  padding-left: 36rpx;
   color: #666;
   font-size: 24rpx;
 }
@@ -51,22 +48,40 @@
   height: 24rpx;
 }
 
-.function-wrap {
-  display: flex;
-  flex-wrap: wrap;
-  margin: 40rpx 0 8rpx;
+.order-center {
+  margin: 24rpx;
+  margin-top: 32rpx;
+  padding: 24rpx;
+  border-radius: 24rpx;
+  background: #fff;
 }
-.function-item {
-  margin-bottom: 32rpx;
-  width: 20%;
+.title {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.check-more-btn {
+  color: #999;
+  font-size: 24rpx;
+}
+.more-icon {
+  margin-left: 5rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.order-btn-wrap {
+  margin-top: 32rpx;
+}
+.order-btn {
+  font-size: 0;
   text-align: center;
 }
-.function-icon {
-  width: 60rpx;
-  height: 60rpx;
+.order-icon {
+  width: 48rpx;
+  height: 48rpx;
 }
-.function-desc {
-  margin-top: 6rpx;
-  color: #666;
-  font-size: 20rpx;
+.order-desc {
+  margin-top: 8rpx;
+  color: #333;
+  font-size: 22rpx;
 }
