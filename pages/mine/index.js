@@ -5,7 +5,7 @@ import MineService from "./utils/mineService";
 import {
   SCENE_SWITCH_TAB,
   SCENE_REFRESH,
-  SCENE_LOADMORE,
+  SCENE_LOADMORE
 } from "../../utils/emuns/listScene";
 
 const mineService = new MineService();
@@ -16,7 +16,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo"],
+    fields: ["userInfo"]
   },
 
   data: {
@@ -34,14 +34,14 @@ Component({
     collectMediaList: [],
     collectFinished: false,
     likeMediaList: [],
-    likeFinished: false,
+    likeFinished: false
   },
 
   lifetimes: {
     attached() {
       this.setNavBarVisibleLimit();
       this.setMenuFixedLimit();
-    },
+    }
   },
 
   pageLifetimes: {
@@ -50,12 +50,12 @@ Component({
         this.scrollTopArr = [0, 0, 0, 0];
         wx.pageScrollTo({
           scrollTop: 0,
-          duration: 0,
+          duration: 0
         });
         this.updateUserInfo();
         this.setList(SCENE_REFRESH);
       });
-    },
+    }
   },
 
   methods: {
@@ -80,7 +80,7 @@ Component({
         this.scrollTopArr[curMenuIndex] = this.scrollTop || 0;
         wx.pageScrollTo({
           scrollTop: this.scrollTopArr[index] || 0,
-          duration: 0,
+          duration: 0
         });
       }
     },
@@ -100,7 +100,7 @@ Component({
         videoList,
         noteList,
         collectMediaList,
-        likeMediaList,
+        likeMediaList
       } = this.data;
       switch (scene) {
         case SCENE_SWITCH_TAB:
@@ -176,10 +176,10 @@ Component({
         const { list = [], total = 0 } =
           (await mineService.getUserVideoList({
             page: ++this.videoPage,
-            loadingTitle: "加载中...",
+            loadingTitle: "加载中..."
           })) || {};
         this.setData({
-          videoList: init ? list : [...videoList, ...list],
+          videoList: init ? list : [...videoList, ...list]
         });
         if (init) {
           this.setData({ videoListTotal: total });
@@ -201,7 +201,7 @@ Component({
         const { list = [], total = 0 } =
           (await mineService.getUserNoteList({ page: ++this.notePage })) || {};
         this.setData({
-          noteList: init ? list : [...noteList, ...list],
+          noteList: init ? list : [...noteList, ...list]
         });
         if (init) {
           this.setData({ noteListTotal: total });
@@ -223,7 +223,7 @@ Component({
         const { list = [] } =
           (await mineService.getUserCollectMediaList(++this.collectPage)) || {};
         this.setData({
-          collectMediaList: init ? list : [...collectMediaList, ...list],
+          collectMediaList: init ? list : [...collectMediaList, ...list]
         });
         if (!list.length) {
           this.setData({ collectFinished: true });
@@ -242,7 +242,7 @@ Component({
         const { list = [] } =
           (await mineService.getUserLikeMediaList(++this.likePage)) || {};
         this.setData({
-          likeMediaList: init ? list : [...likeMediaList, ...list],
+          likeMediaList: init ? list : [...likeMediaList, ...list]
         });
         if (!list.length) {
           this.setData({ likeFinished: true });
@@ -253,7 +253,7 @@ Component({
     setNavBarVisibleLimit() {
       const query = wx.createSelectorQuery();
       query.select(".name").boundingClientRect();
-      query.exec((res) => {
+      query.exec(res => {
         this.navBarVisibleLimit = res[0].bottom;
       });
     },
@@ -261,7 +261,7 @@ Component({
     setMenuFixedLimit() {
       const query = wx.createSelectorQuery();
       query.select(".works-menu").boundingClientRect();
-      query.exec((res) => {
+      query.exec(res => {
         this.menuFixedLimit = res[0].top - statusBarHeight - 44;
       });
     },
@@ -270,11 +270,11 @@ Component({
       const { curMenuIndex } = this.data;
       const query = wx.createSelectorQuery();
       query.selectAll(".content-wrap").boundingClientRect();
-      query.exec((res) => {
+      query.exec(res => {
         if (res[0][curMenuIndex]) {
           const { height } = res[0][curMenuIndex];
           this.setData({
-            [`wrapHeightList[${curMenuIndex}]`]: height < 400 ? 400 : height,
+            [`wrapHeightList[${curMenuIndex}]`]: height < 400 ? 400 : height
           });
         }
       });
@@ -284,24 +284,24 @@ Component({
       if (e.scrollTop >= this.navBarVisibleLimit) {
         !this.data.navBarVisible &&
           this.setData({
-            navBarVisible: true,
+            navBarVisible: true
           });
       } else {
         this.data.navBarVisible &&
           this.setData({
-            navBarVisible: false,
+            navBarVisible: false
           });
       }
 
       if (e.scrollTop >= this.menuFixedLimit) {
         !this.data.menuFixed &&
           this.setData({
-            menuFixed: true,
+            menuFixed: true
           });
       } else {
         this.data.menuFixed &&
           this.setData({
-            menuFixed: false,
+            menuFixed: false
           });
       }
 
@@ -310,7 +310,7 @@ Component({
 
     navToSetting() {
       wx.navigateTo({
-        url: "/pages/subpages/mine/setting/index",
+        url: "/pages/subpages/mine/setting/index"
       });
     },
 
@@ -320,7 +320,7 @@ Component({
         merchantId,
         scenicProviderId,
         hotelProviderId,
-        cateringProviderId,
+        cateringProviderId
       } = store.userInfo;
       if (
         !userInfoId &&
@@ -334,12 +334,12 @@ Component({
           content: "直播需要认证您的真实身份，请先完成实名认证",
           showCancel: false,
           confirmText: "确定",
-          success: (result) => {
+          success: result => {
             if (result.confirm) {
               const url = `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
               wx.navigateTo({ url });
             }
-          },
+          }
         });
         return;
       }
@@ -347,7 +347,7 @@ Component({
       const statusInfo = await mineService.getRoomStatus();
       if (!statusInfo) {
         wx.navigateTo({
-          url: "/pages/subpages/home/media/live/create-live/index",
+          url: "/pages/subpages/home/media/live/create-live/index"
         });
       } else {
         const { status, direction } = statusInfo;
@@ -361,39 +361,9 @@ Component({
       }
     },
 
-    async navToVideoCreate() {
-      const { tempFilePath } = (await mineService.chooseVideo()) || {};
-      if (tempFilePath) {
-        const url = `/pages/subpages/mine/create-video/index?tempFilePath=${tempFilePath}`;
-        wx.navigateTo({ url });
-      }
-    },
-
-    navToNoteCreate() {
-      const url = "/pages/subpages/mine/create-note/index";
-      wx.navigateTo({ url });
-    },
-
     navToUserInfoSetting() {
-      const url =
-        "/pages/subpages/mine/setting/subpages/user-info-setting/index";
+      const url = "/pages/mine/setting/subpages/user-info-setting/index";
       wx.navigateTo({ url });
-    },
-
-    checkFollowList() {
-      const url = "/pages/subpages/mine/fan-follow-list/index?scene=1";
-      wx.navigateTo({ url });
-    },
-
-    checkFanList() {
-      const url = "/pages/subpages/mine/fan-follow-list/index?scene=2";
-      wx.navigateTo({ url });
-    },
-
-    navToMessageCenter() {
-      wx.navigateTo({
-        url: "/pages/subpages/message-center/index",
-      });
-    },
-  },
+    }
+  }
 });

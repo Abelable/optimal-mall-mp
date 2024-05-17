@@ -1,17 +1,14 @@
 <wxs module="NUM" src="/utils/filters/num.wxs" />
 
 <view class="nav-bar row" style="padding-top: {{statusBarHeight}}px;">
-  <image class="nav-bg" wx:if="{{navBarVisible}}" src="{{userInfo.bg || 'https://img.ubo.vip/tiddler/temp/bg.jpg'}}" />
+  <image class="nav-bg" wx:if="{{navBarVisible}}" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" />
   <view class="bg-cover" wx:if="{{navBarVisible}}" />
-  <view class="notice-icon-wrap row center" bindtap="navToSetting">
-    <image class="notice-icon" src="https://img.ubo.vip/tiddler/nav-icon/msg_center.png" bindtap="navToMessageCenter" />
-  </view>
   <image class="mine-avatar" wx:if="{{navBarVisible}}" src="{{userInfo.avatar}}" />
   <view class="mine-name" wx:if="{{navBarVisible}}">{{userInfo.nickname}}</view>
 </view>
 
 <view class="container">
-  <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/tiddler/temp/bg.jpg'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
+  <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
   <view class="content">
     <view class="avatar-wrap">
       <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
@@ -32,7 +29,7 @@
     </view>
     <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
     <view class="introduce row" bindtap="navToUserInfoSetting">
-      <text>{{ userInfo.signature || '点击添加签名，让大家了解你～'}}</text>
+      <text>{{ userInfo.signature || '点击添加个性签名'}}</text>
       <image class="edit-icon" wx:if="{{!userInfo.signature}}" src="https://img.ubo.vip/tiddler/mine/edit.png" />
     </view>
 

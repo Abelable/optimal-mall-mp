@@ -107,9 +107,5 @@ Page({
 
   navBack() {
     customBack();
-  },
-
-  onUnload() {
-    this.storeBindings.destroyStoreBindings();
   }
 });
