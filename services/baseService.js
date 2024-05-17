@@ -124,6 +124,10 @@ class BaseService extends Base {
     return list;
   }
 
+  async getCartGoodsNumber() {
+    return await this.get({ url: `${this.baseUrl}/cart/goods_number` });
+  }
+
   async fastAddCart(goodsId, selectedSkuIndex, number) {
     return await this.post({
       url: `${this.baseUrl}/cart/fast_add`,

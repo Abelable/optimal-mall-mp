@@ -23,6 +23,11 @@ App({
     this.update();
   },
 
+  async setCartGoodsNumber() {
+    const cartGoodsNumber = await baseService.getCartGoodsNumber();
+    this.setData({ cartGoodsNumber });
+  },
+
   setSystemInfo() {
     const systemInfo = wx.getSystemInfoSync();
     this.globalData.systemInfo = systemInfo;

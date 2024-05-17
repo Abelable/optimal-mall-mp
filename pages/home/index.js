@@ -1,4 +1,4 @@
-import { checkLogin, customBack } from "../../utils/index";
+import { checkLogin } from "../../utils/index";
 import HomeService from "./utils/homeService";
 
 const homeService = new HomeService();
@@ -20,12 +20,6 @@ Page({
   async onLoad() {
     await this.setCategoryOptions();
     this.setGoodsList(true);
-  },
-
-  onShow() {
-    checkLogin(() => {
-      this.setCartGoodsNumber();
-    }, false);
   },
 
   async selectCate(e) {
@@ -100,11 +94,6 @@ Page({
     }
   },
 
-  async setCartGoodsNumber() {
-    const cartGoodsNumber = await homeService.getCartGoodsNumber();
-    this.setData({ cartGoodsNumber });
-  },
-
   onReachBottom() {
     this.setGoodsList();
   },
@@ -112,10 +101,6 @@ Page({
   onPullDownRefresh() {
     this.setGoodsList(true);
     wx.stopPullDownRefresh();
-  },
-
-  navBack() {
-    customBack();
   },
 
   search() {
