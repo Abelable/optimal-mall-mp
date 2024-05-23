@@ -2,7 +2,6 @@
   <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
   <view class="content">
     <view class="title omit">
-      <text class="goods-tag" wx:if="{{!item.shopInfo}}">自营</text>
       {{item.name}}
     </view>
     <view class="info-wrap row between">

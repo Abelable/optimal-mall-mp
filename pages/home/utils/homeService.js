@@ -2,14 +2,9 @@ import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
-  async getShopCategoryOptions() {
-    return await this.get({ url: `${this.baseUrl}/shop/category_options` });
-  }
-
-  async getCategoryOptions(shopCategoryId) {
+  async getCategoryOptions() {
     return await this.get({
       url: `${this.baseUrl}/goods/category_options`,
-      data: { shopCategoryId }
     });
   }
 
