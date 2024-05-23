@@ -66,7 +66,7 @@ class Base {
           statusCode: res.statusCode,
           message: res.data.message
         });
-        wx.navigateTo({ url: "/pages/subpages/common/register/index" });
+        wx.navigateTo({ url: "/pages/common/register/index" });
         return;
       }
       await this.login();

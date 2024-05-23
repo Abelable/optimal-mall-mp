@@ -11,7 +11,7 @@ export const checkLogin = (success, domore = true) => {
     success && success();
   } else {
     if (typeof domore === "boolean") {
-      domore && wx.navigateTo({ url: "/pages/subpages/common/register/index" });
+      domore && wx.navigateTo({ url: "/pages/common/register/index" });
     } else domore();
   }
 };
@@ -50,7 +50,7 @@ export const getQueryString = (url, name) => {
  * @param {boolean} needInitPrePageData 返回前一个页面之前是否需要初始化前一个页面的数据（约定方法名为initData）
  */
 export const customBack = (needInitPrePageData = false) => {
-  const registerPageRoute = "pages/subpages/common/register/index";
+  const registerPageRoute = "pages/common/register/index";
   const minePageRoute = "pages/tab-bar-pages/mine/index";
 
   const curPages = getCurrentPages();
