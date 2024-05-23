@@ -1,4 +1,3 @@
-import { checkLogin } from "../../utils/index";
 import HomeService from "./utils/homeService";
 
 const homeService = new HomeService();
@@ -9,9 +8,7 @@ Page({
     statusBarHeight,
     cartGoodsNumber: 0,
     categoryOptions: [],
-    subCategoryOptions: [],
     activeTabIdx: 0,
-    activeSubTabIdx: 0,
     tabScroll: 0,
     goodsList: [],
     finished: false
@@ -26,37 +23,15 @@ Page({
     const activeTabIdx = Number(e.currentTarget.dataset.idx);
     this.setData({
       activeTabIdx,
-      activeSubTabIdx: 0,
       tabScroll: (activeTabIdx - 2) * 80,
     });
-    if (activeTabIdx === 0) {
-      this.setData({ subCategoryOptions: [] });
-    } else {
-      await this.setSubCategoryOptions();
-    }
-    this.setGoodsList(true);
-  },
-
-  selectSubCate(e) {
-    const activeSubTabIdx = Number(e.currentTarget.dataset.idx);
-    this.setData({ activeSubTabIdx });
     this.setGoodsList(true);
   },
 
   async setCategoryOptions() {
-    const options = await homeService.getShopCategoryOptions();
+    const options = await homeService.getCategoryOptions();
     this.setData({
       categoryOptions: [{ id: 0, name: "推荐" }, ...options],
-    });
-  },
-
-  async setSubCategoryOptions() {
-    const { categoryOptions, activeTabIdx } = this.data;
-    const options = await homeService.getGoodsCategoryOptions(
-      categoryOptions[activeTabIdx].id
-    );
-    this.setData({
-      subCategoryOptions: [{ id: 0, name: "全部商品" }, ...options],
     });
   },
 
@@ -71,16 +46,11 @@ Page({
     const {
       categoryOptions,
       activeTabIdx,
-      subCategoryOptions,
-      activeSubTabIdx,
       goodsList,
     } = this.data;
     const list =
       (await homeService.getGoodsList({
-        shopCategoryId: categoryOptions[activeTabIdx].id,
-        categoryId: subCategoryOptions.length
-          ? subCategoryOptions[activeSubTabIdx].id
-          : 0,
+        categoryId: categoryOptions[activeTabIdx].id,
         page: ++this.page,
         limit,
       })) || [];

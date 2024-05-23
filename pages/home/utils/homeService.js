@@ -6,7 +6,7 @@ class HomeService extends BaseService {
     return await this.get({ url: `${this.baseUrl}/shop/category_options` });
   }
 
-  async getGoodsCategoryOptions(shopCategoryId) {
+  async getCategoryOptions(shopCategoryId) {
     return await this.get({
       url: `${this.baseUrl}/goods/category_options`,
       data: { shopCategoryId }
@@ -14,7 +14,6 @@ class HomeService extends BaseService {
   }
 
   async getGoodsList({
-    shopCategoryId,
     categoryId,
     sort,
     order,
@@ -25,7 +24,6 @@ class HomeService extends BaseService {
       (await this.get({
         url: `${this.baseUrl}/goods/list`,
         data: cleanObject({
-          shopCategoryId,
           categoryId,
           sort,
           order,

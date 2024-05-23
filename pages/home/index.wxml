@@ -25,17 +25,6 @@
 </view>
 
 <view class="goods-list-wrap" style="padding-top: {{statusBarHeight + 100}}px">
-  <view class="sub-category-tabs">
-    <view 
-      class="sub-category-tab row center {{activeSubTabIdx === index ? 'active' : ''}}" 
-      wx:for="{{subCategoryOptions}}" 
-      wx:key="index" 
-      bindtap="selectSubCate" 
-      data-idx="{{index}}"
-    >
-      {{ item.name }}
-    </view>
-  </view>
   <fall-flow wx:if="{{goodsList}}" list="{{goodsList}}" generic:item="goods-item" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无列表" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
