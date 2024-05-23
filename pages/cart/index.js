@@ -27,47 +27,25 @@ Page({
       (await cartService.getCartList()) || {};
     const cartList = list.map(item => ({
       ...item,
-      checked: false,
-      goodsList: item.goodsList.map(_item => ({
-        ..._item,
-        checked: false
-      }))
+      checked: false
     }));
     this.setData({ cartList, recommendGoodsList });
-  },
-
-  /**
-   * 切换购物车列表选中状态
-   */
-  async toggleCartChecked(e) {
-    const { index } = e.currentTarget.dataset;
-    let { cartList, deleteBtnVisible } = this.data;
-    let checkStatus = cartList[index].checked;
-    cartList[index].checked = !checkStatus;
-    cartList[index].goodsList.map(item => {
-      if (deleteBtnVisible || (!deleteBtnVisible && item.status === 1)) {
-        item.checked = !checkStatus;
-      }
-    });
-    this.setData({ cartList }, () => {
-      this.acount();
-    });
   },
 
   /**
    * 切换商品列表选中状态
    */
   async toggleGoodsChecked(e) {
-    const { cartIndex, goodsIndex } = e.currentTarget.dataset;
+    const { index } = e.currentTarget.dataset;
     let { cartList, deleteBtnVisible } = this.data;
-    let goodsCheckStatus = cartList[cartIndex].goodsList[goodsIndex].checked;
-    cartList[cartIndex].goodsList[goodsIndex].checked = !goodsCheckStatus;
-    let unCheckedIndex = cartList[cartIndex].goodsList.findIndex(item => {
+    let goodsCheckStatus = cartList[index].checked;
+    cartList[index].checked = !goodsCheckStatus;
+    let unCheckedIndex = cartList.findIndex(item => {
       if (deleteBtnVisible || (!deleteBtnVisible && item.status === 1))
         return item.checked === false;
     });
-    cartList[cartIndex].checked = unCheckedIndex === -1;
-    this.setData({ cartList }, () => {
+    const isSelectAll = unCheckedIndex === -1;
+    this.setData({ cartList, isSelectAll }, () => {
       this.acount();
     });
   },
@@ -80,19 +58,13 @@ Page({
     if (deleteBtnVisible) {
       cartList.map(item => {
         item.checked = !isSelectAll;
-        item.goodsList.map(_item => {
-          _item.checked = !isSelectAll;
-        });
       });
       this.setData({ cartList }, () => {
         this.acount();
       });
     } else {
       cartList.map(item => {
-        item.checked = !isSelectAll;
-        item.goodsList.map(_item => {
-          if (_item.status === 1) _item.checked = !isSelectAll;
-        });
+        if (item.status === 1) item.checked = !isSelectAll;
       });
       this.setData({ cartList }, () => {
         this.acount();
@@ -133,7 +105,7 @@ Page({
   },
 
   async deleteGoods(e) {
-    const { id, cartIndex, goodsIndex } = e.currentTarget.dataset;
+    const { id, index } = e.currentTarget.dataset;
     const { position, instance } = e.detail;
     if (position === "right") {
       wx.showModal({
@@ -143,19 +115,11 @@ Page({
         success: async res => {
           if (res.confirm) {
             cartService.deleteCartList([id], () => {
-              const goodsList = this.data.cartList[cartIndex].goodsList;
-              goodsList.splice(goodsIndex, 1);
-              if (goodsList.length) {
-                this.setData({
-                  [`cartList[${cartIndex}].goodsList`]: goodsList
-                });
-              } else {
-                const cartList = this.data.cartList;
-                cartList.splice(cartIndex, 1);
-                this.setData({ cartList });
-                if (!cartList.length) {
-                  this.init();
-                }
+              const cartList = this.data.cartList;
+              cartList.splice(index, 1);
+              this.setData({ cartList });
+              if (!cartList.length) {
+                this.init();
               }
               this.acount();
               instance.close();
@@ -216,13 +180,11 @@ Page({
 
     if (deleteBtnVisible) {
       cartList.forEach(item => {
-        item.goodsList.forEach(_item => {
-          if (_item.checked) {
-            this.selectedCartIdArr.push(_item.id);
-            selectedCount += _item.number;
-          }
-          this.totalCount += _item.number;
-        });
+        if (item.checked) {
+          this.selectedCartIdArr.push(item.id);
+          selectedCount += item.number;
+        }
+        this.totalCount += item.number;
       });
       this.setData({
         selectedCount,
@@ -230,14 +192,12 @@ Page({
       });
     } else {
       cartList.forEach(item => {
-        item.goodsList.forEach(_item => {
-          if (_item.status === 1 && _item.checked) {
-            this.selectedCartIdArr.push(_item.id);
-            selectedCount += _item.number;
-            totalPrice += _item.number * _item.price;
-          }
-          this.totalCount += _item.number;
-        });
+        if (item.status === 1 && item.checked) {
+          this.selectedCartIdArr.push(item.id);
+          selectedCount += item.number;
+          totalPrice += item.number * item.price;
+        }
+        this.totalCount += item.number;
       });
       this.setData({
         selectedCount,

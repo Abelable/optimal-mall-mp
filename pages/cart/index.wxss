@@ -78,43 +78,16 @@
 }
 
 .wrap {
-  padding-bottom: calc(68px + env(safe-area-inset-bottom));
-}
-
-.cart-list-wrap {
-  padding: 0 24rpx;
-}
-.cart-list {
-  margin-top: 24rpx;
-  padding-top: 24rpx;
-  overflow: hidden;
-  background: #fff;
-  border-radius: 12rpx;
-}
-.cart-list-header {
-  height: 40rpx;
-  color: #333;
-  font-size: 28rpx;
-  font-weight: 500;
-}
-.shop-info {
-  display: flex;
-  align-items: center;
-  margin-left: 18rpx;
-}
-.shop-img {
-  margin-right: 16rpx;
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-}
-.list-delete-btn {
-  color: #666;
-  font-weight: 400;
+  padding-bottom: 68px;
 }
 
 .goods-list-wrap {
-  margin-top: 32rpx;
+  margin: 24rpx;
+  padding-top: 24rpx;
+  padding-right: 24rpx;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12rpx;
 }
 .goods-list {
   margin-bottom: 28rpx;

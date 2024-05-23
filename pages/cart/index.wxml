@@ -7,48 +7,35 @@
 </view>
 
 <view class="wrap" style="padding-top: {{statusBarHeight + 44}}px;">
-  <view class="cart-list-wrap" wx:if="{{cartList.length}}">
-    <view class="cart-list" wx:for="{{cartList}}" wx:key="index">
-      <view class="cart-list-header row">
-        <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" data-index="{{index}}" bindtap="toggleCartChecked"/>
-        <view class="shop-info" wx:if="{{item.shopInfo}}">
-          <image class="shop-img" src="{{item.shopInfo.avatar}}" lazy-load />
-          <view>{{item.shopInfo.name}}</view>
-          <image style="width: 20rpx; height: 20rpx;" src="https://img.ubo.vip/mp/to-icon.png" />
-        </view>
-        <view class="shop-info" wx:if="{{!item.shopInfo}}">官方自营</view>
-      </view>
-      <view class="goods-list-wrap">
-        <view wx:for="{{item.goodsList}}" wx:key="index" wx:for-index="_index" wx:for-item="_item">
-          <van-swipe-cell bind:close="deleteGoods" data-id="{{_item.id}}" data-cart-index="{{index}}" data-goods-index="{{_index}}" async-close right-width="{{ 65 }}">
-            <view class="goods-list row" bindtap="showGoodsDetail" data-id="{{_item.goodsId}}">
-              <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{_item.checked}}" disabled="{{_item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleGoodsChecked" data-cart-index="{{index}}" data-goods-index="{{_index}}"/>
-              <image class="goods-img {{_item.status === 3 ? 'invalid' : ''}}" src="{{_item.cover}}" mode="aspectFill" lazy-load />
-              <view class="goods-content">
-                <view class="goods-name omit {{_item.status === 3 ? 'invalid' : ''}}">{{_item.name}}</view>
-                <block wx:if="{{_item.status === 1}}">
-                  <view class="goods-sku-wrap" wx:if="{{_item.selectedSkuName}}" catchtap="showSpecPopup" data-info="{{_item}}" data-cart-index="{{index}}" data-goods-index="{{_index}}">
-                    <text class="goods-sku omit single-line">已选：{{_item.selectedSkuName}}</text>
-                    <image class="sku-edit-icon" src="https://img.ubo.vip/mp/to-icon.png" />
-                  </view>
-                  <view class="goods-price-wrap">
-                    <view class="goods-price row baseline">
-                      <price-unit price="{{_item.price}}" />
-                      <view class="price-market" wx:if="{{_item.marketPrice}}">¥{{_item.marketPrice}}</view>
-                    </view>
-                    <van-stepper value="{{ _item.number }}" async-change bind:change="countChange" data-cart-index="{{index}}" data-goods-index="{{_index}}" integer max="{{_item.stock}}" catchtap="catchtap" />
-                  </view>
-                </block>
-                <view class="invalid-tips-wrap" wx:if="{{_item.status !== 1 }}">
-                  <view class="invalid-tips">{{_item.statusDesc}}</view>
-                  <view class="reset-spec-btn" wx:if="{{_item.status === 2}}" catchtap="showSpecPopup" data-info="{{_item}}" data-cart-index="{{index}}" data-goods-index="{{_index}}">重选</view>
-                </view>
+  <view class="goods-list-wrap" wx:if="{{cartList.length}}">
+    <view wx:for="{{cartList}}" wx:key="index">
+      <van-swipe-cell bind:close="deleteGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
+        <view class="goods-list row" bindtap="showGoodsDetail" data-id="{{item.goodsId}}">
+          <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" disabled="{{item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleGoodsChecked" data-index="{{index}}" />
+          <image class="goods-img {{item.status === 3 ? 'invalid' : ''}}" src="{{item.cover}}" mode="aspectFill" lazy-load />
+          <view class="goods-content">
+            <view class="goods-name omit {{item.status === 3 ? 'invalid' : ''}}">{{item.name}}</view>
+            <block wx:if="{{item.status === 1}}">
+              <view class="goods-sku-wrap" wx:if="{{item.selectedSkuName}}" catchtap="showSpecPopup" data-info="{{_item}}" data-cart-index="{{index}}" data-goods-index="{{index}}">
+                <text class="goods-sku omit single-line">已选：{{item.selectedSkuName}}</text>
+                <image class="sku-edit-icon" src="https://img.ubo.vip/mp/to-icon.png" />
               </view>
+              <view class="goods-price-wrap">
+                <view class="goods-price row baseline">
+                  <price-unit price="{{item.price}}" />
+                  <view class="price-market" wx:if="{{item.marketPrice}}">¥{{item.marketPrice}}</view>
+                </view>
+                <van-stepper value="{{ item.number }}" async-change bind:change="countChange" data-cart-index="{{index}}" data-goods-index="{{index}}" integer max="{{item.stock}}" catchtap="catchtap" />
+              </view>
+            </block>
+            <view class="invalid-tips-wrap" wx:if="{{item.status !== 1 }}">
+              <view class="invalid-tips">{{item.statusDesc}}</view>
+              <view class="reset-spec-btn" wx:if="{{item.status === 2}}" catchtap="showSpecPopup" data-info="{{_item}}" data-cart-index="{{index}}" data-goods-index="{{index}}">重选</view>
             </view>
-            <button class="swipe-cell-delete-btn" slot="right" hover-class="none">删除</button>
-          </van-swipe-cell>
+          </view>
         </view>
-      </view>
+        <button class="swipe-cell-delete-btn" slot="right" hover-class="none">删除</button>
+      </van-swipe-cell>
     </view>
   </view>
 
