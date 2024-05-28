@@ -67,6 +67,16 @@
   z-index: -1;
 }
 
+.banner-item {
+  position: relative;
+}
+.banner-img {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+}
+
 .goods-list-wrap {
   padding: 20rpx;
 }

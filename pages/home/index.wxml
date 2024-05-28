@@ -24,6 +24,19 @@
   </scroll-view>
 </view>
 
+<swiper class="banner custom-dots" wx:if="{{activeTabIdx === 0}}" style="height: calc({{statusBarHeight + 44}}px + 250rpx);" autoplay indicator-dots circular>
+  <swiper-item 
+    class="banner-item" 
+    wx:for="{{bannerList}}"
+    wx:key="index"
+    bindtap="linkTo"
+    data-scene="{{item.scene}}"
+    data-param="{{item.param}}"
+  >
+    <image class="banner-img" mode="widthFix" src="{{ item.cover }}" />
+  </swiper-item>
+</swiper>
+
 <view class="goods-list-wrap" style="padding-top: {{statusBarHeight + 100}}px">
   <fall-flow wx:if="{{goodsList}}" list="{{goodsList}}" generic:item="goods-item" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无列表" />

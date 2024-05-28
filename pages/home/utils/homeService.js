@@ -38,6 +38,13 @@ class HomeService extends BaseService {
     });
   }
 
+  async getBannerList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/banner_list`,
+      loadingTitle: "加载中...",
+    });
+  }
+
   async getGoodsEvaluationSummary(goodsId) {
     return await this.get({
       url: `${this.baseUrl}/goods/evaluation/summary`,
