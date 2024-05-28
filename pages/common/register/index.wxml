@@ -1,37 +1,32 @@
-<view class="login-wrap">
-  <image class="bg" mode="widthFix" src="https://img.ubo.vip/tiddler/temp/register/bg.jpeg" />
-  <view class="back-icon-wrap" style="top: {{statusBarHeight + 5}}px">
-    <back-icon custom bind:navigateBack="navToHome" />
+<view class="container">
+  <image class="logo" src="" />
+  <button class="login-btn" wx:if="{{!agree}}" bindtap="toast">立即登录</button>
+  <button class="login-btn" wx:if="{{agree}}" bindgetphonenumber="getPhoneNumber" open-type="getPhoneNumber">立即登录</button>
+  <view class="cancel-btn" bindtap="back">暂不登录</view>
+  <view class="agreement">
+    <checkbox class="checkbox" checked="{{agree}}" bindtap="toggleAgree" color="#E4B785" />
+    <text>我已阅读并同意</text> 
+    <text style="color: #E4B785;" bindtap="serviceAgreement">《有播甄选用户服务协议》</text>
   </view>
+</view>
 
-  <view class="content-wrap" style="margin-top: {{statusBarHeight + 100}}px">
-    <view class="title">Hi,旅行者</view>
-    <view class="sub-title">欢迎来到千岛湖！</view>
-    <view class="tips">
-      <view>旅途的意义也许不在于目的地，​</view>
-      <view>而是沿途的风景​</view>
+<view class="auth-modal" wx:if="{{authModalVisible}}" bindtap="hideModal">
+  <view class="modal-main" catchtap="kongFn">
+    <view class="title">获取您的头像、昵称</view>
+    <view class="auth-tips">获取用户头像、昵称，主要用于向用户提供具有辨识度的用户中心界面</view>
+    <view class="auth-modal-list-wrap">
+      <view class="auth-modal-list">
+        <view class="modal-list-title">头像</view>
+        <button class="avatar-wrapper" open-type="chooseAvatar" hover-class="none" bind:chooseavatar="onChooseAvatar">
+          <image class="avatar" src="{{avatarUrl}}" />
+          <image class="more-icon" src="/images/more.png"/>
+        </button> 
+      </view>
+      <view class="auth-modal-list">
+        <view class="modal-list-title">昵称</view>
+        <input class="nickname-input" bindinput="setNickname" type="nickname" placeholder="请输入昵称"/>
+      </view>
     </view>
-    <button class="register-btn" open-type="getPhoneNumber" bindgetphonenumber="getMobile" hover-class="none">
-      <view>开启旅途</view>
-      <image class="arrow" src="https://img.ubo.vip/tiddler/temp/register/arrow.png" />
-    </button>
-    <view class="agreement-tips">
-      <text>开启旅途即表明您同意</text>
-      <text style="color: #0095fa;" bindtap="serviceAgreement">《用户服务协议》</text>
-    </view>
-  </view>
-
-  <view class="modal-mask" wx:if="{{showAuthModal}}" bindtap="hideModal" />
-  <view class="modal-dialog" wx:if="{{showAuthModal}}">
-    <view class="modal-title">
-      <image style="width: 300rpx; height: 230rpx;" src="https://img.ubo.vip/tiddler/temp/register/discover.png" />
-    </view>
-    <view class="modal-content">
-      <view>申请获得您的公开信息</view>
-      <view>(包含头像，昵称等)</view>
-    </view>
-    <view class="modal-footer">
-      <view class="btn-confirm" bindtap="getUserInfo">确认授权</view>
-    </view>
+    <view class="to-auth btn" bindtap="auth">保存</view>
   </view>
 </view>
