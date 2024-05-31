@@ -11,7 +11,7 @@
 </view>
 
 <view class="auth-modal" wx:if="{{authModalVisible}}">
-  <view class="modal-main" catchtap="catchtap">
+  <view class="modal-main">
     <view class="modal-title">获取您的头像、昵称</view>
     <view class="modal-tips">获取用户头像、昵称，主要用于向用户提供具有辨识度的用户中心界面</view>
     <view class="modal-form">

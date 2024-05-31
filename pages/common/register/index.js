@@ -20,7 +20,7 @@ Page({
     }
   },
 
-  async onChooseAvatar(e) {
+  async chooseAvatar(e) {
     const avatarUrl = (await baseService.uploadFile(e.detail.avatarUrl)) || "";
     this.setData({ avatarUrl });
   },

@@ -48,14 +48,14 @@ Page({
   cropAvatar() {
     this.uploadingAvatar = true;
     wx.navigateTo({
-      url: "/pages/subpages/common/cropper/index",
+      url: "/pages/common/cropper/index",
     });
   },
 
   cropBg() {
     this.uploadingBg = true;
     wx.navigateTo({
-      url: "/pages/subpages/common/cropper/index?height=107",
+      url: "/pages/common/cropper/index?height=107",
     });
   },
 
