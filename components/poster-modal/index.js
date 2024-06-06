@@ -75,7 +75,7 @@ Component({
       } = info || {};
 
       await this.drawImage(
-        "https://img.ubo.vip/tiddler/poster/bg.png",
+        "https://static.youbozhenxuan.cn/img/poster-bg.png",
         0,
         0,
         291,
