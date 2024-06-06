@@ -3,32 +3,6 @@
     <view class="title">编辑个人信息</view>
     <image class="arrow" src="./images/arrow.png" />
   </view>
-  <view class="list row between" bindtap="navToAuth">
-    <view class="title">实名认证</view>
-    <image class="arrow" src="./images/arrow.png" />
-  </view>
-</view>
-
-<view class="list-wrap">
-  <view class="list row between" bindtap="navToScenicProviderSettleIn">
-    <view class="title">景区服务商入驻</view>
-    <image class="arrow" src="./images/arrow.png" />
-  </view>
-  <view class="list row between" bindtap="navToHotelProviderSettleIn">
-    <view class="title">酒店服务商入驻</view>
-    <image class="arrow" src="./images/arrow.png" />
-  </view>
-  <view class="list row between" bindtap="navToCateringSettleIn">
-    <view class="title">餐饮商家入驻</view>
-    <image class="arrow" src="./images/arrow.png" />
-  </view>
-  <view class="list row between" bindtap="navToMerchantSettleIn">
-    <view class="title">电商商家入驻</view>
-    <image class="arrow" src="./images/arrow.png" />
-  </view>
-</view>
-
-<view class="list-wrap">
   <view class="list row between">
     <view class="title">常见问题与反馈</view>
     <image class="arrow" src="./images/arrow.png" />
