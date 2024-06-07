@@ -67,12 +67,6 @@ Component({
       const { id, goodsList } = e.currentTarget.dataset;
       const url = `/pages/subpages/mine/order-center/subpages/goods-order-list/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
       wx.navigateTo({ url });
-    },
-
-    navToShop(e) {
-      const { id } = e.currentTarget.dataset;
-      const url = `/pages/subpages/mall/goods/subpages/shop/index?id=${id}`;
-      wx.navigateTo({ url });
-    },
+    }
   },
 });

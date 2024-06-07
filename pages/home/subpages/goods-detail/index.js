@@ -195,7 +195,7 @@ Page({
   // 分享
   onShareAppMessage() {
     const { id, name: title, cover: imageUrl } = this.data.goodsInfo;
-    const path = `/pages/subpages/mall/goods/subpages/goods-detail/index?id=${id}`;
+    const path = `/pages/home/subpages/goods-detail/index?id=${id}`;
     return { title, imageUrl, path };
   },
 

@@ -11,7 +11,7 @@ Component({
   methods: {
     navToGoodsDetail(e) {
       const { id } = e.currentTarget.dataset
-      const url = `/pages/subpages/mall/goods/subpages/goods-detail/index?id=${id}`
+      const url = `/pages/home/subpages/goods-detailindex?id=${id}`
       wx.navigateTo({ url })
     },
 
