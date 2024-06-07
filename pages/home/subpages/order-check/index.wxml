@@ -18,7 +18,7 @@
   </view>
 
   <view class="card">
-    <view class="goods-item row" wx:for="{{preOrderInfo.goodsLists}}" wx:key="index">
+    <view class="goods-item row" wx:for="{{preOrderInfo.goodsList}}" wx:key="index">
       <image class="goods-img" src="{{item.cover}}" mode="aspectFill" lazy-load />
       <view class="goods-content">
         <view class="goods-name omit">{{item.name}}</view>
