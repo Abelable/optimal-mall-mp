@@ -44,12 +44,12 @@ Page({
     if (errMsg) {
       return
     }
-    const orderIds = await homeService.submitOrder(this.cartGoodsIds, addressId)
-    this.pay(orderIds)
+    const orderId = await homeService.submitOrder(this.cartGoodsIds, addressId)
+    this.pay(orderId)
   },
 
-  async pay(orderIds) {
-    const payParams = await homeService.getPayParams(orderIds)
+  async pay(orderId) {
+    const payParams = await homeService.getPayParams(orderId)
     wx.requestPayment({
       ...payParams,
       success: () => {
