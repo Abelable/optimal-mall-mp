@@ -59,7 +59,7 @@ Component({
 
     navToAddressListPage() {
       wx.navigateTo({
-        url: '/pages/subpages/mine/address-list/index'
+        url: '/pages/mine/subpages/address-list/index'
       })
     }
   }

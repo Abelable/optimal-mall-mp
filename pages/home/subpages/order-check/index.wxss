@@ -62,17 +62,6 @@
 }
 
 /* 订单列表 */
-.order-header {
-  padding-bottom: 20rpx;
-  font-size: 28rpx;
-  font-weight: 500;
-}
-.shop-icon {
-  margin-right: 16rpx;
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-}
 .goods-item {
   margin-bottom: 24rpx;
 }
