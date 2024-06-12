@@ -8,7 +8,7 @@ Page({
   },
 
   applyTeamLeader() {
-    const url = `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/team_leader/settle_in`;
+    const url = `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team_leader/settle_in`;
     wx.navigateTo({ url });
   }
 });
