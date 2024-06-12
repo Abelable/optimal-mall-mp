@@ -4,9 +4,12 @@
     <image class="arrow" src="./images/arrow.png" />
   </view>
   <view class="list row between" bindtap="applyTeamLeader">
-    <view class="title">成为团长</view>
+    <view class="title">团长申请</view>
     <image class="arrow" src="./images/arrow.png" />
   </view>
+</view>
+
+<view class="list-wrap">
   <view class="list row between">
     <view class="title">常见问题与反馈</view>
     <image class="arrow" src="./images/arrow.png" />
