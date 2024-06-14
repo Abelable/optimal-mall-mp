@@ -1,0 +1,93 @@
+.goods-item {
+  margin-bottom: 20rpx;
+  font-size: 0;
+  background: #fff;
+  border-radius: 18rpx;
+  overflow: hidden;
+  opacity: 0;
+}
+.goods-item.show {
+  opacity: 1;
+  transition: opacity .2s ease;
+}
+
+.cover {
+  width: 100%;
+  height: 710rpx;
+}
+
+.content {
+  padding: 20rpx;
+}
+
+.title {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.desc {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.goods-tag {
+  display: inline-block;
+  margin-bottom: 1rpx;
+  padding: 0 12rpx;
+  height: 33rpx;
+  color: #FFE5BD;
+  font-size: 18rpx;
+  line-height: 33rpx;
+  font-weight: 500;
+  text-align: center;
+  vertical-align: text-bottom;
+  border-radius: 8rpx;
+  background: linear-gradient(90deg, #404A5C 0%, #0F131A 100%);
+}
+
+.progress-bar-wrap {
+  margin-top: 20rpx;
+}
+.progress-bar {
+  position: relative;
+  margin-top: 2rpx;
+  width: 420rpx;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background: #e1eafb;
+}
+.progress-bar-inner {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 12rpx;
+  border-radius: 6rpx;
+  background-image: linear-gradient(135deg,#4785f0 25%,#6097f7 0,#6097f7 50%,#4785f0 0,#4785f0 75%,#6097f7 0);
+  background-size: 8px 8px;
+}
+.sales-volume {
+  margin-left: 18rpx;
+  color: #6097f7;
+  font-size: 20rpx;
+  font-weight: 300;
+}
+
+.info-wrap {
+  margin-top: 24rpx;
+}
+.market-price {
+  margin-left: 8rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-decoration: line-through;
+  font-weight: 300;
+}
+
+.buy-btn {
+  width: 120rpx;
+  height: 50rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 25rpx;
+  background: linear-gradient(90deg, #6097f7 0%, #86abeb 100%);
+}

@@ -40,7 +40,7 @@
   </view>
 
   <view class="empty-illus" wx:if="{{!cartList.length}}">
-    <view class="empty-desc">还没有宝贝哦，快去挑选喜欢的宝贝吧～</view>
+    <view class="empty-desc">购物车空空如也，快去挑选喜欢的宝贝吧～</view>
     <navigator class="visit-btn" url="/pages/home/index" open-type="switchTab" hover-class="none">去逛逛</navigator>
   </view>
 

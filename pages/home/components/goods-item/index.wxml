@@ -1,0 +1,20 @@
+<view class="goods-item {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
+  <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+  <view class="content">
+    <view class="title omit">{{item.name}}</view>
+    <view class="desc omit single-line">高端面料，丝滑轻柔，亲肤透气，自带凉感 宽松A版，高腰线，全国都被种草了</view>
+    <view class="progress-bar-wrap row">
+      <view class="progress-bar">
+        <view class="progress-bar-inner" style="width: {{percent}}%;"></view>
+      </view>
+      <view class="sales-volume">已抢{{ item.salesVolume }}件</view>
+    </view>
+    <view class="info-wrap row between">
+      <view class="row baseline">
+        <price-unit price="{{item.price || 0}}" color="#6097f7" unitColor="#6097f7" integerFontSize="36rpx" />
+        <view class="market-price">¥{{item.marketPrice}}</view>
+      </view>
+      <view class="buy-btn row center">马上抢</view>
+    </view>
+  </view>
+</view>
