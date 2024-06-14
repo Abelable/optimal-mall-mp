@@ -6,65 +6,67 @@
   box-sizing: initial;
   z-index: 100;
 }
-
-.search-bar-wrap {
+.nav-bar-inner {
   display: flex;
   align-items: center;
   height: 44px;
 }
+
+.team-leader-info {
+  display: flex;
+  align-items: center;
+  margin-left: 24rpx;
+  width: 350rpx;
+}
+.avatar {
+  width: 34px;
+  height: 34px;
+  border-radius: 50%;
+}
+.nickname-wrap {
+  margin-left: 10rpx;
+  flex: 1;
+}
+.nickname {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 550;
+}
+.signature {
+  color: #666;
+  font-size: 18rpx;
+}
+
 .search-bar {
   display: flex;
   align-items: center;
-  margin-left: 8px;
-  padding-left: 12px;
-  width: 500rpx;
+  margin-left: 16rpx;
+  padding: 0 22rpx;
+  width: 340rpx;
   height: 36px;
   border-radius: 18px;
-  background: #f5f6f7;
-}
-.search-icon {
-  margin-right: 5px;
-  width: 16px;
-  height: 16px;
+  border: 1px solid #ddd;
 }
 .placeholder {
-  color: #666;
-  font-size: 14px;
+  flex: 1;
+  margin-left: 12rpx;
+  color: #999;
+  font-size: 26rpx;
 }
 
-.category-tabs {
+.search-btn, .share-btn {
   display: flex;
-  padding: 0 8px;
-  height: 44px;
-  white-space: nowrap;
+  align-items: center;
+  justify-content: center;
+  margin-left: 16rpx;
+  width: 34px;
+  height: 34px;
+  border-radius: 18px;
+  border: 1px solid #ddd;
 }
-.category-tab {
-  display: inline-block;
-  padding: 0 10px;
-  height: 44px;
-  color: #999;
-  font-size: 14px;
-  line-height: 44px;
-  transition: .1s ease;
-}
-.category-tab.active {
-  position: relative;
-  color: #111;
-  font-size: 16px;
-  font-weight: 600;
-  transition: .1s ease;
-}
-.category-tab.active::before {
-  position: absolute;
-  left: 50%;
-  bottom: 14px;
-  transform: translateX(-50%);
-  content: '';
-  width: 68%;
-  height: 4px;
-  background: rgba(145, 217, 243, 0.8);
-  border-radius: 2px;
-  z-index: -1;
+.search-icon, .share-icon {
+  width: 16px;
+  height: 16px;
 }
 
 .container {
