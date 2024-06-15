@@ -32,4 +32,8 @@
       {{ item.name }}
     </view>
   </scroll-view>
+  <view class="goods-list">
+    <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
+    <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无该分类商品" />
+  </view>
 </view>

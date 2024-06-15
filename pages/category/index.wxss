@@ -105,6 +105,9 @@
   border-radius: 0 8rpx 8rpx 0;
   background: #6097f7;
 }
+.goods-list {
+  flex: 1;
+}
 
 .no-more-tips {
   margin-top: 36rpx;

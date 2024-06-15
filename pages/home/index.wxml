@@ -35,6 +35,6 @@
   </swiper>
 
   <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
-  <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无列表" />
+  <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
 </view>
