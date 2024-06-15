@@ -1,9 +1,9 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../store/index";
 import { WEBVIEW_BASE_URL } from "../../config";
-import HomeService from "./utils/homeService";
+import CategoryService from "./utils/categoryService";
 
-const homeService = new HomeService();
+const categoryService = new CategoryService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Component({
@@ -19,7 +19,7 @@ Component({
     teamLeaderInfo: null,
     bannerList: [],
     categoryOptions: [],
-    activeTabIdx: 0,
+    curCategoryIdx: 0,
     tabScroll: 0,
     goodsList: [],
     finished: false
@@ -38,7 +38,6 @@ Component({
 
   methods: {
     async onLoad() {
-      this.setBannerList();
       await this.setCategoryOptions();
       this.setGoodsList(true);
     },
@@ -46,27 +45,22 @@ Component({
     async setTeamLeaderInfo() {
       const teamLeaderId = wx.getStorageSync("teamLeaderId");
       if (teamLeaderId) {
-        const teamLeaderInfo = await homeService.getTeamLeaderInfo(
+        const teamLeaderInfo = await categoryService.getTeamLeaderInfo(
           teamLeaderId
         );
         this.setData({ teamLeaderInfo });
       }
     },
 
-    async selectCate(e) {
-      const activeTabIdx = Number(e.currentTarget.dataset.idx);
-      this.setData({
-        activeTabIdx,
-        tabScroll: (activeTabIdx - 2) * 80
-      });
+    async selectCategory(e) {
+      const curCategoryIdx = Number(e.currentTarget.dataset.idx);
+      this.setData({ curCategoryIdx });
       this.setGoodsList(true);
     },
 
     async setCategoryOptions() {
-      const options = await homeService.getCategoryOptions();
-      this.setData({
-        categoryOptions: [{ id: 0, name: "推荐" }, ...options]
-      });
+      const categoryOptions = await categoryService.getCategoryOptions();
+      this.setData({ categoryOptions });
     },
 
     async setGoodsList(init = false) {
@@ -77,10 +71,10 @@ Component({
           finished: false
         });
       }
-      const { categoryOptions, activeTabIdx, goodsList } = this.data;
+      const { categoryOptions, curCategoryIdx, goodsList } = this.data;
       const list =
-        (await homeService.getGoodsList({
-          categoryId: categoryOptions[activeTabIdx].id,
+        (await categoryService.getGoodsList({
+          categoryId: categoryOptions[curCategoryIdx].id,
           page: ++this.page,
           limit
         })) || [];
@@ -95,7 +89,7 @@ Component({
     },
 
     async setBannerList() {
-      const bannerList = await homeService.getBannerList();
+      const bannerList = await categoryService.getBannerList();
       this.setData({ bannerList });
     },
 

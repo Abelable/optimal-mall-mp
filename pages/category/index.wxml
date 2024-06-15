@@ -20,6 +20,16 @@
   </view>
 </view>
 
-<view class="container" style="padding-top: {{statusBarHeight + 54}}px">
-  分类
+<view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
+  <scroll-view class="category-options" scroll-y>
+    <view 
+      class="category-option row {{ curCategoryIdx === index ? 'active' : '' }}"
+      wx:for="{{categoryOptions}}" 
+      wx:key="index"
+      bindtap="selectCategory"
+      data-idx="{{index}}"
+    >
+      {{ item.name }}
+    </view>
+  </scroll-view>
 </view>

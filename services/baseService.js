@@ -53,10 +53,6 @@ class BaseService extends Base {
     })
   }
 
-  async getAddressList() {
-    return await this.get({ url: `${this.baseUrl}/address/list` });
-  }
-
   async getOssConfig() {
     if (wx.getStorageSync("ossConfig")) {
       const ossConfig = JSON.parse(wx.getStorageSync("ossConfig"));
@@ -87,6 +83,10 @@ class BaseService extends Base {
     });
   }
 
+  async getAddressList() {
+    return await this.get({ url: `${this.baseUrl}/address/list` });
+  }
+
   async getHistoryKeywords() {
     return await this.get({
       url: `${this.baseUrl}/keyword/list`,
@@ -112,6 +112,28 @@ class BaseService extends Base {
       url: `${this.baseUrl}/keyword/hot_list`,
       loadingTitle: "加载中..."
     });
+  }
+
+  async getGoodsList({
+    categoryId,
+    sort,
+    order,
+    page,
+    limit = 10
+  }) {
+    const { list = [] } =
+      (await this.get({
+        url: `${this.baseUrl}/goods/list`,
+        data: cleanObject({
+          categoryId,
+          sort,
+          order,
+          page,
+          limit
+        }),
+        loadingTitle: "加载中..."
+      })) || {};
+    return list;
   }
 
   async searchGoodsList({

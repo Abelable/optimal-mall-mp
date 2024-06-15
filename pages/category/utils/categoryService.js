@@ -1,33 +1,11 @@
 import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
-class HomeService extends BaseService {
+class CategoryService extends BaseService {
   async getCategoryOptions() {
     return await this.get({
       url: `${this.baseUrl}/goods/category_options`,
     });
-  }
-
-  async getGoodsList({
-    categoryId,
-    sort,
-    order,
-    page,
-    limit = 10
-  }) {
-    const { list = [] } =
-      (await this.get({
-        url: `${this.baseUrl}/goods/list`,
-        data: cleanObject({
-          categoryId,
-          sort,
-          order,
-          page,
-          limit
-        }),
-        loadingTitle: "加载中..."
-      })) || {};
-    return list;
   }
 
   async getGoodsInfo(id) {
@@ -109,4 +87,4 @@ class HomeService extends BaseService {
   }
 }
 
-export default HomeService;
+export default CategoryService;
