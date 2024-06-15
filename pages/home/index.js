@@ -39,7 +39,6 @@ Component({
   methods: {
     async onLoad() {
       this.setBannerList();
-      await this.setCategoryOptions();
       this.setGoodsList(true);
     },
 
@@ -53,22 +52,6 @@ Component({
       }
     },
 
-    async selectCate(e) {
-      const activeTabIdx = Number(e.currentTarget.dataset.idx);
-      this.setData({
-        activeTabIdx,
-        tabScroll: (activeTabIdx - 2) * 80
-      });
-      this.setGoodsList(true);
-    },
-
-    async setCategoryOptions() {
-      const options = await homeService.getCategoryOptions();
-      this.setData({
-        categoryOptions: [{ id: 0, name: "推荐" }, ...options]
-      });
-    },
-
     async setGoodsList(init = false) {
       const limit = 10;
       if (init) {
@@ -77,10 +60,10 @@ Component({
           finished: false
         });
       }
-      const { categoryOptions, activeTabIdx, goodsList } = this.data;
+      const { goodsList } = this.data;
       const list =
         (await homeService.getGoodsList({
-          categoryId: categoryOptions[activeTabIdx].id,
+          categoryId: 0,
           page: ++this.page,
           limit
         })) || [];
