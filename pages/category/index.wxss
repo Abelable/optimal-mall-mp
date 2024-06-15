@@ -105,11 +105,18 @@
   border-radius: 0 8rpx 8rpx 0;
   background: #6097f7;
 }
+
 .goods-list {
   padding: 20rpx;
   flex: 1;
   height: 100%;
   overflow-y: scroll;
+}
+.category-name {
+  margin-bottom: 20rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 550;
 }
 
 .no-more-tips {

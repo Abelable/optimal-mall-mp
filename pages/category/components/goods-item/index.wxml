@@ -1,7 +1,7 @@
 <view class="goods-item row {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
   <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
   <view class="content">
-    <view class="title omit">{{item.name}}</view>
+    <view class="goods-title omit">{{item.name}}</view>
     <view class="introduce-wrap">
       <view class="introduce omit single-line">高端面料，丝滑轻柔，亲肤透气，自带凉感 宽松A版，高腰线，全国都被种草了</view>
     </view>

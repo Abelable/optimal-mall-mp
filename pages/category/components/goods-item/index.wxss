@@ -25,7 +25,7 @@
   height: 180rpx;
 }
 
-.title {
+.goods-title {
   color: #333;
   font-size: 26rpx;
   font-weight: bold;
