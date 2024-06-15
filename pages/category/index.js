@@ -97,11 +97,6 @@ Component({
       this.setGoodsList();
     },
 
-    onPullDownRefresh() {
-      this.setGoodsList(true);
-      wx.stopPullDownRefresh();
-    },
-
     search() {
       wx.navigateTo({
         url: "./subpages/search/index"
