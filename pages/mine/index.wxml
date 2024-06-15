@@ -2,7 +2,10 @@
   <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
   <view class="content">
     <view class="user-info-wrap">
-      <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
+      <view class="avatar-wrap">
+        <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
+        <view class="team-leader-tag" wx:if="{{userInfo.teamLeaderId}}">团长</view>
+      </view>
       <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
       <view class="introduce row" bindtap="navToUserInfoSetting">
         <text>{{ userInfo.signature || '点击添加个性签名'}}</text>

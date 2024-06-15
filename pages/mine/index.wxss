@@ -22,16 +22,40 @@
   position: relative;
   padding: 24rpx 0 24rpx 240rpx;
 }
-.avatar {
+
+.avatar-wrap {
   position: absolute;
   top: -36rpx;
   left: 36rpx;
   width: 180rpx;
   height: 180rpx;
+  font-size: 0;
   border-radius: 50%;
   border: 10rpx solid #f5f6f8;
   background: #f5f6f8;
 }
+.avatar {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+}
+.team-leader-tag {
+  position: absolute;
+  left: 50%;
+  bottom: -12rpx;
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  height: 40rpx;
+  font-size: 22rpx;
+  font-weight: 500;
+  white-space: nowrap;
+  color: #FFE5BD;
+  border-radius: 8rpx;
+  background: linear-gradient(90deg, #404A5C 0%, #0F131A 100%);
+}
+
 .name {
   color: #333;
   font-size: 40rpx;

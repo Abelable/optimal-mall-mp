@@ -38,16 +38,13 @@
 
   <!-- 商品基本信息 -->
   <view class="goods-info-wrap">
+    <view class="goods-name omit">{{goodsInfo.name}}</view>
     <view class="row between">
       <view class="row baseline">
         <price-unit price="{{goodsInfo.price || 0}}" fontSize="28rpx" integerFontSize="48rpx" />
         <view class="market-price">￥{{goodsInfo.marketPrice}}</view>
       </view>
       <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
-    </view>
-    <view class="goods-name omit">
-      <text class="goods-tag" wx:if="{{!goodsInfo.shopInfo}}">自营</text>
-      <text>{{goodsInfo.name}}</text>
     </view>
   </view>
 
