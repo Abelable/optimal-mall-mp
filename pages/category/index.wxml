@@ -21,20 +21,5 @@
 </view>
 
 <view class="container" style="padding-top: {{statusBarHeight + 54}}px">
-  <swiper class="banner custom-dots" wx:if="{{bannerList.length && activeTabIdx === 0}}" style="height: 240rpx;" autoplay indicator-dots circular>
-    <swiper-item 
-      class="banner-item" 
-      wx:for="{{bannerList}}"
-      wx:key="index"
-      bindtap="linkTo"
-      data-scene="{{item.scene}}"
-      data-param="{{item.param}}"
-    >
-      <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" />
-    </swiper-item>
-  </swiper>
-
-  <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
-  <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无列表" />
-  <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
+  分类
 </view>

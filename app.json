@@ -5,6 +5,7 @@
     "pages/home/subpages/goods-detail/index",
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
     "pages/home/subpages/order-check/index",
+    "pages/category/index",
     "pages/cart/index",
     "pages/mine/index",
     "pages/mine/subpages/setting/index",
@@ -31,6 +32,12 @@
         "text": "首页",
         "iconPath": "images/tab-bar/home.png",
         "selectedIconPath": "images/tab-bar/home_fill.png"
+      },
+      {
+        "pagePath": "pages/category/index",
+        "text": "分类",
+        "iconPath": "images/tab-bar/category.png",
+        "selectedIconPath": "images/tab-bar/category_fill.png"
       },
       {
         "pagePath": "pages/cart/index",
