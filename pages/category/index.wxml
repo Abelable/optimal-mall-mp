@@ -32,8 +32,9 @@
       {{ item.name }}
     </view>
   </scroll-view>
-  <scroll-view class="goods-list" scroll-y>
+  <scroll-view class="goods-list" bindscrolltolower="onReachBottom" scroll-y>
     <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
     <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无该分类商品" />
+    <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
   </scroll-view>
 </view>
