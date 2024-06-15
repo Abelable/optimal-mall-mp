@@ -20,7 +20,7 @@
   </view>
 </view>
 
-<view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
+<view class="container" style="padding-top: {{statusBarHeight + 42}}px;">
   <scroll-view class="category-options" scroll-y>
     <view 
       class="category-option row {{ curCategoryIdx === index ? 'active' : '' }}"
@@ -32,8 +32,8 @@
       {{ item.name }}
     </view>
   </scroll-view>
-  <view class="goods-list">
+  <scroll-view class="goods-list" scroll-y>
     <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
     <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无该分类商品" />
-  </view>
+  </scroll-view>
 </view>

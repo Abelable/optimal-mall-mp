@@ -1,6 +1,5 @@
 .goods-item {
-  margin-bottom: 10rpx;
-  width: 350rpx;
+  margin-bottom: 20rpx;
   font-size: 0;
   background: #fff;
   border-radius: 18rpx;
@@ -13,11 +12,17 @@
 }
 
 .cover {
-  width: 350rpx;
+  width: 180rpx;
+  height: 180rpx;
+  border-radius: 12rpx;
 }
 
 .content {
-  padding: 12rpx;
+  display: flex;
+  flex-direction: column;
+  margin-left: 20rpx;
+  flex: 1;
+  height: 180rpx;
 }
 
 .title {
@@ -25,6 +30,16 @@
   font-size: 26rpx;
   font-weight: bold;
 }
+
+.introduce-wrap {
+  margin-top: 5rpx;
+  flex: 1;
+}
+.introduce {
+  color: #999;
+  font-size: 24rpx;
+}
+
 .goods-tag {
   display: inline-block;
   margin-bottom: 1rpx;
@@ -40,30 +55,14 @@
   background: linear-gradient(90deg, #404A5C 0%, #0F131A 100%);
 }
 
-.info-wrap {
-  margin-top: 12rpx;
-}
-.sales-volume {
-  color: #888;
-  font-size: 22rpx;
-}
 .market-price {
   margin-left: 8rpx;
   color: #bbb;
   font-size: 22rpx;
   text-decoration: line-through;
 }
-.shop-info {
-  padding: 18rpx 0 0;
-}
-.shop-avatar {
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-}
-.shop-name {
-  margin: 0 12rpx;
-  flex: 1;
-  color: #333;
-  font-size: 22rpx;
+
+.cart-icon {
+  width: 42rpx;
+  height: 42rpx;
 }

@@ -106,7 +106,10 @@
   background: #6097f7;
 }
 .goods-list {
+  padding: 20rpx;
   flex: 1;
+  height: 100%;
+  overflow-y: scroll;
 }
 
 .no-more-tips {
