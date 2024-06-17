@@ -6,8 +6,8 @@ Component({
   properties: {
     item: {
       type: Object,
-      observer({ stock, salesVolume }) {
-        const percent = Math.floor((salesVolume / stock) * 100);
+      observer({ originalStock, salesVolume }) {
+        const percent = Math.floor((salesVolume / originalStock) * 100);
         this.setData({ percent });
       }
     }

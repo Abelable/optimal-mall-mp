@@ -3,7 +3,9 @@
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>
     <view class="introduce-wrap">
-      <view class="introduce omit single-line">高端面料，丝滑轻柔，亲肤透气，自带凉感 宽松A版，高腰线，全国都被种草了</view>
+      <view class="introduce omit single-line" wx:if="{{item.introduction}}">
+        {{item.introduction}}
+      </view>
     </view>
     <view class="info-wrap row between">
       <view class="row baseline">
