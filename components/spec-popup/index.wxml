@@ -4,7 +4,7 @@
       <image
         class="spec-image" 
         mode="aspectFill" 
-        src="{{selectedSkuIndex !== -1 ? (goodsInfo.skuList[selectedSkuIndex].cover || goodsInfo.defaultSpecImage) : goodsInfo.defaultSpecImage}}"
+        src="{{selectedSkuIndex !== -1 ? (goodsInfo.skuList[selectedSkuIndex].image || goodsInfo.defaultSpecImage) : goodsInfo.defaultSpecImage}}"
       />
       <view class="spec-info">
         <price-unit price="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}" />
