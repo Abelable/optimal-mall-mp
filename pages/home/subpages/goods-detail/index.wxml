@@ -102,7 +102,7 @@
 <!-- 底部工具栏 -->
 <view class="bottom-bar row">
   <view class="shortcut-wrap row">
-    <view class="shortcut">
+    <view class="shortcut" bindtap="CS">
       <image class="shortcut-icon" src="./images/customer-icon.png"/>
       <view>客服</view>
     </view>
