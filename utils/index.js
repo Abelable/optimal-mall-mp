@@ -57,7 +57,7 @@ export const customBack = (needInitPrePageData = false) => {
   const curPage = curPages[curPages.length - 1];
   const curPageRoute = curPage.route;
   const prePage = curPages[curPages.length - 2];
-  const prePageRoute = prePage.route;
+  const prePageRoute = prePage ? prePage.route : ''
 
   if (needInitPrePageData && typeof prePage.initData === "function") {
     prePage.initData();
@@ -67,7 +67,7 @@ export const customBack = (needInitPrePageData = false) => {
     curPages.length === 1 ||
     (curPageRoute === registerPageRoute && prePageRoute === minePageRoute)
   ) {
-    wx.switchTab({ url: "/pages/tab-bar-pages/home/index" });
+    wx.switchTab({ url: "/pages/home/index" });
   } else wx.navigateBack();
 };
 

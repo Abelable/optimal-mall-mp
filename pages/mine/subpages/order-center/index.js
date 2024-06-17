@@ -1,4 +1,3 @@
-import { navigateBack } from "../../../../utils/index";
 import OrderService from "./utils/orderService";
 
 const orderService = new OrderService();
@@ -13,16 +12,16 @@ Page({
       { name: "待发货", status: 2 },
       { name: "待收货", status: 3 },
       { name: "待评价", status: 4 },
-      { name: "售后", status: 5 },
+      { name: "售后", status: 5 }
     ],
     curMenuIndex: 0,
     orderList: [],
-    finished: false,
+    finished: false
   },
 
   async onLoad({ status = "0" }) {
     const curMenuIndex = this.data.menuList.findIndex(
-      (item) => item.status === Number(status)
+      item => item.status === Number(status)
     );
     this.setData({ curMenuIndex });
   },
@@ -44,10 +43,10 @@ Page({
     const list = await orderService.getOrderList({
       status: menuList[curMenuIndex].status,
       page: ++this.page,
-      limit,
+      limit
     });
     this.setData({
-      orderList: init ? list : [...orderList, ...list],
+      orderList: init ? list : [...orderList, ...list]
     });
     if (list.length < limit) {
       this.setData({ finished: true });
@@ -68,7 +67,7 @@ Page({
       cancel: 102,
       pay: 201,
       refund: 202,
-      confirm: 401,
+      confirm: 401
     };
     const { type, index } = e.detail;
     const { curMenuIndex, orderList } = this.data;
@@ -77,10 +76,14 @@ Page({
       this.setData({ orderList });
     } else {
       this.setData({
-        [`orderList[${index}].status`]: statusEmuns[type],
+        [`orderList[${index}].status`]: statusEmuns[type]
       });
     }
   },
 
-  navigateBack,
+  navigateBack() {
+    wx.switchTab({
+      url: "/pages/mine/index"
+    });
+  }
 });
