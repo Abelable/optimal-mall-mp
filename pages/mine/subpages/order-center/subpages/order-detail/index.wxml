@@ -4,12 +4,11 @@
 <view class="container">
   <view class="card">
     <view class="card-header row">
-      <view class="shop-info row" wx:if="{{orderInfo.shopId}}" catchtap="navToShop" data-id="{{orderInfo.shopId}}">
-        <image class="shop-avatar" wx:if="{{orderInfo.shopAvatar}}" src="{{orderInfo.shopAvatar}}" />
-        <view class="shop-name omit single-line">{{orderInfo.shopName}}</view>
-        <image style="width: 20rpx; height: 20rpx;" src="https://img.ubo.vip/mp/to-icon.png" />
+      <view class="shop-info row" wx:if="{{teamLeaderInfo}}">
+        <image class="shop-avatar" src="{{teamLeaderInfo.avatar}}" />
+        <view class="shop-name omit single-line">{{teamLeaderInfo.nickname}}</view>
       </view>
-      <view class="shop-name omit single-line" wx:if="{{!orderInfo.shopId}}">官方自营</view>
+      <view class="shop-name omit single-line" wx:if="{{!teamLeaderInfo}}">有播甄选</view>
     </view>
     <goods-list list="{{orderInfo.goodsList}}" status="{{orderInfo.status}}" />
     <view class="list row between">

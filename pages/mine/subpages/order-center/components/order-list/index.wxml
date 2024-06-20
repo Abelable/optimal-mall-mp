@@ -3,12 +3,11 @@
 <view class="order-list">
   <view class="order-item" wx:for="{{list}}" wx:key="index" catchtap="navToDetail" data-id="{{item.id}}">
     <view class="list-header row between">
-      <view class="shop-info row" wx:if="{{item.shopId}}" catchtap="navToShop" data-id="{{item.shopId}}">
-        <image class="shop-avatar" wx:if="{{item.shopAvatar}}" src="{{item.shopAvatar}}" />
-        <view class="shop-name omit single-line">{{item.shopName}}</view>
-        <image style="width: 20rpx; height: 20rpx;" src="https://img.ubo.vip/mp/to-icon.png" />
+      <view class="shop-info row" wx:if="{{teamLeaderInfo}}">
+        <image class="shop-avatar" src="{{teamLeaderInfo.avatar}}" />
+        <view class="shop-name omit single-line">{{teamLeaderInfo.nickname}}</view>
       </view>
-      <view class="shop-name omit single-line" wx:if="{{!item.shopId}}">官方自营</view>
+      <view class="shop-name omit single-line" wx:if="{{!teamLeaderInfo}}">有播甄选</view>
       <view class="order-status">{{ORDER.statusDesc(item.status)}}</view>
     </view>
     <view class="list-content">

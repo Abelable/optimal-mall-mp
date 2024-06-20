@@ -1,3 +1,5 @@
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import { store } from "../../../../../../store/index";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -8,6 +10,11 @@ Page({
   },
 
   onLoad({ id }) {
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ["teamLeaderInfo"]
+    });
+
     this.orderId = id;
     this.setOrderInfo();
   },
@@ -97,4 +104,8 @@ Page({
   },
 
   contact() {},
+
+  onUnload() {
+    this.storeBindings.destroyStoreBindings();
+  },
 });

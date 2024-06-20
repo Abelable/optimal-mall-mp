@@ -1,3 +1,5 @@
+import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
+import { store } from "../../../../../../store/index";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -5,6 +7,13 @@ const orderService = new OrderService();
 Component({
   options: {
     addGlobalClass: true,
+  },
+
+  behaviors: [storeBindingsBehavior],
+
+  storeBindings: {
+    store,
+    fields: ["teamLeaderInfo"]
   },
 
   properties: {
