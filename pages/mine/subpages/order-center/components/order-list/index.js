@@ -53,19 +53,19 @@ Component({
 
     navToDetail(e) {
       const id = e.currentTarget.dataset.id;
-      const url = `/pages/subpages/mine/order-center/subpages/goods-order-list/subpages/order-detail/index?id=${id}`;
+      const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${id}`;
       wx.navigateTo({ url });
     },
 
     navToShipping(e) {
       const id = e.currentTarget.dataset.id;
-      const url = `/pages/subpages/mine/order-center/subpages/goods-order-list/subpages/shipping/index?id=${id}`;
+      const url = `/pages/mine/subpages/order-center/subpages/shipping/index?id=${id}`;
       wx.navigateTo({ url });
     },
 
     navToEvaluation(e) {
       const { id, goodsList } = e.currentTarget.dataset;
-      const url = `/pages/subpages/mine/order-center/subpages/goods-order-list/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
+      const url = `/pages/mine/subpages/order-center/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
       wx.navigateTo({ url });
     }
   },
