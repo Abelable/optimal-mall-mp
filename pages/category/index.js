@@ -11,7 +11,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo"]
+    fields: ["userInfo", "teamLeaderInfo"]
   },
 
   data: {
@@ -25,31 +25,10 @@ Component({
     finished: false
   },
 
-  observers: {
-    userInfo: function (info) {
-      const { id, avatar, nickname, signature, teamLeaderId } = info || {};
-      if (teamLeaderId) {
-        this.setData({ teamLeaderInfo: { id, avatar, nickname, signature } });
-      } else {
-        this.setTeamLeaderInfo();
-      }
-    }
-  },
-
   methods: {
     async onLoad() {
       await this.setCategoryOptions();
       this.setGoodsList(true);
-    },
-
-    async setTeamLeaderInfo() {
-      const teamLeaderId = wx.getStorageSync("teamLeaderId");
-      if (teamLeaderId) {
-        const teamLeaderInfo = await categoryService.getTeamLeaderInfo(
-          teamLeaderId
-        );
-        this.setData({ teamLeaderInfo });
-      }
     },
 
     async selectCategory(e) {

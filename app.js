@@ -1,4 +1,5 @@
 import BaseService from "./services/baseService";
+import { store } from "./store/index";
 import { checkLogin } from "./utils/index";
 
 const baseService = new BaseService();
@@ -11,16 +12,33 @@ App({
 
   async onLaunch() {
     this.setSystemInfo();
+    
     if (!wx.getStorageSync("token")) {
       await baseService.login();
     }
-    checkLogin(() => {
-      baseService.getUserInfo();
+
+    checkLogin(async () => {
+      const userInfo = await baseService.getUserInfo();
+      if (userInfo.teamLeaderId) {
+        store.setTeamLeaderInfo(userInfo);
+      } else {
+        this.setTeamLeaderInfo();
+      }
     }, false);
   },
 
   onShow() {
     this.update();
+  },
+
+  async setTeamLeaderInfo() {
+    const teamLeaderId = wx.getStorageSync("teamLeaderId");
+    if (teamLeaderId) {
+      const teamLeaderInfo = await baseService.getTeamLeaderInfo(
+        teamLeaderId
+      );
+      store.setTeamLeaderInfo(teamLeaderInfo);
+    }
   },
 
   setSystemInfo() {

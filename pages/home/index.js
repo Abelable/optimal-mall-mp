@@ -11,12 +11,11 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo"]
+    fields: ["userInfo", "teamLeaderInfo"]
   },
 
   data: {
     statusBarHeight,
-    teamLeaderInfo: null,
     bannerList: [],
     categoryOptions: [],
     activeTabIdx: 0,
@@ -25,31 +24,10 @@ Component({
     finished: false
   },
 
-  observers: {
-    userInfo: function (info) {
-      const { id, avatar, nickname, signature, teamLeaderId } = info || {};
-      if (teamLeaderId) {
-        this.setData({ teamLeaderInfo: { id, avatar, nickname, signature } });
-      } else {
-        this.setTeamLeaderInfo();
-      }
-    }
-  },
-
   methods: {
     async onLoad() {
       this.setBannerList();
       this.setGoodsList(true);
-    },
-
-    async setTeamLeaderInfo() {
-      const teamLeaderId = wx.getStorageSync("teamLeaderId");
-      if (teamLeaderId) {
-        const teamLeaderInfo = await homeService.getTeamLeaderInfo(
-          teamLeaderId
-        );
-        this.setData({ teamLeaderInfo });
-      }
     },
 
     async setGoodsList(init = false) {
