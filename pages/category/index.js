@@ -78,7 +78,7 @@ Component({
 
     search() {
       wx.navigateTo({
-        url: "./subpages/search/index"
+        url: "/pages/common/search/index"
       });
     },
 

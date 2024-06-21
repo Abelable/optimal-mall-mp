@@ -1,7 +1,7 @@
-import { customBack } from "../../../../utils/index";
-import HomeService from "../../utils/homeService";
+import { customBack } from "../../../utils/index";
+import BaseService from "../../../services/baseService";
 
-const homeService = new HomeService();
+const baseService = new BaseService();
 
 Page({
   data: {
@@ -35,7 +35,7 @@ Page({
     if (!keywords) {
       return;
     }
-    homeService.saveKeywords(keywords);
+    baseService.saveKeywords(keywords);
     this.setGoodsList(true);
     this.setData({ isSearching: true });
   },
@@ -67,7 +67,7 @@ Page({
     }
     const { keywords, goodsList } = this.data;
     const list =
-      (await homeService.searchGoodsList({
+      (await baseService.searchGoodsList({
         keywords,
         page: ++this.goodsPage,
         limit
@@ -81,12 +81,12 @@ Page({
   },
 
   async setHistoryKeywords() {
-    const historyKeywords = await homeService.getHistoryKeywords();
+    const historyKeywords = await baseService.getHistoryKeywords();
     this.setData({ historyKeywords });
   },
 
   async setHotKeywords() {
-    const hotKeywords = await homeService.getHotKeywords();
+    const hotKeywords = await baseService.getHotKeywords();
     this.setData({ hotKeywords });
   },
 
@@ -99,7 +99,7 @@ Page({
           this.setData({
             historyKeywords: []
           });
-          homeService.clearHistoryKeywords();
+          baseService.clearHistoryKeywords();
         }
       }
     });
