@@ -4,6 +4,6 @@
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
     "fall-flow": "/components/fall-flow/index",
-    "goods-item": "./components/goods-item/index"
+    "goods-item": "/components/goods-item/index"
   }
 }

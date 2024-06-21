@@ -97,7 +97,7 @@
 }
 
 .list-wrap {
-  padding: 216rpx 20rpx 20rpx;
+  padding: 130rpx 20rpx 20rpx;
 }
 
 .no-more-tips {

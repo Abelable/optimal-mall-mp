@@ -53,7 +53,7 @@
 </view>
 
 <view class="list-wrap" wx:if="{{isSearching}}">
-  <fall-flow wx:if="{{goodsList.length}}" list="{{goodsList}}" generic:item="goods-item-grid" />
+  <fall-flow wx:if="{{goodsList.length}}" list="{{goodsList}}" generic:item="goods-item" />
   <empty-illus wx:if="{{goodsFinished && !goodsList.length}}" desc="没有找到相关商品" />
   <view class="no-more-tips" wx:if="{{goodsFinished && goodsList.length}}">～没有更多了～</view>
 </view>
