@@ -77,10 +77,6 @@
   border: 2rpx solid #FD0B0A;
 }
 
-.wrap {
-  padding-bottom: 68px;
-}
-
 .goods-list-wrap {
   margin: 24rpx;
   padding-top: 24rpx;
