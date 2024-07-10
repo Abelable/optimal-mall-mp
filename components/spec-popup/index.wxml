@@ -5,6 +5,8 @@
         class="spec-image" 
         mode="aspectFill" 
         src="{{selectedSkuIndex !== -1 ? (goodsInfo.skuList[selectedSkuIndex].image || goodsInfo.defaultSpecImage) : goodsInfo.defaultSpecImage}}"
+        bindtap="checkSpecImg"
+        data-url="{{selectedSkuIndex !== -1 ? (goodsInfo.skuList[selectedSkuIndex].image || goodsInfo.defaultSpecImage) : goodsInfo.defaultSpecImage}}"
       />
       <view class="spec-info">
         <price-unit price="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}" />

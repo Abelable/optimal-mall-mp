@@ -73,13 +73,13 @@ Page({
   },
 
   async countChange(e) {
-    const { cartIndex, goodsIndex } = e.currentTarget.dataset;
+    const { cartIndex } = e.currentTarget.dataset;
     const { id, goodsId, selectedSkuIndex } =
-      this.data.cartList[cartIndex].goodsList[goodsIndex];
+      this.data.cartList[cartIndex];
     cartService.editCart(id, goodsId, selectedSkuIndex, e.detail, () => {
       this.setData(
         {
-          [`cartList[${cartIndex}].goodsList[${goodsIndex}].number`]: e.detail
+          [`cartList[${cartIndex}].number`]: e.detail
         },
         () => {
           this.acount();
@@ -146,12 +146,10 @@ Page({
 
   hideSpecPopup(e) {
     const cartInfo =
-      this.data.cartList[this.editingCartIndex].goodsList[
-        this.editingGoodsIndex
-      ];
+      this.data.cartList[this.editingCartIndex];
     this.setData(
       {
-        [`cartList[${this.editingCartIndex}].goodsList[${this.editingGoodsIndex}]`]:
+        [`cartList[${this.editingCartIndex}]`]:
           {
             ...cartInfo,
             ...e.detail.cartInfo

@@ -129,6 +129,14 @@ Component({
       }
     },
 
+    checkSpecImg(e) {
+      const { url } = e.currentTarget.dataset
+      wx.previewImage({
+        current: url,
+        urls: [url],
+      });
+    },
+
     hide() {
       const { selectedSkuName } = this.data
       this.triggerEvent('hide', { selectedSkuName })
