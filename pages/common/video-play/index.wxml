@@ -1,0 +1,5 @@
+<video src="{{url}}" class="video" objectFit="contain" autoplay loop />
+
+<view class="back-icon-wrap" style="top: {{statusBarHeight + 5}}px">
+  <back-icon />
+</view>

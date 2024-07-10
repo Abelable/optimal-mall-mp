@@ -21,8 +21,8 @@
     "pages/common/webview/index",
     "pages/common/pay/index",
     "pages/common/cropper/index",
-    "pages/common/search/index"
-
+    "pages/common/search/index",
+    "pages/common/video-play/index"
   ],
   "tabBar": {
     "color": "#999",

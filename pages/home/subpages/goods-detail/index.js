@@ -13,6 +13,7 @@ Page({
     detailActive: false, // 导航栏'详情'激活状态
     // 轮播图相关
     curDot: 1,
+    muted: true,
     goodsInfo: null,
     evaluationSummary: null,
     cartGoodsNumber: 0,
@@ -118,6 +119,18 @@ Page({
     });
   },
 
+  toggleMuted() {
+    this.setData({
+      muted: !this.data.muted
+    });
+  },
+
+  fullScreenPlay() {
+    const { video } = this.data.goodsInfo;
+    const url = `/pages/common/video-play/index?url=${video}`;
+    wx.navigateTo({ url });
+  },
+
   // 图片预览
   previewImage(e) {
     const { current, urls } = e.currentTarget.dataset;
@@ -194,7 +207,7 @@ Page({
 
   CS() {
     // todo 微信客服
-    const { cover, name } = this.data.goodsInfo
+    const { cover, name } = this.data.goodsInfo;
     wx.openCustomerServiceChat({
       extInfo: {
         url: ""
@@ -202,13 +215,13 @@ Page({
       showMessageCard: true,
       sendMessageTitle: name,
       sendMessageImg: cover,
-      success: (res) => {
-        console.log(res)
+      success: res => {
+        console.log(res);
       },
-      fail: (err) => {
-        console.log(err)
+      fail: err => {
+        console.log(err);
       }
-    })
+    });
   },
 
   // 分享

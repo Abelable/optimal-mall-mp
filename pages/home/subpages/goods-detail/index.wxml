@@ -18,7 +18,18 @@
   <view class="banner-wrap">
     <swiper style="height: 750rpx;" circular bindchange="bannerChange">
       <swiper-item wx:if="{{goodsInfo.video}}">
-        <video style="width:100%; height:100%;" src="{{goodsInfo.video}}" />
+        <view class="video-wrap" bindtap="fullScreenPlay">
+          <video
+            class="video-player"
+            src="{{goodsInfo.video}}"
+            muted="{{muted}}"
+            autoplay
+            loop
+            controls="{{false}}"
+            show-center-play-btn="{{false}}" 
+            show-fullscreen-btn="{{false}}"
+          />
+        </view>
       </swiper-item>
       <swiper-item 
         wx:for="{{goodsInfo.imageList}}" 
@@ -30,6 +41,9 @@
         <image style="width:100%; height:100%;" src="{{item}}" mode='aspectFill' lazy-load />
       </swiper-item>
     </swiper>
+    <view class="mute-icon-wrap row center" wx:if="{{goodsInfo.video && curDot === 1}}" catchtap="toggleMuted">
+      <image class="mute-icon" src="./images/{{muted ? 'muted' : 'unmuted'}}.png" />
+    </view>
     <view class="banner-dots">
       <text class="cur-dot">{{curDot}}</text>
       <text> / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}</text>
