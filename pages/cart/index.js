@@ -28,7 +28,7 @@ Page({
     const cartList = list.map(item => ({
       ...item,
       checked: false
-    })).sort((a, b) => a.goodsId - b.goodsId);
+    })).sort((a, b) => b.goodsId - a.goodsId);
     this.setData({ cartList, recommendGoodsList });
   },
 
