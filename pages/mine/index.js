@@ -15,22 +15,19 @@ Component({
 
   data: {
     orderStatusList: [
-      { en: "pay", zh: "待付款" },
-      { en: "pack", zh: "待发货" },
-      { en: "delivery", zh: "待收货" },
-      { en: "done", zh: "已完成" },
-      { en: "refund", zh: "退款/售后" }
+      { en: "pay", zh: "待付款", total: 0 },
+      { en: "pack", zh: "待发货", total: 0 },
+      { en: "delivery", zh: "待收货", total: 0 },
+      { en: "done", zh: "已完成", total: 0 },
+      { en: "refund", zh: "退款/售后", total: 0 }
     ]
-  },
-
-  lifetimes: {
-    attached() {}
   },
 
   pageLifetimes: {
     show() {
       checkLogin(() => {
         this.updateUserInfo();
+        this.setOrderListTotals();
       });
     }
   },
@@ -40,8 +37,18 @@ Component({
       mineService.getUserInfo();
     },
 
+    async setOrderListTotals() {
+      const orderTotals = await mineService.getOrderTotals();
+      const { orderStatusList } = this.data;
+      orderStatusList[0].total = orderTotals[0];
+      orderStatusList[1].total = orderTotals[1];
+      orderStatusList[2].total = orderTotals[2];
+      orderStatusList[4].total = orderTotals[3];
+      this.setData({ orderStatusList });
+    },
+
     navToOrderCenter(e) {
-      const { status } = e.currentTarget.dataset
+      const { status } = e.currentTarget.dataset;
       wx.navigateTo({
         url: `./subpages/order-center/index?status=${status}`
       });
@@ -49,13 +56,13 @@ Component({
 
     navToAddress() {
       wx.navigateTo({
-        url: './subpages/address-list/index'
+        url: "./subpages/address-list/index"
       });
     },
 
     navToWallet() {
       wx.navigateTo({
-        url: './subpages/wallet/index'
+        url: "./subpages/wallet/index"
       });
     },
 

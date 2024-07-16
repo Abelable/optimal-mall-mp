@@ -97,6 +97,7 @@
   margin-top: 32rpx;
 }
 .order-btn {
+  position: relative;
   font-size: 0;
   text-align: center;
 }
@@ -108,6 +109,19 @@
   margin-top: 8rpx;
   color: #333;
   font-size: 22rpx;
+}
+.count-stamp {
+  position: absolute;
+  right: -10rpx;
+  top: -15rpx;
+  min-width: 35rpx;
+  height: 35rpx;
+  line-height: 35rpx;
+  border-radius: 50%;
+  text-align: center;
+  background-color: red;
+  color: #fff;
+  font-size: 20rpx;
 }
 
 .tool-list {
