@@ -8,7 +8,7 @@
         <image class="shop-avatar" src="{{teamLeaderInfo.avatar}}" />
         <view class="shop-name omit single-line">{{teamLeaderInfo.nickname}}</view>
       </view>
-      <view class="shop-name omit single-line" wx:if="{{!teamLeaderInfo}}">有播甄选</view>
+      <view class="shop-name omit single-line" wx:if="{{!teamLeaderInfo}}">诚信星球</view>
     </view>
     <goods-list list="{{orderInfo.goodsList}}" status="{{orderInfo.status}}" />
     <view class="list row between">

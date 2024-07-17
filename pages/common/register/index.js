@@ -73,7 +73,7 @@ Page({
 
   toast() {
     wx.showToast({
-      title: "请先阅读并同意有播甄选用户服务协议",
+      title: "请先阅读并同意诚信星球用户服务协议",
       icon: "none"
     });
   },

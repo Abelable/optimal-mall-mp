@@ -233,7 +233,7 @@ Page({
 
   onShareTimeline() {
     const { id, name, image: imageUrl } = this.data.goodsInfo;
-    const title = `有播甄选商品：${name}`;
+    const title = `诚信星球商品：${name}`;
     const query = `id=${id}`;
     return { query, title, imageUrl };
   }
