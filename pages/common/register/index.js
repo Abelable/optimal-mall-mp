@@ -29,7 +29,7 @@ Page({
     this.nickname = e.detail.value;
   },
 
-  async saveAuthInfo() {
+  saveAuthInfo() {
     if (!this.nickname) {
       wx.showToast({
         title: "请输入用户昵称",
@@ -37,8 +37,7 @@ Page({
       });
       return;
     }
-    await this.register();
-    this.back();
+    this.register();
   },
 
   async register() {
