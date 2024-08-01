@@ -107,6 +107,12 @@ Component({
           });
           break;
       }
+    },
+
+    navToRuralPage() {
+      wx.switchTab({
+        url: "/pages/rural/index"
+      });
     }
   }
 });
