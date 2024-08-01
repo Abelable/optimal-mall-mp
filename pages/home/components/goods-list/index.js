@@ -8,9 +8,9 @@ Component({
   },
 
   methods: {
-    navToGoodsDetail() {
+    navToGoodsDetail(e) {
       wx.navigateTo({
-        url: `/pages/home/subpages/goods-detail/index?id=${this.properties.item.id}`
+        url: `/pages/home/subpages/goods-detail/index?id=${e.currentTarget.dataset.id}`
       });
     }
   }

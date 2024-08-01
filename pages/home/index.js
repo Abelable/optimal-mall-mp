@@ -26,7 +26,7 @@ Component({
 
   methods: {
     async onLoad() {
-      this.setBannerList();
+      await this.setBannerList();
       this.setGoodsList(true);
     },
 

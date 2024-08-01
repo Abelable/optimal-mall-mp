@@ -84,6 +84,7 @@
 
 .banner-wrap {
   position: relative;
+  height: 530rpx;
 }
 .banner-item {
   position: relative;
