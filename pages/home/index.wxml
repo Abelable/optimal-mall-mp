@@ -37,6 +37,24 @@
 </view>
 
 <view class="container">
+  <view class="activity-wrap">
+    <image class="activity" src="./images/integrity-village.png" />
+    <image class="activity" src="./images/integrity-goods.png" />
+  </view>
+
+  <view class="menu">
+    <view 
+      class="menu-item {{curMenuIdx === index ? 'active' : ''}}" 
+      wx:for="{{menuList}}" 
+      wx:key="index" 
+      bindtap="selectMenu" 
+      data-index="{{index}}"
+    >
+      <view class="menu-item-content">{{item}}</view>
+      <image class="menu-active-tag" wx:if="{{curMenuIdx === index}}" src="./images/menu-active.png" />
+    </view>
+  </view>
+
   <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>

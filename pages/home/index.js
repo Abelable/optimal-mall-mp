@@ -17,9 +17,9 @@ Component({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    menuList: ["今日主推", "活动预告"],
+    curMenuIdx: 0,
     bannerList: [],
-    categoryOptions: [],
-    tabScroll: 0,
     goodsList: [],
     finished: false
   },
@@ -28,6 +28,11 @@ Component({
     async onLoad() {
       this.setBannerList();
       this.setGoodsList(true);
+    },
+
+    selectMenu(e) {
+      const curMenuIdx = e.currentTarget.dataset.index;
+      this.setData({ curMenuIdx });
     },
 
     async setGoodsList(init = false) {

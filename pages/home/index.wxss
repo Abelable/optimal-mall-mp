@@ -103,10 +103,46 @@
   width: calc(100vw - 48rpx);
 }
 
-
 .container {
   padding: 20rpx;
 }
+
+.activity-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.activity {
+  width: 340rpx;
+  height: 160rpx;
+}
+
+.menu {
+  display: flex;
+}
+.menu-item {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 126rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
+}
+.menu-item.active {
+  position: relative;
+  color: #14191F;
+  font-size: 32rpx;
+  font-weight: 550;
+}
+.menu-active-tag {
+  position: absolute;
+  left: 50%;
+  bottom: 16rpx;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 16rpx;
+}
+
 .no-more-tips {
   margin-top: 36rpx;
   color: #999;
