@@ -14,7 +14,7 @@
   display: flex;
   align-items: center;
   margin-left: 24rpx;
-  width: 420rpx;
+  width: 430rpx;
 }
 .avatar {
   width: 34px;
@@ -82,12 +82,8 @@
   height: 16px;
 }
 
-
 .banner-wrap {
   position: relative;
-}
-.banner {
-  margin-bottom: 20rpx;
 }
 .banner-item {
   position: relative;
