@@ -1,0 +1,32 @@
+<view class="goods-list">
+  <view class="goods-item" wx:for="{{list}}" wx:key="index" bindtap="navToGoodsDetail">
+    <view class="cover-wrap">
+      <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
+      <view class="goods-tag">爆品</view>
+      <view class="group-buying-data">
+        <image class="group-buying-bg" src="./images/bg.png" />
+        <view class="group-buying-title">开团活动</view>
+        <view class="sales-volume">已抢{{ item.salesVolume }}</view>
+      </view>
+    </view>
+    <view class="content">
+      <view class="title omit">{{item.name}}</view>
+      <view class="label-list">
+        <view class="label-item" wx:for="{{['开袋即食', '无敌牛逼', '超级厉害']}}" wx:key="index">{{item}}</view>
+      </view>
+      <view class="by-stages-tag">分期付款单</view>
+      <view class="info-wrap row between">
+        <view class="price-wrap">
+          <price-unit price="{{item.marketPrice || 0}}" />
+          <view class="price">最低到手价¥{{item.price}}起</view>
+        </view>
+        <view class="buy-btn">
+          <view class="buy-btn-icon">
+            <image class="cart-icon" src="./images/cart.png" />
+          </view>
+          <view class="buy-btn-content">购买</view>
+        </view>
+      </view>
+    </view>
+  </view>
+</view>

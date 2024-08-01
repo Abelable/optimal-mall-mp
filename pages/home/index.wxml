@@ -55,7 +55,8 @@
     </view>
   </view>
 
-  <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
+  <!-- <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" /> -->
+  <goods-list list="{{goodsList}}" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
 </view>
