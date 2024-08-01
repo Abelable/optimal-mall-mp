@@ -1,0 +1,24 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color .2s ease;
+}
+.nav-bar.show-bg {
+  background: #fff;
+  transition: background-color .2s ease;
+}
+.title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  color: #000;
+}
+
+.container {
+  height: 200vh;
+  background: #FFF3EC;
+}

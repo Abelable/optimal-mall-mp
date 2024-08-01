@@ -1,1 +1,5 @@
-<view>诚信乡村</view>
+<view class="nav-bar {{ navBarBgVisible ? 'show-bg' : '' }}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="title">诚信乡村</view>
+</view>
+
+<view class="container"></view>
