@@ -5,6 +5,7 @@
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
     "pages/home/subpages/order-check/index",
     "pages/category/index",
+    "pages/rural/index",
     "pages/cart/index",
     "pages/mine/index",
     "pages/mine/subpages/setting/index",
@@ -25,8 +26,8 @@
     "pages/common/video-play/index"
   ],
   "tabBar": {
-    "color": "#999",
-    "selectedColor": "#333",
+    "color": "#6A6F75",
+    "selectedColor": "#F5701D",
     "list": [
       {
         "pagePath": "pages/home/index",
@@ -39,6 +40,12 @@
         "text": "分类",
         "iconPath": "images/tab-bar/category.png",
         "selectedIconPath": "images/tab-bar/category_fill.png"
+      },
+      {
+        "pagePath": "pages/rural/index",
+        "text": "诚信乡村",
+        "iconPath": "images/tab-bar/rural.png",
+        "selectedIconPath": "images/tab-bar/rural_fill.png"
       },
       {
         "pagePath": "pages/cart/index",
