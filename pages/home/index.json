@@ -3,7 +3,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
-    "goods-item": "./components/goods-item/index",
     "goods-list": "./components/goods-list/index"
   }
 }
