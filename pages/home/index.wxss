@@ -1,8 +1,6 @@
 .nav-bar {
   position: fixed;
   width: 100%;
-  background: #fff;
-  box-shadow: 0 2px 20px -2px #f0f0f0;
   box-sizing: initial;
   z-index: 100;
 }
@@ -16,7 +14,7 @@
   display: flex;
   align-items: center;
   margin-left: 24rpx;
-  width: 350rpx;
+  width: 420rpx;
 }
 .avatar {
   width: 34px;
@@ -28,33 +26,48 @@
   flex: 1;
 }
 .nickname {
-  color: #333;
+  color: #fff;
   font-size: 28rpx;
   font-weight: 550;
 }
 .signature {
-  color: #666;
+  color: #fff;
   font-size: 18rpx;
+}
+
+.nav-bar.show-bg {
+  background: #f5f6f8;
+}
+.nav-bar.show-bg .nickname {
+  color: #333;
+}
+.nav-bar.show-bg .signature {
+  color: #666;
 }
 
 .search-bar {
   display: flex;
   align-items: center;
-  margin-left: 16rpx;
+  margin-left: 24rpx;
   padding: 0 22rpx;
   width: 340rpx;
   height: 36px;
   border-radius: 18px;
-  border: 1px solid #ddd;
+  background: #fff;
+}
+
+.search-icon {
+  width: 16px;
+  height: 16px;
 }
 .placeholder {
   flex: 1;
   margin-left: 12rpx;
-  color: #999;
+  color: #A1A9B3;
   font-size: 26rpx;
 }
 
-.search-btn, .share-btn {
+.share-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -62,17 +75,17 @@
   width: 34px;
   height: 34px;
   border-radius: 18px;
-  border: 1px solid #ddd;
+  background: #fff;
 }
-.search-icon, .share-icon {
+.share-icon {
   width: 16px;
   height: 16px;
 }
 
-.container {
-  padding: 20rpx;
-}
 
+.banner-wrap {
+  position: relative;
+}
 .banner {
   margin-bottom: 20rpx;
 }
@@ -85,9 +98,19 @@
   bottom: 0;
   width: 100%;
   height: 100%;
-  border-radius: 18rpx;
+  border-radius: 0 0 18rpx 18rpx;
+}
+.search-bar.outside {
+  position: absolute;
+  left: 24rpx;
+  margin-left: 0;
+  width: calc(100vw - 48rpx);
 }
 
+
+.container {
+  padding: 20rpx;
+}
 .no-more-tips {
   margin-top: 36rpx;
   color: #999;

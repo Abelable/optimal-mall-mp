@@ -1,18 +1,15 @@
-<view class="nav-bar" style="padding-top: {{statusBarHeight - 2}}px;">
+<view class="nav-bar {{ navBarBgVisible ? 'show-bg' : ''  }}" style="padding-top: {{statusBarHeight - 2}}px;">
   <view class="nav-bar-inner">
     <view class="team-leader-info" wx:if="{{teamLeaderInfo}}">
       <image class="avatar" src="{{teamLeaderInfo.avatar}}" />
       <view class="nickname-wrap">
         <view class="nickname omit single-line">{{teamLeaderInfo.nickname}}</view>
-        <view class="signature omit single-line">{{teamLeaderInfo.signature || '限时折扣 低至一折'}}</view>
+        <view class="signature omit single-line">{{teamLeaderInfo.signature || '让时间见证信任'}}</view>
       </view>
     </view>
     <view class="search-bar" wx:if="{{!teamLeaderInfo}}" bindtap="search">
       <image class="search-icon" src="./images/search.png" />
       <text class="placeholder omit single-line">好物尽在诚信星球</text>
-    </view>
-    <view class="search-btn" wx:if="{{teamLeaderInfo}}" bindtap="search">
-      <image class="search-icon" src="./images/search.png" />
     </view>
     <view class="share-btn" bindtap="share">
       <image class="share-icon" src="./images/share.png" />
@@ -20,8 +17,8 @@
   </view>
 </view>
 
-<view class="container" style="padding-top: {{statusBarHeight + 54}}px">
-  <swiper class="banner custom-dots" wx:if="{{bannerList.length && activeTabIdx === 0}}" style="height: 240rpx;" autoplay indicator-dots circular>
+<view class="banner-wrap">
+  <swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
     <swiper-item 
       class="banner-item" 
       wx:for="{{bannerList}}"
@@ -33,7 +30,13 @@
       <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" />
     </swiper-item>
   </swiper>
+  <view class="search-bar outside" wx:if="{{teamLeaderInfo}}" style="top: {{statusBarHeight + 50}}px;">
+    <image class="search-icon" src="./images/search.png" />
+    <text class="placeholder omit single-line">好物尽在诚信星球</text>
+  </view>
+</view>
 
+<view class="container">
   <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>

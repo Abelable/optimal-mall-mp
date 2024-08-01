@@ -16,9 +16,9 @@ Component({
 
   data: {
     statusBarHeight,
+    navBarBgVisible: false,
     bannerList: [],
     categoryOptions: [],
-    activeTabIdx: 0,
     tabScroll: 0,
     goodsList: [],
     finished: false
@@ -67,6 +67,18 @@ Component({
     onPullDownRefresh() {
       this.setGoodsList(true);
       wx.stopPullDownRefresh();
+    },
+
+    onPageScroll(e) {
+      if (e.scrollTop >= 10) {
+        if (!this.data.navBarBgVisible) {
+          this.setData({ navBarBgVisible: true });
+        }
+      } else {
+        if (this.data.navBarBgVisible) {
+          this.setData({ navBarBgVisible: false });
+        }
+      }
     },
 
     search() {
