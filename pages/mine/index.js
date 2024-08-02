@@ -53,6 +53,10 @@ Component({
       this.setData({ orderStatusList });
     },
 
+    onPullDownRefresh() {
+      wx.stopPullDownRefresh();
+    },
+
     onPageScroll(e) {
       if (e.scrollTop >= 10) {
         if (!this.data.navBarBgVisible) {
