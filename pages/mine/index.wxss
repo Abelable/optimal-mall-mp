@@ -1,3 +1,24 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  overflow: hidden;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+  z-index: 100;
+}
+.nav-bar-title {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 44px;
+  color: #000;
+  font-size: 34rpx;
+  font-weight: 500;
+}
+
 .container {
   position: relative;
   font-size: 0;

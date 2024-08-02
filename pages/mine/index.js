@@ -4,6 +4,7 @@ import { checkLogin } from "../../utils/index";
 import MineService from "./utils/mineService";
 
 const mineService = new MineService();
+const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Component({
   behaviors: [storeBindingsBehavior],
@@ -14,6 +15,8 @@ Component({
   },
 
   data: {
+    statusBarHeight,
+    level: 1,
     orderStatusList: [
       { en: "pay", zh: "待付款", total: 0 },
       { en: "pack", zh: "待发货", total: 0 },
