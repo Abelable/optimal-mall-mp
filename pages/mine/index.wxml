@@ -115,14 +115,37 @@
       <view class="tool-desc">收货地址</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row" bindtap="navToWallet">
-      <image class="tool-icon" src="./images/wallet.png" />
-      <view class="tool-desc">我的收益</view>
+    <view class="tool-item row" bindtap="navToSetting">
+      <image class="tool-icon" src="./images/account.png" />
+      <view class="tool-desc">账户设置</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row" bindtap="navToSetting">
-      <image class="tool-icon" src="./images/setting.png" />
-      <view class="tool-desc">设置中心</view>
+    <view class="tool-item row">
+      <image class="tool-icon" src="./images/message.png" />
+      <view class="tool-desc">消息中心</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+    <view class="tool-item row">
+      <image class="tool-icon" src="./images/coupon.png" />
+      <view class="tool-desc">我的礼券</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+    <view class="tool-item row">
+      <image class="tool-icon" src="./images/cs.png" />
+      <view class="tool-desc">在线客服</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+  </view>
+
+  <view class="tool-list">
+    <view class="tool-item row">
+      <image class="tool-icon" src="./images/member.png" />
+      <view class="tool-desc">会员中心</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+    <view class="tool-item row">
+      <image class="tool-icon" src="./images/share.png" />
+      <view class="tool-desc">分享店铺</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
   </view>

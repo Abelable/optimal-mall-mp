@@ -33,7 +33,6 @@
 .container {
   position: relative;
   padding: 24rpx;
-  padding-bottom: calc(48px + env(safe-area-inset-bottom));
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -257,30 +256,29 @@
 }
 
 .tool-list {
-  margin: 24rpx;
-  margin-top: 32rpx;
+  margin-top: 24rpx;
   padding: 0 24rpx;
-  border-radius: 24rpx;
+  border-radius: 16rpx;
   background: #fff;
 }
 .tool-item {
-  height: 100rpx;
+  height: 108rpx;
   border-bottom: 1px solid #eee;
 }
 .tool-item:last-child {
   border-bottom: none;
 }
 .tool-icon {
-  width: 42rpx;
-  height: 42rpx;
+  width: 52rpx;
+  height: 52rpx;
 }
 .tool-desc {
-  margin: 0 12rpx;
+  margin: 0 16rpx;
   flex: 1;
-  color: #333;
-  font-size: 28rpx;
+  color: #14191F;
+  font-size: 32rpx;
 }
 .arrow {
-  width: 24rpx;
-  height: 24rpx;
+  width: 32rpx;
+  height: 32rpx;
 }
