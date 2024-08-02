@@ -47,12 +47,6 @@
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_3.png");
 }
 
-.content {
-  position: relative;
-  border-radius: 30rpx 30rpx 0 0;
-  background: #f5f6f8;
-}
-
 .user-info-wrap {
   display: flex;
   align-items: center;
@@ -254,6 +248,12 @@
   color: #000;
   font-size: 32rpx;
   font-weight: 550;
+}
+
+.integrity-school {
+  margin-top: 24rpx;
+  width: 100%;
+  height: 182rpx;
 }
 
 .tool-list {

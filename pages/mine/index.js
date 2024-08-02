@@ -74,6 +74,8 @@ Component({
 
     checkAccountDetail() {},
 
+    navToIntegritySchool() {},
+
     navToOrderCenter(e) {
       const { status } = e.currentTarget.dataset;
       wx.navigateTo({
