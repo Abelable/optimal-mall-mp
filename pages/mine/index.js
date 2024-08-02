@@ -16,13 +16,16 @@ Component({
 
   data: {
     statusBarHeight,
+    navBarBgVisible: false,
     level: 1,
+    dateList: ["今日", "昨日", "本月", "上月"],
+    curDateIdx: 0,
     orderStatusList: [
       { en: "pay", zh: "待付款", total: 0 },
       { en: "pack", zh: "待发货", total: 0 },
       { en: "delivery", zh: "待收货", total: 0 },
       { en: "done", zh: "已完成", total: 0 },
-      { en: "refund", zh: "退款/售后", total: 0 }
+      { en: "refund", zh: "售后", total: 0 }
     ]
   },
 
@@ -49,6 +52,27 @@ Component({
       orderStatusList[4].total = orderTotals[3];
       this.setData({ orderStatusList });
     },
+
+    onPageScroll(e) {
+      if (e.scrollTop >= 10) {
+        if (!this.data.navBarBgVisible) {
+          this.setData({ navBarBgVisible: true });
+        }
+      } else {
+        if (this.data.navBarBgVisible) {
+          this.setData({ navBarBgVisible: false });
+        }
+      }
+    },
+
+    selectDate(e) {
+      const curDateIdx = e.currentTarget.dataset.index;
+      this.setData({ curDateIdx });
+    },
+
+    withdraw() {},
+
+    checkAccountDetail() {},
 
     navToOrderCenter(e) {
       const { status } = e.currentTarget.dataset;

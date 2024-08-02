@@ -1,45 +1,113 @@
 <view 
-  class="nav-bar"
-  style="padding-top: {{statusBarHeight}}px; background-image: url('https://static.youbozhenxuan.cn/mp/mine_bg_level_{{level}}.png');"
+  class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}} level-{{level}}"
+  style="padding-top: {{statusBarHeight}}px;"
 >
   <view class="nav-bar-title">我的</view>
 </view>
 
+<view class="container level-{{level}}" style="padding-top: {{statusBarHeight + 60}}px;">
+  <view class="user-info-wrap">
+    <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
+    <view class="user-info">
+      <view class="user-name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
+      <view class="user-id">ID：TBjjjj</view>
+      <view class="user-identity">诚信星球第x号乡村振兴推广员</view>
+    </view>
+  </view>
 
-<view class="container">
-  <image class="bg" src="{{userInfo.bg || 'https://img.ubo.vip/optimal-mall/bg.png'}}" bindtap="navToUserInfoSetting" mode="aspectFill" />
+  <view class="account-info">
+    <view class="account-amount">
+      <view class="account-amount-header">
+        <view class="account-amount-title">我的账户</view>
+        <view class="withdraw-btn" bindtap="withdraw">提现</view>
+      </view>
+      <view class="amount-list">
+        <view class="amount-item">
+          <view class="amount">78.98</view>
+          <view class="amount-desc">可提现金额</view>
+        </view>
+        <view class="amount-item">
+          <view class="amount">78.98</view>
+          <view class="amount-desc">带结算金额</view>
+        </view>
+        <view class="amount-item">
+          <view class="amount">5578.98</view>
+          <view class="amount-desc">累积已结算金额</view>
+        </view>
+      </view>
+    </view>
+    <view class="account-daily-data">
+      <view class="date-menu">
+        <view
+          class="date {{curDateIdx === index ? 'selected' : ''}}"
+          wx:for="{{dateList}}"
+          wx:key="index"
+          bindtap="selectDate"
+          data-index="{{index}}"
+        >
+          {{item}}
+        </view>
+        <view class="date" bindtap="checkAccountDetail">更多</view>
+      </view>
+      <view class="daily-data-list">
+        <view class="daily-data-item">
+          <view class="daily-data">0</view>
+          <view class="daily-data-desc">订单量</view>
+        </view>
+        <view class="daily-data-item">
+          <view class="daily-data">0.00</view>
+          <view class="daily-data-desc">销售额</view>
+        </view>
+        <view class="daily-data-item">
+          <view class="daily-data">0.00</view>
+          <view class="daily-data-desc">待结算金额</view>
+        </view>
+        <view class="daily-data-item">
+          <view class="daily-data">0.00</view>
+          <view class="daily-data-desc">已结算金额</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-center">
+    <view class="title-wrap row between">
+      <view class="title">我的订单</view>
+      <view class="check-more-btn row" bindtap="navToOrderCenter" data-status="0">
+        <text>查看全部</text>
+        <image class="more-icon" src="./images/arrow.png" />
+      </view>
+    </view>
+    <view class="order-btn-wrap row around">
+      <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index" bindtap="navToOrderCenter" data-status="{{index + 1}}">
+        <image class="order-icon" src="./images/{{item.en}}.png" />
+        <view class="order-desc">{{item.zh}}</view>
+        <view class="count-stamp" wx:if="{{item.total}}">
+          {{item.total > 99 ? '99+' : item.total}}
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="customer-data-center">
+    <view class="title">我的客户</view>
+    <view class="customer-data-list">
+      <view class="customer-data-item">
+        <view class="customer-data-desc">今日新增客户数</view>
+        <view class="customer-data">-</view>
+      </view>
+      <view class="customer-data-item">
+        <view class="customer-data-desc">今日下单客户数</view>
+        <view class="customer-data">23</view>
+      </view>
+      <view class="customer-data-item">
+        <view class="customer-data-desc">累积客户总数</view>
+        <view class="customer-data">800</view>
+      </view>
+    </view>
+  </view>
+
   <view class="content">
-    <view class="user-info-wrap">
-      <view class="avatar-wrap">
-        <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
-        <view class="team-leader-tag" wx:if="{{userInfo.teamLeaderId}}">团长</view>
-      </view>
-      <view class="name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
-      <view class="introduce row" bindtap="navToUserInfoSetting">
-        <text>{{ userInfo.signature || '点击添加个性签名'}}</text>
-        <image class="edit-icon" wx:if="{{!userInfo.signature}}" src="https://img.ubo.vip/tiddler/mine/edit.png" />
-      </view>
-    </view>
-
-    <view class="order-center">
-      <view class="title-wrap row between">
-        <view class="title">我的订单</view>
-        <view class="check-more-btn row" bindtap="navToOrderCenter" data-status="0">
-          <text>查看全部</text>
-          <image class="more-icon" src="./images/arrow.png" />
-        </view>
-      </view>
-      <view class="order-btn-wrap row around">
-        <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index" bindtap="navToOrderCenter" data-status="{{index + 1}}">
-          <image class="order-icon" src="./images/{{item.en}}.png" />
-          <view class="order-desc">{{item.zh}}</view>
-          <view class="count-stamp" wx:if="{{item.total}}">
-            {{item.total > 99 ? '99+' : item.total}}
-          </view>
-        </view>
-      </view>
-    </view>
-
     <view class="tool-list">
       <view class="tool-item row" bindtap="navToAddress">
         <image class="tool-icon" src="./images/address.png" />
