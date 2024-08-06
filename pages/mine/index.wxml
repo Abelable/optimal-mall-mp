@@ -11,7 +11,7 @@
     <view class="user-info">
       <view class="user-name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
       <view class="user-id">ID：TBjjjj</view>
-      <view class="user-identity">诚信星球第x号乡村振兴推广员</view>
+      <view class="user-identity" wx:if="{{level}}">诚信星球第x号乡村振兴推广员</view>
     </view>
   </view>
 
