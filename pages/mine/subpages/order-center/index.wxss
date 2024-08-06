@@ -14,7 +14,7 @@
 }
 .menu-item.selected {
   position: relative;
-  color: #3979BE;
+  color: #F5701D;
   font-size: 15px;
   font-weight: bold;
 }
@@ -27,7 +27,7 @@
   height: 3px;
   content: '';
   border-radius: 1.5px;
-  background: #3979BE;
+  background: #F5701D;
 }
 
 .content {
