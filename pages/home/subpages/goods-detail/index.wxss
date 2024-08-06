@@ -11,7 +11,7 @@
   z-index: 20;
 }
 .nav-bar.show {
-  background: #161F4E;
+  background: #fff;
   box-shadow: 0 2rpx 2rpx rgba(0,0,0,0.05);
 }
 .menu-wrap {
@@ -28,6 +28,7 @@
   border-radius: 17px;
 }
 .menu-wrap.show {
+  color: #000;
   background: none;
 }
 .menu-tips {
@@ -43,7 +44,7 @@
   width: 30px;
   height: 3px;
   content: '';
-  background-color: #1986F8;
+  background-color: #F5701D;
   border-radius: 2px 0px 2px 0px;
 }
 .menu-split {
@@ -52,6 +53,9 @@
   font-size: 12px;
   font-weight: 500;
   color: #EFEFEF;
+}
+.menu-split.show {
+  color: #000;
 }
 
 .banner-wrap {

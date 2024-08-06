@@ -5,10 +5,11 @@
 
 <!-- 顶部导航 -->
 <view class="nav-bar {{showNavBar ? 'show' : ''}}" style="padding-top: {{statusBarHeight}}px">
-  <back-icon />
+  <back-icon-white wx:if="{{!showNavBar}}" />
+  <back-icon-white wx:if="{{showNavBar}}"/>
   <view class="menu-wrap {{showNavBar ? 'show' : ''}}">
     <view class="menu-tips {{!detailActive ? 'show' : ''}}" bindtap="scrollToTop">宝贝</view>
-    <view class="menu-split">|</view>
+    <view class="menu-split {{showNavBar ? 'show' : ''}}">|</view>
     <view class="menu-tips {{detailActive ? 'show' : ''}}" bindtap="scrollToDetail">详情</view>
   </view>
 </view>

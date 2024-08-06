@@ -86,9 +86,21 @@ Page({
 
     // 控制导航栏显隐
     if (e.scrollTop >= this.bannerHeight) {
-      if (!showNavBar) this.setData({ showNavBar: true });
+      if (!showNavBar) {
+        this.setData({ showNavBar: true });
+        wx.setNavigationBarColor({
+          frontColor: "#000000",
+          backgroundColor: "#fff"
+        });
+      }
     } else {
-      if (showNavBar) this.setData({ showNavBar: false });
+      if (showNavBar) {
+        this.setData({ showNavBar: false });
+        wx.setNavigationBarColor({
+          frontColor: "#ffffff",
+          backgroundColor: "#fff"
+        });
+      }
     }
 
     // 控制导航栏tab的状态切换
