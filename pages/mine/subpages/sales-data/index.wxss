@@ -124,15 +124,21 @@
   font-size: 32rpx;
   font-weight: 550;  
 }
-.share-btn {
+.order-type {
   margin-top: 8rpx;
   padding: 6rpx 10rpx;
   width: fit-content;
-  color: #00AA5A;
   font-size: 20rpx;
   line-height: 1;
-  border: 1px solid #00AA5A;
   border-radius: 8rpx;
+}
+.order-type.buy {
+  color: #F5701D;
+  border: 1px solid #F5701D;
+}
+.order-type.share {
+  color: #00AA5A;
+  border: 1px solid #00AA5A;
 }
 .goods-info-wrap {
   display: flex;

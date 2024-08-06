@@ -59,7 +59,7 @@
         </view>
         <view class="order-commission-wrap">
           <view class="order-commission">+{{item.orderInfo.commission}}</view>
-          <view class="share-btn" bindtap="share" data-order-sn="{{item.orderInfo.orderSn}}">分享</view>
+          <view class="order-type {{curMenuIdx === 0 ? 'buy' : 'share'}}">{{curMenuIdx === 0 ? "自购" : "分享"}}</view>
         </view>
       </view>
       <view class="goods-info-wrap">
