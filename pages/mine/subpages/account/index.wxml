@@ -22,32 +22,42 @@
     </view>
     <view class="withdraw-card-inner">
       <view class="withdraw-title">提现</view>
-      <input class="withdraw-input" bindinput="setWithdrawAmount" type="number" placeholder="请输入提现金额" >
+      <input class="withdraw-input" bindinput="setWithdrawAmount" type="number" placeholder="请输入提现金额" />
       <view class="withdraw-path">
         <view>提现至：</view>
         <view class="wx-path">
-          <image class="wx-icon" src="" />
+          <image class="wx-icon" src="./images/wx.png" />
           <view>微信</view>
         </view>
       </view>
       <view class="withdraw-btn">
         <view class="withdraw-amount-wrap">
-          <text class="currency-code">¥</text>
-          <text class="withdraw-amount">{{withdrawAmount || 0}}</text>
-          <text class="commission">手续费¥{{commission}}</text>
+          <view>
+            <text class="currency-code">¥</text>
+            <text class="withdraw-amount">{{withdrawAmount || 0}}</text>
+            <text class="commission">手续费¥{{commission}}</text>
+          </view>
         </view>
-        <view class="withdraw-btn-desc">立即提现</view>
+        <view class="withdraw-btn-desc" bindtap="withdraw">立即提现</view>
       </view>
     </view>
   </view>
 
   <view class="withdraw-record-list">
-    <view class="withdraw-record-item">
+    <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
       <view class="record-content">
         <view class="record-status-wrap">
           <view class="record-path">提现至微信</view>
-          <image class="record-status" src="" />
+          <image class="record-status {{['waiting', 'success', 'fail'][item.status]}}" src="./images/status_{{['waiting', 'success', 'fail'][item.status]}}.png" />
         </view>
+        <view class="record-time">{{item.time}}</view>
+      </view>
+      <view class="record-amount-wrap">
+        <view class="record-amount">
+          <text style="font-size: 24rpx">¥</text>
+          <text>{{item.amount}}</text>
+        </view>
+        <view class="record-commission">手续费¥{{item.commission}}</view>
       </view>
     </view>
   </view>

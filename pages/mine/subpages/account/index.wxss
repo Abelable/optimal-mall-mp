@@ -6,11 +6,7 @@
   z-index: 100;
 }
 .nav-bar.show-bg {
-  overflow: hidden;
-  background-image: url("https://static.youbozhenxuan.cn/mp/account_bg.png");
-  background-position: top center;
-  background-size: cover;
-  background-repeat: no-repeat;
+  background: #fff;
 }
 .nav-bar-inner {
   display: flex;
@@ -54,4 +50,157 @@
 }
 .accumulate-amount {
   margin-top: 12rpx;
+}
+
+.withdraw-card {
+  margin-top: 40rpx;
+  background: linear-gradient( 90deg, #FFF8F7 0%, #FFEBE6 100%);
+  border-radius: 20rpx;
+}
+.withdraw-card-header {
+  display: flex;
+  align-items: center;
+  padding: 0 20rpx;
+  height: 66rpx;
+}
+.withdraw-time-tips {
+  flex: 1;
+  color: #6A6F75;
+  font-size: 24rpx;
+}
+.withdraw-rules-btn {
+  display: flex;
+  align-items: center;
+  color: #F5701D;
+  font-size: 24rpx;
+}
+.arrow {
+  margin-left: 6rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.withdraw-card-inner {
+  padding: 44rpx;
+  padding-bottom: 50rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.withdraw-title {
+  color: #3C3F42;
+  font-size: 32rpx;
+}
+.withdraw-input {
+  margin-top: 18rpx;
+  padding: 16rpx 0;
+  font-size: 36rpx;
+  border-bottom: 1px solid #E2E5EA;
+}
+.withdraw-path {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-top: 64rpx;
+  color: #3C3F42;
+  font-size: 28rpx;
+}
+.wx-path {
+  display: flex;
+  align-items: center;
+  color: #A1A9B3;
+  font-size: 28rpx;
+}
+.wx-icon {
+  margin-right: 8rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.withdraw-btn {
+  display: flex;
+  margin: 52rpx auto 0;
+}
+.withdraw-amount-wrap {
+  display: flex;
+  align-items: center;
+  padding-left: 36rpx;
+  width: 364rpx;
+  height: 94rpx;
+  background: #FFF0E6;
+  border-radius: 47rpx 0 0 47rpx;
+}
+.currency-code {
+  color: #F5701D;
+  font-size: 24rpx;
+}
+.withdraw-amount {
+  margin-left: 6rpx;
+  color: #F5701D;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.commission {
+  margin-left: 12rpx;
+  color: #6A6F75;
+  font-size: 24rpx;
+}
+.withdraw-btn-desc {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 250rpx;
+  height: 94rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #F5701D;
+  border-radius: 0 47rpx 47rpx 0;
+}
+
+.withdraw-record-list {
+  margin-top: 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.withdraw-record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24rpx;
+  padding-right: 56rpx;
+  height: 146rpx;
+  border-bottom: 1px solid #eee;
+}
+.record-status-wrap {
+  display: flex;
+  align-items: center;
+}
+.record-path {
+  color: #111;
+  font-size: 28rpx;
+}
+.record-status {
+  margin-left: 8rpx;
+  height: 36rpx;
+}
+.record-status.waiting {
+  width: 72rpx;
+}
+.record-status.success {
+  width: 74rpx;
+}
+.record-status.fail {
+  width: 92rpx;
+}
+.record-time {
+  margin-top: 6rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.record-amount {
+  color: #111;
+  font-size: 32rpx;
+}
+.record-commission {
+  margin-top: 7rpx;
+  color: #6A6F75;
+  font-size: 24rpx;
 }
