@@ -2,9 +2,8 @@ page {
   position: relative;
   min-height: 100vh;
   background-color: #f5f6f8;
-  --theme-color: #77a9fd;
-  --theme-color-gradient: linear-gradient(90deg, #6097f7 0%, #86abeb 100%);
-  --theme-color-btn-bg: linear-gradient(90deg, #00cffc 0%, #0095fa 100%);
+  --theme-color: #F5701D;
+  --theme-color-btn-bg: linear-gradient(135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
 }
 
 view, text, image, scroll-view, navigator, swiper, swiper-item {
@@ -84,11 +83,11 @@ switch {
   overflow: hidden;
   text-overflow: ellipsis;
   display: -webkit-box;
-  -webkit-line-clamp: 2;
+  line-clamp: 2;
   -webkit-box-orient: vertical;
 }
 .omit.single-line {
-  -webkit-line-clamp: 1;
+  line-clamp: 1;
 }
 
 .avatar-default {
