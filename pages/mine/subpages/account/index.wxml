@@ -11,4 +11,45 @@
     <view class="amount">76651.20</view>
     <view class="accumulate-amount">累积已结算388.00元</view>
   </view>
+
+  <view class="withdraw-card">
+    <view class="withdraw-card-header">
+      <view class="withdraw-time-tips">每月25～31号可提现上月的结算收益</view>
+      <view class="withdraw-rules-btn">
+        <view>提现规则</view>
+        <image class="arrow" src="./images/more.png" />
+      </view>
+    </view>
+    <view class="withdraw-card-inner">
+      <view class="withdraw-title">提现</view>
+      <input class="withdraw-input" bindinput="setWithdrawAmount" type="number" placeholder="请输入提现金额" >
+      <view class="withdraw-path">
+        <view>提现至：</view>
+        <view class="wx-path">
+          <image class="wx-icon" src="" />
+          <view>微信</view>
+        </view>
+      </view>
+      <view class="withdraw-btn">
+        <view class="withdraw-amount-wrap">
+          <text class="currency-code">¥</text>
+          <text class="withdraw-amount">{{withdrawAmount || 0}}</text>
+          <text class="commission">手续费¥{{commission}}</text>
+        </view>
+        <view class="withdraw-btn-desc">立即提现</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="withdraw-record-list">
+    <view class="withdraw-record-item">
+      <view class="record-content">
+        <view class="record-status-wrap">
+          <view class="record-path">提现至微信</view>
+          <image class="record-status" src="" />
+        </view>
+      </view>
+    </view>
+  </view>
 </view>
+
