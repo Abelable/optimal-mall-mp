@@ -43,7 +43,7 @@
     </view>
   </view>
 
-  <view class="withdraw-record-list">
+  <view class="withdraw-record-list" wx:if="{{recordList.length}}">
     <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
       <view class="record-content">
         <view class="record-status-wrap">
@@ -61,5 +61,6 @@
       </view>
     </view>
   </view>
+  <view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
 </view>
 

@@ -25,7 +25,8 @@ Page({
         commission: "180",
         time: "2021-03-10 14:33:48"
       }
-    ]
+    ],
+    finished: false
   },
 
   setWithdrawAmount(e) {
