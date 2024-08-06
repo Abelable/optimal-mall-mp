@@ -1,0 +1,79 @@
+.menu-tabs {
+  display: flex;
+}
+.menu-tab {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 140rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
+}
+.menu-tab.active {
+  position: relative;
+  color: #14191F;
+  font-size: 32rpx;
+  font-weight: 550;
+}
+.active-tag {
+  position: absolute;
+  left: 50%;
+  bottom: 28rpx;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 16rpx;
+}
+
+.container {
+  padding: 0 24rpx;
+}
+
+.daily-data-wrap {
+  padding: 28rpx;
+  padding-bottom: 32rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.date-menu {
+  display: flex;
+  justify-content: space-between;
+}
+.date {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116rpx;
+  height: 56rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
+  border-radius: 28rpx;
+  border: 1px solid transparent;
+}
+.date.selected {
+  color: #F5701D;
+  background: #FFF3EC;
+  border: 1px solid #F5701D;
+}
+
+.daily-data-list {
+  display: flex;
+  margin-top: 46rpx;
+}
+.daily-data-item {
+  flex: 3;
+  text-align: center;
+}
+.daily-data-item:first-child {
+  flex: 2;
+}
+.daily-data {
+  color: #000;
+  font-size: 32rpx;
+  font-weight: 550;
+}
+.daily-data-desc {
+  margin-top: 16rpx;
+  color: #6A6F75;
+  font-size: 24rpx;
+}

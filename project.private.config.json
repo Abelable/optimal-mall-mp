@@ -7,6 +7,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "我的销售",
+          "pathName": "pages/mine/subpages/sales-data/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "账户提现",
           "pathName": "pages/mine/subpages/account/index",
           "query": "",

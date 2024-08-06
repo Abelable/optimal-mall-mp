@@ -1,0 +1,46 @@
+<view class="menu-tabs">
+  <view 
+    class="menu-tab {{ curMenuIdx === index ? 'active' : '' }}"
+    wx:for="{{['自购返现', '分享奖励']}}"
+    wx:key="index"
+    bindtap="selectMenu"
+    data-index="{{index}}"
+  >
+    <view>{{item}}</view>
+    <image class="active-tag" wx:if="{{curMenuIdx === index}}" src="./images/tag.png" />
+  </view>
+</view>
+
+<view class="container">
+  <view class="daily-data-wrap">
+    <view class="date-menu">
+      <view
+        class="date {{curDateIdx === index ? 'selected' : ''}}"
+        wx:for="{{dateList}}"
+        wx:key="index"
+        bindtap="selectDate"
+        data-index="{{index}}"
+      >
+        {{item}}
+      </view>
+    </view>
+    <view class="daily-data-list">
+      <view class="daily-data-item">
+        <view class="daily-data">0</view>
+        <view class="daily-data-desc">订单量</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">销售额</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">待结算金额</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">已结算金额</view>
+      </view>
+    </view>
+  </view>
+</view>
