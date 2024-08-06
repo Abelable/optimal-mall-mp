@@ -43,4 +43,34 @@
       </view>
     </view>
   </view>
+
+  <view class="sales-record-list" wx:if="{{recordList}}">
+    <view class="sales-record-item" wx:for="{{recordList}}" wx:key="index">
+      <view class="order-info">
+        <view class="order-sn-wrap">
+          <view class="order-sn" bindtap="checkOrderDetail" data-order-sn="{{item.orderInfo.orderSn}}">
+            <view>订单编号：{{item.orderInfo.orderSn}}</view>
+            <image class="arrow" src="./images/more.png" />
+          </view>
+          <view class="order-status-wrap">
+            <view class="order-status">{{item.orderInfo.status}}</view>
+            <view class="order-time">下单时间：{{item.orderInfo.time}}</view>
+          </view>
+        </view>
+        <view class="order-commission-wrap">
+          <view class="order-commission">+{{item.orderInfo.commission}}</view>
+          <view class="share-btn" bindtap="share" data-order-sn="{{item.orderInfo.orderSn}}">分享</view>
+        </view>
+      </view>
+      <view class="goods-info-wrap">
+        <image class="goods-cover" src="{{item.goodsInfo.cover}}" />
+        <view class="goods-info">
+          <view class="goods-name omit">{{item.goodsInfo.name}}</view>
+          <view class="goods-spec">{{item.goodsInfo.spec}}</view>
+          <view class="goods-commission">返现¥{{item.goodsInfo.commission}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
 </view>
