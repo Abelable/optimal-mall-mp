@@ -5,4 +5,10 @@
   </view>
 </view>
 
-<view class="container" style="padding-top: {{statusBarHeight + 44}}px;"></view>
+<view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
+  <view class="amount-wrap">
+    <view class="amount-desc">可提现金额</view>
+    <view class="amount">76651.20</view>
+    <view class="accumulate-amount">累积已结算388.00元</view>
+  </view>
+</view>

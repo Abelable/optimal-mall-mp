@@ -36,3 +36,22 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+
+.amount-wrap {
+  margin-top: 52rpx;
+  text-align: center;
+}
+.amount-desc, .accumulate-amount {
+  color: #6A6F75;
+  font-size: 32rpx;
+}
+.amount {
+  margin-top: 10rpx;
+  color: #110E4B;
+  font-size: 68rpx;
+  font-weight: bold;
+  font-family: DINAlternate, DINAlternate;
+}
+.accumulate-amount {
+  margin-top: 12rpx;
+}

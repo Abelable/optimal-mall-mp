@@ -2,6 +2,23 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
-    statusBarHeight
+    statusBarHeight,
+    navBarBgVisible: false
   },
-})
+
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh();
+  },
+
+  onPageScroll(e) {
+    if (e.scrollTop >= 10) {
+      if (!this.data.navBarBgVisible) {
+        this.setData({ navBarBgVisible: true });
+      }
+    } else {
+      if (this.data.navBarBgVisible) {
+        this.setData({ navBarBgVisible: false });
+      }
+    }
+  }
+});
