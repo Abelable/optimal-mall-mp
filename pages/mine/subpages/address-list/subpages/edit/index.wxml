@@ -27,7 +27,7 @@
 <view class="card">
   <view class="info-list row between">
     <label class="title">设为默认: </label>
-    <switch style="transform: scale(0.8)" checked="{{addressInfo.isDefault}}" bindchange="toggleDefaultValue" color="#1986F8" />
+    <switch style="transform: scale(0.8)" checked="{{addressInfo.isDefault}}" bindchange="toggleDefaultValue" color="#F5701D" />
   </view>
 </view>
 

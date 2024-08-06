@@ -3,7 +3,7 @@
     <view class="row between">
       <view class="title">常用地址</view>
       <view class="row" bindtap="navToAddressListPage">
-        <van-icon name="plus" color="#161F4E" size="12px" />
+        <van-icon name="plus" color="#F5701D" size="12px" />
         <view class="add-btn">增加</view>
       </view>
     </view>
@@ -19,7 +19,7 @@
             </view>
             <view class="address-detail">{{item.regionDesc + ' ' + item.addressDetail}}</view>
           </view>
-          <radio class="radio" value="{{index}}" checked="{{ selectedIndex === index }}" color="#161F4E" />
+          <radio class="radio" value="{{index}}" checked="{{ selectedIndex === index }}" color="#F5701D" />
         </view>
       </radio-group>
     </scroll-view>

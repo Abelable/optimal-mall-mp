@@ -18,6 +18,6 @@
   color: #fff;
   font-size: 26rpx;
   line-height: 1;
-  background: linear-gradient(128deg, #53678d 0%, #161F4E 100%);
+  background: linear-gradient(128deg, #53678d 0%, #F5701D 100%);
   border-radius: 12rpx;
 }

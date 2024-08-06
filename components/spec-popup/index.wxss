@@ -88,10 +88,10 @@
   background: #e6e6e6;
 }
 .add-cart-btn.active {
-  background: #1986F8;
+  background: #F5701D;
 }
 .buy-btn.active {
-  background: #161F4E;
+  background: #F5701D;
 }
 .edit-btn.active {
   background: #212121;

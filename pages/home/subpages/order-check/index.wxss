@@ -177,5 +177,5 @@
   background: #e6e6e6;
 }
 .submit-btn.active {
-  background: #161F4E;
+  background: #F5701D;
 }
