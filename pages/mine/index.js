@@ -11,7 +11,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo"]
+    fields: ["userInfo", "teamLeaderInfo"]
   },
 
   data: {
@@ -27,6 +27,14 @@ Component({
       { en: "done", zh: "已完成", total: 0 },
       { en: "refund", zh: "售后", total: 0 }
     ]
+  },
+
+  observers: {
+    "teamLeaderInfo": function(info) {
+      if (info) {
+        this.setData({ level: 1 })
+      }
+    }
   },
 
   pageLifetimes: {
