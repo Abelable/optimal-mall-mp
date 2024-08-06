@@ -103,7 +103,7 @@
   height: 40rpx;
   content: "";
   border-radius: 0 8rpx 8rpx 0;
-  background: #6097f7;
+  background: #F5701D;
 }
 
 .goods-list {

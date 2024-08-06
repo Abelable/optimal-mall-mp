@@ -1,5 +1,5 @@
 <view class="goods-item row {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
-  <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+  <image class="cover" mode="aspectFit" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>
     <view class="introduce-wrap">
@@ -9,7 +9,7 @@
     </view>
     <view class="info-wrap row between">
       <view class="row baseline">
-        <price-unit price="{{item.price || 0}}" color="#6097f7" unitColor="#6097f7" />
+        <price-unit price="{{item.price || 0}}" color="#EB2240" unitColor="#EB2240" />
         <view class="market-price">¥{{item.marketPrice}}</view>
       </view>
       <image class="cart-icon" src="./images/cart-icon.png" />

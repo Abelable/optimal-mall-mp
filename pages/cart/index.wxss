@@ -35,7 +35,7 @@
 }
 .checkbox .wx-checkbox-input.wx-checkbox-input-checked {
   border: none;
-  background: #DAB174;
+  background: #F5701D;
 }
 .checkbox.danger .wx-checkbox-input.wx-checkbox-input-checked {
   background: #FD0B0A;
@@ -71,10 +71,10 @@
   margin-top: 32rpx;
   width: 150rpx;
   height: 60rpx;
-  color: #FD0B0A;
+  color: #fff;
   font-size: 28rpx;
   border-radius: 30rpx;
-  border: 2rpx solid #FD0B0A;
+  background: #F5701D;
 }
 
 .goods-list-wrap {
@@ -229,8 +229,8 @@
   border-radius: 40rpx;
 }
 .submit.active {
-  color: #FFE5BD;
-  background: linear-gradient( 117deg, #404A5C 0%, #0F131A 100%);
+  color: #fff;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
 }
 .delete-btn.active {
   color: #fff;

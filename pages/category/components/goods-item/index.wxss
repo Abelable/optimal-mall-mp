@@ -63,6 +63,6 @@
 }
 
 .cart-icon {
-  width: 42rpx;
-  height: 42rpx;
+  width: 52rpx;
+  height: 52rpx;
 }
