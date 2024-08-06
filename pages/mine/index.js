@@ -82,7 +82,11 @@ Component({
       this.setData({ curDateIdx });
     },
 
-    withdraw() {},
+    withdraw() {
+      wx.navigateTo({
+        url: './subpages/account/index'
+      });
+    },
 
     checkAccountDetail() {},
 
