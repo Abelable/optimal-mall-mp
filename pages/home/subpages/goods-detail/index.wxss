@@ -294,10 +294,10 @@
   font-size: 28rpx;
 }
 .add-cart-btn {
-  background: #1986F8;
+  background: #FFAC40;
 }
 .buy-btn {
-  background: #161F4E;
+  background: #FF3636;
 }
 .add-cart-btn.invalid, .buy-btn.invalid {
   color: #fff;

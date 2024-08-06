@@ -6,7 +6,7 @@
 <!-- 顶部导航 -->
 <view class="nav-bar {{showNavBar ? 'show' : ''}}" style="padding-top: {{statusBarHeight}}px">
   <back-icon-white wx:if="{{!showNavBar}}" />
-  <back-icon-white wx:if="{{showNavBar}}"/>
+  <back-icon wx:if="{{showNavBar}}"/>
   <view class="menu-wrap {{showNavBar ? 'show' : ''}}">
     <view class="menu-tips {{!detailActive ? 'show' : ''}}" bindtap="scrollToTop">宝贝</view>
     <view class="menu-split {{showNavBar ? 'show' : ''}}">|</view>
