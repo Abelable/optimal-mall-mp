@@ -17,7 +17,7 @@ Component({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    level: 1,
+    level: 0,
     dateList: ["今日", "昨日", "本月", "上月"],
     curDateIdx: 0,
     orderStatusList: [

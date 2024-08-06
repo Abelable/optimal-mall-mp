@@ -11,6 +11,9 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
+.nav-bar.show-bg.level-0 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_0.png");
+}
 .nav-bar.show-bg.level-1 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_1.png");
 }
@@ -35,6 +38,9 @@
   padding: 24rpx;
   background-size: 100%;
   background-repeat: no-repeat;
+}
+.container.level-0 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_0.png");
 }
 .container.level-1 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_1.png");

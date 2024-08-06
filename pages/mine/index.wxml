@@ -16,7 +16,7 @@
   </view>
 
   <view class="account-info">
-    <view class="account-amount">
+    <view class="account-amount" wx:if="{{level}}">
       <view class="account-amount-header">
         <view class="account-amount-title">我的账户</view>
         <view class="withdraw-btn" bindtap="withdraw">提现</view>
@@ -36,7 +36,7 @@
         </view>
       </view>
     </view>
-    <view class="account-daily-data">
+    <view class="account-daily-data" wx:if="{{level}}">
       <view class="date-menu">
         <view
           class="date {{curDateIdx === index ? 'selected' : ''}}"
@@ -89,7 +89,7 @@
     </view>
   </view>
 
-  <view class="customer-data-center">
+  <view class="customer-data-center" wx:if="{{level}}">
     <view class="title">我的客户</view>
     <view class="customer-data-list">
       <view class="customer-data-item">
