@@ -30,9 +30,9 @@ Component({
   },
 
   observers: {
-    "teamLeaderInfo": function(info) {
+    teamLeaderInfo: function (info) {
       if (info) {
-        this.setData({ level: 1 })
+        this.setData({ level: 1 });
       }
     }
   },
@@ -84,11 +84,15 @@ Component({
 
     withdraw() {
       wx.navigateTo({
-        url: './subpages/account/index'
+        url: "./subpages/account/index"
       });
     },
 
-    checkAccountDetail() {},
+    checkSalesData() {
+      wx.navigateTo({
+        url: "./subpages/sales-data/index"
+      });
+    },
 
     navToIntegritySchool() {},
 

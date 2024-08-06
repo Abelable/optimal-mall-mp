@@ -47,7 +47,7 @@
         >
           {{item}}
         </view>
-        <view class="date" bindtap="checkAccountDetail">更多</view>
+        <view class="date" bindtap="checkSalesData">更多</view>
       </view>
       <view class="daily-data-list">
         <view class="daily-data-item">
