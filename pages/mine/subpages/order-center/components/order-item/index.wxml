@@ -1,4 +1,5 @@
 <wxs module="ORDER" src="/utils/filters/order.wxs" />
+<wxs module="TIME" src="/utils/filters/time.wxs" />
 
 <view class="order-item" catchtap="navToDetail">
   <view class="list-header row between">
@@ -12,11 +13,11 @@
   <view class="list-content">
     <goods-list list="{{item.goodsList}}" />
   </view>
-  <view class="countdown-wrap">
+  <view class="countdown-wrap" wx:if="{{item.status === 101}}">
     <image class="alarm-icon" src="./images/alarm.png" />
     <view class="countdown">
       <text style="color: #666;">剩余</text>
-      <text>{{}}</text>
+      <text>{{TIME.countDown(countdown, 'd:hh:mm:ss')}}</text>
     </view>
   </view>
   <view class="list-footer">
@@ -40,7 +41,7 @@
         wx:if="{{item.status === 101}}" 
         catchtap="cancelOrder"
       >取消订单</button>
-      <button class="btn" catchtap="navToDetail" data-id="{{item.id}}">查看详情</button>
+      <button class="btn" catchtap="navToDetail">查看详情</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 301}}" 

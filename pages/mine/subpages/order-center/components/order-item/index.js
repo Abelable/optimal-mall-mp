@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../../../../../store/index";
 import OrderService from "../../utils/orderService";
@@ -21,7 +22,43 @@ Component({
     index: Number
   },
 
+  data: {
+    countdown: 0
+  },
+
+  lifetimes: {
+    attached() {
+      const { status, createdAt } = this.properties.item;
+      if (status === 101) {
+        const countdown = Math.floor(
+          (dayjs(createdAt).valueOf() +
+            24 * 60 * 60 * 1000 -
+            dayjs().valueOf()) /
+            1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      }
+    },
+
+    detached() {
+      clearInterval(this.countdownInterval);
+    }
+  },
+
   methods: {
+    setCountdown() {
+      this.countdownInterval = setInterval(() => {
+        if (this.data.countdown === 0) {
+          clearInterval(this.countdownInterval);
+          return;
+        }
+        this.setData({
+          countdown: this.data.countdown - 1
+        });
+      }, 1000);
+    },
+
     async payOrder() {
       const { item, index } = this.properties;
       const params = await orderService.getPayParams([item.id]);
