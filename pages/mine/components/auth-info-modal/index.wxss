@@ -19,11 +19,12 @@
   width: 670rpx;
   border-radius: 30rpx;
 }
-.auth-tips {
-  position: relative;
-  margin-top: 10rpx;
-  color: #999;
-  font-size: 24rpx;
+
+.title {
+  color: #333;
+  font-size: 32rpx;
+  text-align: center;
+  font-weight: 550;
 }
 
 .auth-modal-list-wrap {
