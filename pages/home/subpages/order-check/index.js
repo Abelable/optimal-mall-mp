@@ -1,6 +1,6 @@
-import HomeService from '../../utils/homeService'
+import HomeService from "../../utils/homeService";
 
-const homeService = new HomeService()
+const homeService = new HomeService();
 
 Page({
   data: {
@@ -9,61 +9,66 @@ Page({
   },
 
   onLoad({ cartGoodsIds }) {
-    this.cartGoodsIds = JSON.parse(cartGoodsIds) 
-    this.setPreOrderInfo()
+    this.cartGoodsIds = JSON.parse(cartGoodsIds);
+    this.setPreOrderInfo();
   },
 
   async setPreOrderInfo() {
-    const preOrderInfo = await homeService.getPreOrderInfo(this.cartGoodsIds, this.addressId)
-    this.setData({ preOrderInfo })
+    const preOrderInfo = await homeService.getPreOrderInfo(
+      this.cartGoodsIds,
+      this.addressId
+    );
+    this.setData({ preOrderInfo });
   },
 
   showAddressSelectPopup() {
     this.setData({
       addressSelectPopupVisible: true
-    })
+    });
   },
 
   hideAddressSelectPopup(e) {
     this.setData({
       addressSelectPopupVisible: false
-    })
+    });
     if (e.detail) {
-      this.addressId = e.detail
-      this.setPreOrderInfo()
+      this.addressId = e.detail;
+      this.setPreOrderInfo();
     }
   },
 
   // 提交订单
   async submit() {
-    const { addressInfo, errMsg } = this.data.preOrderInfo
-    const addressId = addressInfo.id
+    const { addressInfo, errMsg } = this.data.preOrderInfo;
+    const addressId = addressInfo.id;
     if (!addressId) {
-      return
+      return;
     }
     if (errMsg) {
-      return
+      return;
     }
-    const orderId = await homeService.submitOrder(this.cartGoodsIds, addressId)
+    const orderId = await homeService.submitOrder(this.cartGoodsIds, addressId);
     if (orderId) {
-      this.pay(orderId)
+      this.pay(orderId);
     }
   },
 
   async pay(orderId) {
-    const payParams = await homeService.getPayParams(orderId)
-    wx.requestPayment({
-      ...payParams,
-      success: () => {
-        wx.navigateTo({ 
-          url: '/pages/mine/subpages/order-center/index?status=2'
-        })
-      },
-      fail: () => {
-        wx.navigateTo({ 
-          url: '/pages/mine/subpages/order-center/index?status=1'
-        })
-      }
-    })
-  },
-})
+    const payParams = await homeService.getPayParams(orderId);
+    if (payParams) {
+      wx.requestPayment({
+        ...payParams,
+        success: () => {
+          wx.navigateTo({
+            url: "/pages/mine/subpages/order-center/index?status=2"
+          });
+        },
+        fail: () => {
+          wx.navigateTo({
+            url: "/pages/mine/subpages/order-center/index?status=1"
+          });
+        }
+      });
+    }
+  }
+});
