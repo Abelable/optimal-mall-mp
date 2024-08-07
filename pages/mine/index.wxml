@@ -6,10 +6,10 @@
 </view>
 
 <view class="container level-{{level}}" style="padding-top: {{statusBarHeight + 60}}px;">
-  <view class="user-info-wrap" bindtap="showAuthInfoModal">
-    <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
+  <view class="user-info-wrap">
+    <image class="avatar" bindtap="showAuthInfoModal" src="{{userInfo.avatar}}" />
     <view class="user-info">
-      <view class="user-name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
+      <view class="user-name" bindtap="showAuthInfoModal">{{userInfo.nickname}}</view>
       <view class="user-id">ID：TBjjjj</view>
       <view class="user-identity" wx:if="{{level}}">诚信星球第x号乡村振兴推广员</view>
     </view>

@@ -128,11 +128,6 @@ Component({
       wx.navigateTo({
         url: "./subpages/setting/index"
       });
-    },
-
-    navToUserInfoSetting() {
-      const url = "./subpages/setting/subpages/user-info-setting/index";
-      wx.navigateTo({ url });
     }
   }
 });
