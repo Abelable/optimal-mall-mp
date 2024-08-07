@@ -18,7 +18,7 @@
       <view class="form-item">
         <view class="label">头像</view>
         <button class="avatar-wrap" bind:chooseavatar="chooseAvatar" open-type="chooseAvatar" hover-class="none">
-          <image class="avatar" src="{{avatarUrl || 'https://img.ubo.vip/youmeng/default_avatar.png'}}" />
+          <image class="avatar" src="{{avatarUrl || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
         </button> 
       </view>
       <view class="form-item">

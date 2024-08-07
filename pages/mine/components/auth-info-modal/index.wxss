@@ -56,10 +56,6 @@
   height: 100rpx;
   border-radius: 16rpx;
 }
-.more-icon {
-  width: 24rpx;
-  height: 24rpx;
-}
 .nickname-input {
   flex: 1;
   font-size: 28rpx;

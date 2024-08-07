@@ -9,7 +9,7 @@ Page({
     statusBarHeight,
     agree: false,
     authModalVisible: false,
-    avatarUrl: "https://img.ubo.vip/youmeng/default_avatar.png"
+    avatarUrl: ""
   },
 
   async getMobile(e) {
@@ -30,6 +30,13 @@ Page({
   },
 
   saveAuthInfo() {
+    if (!this.data.avatarUrl) {
+      wx.showToast({
+        title: "请上传用户头像",
+        icon: "none"
+      });
+      return;
+    }
     if (!this.nickname) {
       wx.showToast({
         title: "请输入用户昵称",

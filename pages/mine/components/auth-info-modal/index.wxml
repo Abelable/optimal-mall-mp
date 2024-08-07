@@ -4,9 +4,8 @@
     <view class="auth-modal-list-wrap">
       <view class="auth-modal-list">
         <view class="modal-list-title">头像</view>
-        <button class="avatar-wrapper" open-type="chooseAvatar" hover-class="none" bind:chooseavatar="chooseAvatar">
-          <image class="avatar-img" src="{{avatar || 'https://img.ubo.vip/youmeng/default_avatar.png'}}" />
-          <image class="more-icon" src="/images/more.png"/>
+        <button class="avatar-wrapper" bind:chooseavatar="chooseAvatar" open-type="chooseAvatar" hover-class="none">
+          <image class="avatar-img" src="{{avatar || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
         </button> 
       </view>
       <view class="auth-modal-list">
