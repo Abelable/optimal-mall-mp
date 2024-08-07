@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import { store } from "../../../../../../store/index";
 import OrderService from "../../utils/orderService";
@@ -7,6 +8,7 @@ const orderService = new OrderService();
 Page({
   data: {
     orderInfo: null,
+    countdown: 0
   },
 
   onLoad({ id }) {
@@ -22,6 +24,18 @@ Page({
   async setOrderInfo() {
     const orderInfo = await orderService.getOrderDetail(this.orderId);
     this.setData({ orderInfo });
+
+    const { status, createdAt } = orderInfo;
+      if (status === 101) {
+        const countdown = Math.floor(
+          (dayjs(createdAt).valueOf() +
+            24 * 60 * 60 * 1000 -
+            dayjs().valueOf()) /
+            1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      }
 
     const titleEnums = {
       101: "等待买家付款",
@@ -39,6 +53,18 @@ Page({
     wx.setNavigationBarTitle({
       title: titleEnums[orderInfo.status],
     });
+  },
+
+  setCountdown() {
+    this.countdownInterval = setInterval(() => {
+      if (this.data.countdown === 0) {
+        clearInterval(this.countdownInterval);
+        return;
+      }
+      this.setData({
+        countdown: this.data.countdown - 1
+      });
+    }, 1000);
   },
 
   copyOrderSn() {
@@ -106,6 +132,7 @@ Page({
   contact() {},
 
   onUnload() {
+    clearInterval(this.countdownInterval);
     this.storeBindings.destroyStoreBindings();
   },
 });
