@@ -28,38 +28,38 @@
       <button 
         class="btn" 
         wx:if="{{item.status === 301}}" 
-        catchtap="navToShipping" data-id="{{item.id}}"
+        catchtap="navToShipping"
       >查看物流</button>
       <button 
         class="btn" 
         wx:if="{{item.status === 102 || item.status === 103 || item.status === 104 || item.status === 401 || item.status === 402}}" 
-        catchtap="deleteOrder" data-id="{{item.id}}" data-index="{{index}}"
+        catchtap="deleteOrder"
       >删除订单</button>
       <button 
         class="btn" 
         wx:if="{{item.status === 101}}" 
-        catchtap="cancelOrder" data-id="{{item.id}}" data-index="{{index}}"
+        catchtap="cancelOrder"
       >取消订单</button>
       <button class="btn" catchtap="navToDetail" data-id="{{item.id}}">查看详情</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 301}}" 
-        catchtap="confirmOrder" data-id="{{item.id}}" data-index="{{index}}"
+        catchtap="confirmOrder"
       >确认收货</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 101}}" 
-        catchtap="payOrder" data-id="{{item.id}}" data-index="{{index}}"
+        catchtap="payOrder"
       >继续付款</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 201}}"
-        catchtap="refundOrder" data-id="{{item.id}}" data-index="{{index}}"
+        catchtap="refundOrder"
       >申请退款</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 401 || item.status === 402}}"
-        catchtap="navToEvaluation" data-id="{{item.id}}" data-goods-list="{{item.goodsList}}"
+        catchtap="navToEvaluation"
       >评价</button>
     </view>
   </view>
