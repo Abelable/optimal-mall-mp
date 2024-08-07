@@ -45,7 +45,9 @@ Page({
       return
     }
     const orderId = await homeService.submitOrder(this.cartGoodsIds, addressId)
-    this.pay(orderId)
+    if (orderId) {
+      this.pay(orderId)
+    }
   },
 
   async pay(orderId) {

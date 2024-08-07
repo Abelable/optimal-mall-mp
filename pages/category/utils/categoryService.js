@@ -70,14 +70,6 @@ class CategoryService extends BaseService {
     });
   }
 
-  async submitOrder(cartGoodsIds, addressId) {
-    return await this.post({
-      url: `${this.baseUrl}/order/submit`,
-      data: { addressId, cartGoodsIds },
-      loadingTitle: "订单提交中..."
-    });
-  }
-
   async getGoodsEvaluationList(goodsId, page, limit = 10) {
     return await this.get({
       url: `${this.baseUrl}/goods/evaluation/list`,
