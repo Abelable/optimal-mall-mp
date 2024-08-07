@@ -6,7 +6,7 @@ const orderService = new OrderService();
 
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
 
   behaviors: [storeBindingsBehavior],
@@ -17,65 +17,68 @@ Component({
   },
 
   properties: {
-    list: Array,
+    item: Object,
+    index: Number
   },
 
   methods: {
-    async payOrder(e) {
-      const { id, index } = e.currentTarget.dataset;
-      const params = await orderService.getPayParams([id]);
+    async payOrder() {
+      const { item, index } = this.properties;
+      const params = await orderService.getPayParams([item.id]);
       wx.requestPayment({
         ...params,
         success: () => {
           this.triggerEvent("update", { type: "pay", index });
-        },
+        }
       });
     },
 
-    refundOrder(e) {
-      const { id, index } = e.currentTarget.dataset;
-      orderService.refundOrder(id, () => {
+    refundOrder() {
+      const { item, index } = this.properties;
+      orderService.refundOrder(item.id, () => {
         this.triggerEvent("update", { type: "refund", index });
       });
     },
 
-    confirmOrder(e) {
-      const { id, index } = e.currentTarget.dataset;
-      orderService.confirmOrder(id, () => {
+    confirmOrder() {
+      const { item, index } = this.properties;
+      orderService.confirmOrder(item.id, () => {
         this.triggerEvent("update", { type: "confirm", index });
       });
     },
 
-    deleteOrder(e) {
-      const { id, index } = e.currentTarget.dataset;
-      orderService.deleteOrder(id, () => {
+    deleteOrder() {
+      const { item, index } = this.properties;
+      orderService.deleteOrder(item.id, () => {
         this.triggerEvent("update", { type: "delete", index });
       });
     },
 
-    cancelOrder(e) {
-      const { id, index } = e.currentTarget.dataset;
-      orderService.cancelOrder(id, () => {
+    cancelOrder() {
+      const { item, index } = this.properties;
+      orderService.cancelOrder(item.id, () => {
         this.triggerEvent("update", { type: "cancel", index });
       });
     },
 
-    navToDetail(e) {
-      const id = e.currentTarget.dataset.id;
+    navToDetail() {
+      const { id } = this.properties.item;
       const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${id}`;
       wx.navigateTo({ url });
     },
 
-    navToShipping(e) {
-      const id = e.currentTarget.dataset.id;
+    navToShipping() {
+      const { id } = this.properties.item;
       const url = `/pages/mine/subpages/order-center/subpages/shipping/index?id=${id}`;
       wx.navigateTo({ url });
     },
 
-    navToEvaluation(e) {
-      const { id, goodsList } = e.currentTarget.dataset;
-      const url = `/pages/mine/subpages/order-center/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
+    navToEvaluation() {
+      const { id, goodsList } = this.properties.item;
+      const url = `/pages/mine/subpages/order-center/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(
+        goodsList
+      )}`;
       wx.navigateTo({ url });
     }
-  },
+  }
 });

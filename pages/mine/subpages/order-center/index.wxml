@@ -9,7 +9,9 @@
 </nav-bar>
 
 <view class="content" style="margin-top: {{statusBarHeight + 84}}px;">
-  <order-list list="{{orderList}}" bind:update="updateOrderList"/>
+  <view class="order-list">
+    <order-item wx:for="{{orderList}}" wx:key="index" item="{{item}}" index="{{index}}" bind:update="updateOrderList"/>
+  </view>
   <empty-illus wx:if="{{finished && !orderList.length}}" desc="暂无订单列表" />
   <view class="no-more-tips" wx:if="{{finished && orderList.length}}">～没有更多了～</view>
 </view>
