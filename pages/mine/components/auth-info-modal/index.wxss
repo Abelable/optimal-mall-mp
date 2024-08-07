@@ -1,0 +1,80 @@
+.modal-wrap {
+  position: fixed;
+  top: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(10px);
+  z-index: 100;
+}
+.modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  background: #fff;
+}
+.auth {
+  padding: 50rpx;
+  width: 670rpx;
+  border-radius: 30rpx;
+}
+.auth-tips {
+  position: relative;
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+
+.auth-modal-list-wrap {
+  margin-top: 50rpx;
+}
+.auth-modal-list {
+  display: flex;
+  align-items: center;
+  height: 140rpx;
+  border-bottom: 1px solid #f5f5f5;
+}
+.auth-modal-list:first-child {
+  border-top: 1px solid #f5f5f5;
+}
+.modal-list-title {
+  margin-right: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.avatar-wrapper {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex: 1;
+  height: 100rpx;
+}
+.avatar-img {
+  width: 100rpx;
+  height: 100rpx;
+  border-radius: 16rpx;
+}
+.more-icon {
+  width: 24rpx;
+  height: 24rpx;
+}
+.nickname-input {
+  flex: 1;
+  font-size: 28rpx;
+}
+
+.to-auth {
+  margin: 50rpx auto 0;
+  width: 464rpx;
+  height: 90rpx;
+  color: #fff;
+  font-size: 32rpx;
+  font-weight: bold;
+  border-radius: 45rpx;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}

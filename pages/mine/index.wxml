@@ -6,7 +6,7 @@
 </view>
 
 <view class="container level-{{level}}" style="padding-top: {{statusBarHeight + 60}}px;">
-  <view class="user-info-wrap">
+  <view class="user-info-wrap" bindtap="showAuthInfoModal">
     <image class="avatar" bindtap="navToUserInfoSetting" src="{{userInfo.avatar}}" />
     <view class="user-info">
       <view class="user-name" bindtap="navToUserInfoSetting">{{userInfo.nickname}}</view>
@@ -150,3 +150,5 @@
     </view>
   </view>
 </view>
+
+<auth-info-modal wx:if="{{authInfoModalVisible}}" bind:hide="hideAuthInfoModal" />

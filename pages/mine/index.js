@@ -26,7 +26,8 @@ Component({
       { en: "delivery", zh: "待收货", total: 0 },
       { en: "done", zh: "已完成", total: 0 },
       { en: "refund", zh: "售后", total: 0 }
-    ]
+    ],
+    authInfoModalVisible: false
   },
 
   observers: {
@@ -75,6 +76,14 @@ Component({
           this.setData({ navBarBgVisible: false });
         }
       }
+    },
+
+    showAuthInfoModal() {
+      this.setData({ authInfoModalVisible: true });
+    },
+
+    hideAuthInfoModal() {
+      this.setData({ authInfoModalVisible: false });
     },
 
     selectDate(e) {

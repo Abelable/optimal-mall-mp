@@ -9,7 +9,6 @@
     "pages/cart/index",
     "pages/mine/index",
     "pages/mine/subpages/setting/index",
-    "pages/mine/subpages/setting/subpages/user-info-setting/index",
     "pages/mine/subpages/address-list/index",
     "pages/mine/subpages/address-list/subpages/add/index",
     "pages/mine/subpages/address-list/subpages/edit/index",
