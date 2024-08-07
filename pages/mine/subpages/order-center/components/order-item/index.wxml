@@ -17,7 +17,7 @@
     <image class="alarm-icon" src="./images/alarm.png" />
     <view class="countdown">
       <text style="color: #666;">剩余</text>
-      <text>{{TIME.countDown(countdown, 'd:hh:mm:ss')}}</text>
+      <text>{{TIME.countdownFormat(countdown, 'hh:mm:ss')}}</text>
     </view>
   </view>
   <view class="list-footer">

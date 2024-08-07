@@ -50,16 +50,23 @@ function week(timeStamp) {
   }
 }
 
-function countDown(timeStamp, statement) {
+function countdownFormat(timeStamp, statement) {
   var days = Math.floor(timeStamp / (24 * 60 * 60));
   var hours = format(Math.floor((timeStamp % (24 * 60 * 60)) / (60 * 60)));
   var minutes = format(Math.floor((timeStamp % (60 * 60)) / 60));
   var seconds = format(Math.floor(timeStamp % 60));
-  return statement
-    .replace("d", days)
-    .replace("hh", hours)
-    .replace("mm", minutes)
-    .replace("ss", seconds);
+  if (statement.indexOf("d") !== -1) {
+    return statement
+      .replace("d", days)
+      .replace("hh", hours)
+      .replace("mm", minutes)
+      .replace("ss", seconds);
+  } else {
+    return statement
+      .replace("hh", hours)
+      .replace("mm", minutes)
+      .replace("ss", seconds);
+  }
 }
 
 function timeDiff(timeStamp) {
@@ -113,7 +120,7 @@ function calculateDuration(startTimeStamp, statement, endTimeStamp = 0) {
       var now = getDate().getTime();
       diffValue = (now - startTimeStamp * 1000) / 1000;
     }
-    return countDown(diffValue, statement);
+    return countdownFormat(diffValue, statement);
   }
 }
 
@@ -121,7 +128,7 @@ module.exports = {
   format: format,
   transform: transform,
   week: week,
-  countDown: countDown,
+  countdownFormat: countdownFormat,
   timeDiff: timeDiff,
-  calculateDuration: calculateDuration,
+  calculateDuration: calculateDuration
 };
