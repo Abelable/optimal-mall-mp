@@ -74,7 +74,6 @@
   <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder">
     确认收货
   </button>
-  <button class="btn active" wx:if="{{orderInfo.status === 101}}" bindtap="payOrder">继续付款</button>
   <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="refundOrder">
     申请退款
   </button>
@@ -82,4 +81,5 @@
     评价
   </button>
   <button class="btn active" bindtap="contact">{{orderInfo.shopId ? '联系卖家' : '联系客服'}}</button>
+  <button class="btn active" wx:if="{{orderInfo.status === 101}}" bindtap="payOrder">继续付款</button>
 </view>
