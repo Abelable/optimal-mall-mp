@@ -21,7 +21,7 @@ Component({
 
     deliverOrder(e) {
       const { id, index } = e.currentTarget.dataset
-      walletService.deleteOrder(id, () => {
+      walletService.deleteOrder([id], () => {
         this.triggerEvent('update', { type: 'deliver', index })
       })
     },

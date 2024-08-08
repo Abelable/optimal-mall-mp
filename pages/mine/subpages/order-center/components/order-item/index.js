@@ -86,7 +86,7 @@ Component({
 
     deleteOrder() {
       const { item, index } = this.properties;
-      orderService.deleteOrder(item.id, () => {
+      orderService.deleteOrder([item.id], () => {
         this.triggerEvent("update", { type: "delete", index });
       });
     },

@@ -43,10 +43,10 @@ class OrderService extends MineService {
     })
   }
 
-  async deleteOrder(id, success) {
+  async deleteOrder(ids, success) {
     await this.post({ 
       url: `${this.baseUrl}/order/delete`, 
-      data: { id },
+      data: { ids },
       success
     })
   }

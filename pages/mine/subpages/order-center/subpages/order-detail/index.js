@@ -105,7 +105,7 @@ Page({
   },
 
   deleteOrder() {
-    orderService.deleteOrder(this.orderId, () => {
+    orderService.deleteOrder([this.orderId], () => {
       wx.navigateBack();
     });
   },
