@@ -61,7 +61,7 @@ Component({
 
     async payOrder() {
       const { item, index } = this.properties;
-      const params = await orderService.getPayParams([item.id]);
+      const params = await orderService.getPayParams(item.id);
       wx.requestPayment({
         ...params,
         success: () => {
