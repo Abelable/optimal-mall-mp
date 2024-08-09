@@ -1,7 +1,7 @@
 <view class="goods-list">
   <view class="goods-item" wx:for="{{list}}" wx:key="index" bindtap="navToGoodsDetail" data-id="{{item.id}}">
     <view class="cover-wrap">
-      <image class="cover" src="{{item.cover}}" mode="widthFix" lazy-load />
+      <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
       <view class="goods-tag">爆品</view>
       <view class="group-buying-data">
         <view class="group-buying-title">开团活动</view>
