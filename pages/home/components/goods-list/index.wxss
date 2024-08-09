@@ -66,22 +66,12 @@
 
 .desc {
   margin-top: 10rpx;
-  color: #999;
-  font-size: 24rpx;
-}
-
-.label-list {
-  display: flex;
-  margin-top: 8rpx;
-}
-.label-item {
-  margin-right: 12rpx;
   color: #F5701D;
   font-size: 24rpx;
 }
 
 .by-stages-tag {
-  margin-top: 8rpx;
+  margin-top: 18rpx;
   padding: 2rpx 8rpx;
   width: fit-content;
   color: #FF4747;

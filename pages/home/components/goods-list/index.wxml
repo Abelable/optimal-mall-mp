@@ -10,9 +10,7 @@
     </view>
     <view class="content">
       <view class="title omit">{{item.name}}</view>
-      <view class="label-list">
-        <view class="label-item" wx:for="{{['开袋即食', '无敌牛逼', '超级厉害']}}" wx:key="index">{{item}}</view>
-      </view>
+      <view class="desc" wx:if="{{item.introduction}}">{{item.introduction}}</view>
       <view class="by-stages-tag">分期付款单</view>
       <view class="info-wrap row between">
         <view class="price-wrap">
