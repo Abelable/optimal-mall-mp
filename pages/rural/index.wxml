@@ -24,5 +24,17 @@
 </view>
 
 <view class="container">
-
+  <view class="region-menu-wrap">
+    <scroll-view class="region-menu" scroll-x>
+      <view 
+        class="regin-item" 
+        wx:for="{{['杭州', '杭州', '杭州', '杭州', '杭州', '杭州']}}" 
+        wx:key="index"
+        bindtap="selectRegion"
+        data-index="{{index}}"
+      >
+        {{item}}
+      </view>
+    </scroll-view>
+  </view>
 </view>

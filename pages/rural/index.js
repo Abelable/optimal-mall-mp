@@ -1,10 +1,15 @@
-
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    curRegionIdx: 0
+  },
+
+  selectRegion(e) {
+    const curRegionIdx = e.currentTarget.dataset.index;
+    this.setData({ curRegionIdx });
   },
 
   onPageScroll(e) {
@@ -17,5 +22,5 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
-  },
+  }
 });

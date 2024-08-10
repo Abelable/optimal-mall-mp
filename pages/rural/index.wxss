@@ -85,6 +85,5 @@
 }
 
 .container {
-  height: 200vh;
-  background: #FFF3EC;
+  padding: 24rpx;
 }
