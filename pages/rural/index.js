@@ -17,42 +17,15 @@ Page({
   async onLoad() {
     this.setBannerList();
     await this.setRegionOptions();
-    this.setGoodsList(true);
+    this.setGoodsList();
   },
 
-  async setBannerList() {
-    const bannerList = await ruralService.getBannerList();
-    this.setData({ bannerList });
-  },
 
-  async setRegionOptions() {
-    const regionOptions = await ruralService.getRegionOptions();
-    this.setData({ regionOptions });
-  },
-
-  async setGoodsList(init = false) {
-    const { regionOptions, curRegionIdx, goodsList } = this.data;
-    if (init) {
-      this.page = 0;
-      this.setData({ finished: false });
-    }
-    const { list = [] } =
-      (await ruralService.getGoodsList(
-        regionOptions[curRegionIdx].id,
-        ++this.page
-      )) || {};
-    this.setData({ 
-      goodsList: init ? list : [...goodsList, ...list] 
-    });
-    if (!list.length) {
-      this.setData({ finished: true })
-    }
-  },
 
   selectRegion(e) {
     const curRegionIdx = e.currentTarget.dataset.index;
     this.setData({ curRegionIdx });
-    this.setGoodsList(true);
+    this.setGoodsList();
   },
 
   showRegionPickerModal() {
@@ -65,7 +38,29 @@ Page({
 
   confirmRegionPick(e) {
     this.setData({ curRegionIdx: e.detail, regionPickerModalVisible: false });
-    this.setGoodsList(true);
+    this.setGoodsList();
+  },
+
+  async setBannerList() {
+    const bannerList = await ruralService.getBannerList();
+    this.setData({ bannerList });
+  },
+
+  async setRegionOptions() {
+    const regionOptions = await ruralService.getRegionOptions();
+    this.setData({ regionOptions });
+  },
+
+  async setGoodsList() {
+    const { regionOptions, curRegionIdx } = this.data;
+    const { list: goodsList = [] } =
+      (await ruralService.getGoodsList(regionOptions[curRegionIdx].id)) || {};
+    this.setData({ goodsList });
+  },
+
+  onPullDownRefresh() {
+    this.setGoodsList();
+    wx.stopPullDownRefresh();
   },
 
   onPageScroll(e) {
@@ -78,15 +73,6 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
-  },
-
-  onPullDownRefresh() {
-    this.setGoodsList(true);
-    wx.stopPullDownRefresh();
-  },
-
-  onReachBottom() {
-    this.setGoodsList();
   },
 
   linkTo(e) {
