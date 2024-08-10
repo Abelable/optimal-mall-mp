@@ -14,6 +14,13 @@
       <view class="check-btn">去查看</view>
     </view>
   </view>
+  <swiper class="banner" style="height: 194rpx;" autoplay circular indicator-dots	indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
+    <swiper-item 
+      class="banner-item"
+    >
+      <image class="banner-img" mode="aspectFill" src="./images/banner.png" />
+    </swiper-item>
+  </swiper>
 </view>
 
 <view class="container">
