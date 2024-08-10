@@ -36,7 +36,7 @@
     <view class="sort-menu">
       <view class="sort-item" wx:for="{{goodsLists[curCategoryIdx].sortMenuList}}" wx:key="index" bindtap="selectSort" data-index="{{index}}">
         <view class="sort-name {{goodsLists[curCategoryIdx].curSortIdx === index ? 'active' : ''}}">{{item.name}}</view>
-        <image class="sort-type" wx:if="{{item.sort}}" src="./images/{{goodsLists[curCategoryIdx].curSortIdx === index ? item.sort : 'unselected'}}.png" />
+        <image class="sort-type" wx:if="{{item.order}}" src="./images/{{goodsLists[curCategoryIdx].curSortIdx === index ? item.order : 'unselected'}}.png" />
       </view>
     </view>
     <scroll-view class="goods-list" bindscrolltolower="onReachBottom" scroll-y>

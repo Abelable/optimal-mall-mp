@@ -45,10 +45,10 @@ Component({
         return;
       }
       if (index === curSortIdx) {
-        const { sort } = sortMenuList[index];
+        const { order } = sortMenuList[index];
         this.setData({
-          [`goodsLists[${curCategoryIdx}].sortMenuList[${index}].sort`]:
-            sort === "desc" ? "asc" : "desc"
+          [`goodsLists[${curCategoryIdx}].sortMenuList[${index}].order`]:
+            order === "desc" ? "asc" : "desc"
         });
       } else {
         this.setData({ [`goodsLists[${curCategoryIdx}].curSortIdx`]: index });
@@ -59,8 +59,8 @@ Component({
       const categoryOptions = await categoryService.getCategoryOptions();
       const goodsLists = new Array(categoryOptions.length).fill().map(() => ({
         sortMenuList: [
-          { name: "销量", sort: "desc" },
-          { name: "价格", sort: "desc" },
+          { name: "销量", order: "desc" },
+          { name: "价格", order: "desc" },
           { name: "好评" },
           { name: "新品" }
         ],
