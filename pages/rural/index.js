@@ -14,8 +14,9 @@ Page({
     goodsList: []
   },
 
-  onLoad() {
+  async onLoad() {
     this.setBannerList();
+    await this.setRegionOptions();
     this.setGoodsList();
   },
 

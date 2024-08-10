@@ -10,7 +10,7 @@ class RuralService extends BaseService {
 
   async getRegionOptions() {
     return await this.get({
-      url: `${this.baseUrl}/rural/region_list`,
+      url: `${this.baseUrl}/rural/region_options`,
       loadingTitle: "加载中...",
     });
   }
