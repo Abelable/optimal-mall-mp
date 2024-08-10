@@ -78,7 +78,6 @@
 .category-options {
   width: 180rpx;
   height: 100%;
-  background: #f5f6f7;
   overflow-y: scroll;
 }
 .category-option {
@@ -87,6 +86,7 @@
   color: #666;
   font-size: 28rpx;
   font-weight: 300;
+  background: #f5f6f7;
 }
 .category-option.active {
   position: relative;
@@ -104,6 +104,12 @@
   content: "";
   border-radius: 0 8rpx 8rpx 0;
   background: #F5701D;
+}
+.category-option.border-bottom {
+  border-bottom-right-radius: 20rpx;
+}
+.category-option.border-top {
+  border-top-right-radius: 20rpx;
 }
 
 .goods-list {

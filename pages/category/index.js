@@ -21,48 +21,56 @@ Component({
     categoryOptions: [],
     curCategoryIdx: 0,
     tabScroll: 0,
-    goodsList: [],
-    finished: false
+    goodsLists: []
   },
 
   methods: {
     async onShow() {
       await this.setCategoryOptions();
-      this.setGoodsList(true);
+      this.setGoodsLists(true);
     },
 
     async selectCategory(e) {
-      const curCategoryIdx = Number(e.currentTarget.dataset.idx);
+      const curCategoryIdx = e.currentTarget.dataset.idx;
       this.setData({ curCategoryIdx });
-      this.setGoodsList(true);
+      if (!this.data.goodsLists[curCategoryIdx].list.length) {
+        this.setGoodsLists(true);
+      }
     },
 
     async setCategoryOptions() {
       const categoryOptions = await categoryService.getCategoryOptions();
-      this.setData({ categoryOptions });
+      const goodsLists = new Array(categoryOptions.length)
+        .fill()
+        .map(() => ({ list: [], finished: false }));
+      this.pageList = new Array(categoryOptions.length)
+      .fill(0)
+      this.setData({ categoryOptions, goodsLists });
     },
 
-    async setGoodsList(init = false) {
+    async setGoodsLists(init = false) {
+      const { categoryOptions, curCategoryIdx, goodsLists } = this.data;
       const limit = 10;
       if (init) {
-        this.page = 0;
+        this.pageList[curCategoryIdx] = 0;
         this.setData({
-          finished: false
+          [`goodsLists[${curCategoryIdx}].finished`]: false
         });
       }
-      const { categoryOptions, curCategoryIdx, goodsList } = this.data;
       const list =
         (await categoryService.getGoodsList({
           categoryId: categoryOptions[curCategoryIdx].id,
-          page: ++this.page,
+          page: ++this.pageList[curCategoryIdx],
           limit
         })) || [];
       this.setData({
-        goodsList: init ? list : [...goodsList, ...list]
+        [`goodsLists[${curCategoryIdx}].list`]: init
+          ? list
+          : [...goodsLists[curCategoryIdx].list, ...list]
       });
       if (list.length < limit) {
         this.setData({
-          finished: true
+          [`goodsLists[${curCategoryIdx}].finished`]: true
         });
       }
     },
@@ -73,7 +81,7 @@ Component({
     },
 
     onReachBottom() {
-      this.setGoodsList();
+      this.setGoodsLists();
     },
 
     search() {
