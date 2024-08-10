@@ -15,9 +15,10 @@ class RuralService extends BaseService {
     });
   }
 
-  async getCartList() {
+  async getGoodsList(regionId, page, limit = 10) {
     return await this.get({
       url: `${this.baseUrl}/cart/list`,
+      data: {regionId, page, limit },
       loadingTitle: "加载中...",
     });
   }

@@ -17,7 +17,7 @@ Page({
   async onLoad() {
     this.setBannerList();
     await this.setRegionOptions();
-    this.setGoodsList();
+    this.setGoodsList(true);
   },
 
   async setBannerList() {
@@ -30,15 +30,29 @@ Page({
     this.setData({ regionOptions });
   },
 
-  async setGoodsList() {
-    const { recommendGoodsList: goodsList } =
-      (await ruralService.getCartList()) || {};
-    this.setData({ goodsList });
+  async setGoodsList(init = false) {
+    const { regionOptions, curRegionIdx, goodsList } = this.data;
+    if (init) {
+      this.page = 0;
+      this.setData({ finished: false });
+    }
+    const { list = [] } =
+      (await ruralService.getGoodsList(
+        regionOptions[curRegionIdx].id,
+        ++this.page
+      )) || {};
+    this.setData({ 
+      goodsList: init ? list : [...goodsList, ...list] 
+    });
+    if (!list.length) {
+      this.setData({ finished: true })
+    }
   },
 
   selectRegion(e) {
     const curRegionIdx = e.currentTarget.dataset.index;
     this.setData({ curRegionIdx });
+    this.setGoodsList(true);
   },
 
   showRegionPickerModal() {
@@ -51,6 +65,7 @@ Page({
 
   confirmRegionPick(e) {
     this.setData({ curRegionIdx: e.detail, regionPickerModalVisible: false });
+    this.setGoodsList(true);
   },
 
   onPageScroll(e) {
@@ -66,7 +81,12 @@ Page({
   },
 
   onPullDownRefresh() {
+    this.setGoodsList(true);
     wx.stopPullDownRefresh();
+  },
+
+  onReachBottom() {
+    this.setGoodsList();
   },
 
   linkTo(e) {
