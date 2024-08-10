@@ -53,8 +53,8 @@ Page({
 
   async setGoodsList() {
     const { regionOptions, curRegionIdx } = this.data;
-    const { list: goodsList = [] } =
-      (await ruralService.getGoodsList(regionOptions[curRegionIdx].id)) || {};
+    const goodsList =
+      (await ruralService.getGoodsList(regionOptions[curRegionIdx].id)) || [];
     this.setData({ goodsList });
   },
 
