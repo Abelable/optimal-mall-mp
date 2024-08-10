@@ -38,7 +38,7 @@
         bindtap="selectRegion"
         data-index="{{index}}"
       >
-        {{item}}
+        {{item.name}}
       </view>
     </scroll-view>
     <image class="all-menu" bindtap="showRegionPickerModal" src="./images/menu.png" />

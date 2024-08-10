@@ -8,7 +8,7 @@ Page({
     statusBarHeight,
     navBarBgVisible: false,
     bannerList: [],
-    regionOptions: ["杭州", "杭州", "杭州", "杭州", "杭州", "杭州"],
+    regionOptions: [],
     curRegionIdx: 0,
     regionPickerModalVisible: false,
     goodsList: []
@@ -22,6 +22,11 @@ Page({
   async setBannerList() {
     const bannerList = await ruralService.getBannerList();
     this.setData({ bannerList });
+  },
+
+  async setRegionOptions() {
+    const regionOptions = await ruralService.getRegionOptions();
+    this.setData({ regionOptions });
   },
 
   async setGoodsList() {
@@ -78,5 +83,5 @@ Page({
         });
         break;
     }
-  },
+  }
 });

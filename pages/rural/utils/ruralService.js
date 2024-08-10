@@ -8,6 +8,13 @@ class RuralService extends BaseService {
     });
   }
 
+  async getRegionOptions() {
+    return await this.get({
+      url: `${this.baseUrl}/rural/region_list`,
+      loadingTitle: "加载中...",
+    });
+  }
+
   async getCartList() {
     return await this.get({
       url: `${this.baseUrl}/cart/list`,

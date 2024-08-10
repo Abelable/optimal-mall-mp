@@ -9,7 +9,7 @@
         bindtap="pickRegion" 
         data-index="{{index}}"
       >
-        {{item}}
+        {{item.name}}
       </view>
     </view>
     <view class="modal-btns">
