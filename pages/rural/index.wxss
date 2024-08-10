@@ -12,7 +12,7 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.title {
+.nav-bar-title {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -85,5 +85,41 @@
 }
 
 .container {
-  padding: 24rpx;
+  padding: 24rpx 20rpx;
+}
+
+.region-menu-wrap {
+  display: flex;
+  align-items: center;
+}
+.region-menu {
+  flex: 1;
+  white-space: nowrap;
+  overflow-x: scroll;
+}
+.regin-item {
+  display: inline-block;
+  margin-right: 14rpx;
+  padding: 0 46rpx;
+  height: 56rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
+  line-height: 54rpx;
+  background: #fff;
+  border-radius: 28rpx;
+  border: 1px solid #fff;
+}
+.regin-item.selected {
+  color: #F5701D;
+  background: #FFF3EC;
+  border: 1px solid #F5701D;
+}
+.all-menu {
+  margin-left: 24rpx;
+  width: 56rpx;
+  height: 56rpx;
+}
+
+.goods-list {
+  margin-top: 24rpx;
 }

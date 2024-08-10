@@ -1,10 +1,23 @@
+import RuralService from "./utils/ruralService";
+
+const ruralService = new RuralService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    curRegionIdx: 0
+    curRegionIdx: 0,
+    goodsList: []
+  },
+
+  onLoad() {
+    this.setGoodsList();
+  },
+
+  async setGoodsList() {
+    const { recommendGoodsList: goodsList } = (await ruralService.getCartList()) || {};
+    this.setData({ goodsList });
   },
 
   selectRegion(e) {
@@ -22,5 +35,9 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
+  },
+
+  onPullDownRefresh() {
+    wx.stopPullDownRefresh();
   }
 });

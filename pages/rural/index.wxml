@@ -1,5 +1,5 @@
 <view class="nav-bar {{ navBarBgVisible ? 'show-bg' : '' }}" style="padding-top: {{statusBarHeight}}px;">
-  <view class="title">诚信乡村</view>
+  <view class="nav-bar-title">诚信乡村</view>
 </view>
 
 <view class="header" style="padding-top: {{statusBarHeight + 44}}px;">
@@ -27,7 +27,7 @@
   <view class="region-menu-wrap">
     <scroll-view class="region-menu" scroll-x>
       <view 
-        class="regin-item" 
+        class="regin-item {{curRegionIdx === index ? 'selected' : ''}}" 
         wx:for="{{['杭州', '杭州', '杭州', '杭州', '杭州', '杭州']}}" 
         wx:key="index"
         bindtap="selectRegion"
@@ -36,5 +36,10 @@
         {{item}}
       </view>
     </scroll-view>
+    <image class="all-menu" src="./images/menu.png" />
+  </view>
+
+  <view class="goods-list">
+    <fall-flow list="{{goodsList}}" generic:item="goods-item" />
   </view>
 </view>

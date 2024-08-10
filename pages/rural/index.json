@@ -1,5 +1,9 @@
 {
   "navigationStyle": "custom",
   "navigationBarTextStyle": "white",
-  "enablePullDownRefresh": true
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "fall-flow": "/components/fall-flow/index",
+    "goods-item": "/components/goods-item/index"
+  }
 }
