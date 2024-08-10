@@ -38,25 +38,36 @@ Component({
     },
 
     selectSort(e) {
-      const { categoryOptions, curCategoryIdx, goodsLists } = this.data;
-      const curSortIdx = e.currentTarget.dataset.index;
+      const { curCategoryIdx, goodsLists } = this.data;
+      const { index } = e.currentTarget.dataset;
+      const { sortMenuList, curSortIdx } = goodsLists[curCategoryIdx];
+      if (index === curSortIdx && [2, 3].includes(index)) {
+        return;
+      }
+      if (index === curSortIdx) {
+        const { sort } = sortMenuList[index];
+        this.setData({
+          [`goodsLists[${curCategoryIdx}].sortMenuList[${index}].sort`]:
+            sort === "desc" ? "asc" : "desc"
+        });
+      } else {
+        this.setData({ [`goodsLists[${curCategoryIdx}].curSortIdx`]: index });
+      }
     },
 
     async setCategoryOptions() {
       const categoryOptions = await categoryService.getCategoryOptions();
-      const goodsLists = new Array(categoryOptions.length)
-        .fill()
-        .map(() => ({
-          sortMenuList: [
-            { name: "销量", sort: "desc" },
-            { name: "价格", sort: "desc" },
-            { name: "好评" },
-            { name: "新品" }
-          ],
-          curSortIdx: 0,
-          list: [],
-          finished: false
-        }));
+      const goodsLists = new Array(categoryOptions.length).fill().map(() => ({
+        sortMenuList: [
+          { name: "销量", sort: "desc" },
+          { name: "价格", sort: "desc" },
+          { name: "好评" },
+          { name: "新品" }
+        ],
+        curSortIdx: 0,
+        list: [],
+        finished: false
+      }));
       this.pageList = new Array(categoryOptions.length).fill(0);
       this.setData({ categoryOptions, goodsLists });
     },
