@@ -59,10 +59,10 @@ Component({
       const categoryOptions = await categoryService.getCategoryOptions();
       const goodsLists = new Array(categoryOptions.length).fill().map(() => ({
         sortMenuList: [
-          { name: "销量", order: "desc" },
-          { name: "价格", order: "desc" },
-          { name: "好评" },
-          { name: "新品" }
+          { name: "销量", value: "sales_volume", order: "desc" },
+          { name: "价格", value: "price", order: "desc" },
+          { name: "好评", value: "avg_score", },
+          { name: "新品", value: "created_at", }
         ],
         curSortIdx: 0,
         list: [],
@@ -74,6 +74,7 @@ Component({
 
     async setGoodsLists(init = false) {
       const { categoryOptions, curCategoryIdx, goodsLists } = this.data;
+      const { sortMenuList, curSortIdx } = goodsLists[curCategoryIdx]
       const limit = 10;
       if (init) {
         this.pageList[curCategoryIdx] = 0;
@@ -84,6 +85,8 @@ Component({
       const list =
         (await categoryService.getGoodsList({
           categoryId: categoryOptions[curCategoryIdx].id,
+          sort: sortMenuList[curSortIdx].value,
+          order: sortMenuList[curSortIdx].order || 'desc',
           page: ++this.pageList[curCategoryIdx],
           limit
         })) || [];

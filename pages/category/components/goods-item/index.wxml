@@ -6,6 +6,7 @@
       <view class="introduce omit single-line" wx:if="{{item.introduction}}">
         {{item.introduction}}
       </view>
+      <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
     </view>
     <view class="info-wrap row between">
       <view class="row baseline">
