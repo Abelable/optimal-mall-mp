@@ -27,7 +27,7 @@
       data-scene="{{item.scene}}"
       data-param="{{item.param}}"
     >
-      <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" />
+      <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
     </swiper-item>
   </swiper>
   <view class="search-bar outside" wx:if="{{teamLeaderInfo}}" style="top: {{statusBarHeight + 50}}px;" bindtap="search">

@@ -17,8 +17,10 @@
   <swiper class="banner" style="height: 194rpx;" autoplay circular indicator-dots	indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
     <swiper-item 
       class="banner-item"
+      wx:for="{{bannerList}}"
+      wx:key="index"
     >
-      <image class="banner-img" mode="aspectFill" src="./images/banner.png" />
+      <image class="banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
     </swiper-item>
   </swiper>
 </view>
