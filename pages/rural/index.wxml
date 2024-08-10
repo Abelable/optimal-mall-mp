@@ -19,6 +19,9 @@
       class="banner-item"
       wx:for="{{bannerList}}"
       wx:key="index"
+      bindtap="linkTo"
+      data-scene="{{item.scene}}"
+      data-param="{{item.param}}"
     >
       <image class="banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
     </swiper-item>

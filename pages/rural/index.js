@@ -15,16 +15,18 @@ Page({
   },
 
   onLoad() {
+    this.setBannerList();
     this.setGoodsList();
   },
 
   async setBannerList() {
-    const bannerList = await ruralService.getBannerList()
-    this.setData({ bannerList })
+    const bannerList = await ruralService.getBannerList();
+    this.setData({ bannerList });
   },
 
   async setGoodsList() {
-    const { recommendGoodsList: goodsList } = (await ruralService.getCartList()) || {};
+    const { recommendGoodsList: goodsList } =
+      (await ruralService.getCartList()) || {};
     this.setData({ goodsList });
   },
 
@@ -59,5 +61,22 @@ Page({
 
   onPullDownRefresh() {
     wx.stopPullDownRefresh();
-  }
+  },
+
+  linkTo(e) {
+    const { scene, param } = e.currentTarget.dataset;
+    switch (scene) {
+      case 1:
+        wx.navigateTo({
+          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}${param}`
+        });
+        break;
+
+      case 2:
+        wx.navigateTo({
+          url: `/pages/home/subpages/goods-detail/index?id=${param}`
+        });
+        break;
+    }
+  },
 });
