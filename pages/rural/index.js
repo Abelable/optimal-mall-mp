@@ -7,7 +7,9 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    regionOptions: ["杭州", "杭州", "杭州", "杭州", "杭州", "杭州"],
     curRegionIdx: 0,
+    regionPickerModalVisible: false,
     goodsList: []
   },
 
@@ -16,13 +18,26 @@ Page({
   },
 
   async setGoodsList() {
-    const { recommendGoodsList: goodsList } = (await ruralService.getCartList()) || {};
+    const { recommendGoodsList: goodsList } =
+      (await ruralService.getCartList()) || {};
     this.setData({ goodsList });
   },
 
   selectRegion(e) {
     const curRegionIdx = e.currentTarget.dataset.index;
     this.setData({ curRegionIdx });
+  },
+
+  showRegionPickerModal() {
+    this.setData({ regionPickerModalVisible: true });
+  },
+
+  hideRegionPickerModal() {
+    this.setData({ regionPickerModalVisible: false });
+  },
+
+  confirmRegionPick(e) {
+    this.setData({ curRegionIdx: e.detail, regionPickerModalVisible: false });
   },
 
   onPageScroll(e) {

@@ -4,6 +4,7 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "fall-flow": "/components/fall-flow/index",
-    "goods-item": "/components/goods-item/index"
+    "goods-item": "/components/goods-item/index",
+    "region-picker-modal": "./components/region-picker-modal/index"
   }
 }
