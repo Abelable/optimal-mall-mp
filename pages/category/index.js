@@ -29,6 +29,23 @@ Component({
       this.setGoodsLists(true);
     },
 
+    async setCategoryOptions() {
+      const categoryOptions = await categoryService.getCategoryOptions();
+      const goodsLists = new Array(categoryOptions.length).fill().map(() => ({
+        sortMenuList: [
+          { name: "销量", value: "sales_volume", order: "desc" },
+          { name: "价格", value: "price", order: "desc" },
+          { name: "好评", value: "avg_score", },
+          { name: "新品", value: "created_at", }
+        ],
+        curSortIdx: 0,
+        list: [],
+        finished: false
+      }));
+      this.pageList = new Array(categoryOptions.length).fill(0);
+      this.setData({ categoryOptions, goodsLists });
+    },
+
     selectCategory(e) {
       const curCategoryIdx = e.currentTarget.dataset.idx;
       this.setData({ curCategoryIdx });
@@ -53,23 +70,7 @@ Component({
       } else {
         this.setData({ [`goodsLists[${curCategoryIdx}].curSortIdx`]: index });
       }
-    },
-
-    async setCategoryOptions() {
-      const categoryOptions = await categoryService.getCategoryOptions();
-      const goodsLists = new Array(categoryOptions.length).fill().map(() => ({
-        sortMenuList: [
-          { name: "销量", value: "sales_volume", order: "desc" },
-          { name: "价格", value: "price", order: "desc" },
-          { name: "好评", value: "avg_score", },
-          { name: "新品", value: "created_at", }
-        ],
-        curSortIdx: 0,
-        list: [],
-        finished: false
-      }));
-      this.pageList = new Array(categoryOptions.length).fill(0);
-      this.setData({ categoryOptions, goodsLists });
+      this.setGoodsLists(true);
     },
 
     async setGoodsLists(init = false) {

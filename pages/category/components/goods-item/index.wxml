@@ -1,7 +1,7 @@
 <view class="goods-item row {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
   <image class="cover" mode="aspectFit" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
   <view class="content">
-    <view class="goods-title omit">{{item.name}}</view>
+    <view class="goods-title omit single-line">{{item.name}}</view>
     <view class="introduce-wrap">
       <view class="introduce omit single-line" wx:if="{{item.introduction}}">
         {{item.introduction}}
