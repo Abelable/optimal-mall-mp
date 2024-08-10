@@ -11,7 +11,7 @@
     <view class="content">
       <view class="title omit">{{item.name}}</view>
       <view class="desc" wx:if="{{item.introduction}}">{{item.introduction}}</view>
-      <view class="by-stages-tag">分期付款单</view>
+      <!-- <view class="by-stages-tag">分期付款单</view> -->
       <view class="info-wrap row between">
         <view class="price-wrap">
           <price-unit price="{{item.marketPrice || 0}}" />
