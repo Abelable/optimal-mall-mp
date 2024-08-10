@@ -4,11 +4,13 @@
   left: 0;
   width: 100%;
   z-index: 100;
-  transition: background-color .2s ease;
 }
 .nav-bar.show-bg {
-  background: #fff;
-  transition: background-color .2s ease;
+  overflow: hidden;
+  background-image: url("https://static.youbozhenxuan.cn/mp/rural_bg.png");
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
 }
 .title {
   display: flex;
@@ -17,6 +19,56 @@
   height: 44px;
   color: #000;
   font-weight: 500;
+}
+
+.header {
+  padding: 0 26rpx;
+  height: 856rpx;
+  background-image: url("https://static.youbozhenxuan.cn/mp/rural_bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.theme-title {
+  display: block;
+  margin: 48rpx auto 0;
+  width: 668rpx;
+  height: 78rpx;
+}
+.module-wrap {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 172rpx;
+}
+.module {
+  padding: 0 28rpx;
+  width: 336rpx;
+  height: 152rpx;
+  background-size: 100%;
+  background-repeat: no-repeat;
+}
+.module.adopt {
+  background-image: url("https://static.youbozhenxuan.cn/mp/rural_module_adopt.png");
+}
+.module.bag {
+  background-image: url("https://static.youbozhenxuan.cn/mp/rural_module_bag.png");
+}
+.module-title {
+  margin-top: 22rpx;
+  color: #fff;
+  font-size: 40rpx;
+  font-weight: 550;
+}
+.check-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 12rpx;
+  width: 108rpx;
+  height: 36rpx;
+  color: #fff;
+  font-size: 20rpx;
+  border-radius: 18rpx;
+  background: linear-gradient( 118deg, #FFAC40 0%, #F5701D 100%);
 }
 
 .container {
