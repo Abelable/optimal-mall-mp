@@ -27,7 +27,11 @@ Component({
   },
 
   methods: {
-    async onShow() {
+    onLoad() {
+      this.init();
+    },
+
+    async init() {
       await this.setBannerList();
       await this.setTodayGoodsList();
       await this.setAdvanceGoodsList();
@@ -84,7 +88,7 @@ Component({
     },
 
     onPullDownRefresh() {
-      this.setGoodsList(true);
+      this.init();
       wx.stopPullDownRefresh();
     },
 
