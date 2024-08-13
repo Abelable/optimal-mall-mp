@@ -113,6 +113,12 @@ Component({
       wx.switchTab({
         url: "/pages/rural/index"
       });
-    }
+    },
+
+    navToIntegrityGoods() {
+      wx.navigateTo({
+        url: './subpages/integrity-goods/index'
+      });
+    },
   }
 });

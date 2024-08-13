@@ -39,7 +39,7 @@
 <view class="container">
   <view class="activity-wrap">
     <image class="activity" bindtap="navToRuralPage" src="./images/integrity-village.png" />
-    <image class="activity" src="./images/integrity-goods.png" />
+    <image class="activity" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
   </view>
 
   <view class="menu">
