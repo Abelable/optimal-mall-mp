@@ -53,7 +53,8 @@
   font-size: 22rpx;
   text-decoration: line-through;
 }
+
 .add-icon {
-  width: 56rpx;
-  height: 56rpx;
+  width: 40rpx;
+  height: 40rpx;
 }
