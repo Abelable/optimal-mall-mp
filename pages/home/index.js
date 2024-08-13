@@ -20,19 +20,33 @@ Component({
     menuList: ["今日主推", "活动预告"],
     curMenuIdx: 0,
     bannerList: [],
+    todayGoodsList: [],
+    advanceGoodsList: [],
     goodsList: [],
     finished: false
   },
 
   methods: {
-    async onLoad() {
+    async onShow() {
       await this.setBannerList();
+      await this.setTodayGoodsList();
+      await this.setAdvanceGoodsList();
       this.setGoodsList(true);
     },
 
     selectMenu(e) {
       const curMenuIdx = e.currentTarget.dataset.index;
       this.setData({ curMenuIdx });
+    },
+
+    async setTodayGoodsList() {
+      const todayGoodsList = (await homeService.getTodayGoodsList()) || [];
+      this.setData({ todayGoodsList });
+    },
+
+    async setAdvanceGoodsList() {
+      const advanceGoodsList = (await homeService.getAdvanceGoodsList()) || [];
+      this.setData({ advanceGoodsList });
     },
 
     async setGoodsList(init = false) {
@@ -117,8 +131,8 @@ Component({
 
     navToIntegrityGoods() {
       wx.navigateTo({
-        url: './subpages/integrity-goods/index'
+        url: "./subpages/integrity-goods/index"
       });
-    },
+    }
   }
 });

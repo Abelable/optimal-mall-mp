@@ -2,32 +2,25 @@ import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
-  async getCategoryOptions() {
+  async getBannerList() {
     return await this.get({
-      url: `${this.baseUrl}/goods/category_options`,
+      url: `${this.baseUrl}/mall/banner_list`,
+      loadingTitle: "加载中...",
     });
   }
 
-  async getGoodsList({
-    categoryId,
-    sort,
-    order,
-    page,
-    limit = 10
-  }) {
-    const { list = [] } =
-      (await this.get({
-        url: `${this.baseUrl}/goods/list`,
-        data: cleanObject({
-          categoryId,
-          sort,
-          order,
-          page,
-          limit
-        }),
-        loadingTitle: "加载中..."
-      })) || {};
-    return list;
+  async getTodayGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/today_goods_list`,
+      loadingTitle: "加载中...",
+    });
+  }
+
+  async getAdvanceGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/advance_goods_list`,
+      loadingTitle: "加载中...",
+    });
   }
 
   async getGoodsInfo(id) {
@@ -38,50 +31,11 @@ class HomeService extends BaseService {
     });
   }
 
-  async getBannerList() {
-    return await this.get({
-      url: `${this.baseUrl}/mall/banner_list`,
-      loadingTitle: "加载中...",
-    });
-  }
-
   async getGoodsEvaluationSummary(goodsId) {
     return await this.get({
       url: `${this.baseUrl}/goods/evaluation/summary`,
       data: { goodsId },
       loadingTitle: "加载中..."
-    });
-  }
-
-  async getShopInfo(id) {
-    return await this.get({
-      url: `${this.baseUrl}/shop/info`,
-      data: { id }
-    });
-  }
-
-  async getShopGoodsList(shopId, page, limit = 10) {
-    const { list = [] } =
-      (await this.get({
-        url: `${this.baseUrl}/shop/goods_list`,
-        data: { shopId, page, limit },
-        loadingTitle: "加载中..."
-      })) || {};
-    return list;
-  }
-
-  async getCartList() {
-    return await this.get({
-      url: `${this.baseUrl}/cart/list`,
-      loadingTitle: "加载中..."
-    });
-  }
-
-  async deleteCartList(ids, success) {
-    return await this.post({
-      url: `${this.baseUrl}/cart/delete`,
-      data: { ids },
-      success
     });
   }
 
