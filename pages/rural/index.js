@@ -20,8 +20,6 @@ Page({
     this.setGoodsList();
   },
 
-
-
   selectRegion(e) {
     const curRegionIdx = e.currentTarget.dataset.index;
     this.setData({ curRegionIdx });

@@ -1,0 +1,18 @@
+<swiper class="banner" style="height: 460px;" autoplay circular indicator-dots	indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
+  <swiper-item 
+    class="banner-item"
+    wx:for="{{bannerList}}"
+    wx:key="index"
+    bindtap="linkTo"
+    data-scene="{{item.scene}}"
+    data-param="{{item.param}}"
+  >
+    <image class="banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
+  </swiper-item>
+</swiper>
+
+<view class="goods-list">
+  <fall-flow list="{{goodsList}}" generic:item="goods-item" />
+  <empty-illus wx:if="{{!goodsList.length}}" desc="暂无商品" />
+  <view class="no-more-tips" wx:if="{{goodsList.length}}">～没有更多了～</view>
+</view>
