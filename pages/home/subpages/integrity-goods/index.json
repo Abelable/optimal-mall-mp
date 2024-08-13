@@ -1,6 +1,5 @@
 {
   "navigationBarTitleText": "诚信甄品",
-  "navigationBarTextStyle": "white",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "goods-item": "./components/goods-item/index",
