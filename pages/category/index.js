@@ -24,7 +24,7 @@ Component({
   },
 
   methods: {
-    async onShow() {
+    async onLoad() {
       await this.setCategoryOptions();
       this.setGoodsLists(true);
     },
