@@ -1,18 +1,19 @@
 <view class="goods-item" bindtap="navToGoodsDetail">
-  <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+  <image class="cover" mode="aspectFit" src="{{item.cover}}" lazy-load />
   <view class="content">
-    <view class="title omit">
-      {{item.name}}
+    <view class="title omit">{{item.name}}</view>
+    <view class="introduce-wrap">
+      <view class="introduce omit single-line" wx:if="{{item.introduction}}">
+        {{item.introduction}}
+      </view>
+      <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
     </view>
     <view class="info-wrap row between">
       <view class="row baseline">
         <price-unit price="{{item.price || 0}}" />
         <view class="market-price">¥{{item.marketPrice}}</view>
       </view>
-      <view class="sales-volume">
-        <text>已售</text>
-        <text style="font-weight: bold;">{{ item.salesVolume }}</text>
-      </view>
+      <image class="add-icon" src="./images/add.png" />
     </view>
   </view>
 </view>

@@ -12,7 +12,7 @@
 }
 
 .goods-list {
-  padding: 24rpx 20rpx;
+  padding: 24rpx;
 }
 
 .no-more-tips {
