@@ -1,5 +1,5 @@
 {
-  "navigationBarTitleText": "诚信甄品",
+  "navigationBarTitleText": "诚信臻品",
   "enablePullDownRefresh": true,
   "usingComponents": {
     "goods-item": "./components/goods-item/index",
