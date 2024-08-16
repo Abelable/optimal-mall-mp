@@ -137,7 +137,7 @@
     </view>
   </view>
 
-  <view class="tool-list">
+  <view class="tool-list" wx:if="{{userInfo.level}}">
     <view class="tool-item row">
       <image class="tool-icon" src="./images/member.png" />
       <view class="tool-desc">会员中心</view>
