@@ -121,10 +121,14 @@
       <image class="shortcut-icon" src="./images/customer-icon.png"/>
       <view>客服</view>
     </view>
-    <view class="shortcut" bindtap="share">
+    <!-- <view class="shortcut" bindtap="share">
       <image class="shortcut-icon" src="./images/share-icon.png"/>
       <view>分享</view>
-    </view>
+    </view> -->
+    <button class="shortcut" style="flex-direction: column;" open-type="share" hover-class="none">
+      <image class="shortcut-icon" src="./images/share-icon.png"/>
+      <view>分享</view>
+    </button>
     <navigator class="shortcut" open-type="switchTab" url="/pages/cart/index" hover-class="none">
       <image class="shortcut-icon" src="./images/cart-icon.png"/>
       <view>购物车</view>

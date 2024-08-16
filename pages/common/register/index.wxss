@@ -10,7 +10,7 @@
   top: 300rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: 400rpx;
+  width: 420rpx;
   height: 400rpx;
 }
 
@@ -29,7 +29,7 @@
 .login-btn {
   bottom: 372rpx;
   color: #fff;
-  background: #272727;
+  background: #F5701D;
 }
 .cancel-btn {
   bottom: 260rpx;
@@ -126,9 +126,9 @@
   margin: 50rpx auto 0;
   width: 464rpx;
   height: 90rpx;
-  color: #FFE5BD;
+  color: #fff;
   font-size: 32rpx;
   font-weight: bold;
   border-radius: 45rpx;
-  background: linear-gradient(128deg, #404A5C 0%, #0F131A 100%);
+  background: #F5701D;
 }

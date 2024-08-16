@@ -4,9 +4,9 @@
   <button class="login-btn" wx:if="{{agree}}" bindgetphonenumber="getMobile" open-type="getPhoneNumber" hover-class="none">立即登录</button>
   <view class="cancel-btn" bindtap="back">暂不登录</view>
   <view class="agreement">
-    <checkbox class="checkbox" checked="{{agree}}" bindtap="toggleAgree" color="#E4B785" />
+    <checkbox class="checkbox" checked="{{agree}}" bindtap="toggleAgree" color="#F5701D" />
     <text>我已阅读并同意</text> 
-    <text style="color: #E4B785;" bindtap="serviceAgreement">《诚信星球用户服务协议》</text>
+    <text style="color: #F5701D;" bindtap="serviceAgreement">《诚信星球用户服务协议》</text>
   </view>
 </view>
 
