@@ -11,17 +11,17 @@
   background-size: cover;
   background-repeat: no-repeat;
 }
-.nav-bar.show-bg.level-0 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_0.png");
-}
-.nav-bar.show-bg.level-1 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_1.png");
+.nav-bar.show-bg.level-0, .nav-bar.show-bg.level-1 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_default.png");
 }
 .nav-bar.show-bg.level-2 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_2.png");
 }
 .nav-bar.show-bg.level-3 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_3.png");
+}
+.nav-bar.show-bg.level-4 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_4.png");
 }
 .nav-bar-title {
   display: flex;
@@ -39,17 +39,17 @@
   background-size: 100%;
   background-repeat: no-repeat;
 }
-.container.level-0 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_0.png");
-}
-.container.level-1 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_1.png");
+.container.level-0, .container.level-1 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_default.png");
 }
 .container.level-2 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_2.png");
 }
 .container.level-3 {
   background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_3.png");
+}
+.container.level-4 {
+  background-image: url("https://static.youbozhenxuan.cn/mp/mine_bg_level_4.png");
 }
 
 .user-info-wrap {
