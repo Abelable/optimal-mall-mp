@@ -1,22 +1,22 @@
 <view 
-  class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}} level-{{level}}"
+  class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}} level-{{userInfo.level}}"
   style="padding-top: {{statusBarHeight}}px;"
 >
   <view class="nav-bar-title">我的</view>
 </view>
 
-<view class="container level-{{level}}" style="padding-top: {{statusBarHeight + 60}}px;">
+<view class="container level-{{userInfo.level}}" style="padding-top: {{statusBarHeight + 60}}px;">
   <view class="user-info-wrap">
     <image class="avatar" bindtap="showAuthInfoModal" src="{{userInfo.avatar}}" />
     <view class="user-info">
       <view class="user-name" bindtap="showAuthInfoModal">{{userInfo.nickname}}</view>
       <view class="user-id">ID：TBjjjj</view>
-      <view class="user-identity" wx:if="{{level}}">诚信星球第x号乡村振兴推广员</view>
+      <view class="user-identity" wx:if="{{userInfo.level}}">诚信星球第x号乡村振兴推广员</view>
     </view>
   </view>
 
   <view class="account-info">
-    <view class="account-amount" wx:if="{{level}}">
+    <view class="account-amount" wx:if="{{userInfo.level}}">
       <view class="account-amount-header">
         <view class="account-amount-title">我的账户</view>
         <view class="withdraw-btn" bindtap="withdraw">提现</view>
@@ -36,7 +36,7 @@
         </view>
       </view>
     </view>
-    <view class="account-daily-data" wx:if="{{level}}">
+    <view class="account-daily-data" wx:if="{{userInfo.level}}">
       <view class="date-menu">
         <view
           class="date {{curDateIdx === index ? 'selected' : ''}}"
@@ -70,6 +70,24 @@
     </view>
   </view>
 
+  <view class="customer-data-center" wx:if="{{userInfo.level}}">
+    <view class="title">我的客户</view>
+    <view class="customer-data-list">
+      <view class="customer-data-item">
+        <view class="customer-data-desc">今日新增客户数</view>
+        <view class="customer-data">-</view>
+      </view>
+      <view class="customer-data-item">
+        <view class="customer-data-desc">今日下单客户数</view>
+        <view class="customer-data">23</view>
+      </view>
+      <view class="customer-data-item">
+        <view class="customer-data-desc">累积客户总数</view>
+        <view class="customer-data">800</view>
+      </view>
+    </view>
+  </view>
+
   <view class="order-center">
     <view class="title-wrap row between">
       <view class="title">我的订单</view>
@@ -85,24 +103,6 @@
         <view class="count-stamp" wx:if="{{item.total}}">
           {{item.total > 99 ? '99+' : item.total}}
         </view>
-      </view>
-    </view>
-  </view>
-
-  <view class="customer-data-center" wx:if="{{level}}">
-    <view class="title">我的客户</view>
-    <view class="customer-data-list">
-      <view class="customer-data-item">
-        <view class="customer-data-desc">今日新增客户数</view>
-        <view class="customer-data">-</view>
-      </view>
-      <view class="customer-data-item">
-        <view class="customer-data-desc">今日下单客户数</view>
-        <view class="customer-data">23</view>
-      </view>
-      <view class="customer-data-item">
-        <view class="customer-data-desc">累积客户总数</view>
-        <view class="customer-data">800</view>
       </view>
     </view>
   </view>

@@ -1,13 +1,13 @@
 <view class="nav-bar {{ navBarBgVisible ? 'show-bg' : ''  }}" style="padding-top: {{statusBarHeight}}px;">
   <view class="nav-bar-inner">
-    <view class="team-leader-info" wx:if="{{teamLeaderInfo}}">
-      <image class="avatar" src="{{teamLeaderInfo.avatar}}" />
+    <view class="team-leader-info" wx:if="{{userInfo.level}}">
+      <image class="avatar" src="{{userInfo.avatar}}" />
       <view class="nickname-wrap">
-        <view class="nickname omit single-line">{{teamLeaderInfo.nickname}}</view>
-        <view class="signature omit single-line">{{teamLeaderInfo.signature || '让时间见证信任'}}</view>
+        <view class="nickname omit single-line">{{userInfo.nickname}}</view>
+        <view class="signature omit single-line">{{userInfo.signature || '让时间见证信任'}}</view>
       </view>
     </view>
-    <view class="search-bar" wx:if="{{!teamLeaderInfo}}" bindtap="search">
+    <view class="search-bar" wx:if="{{!userInfo.level}}" bindtap="search">
       <image class="search-icon" src="./images/search.png" />
       <text class="placeholder omit single-line">好物尽在诚信星球</text>
     </view>
@@ -30,7 +30,7 @@
       <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
     </swiper-item>
   </swiper>
-  <view class="search-bar outside" wx:if="{{teamLeaderInfo}}" style="top: {{statusBarHeight + 50}}px;" bindtap="search">
+  <view class="search-bar outside" wx:if="{{userInfo.level}}" style="top: {{statusBarHeight + 50}}px;" bindtap="search">
     <image class="search-icon" src="./images/search.png" />
     <text class="placeholder omit single-line">好物尽在诚信星球</text>
   </view>

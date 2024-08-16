@@ -14,7 +14,7 @@ Page({
   onLoad({ id }) {
     this.storeBindings = createStoreBindings(this, {
       store,
-      fields: ["teamLeaderInfo"]
+      fields: ["userInfo"]
     });
 
     this.orderId = id;

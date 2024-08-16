@@ -46,13 +46,6 @@ class BaseService extends Base {
     });
   }
 
-  async getTeamLeaderInfo(userId) {
-    return await this.get({
-      url: `${this.baseUrl}/team_leader/info`,
-      data: { userId }
-    })
-  }
-
   async getOssConfig() {
     if (wx.getStorageSync("ossConfig")) {
       const ossConfig = JSON.parse(wx.getStorageSync("ossConfig"));

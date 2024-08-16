@@ -17,28 +17,13 @@ App({
       await baseService.login();
     }
 
-    checkLogin(async () => {
-      const userInfo = await baseService.getUserInfo();
-      if (userInfo.teamLeaderId) {
-        store.setTeamLeaderInfo(userInfo);
-      } else {
-        this.setTeamLeaderInfo();
-      }
+    checkLogin(() => {
+      baseService.getUserInfo();
     }, false);
   },
 
   onShow() {
     this.update();
-  },
-
-  async setTeamLeaderInfo() {
-    const teamLeaderId = wx.getStorageSync("teamLeaderId");
-    if (teamLeaderId) {
-      const teamLeaderInfo = await baseService.getTeamLeaderInfo(
-        teamLeaderId
-      );
-      store.setTeamLeaderInfo(teamLeaderInfo);
-    }
   },
 
   setSystemInfo() {

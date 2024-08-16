@@ -3,11 +3,11 @@
 
 <view class="order-item" catchtap="navToDetail">
   <view class="list-header row between">
-    <view class="shop-info row" wx:if="{{teamLeaderInfo}}">
-      <image class="shop-avatar" src="{{teamLeaderInfo.avatar}}" />
-      <view class="shop-name omit single-line">{{teamLeaderInfo.nickname}}</view>
+    <view class="shop-info row" wx:if="{{userInfo.level}}">
+      <image class="shop-avatar" src="{{userInfo.avatar}}" />
+      <view class="shop-name omit single-line">{{userInfo.nickname}}</view>
     </view>
-    <view class="shop-name omit single-line" wx:if="{{!teamLeaderInfo}}">诚信星球</view>
+    <view class="shop-name omit single-line" wx:if="{{!userInfo.level}}">诚信星球</view>
     <view class="order-status">{{ORDER.statusDesc(item.status)}}</view>
   </view>
   <view class="list-content">

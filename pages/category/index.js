@@ -11,12 +11,11 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo", "teamLeaderInfo"]
+    fields: ["userInfo"]
   },
 
   data: {
     statusBarHeight,
-    teamLeaderInfo: null,
     bannerList: [],
     categoryOptions: [],
     curCategoryIdx: 0,

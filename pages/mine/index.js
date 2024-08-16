@@ -11,13 +11,12 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo", "teamLeaderInfo"]
+    fields: ["userInfo"]
   },
 
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    level: 0,
     dateList: ["今日", "昨日", "本月", "上月"],
     curDateIdx: 0,
     orderStatusList: [
@@ -28,14 +27,6 @@ Component({
       { en: "refund", zh: "售后", total: 0 }
     ],
     authInfoModalVisible: false
-  },
-
-  observers: {
-    teamLeaderInfo: function (info) {
-      if (info) {
-        this.setData({ level: 1 });
-      }
-    }
   },
 
   pageLifetimes: {
