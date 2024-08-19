@@ -92,13 +92,13 @@ Page({
 
   checkLivestock() {
     wx.navigateTo({
-      url: './subpages/promoter/index'
+      url: "./subpages/promoter/index?type=1"
     });
   },
 
   checkGift() {
     wx.navigateTo({
-      url: './subpages/promoter/index'
+      url: "./subpages/promoter/index?type=2"
     });
-  },
+  }
 });

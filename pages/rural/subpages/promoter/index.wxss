@@ -35,7 +35,7 @@
   background-repeat: no-repeat;
 }
 
-.title {
+.livestock-title, .gift-title {
   margin-top: 24rpx;
   margin-left: 20rpx;
   color: #14191F;
@@ -47,11 +47,11 @@
   display: flex;
   flex-wrap: nowrap;
   margin-top: 24rpx;
-  height: 562rpx;
+  height: 538rpx;
   overflow-x: scroll;
 }
 
-.goods-list {
+.gift-list {
   margin-top: 24rpx;
   padding: 0 20rpx;
 }

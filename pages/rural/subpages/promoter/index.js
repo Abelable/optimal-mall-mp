@@ -8,23 +8,42 @@ Page({
     statusBarHeight,
     navBarBgVisible: false,
     livestockList: [],
-    giftList: [],
+    giftList: []
   },
 
-  async onLoad() {
+  async onLoad({ type }) {
     await this.setLiveStockList();
-    this.setGiftList();
+    await this.setGiftList();
+    if (type === "1") {
+      this.scrollToLivestock();
+    } else {
+      this.scrollToGift();
+    }
+  },
+
+  scrollToLivestock() {
+    const query = wx.createSelectorQuery();
+    query.select(".livestock-title").boundingClientRect();
+    query.exec(res => {
+      wx.pageScrollTo({ scrollTop: res[0].top - statusBarHeight - 56 });
+    });
+  },
+
+  scrollToGift() {
+    const query = wx.createSelectorQuery();
+    query.select(".gift-title").boundingClientRect();
+    query.exec(res => {
+      wx.pageScrollTo({ scrollTop: res[0].top - statusBarHeight - 56 });
+    });
   },
 
   async setLiveStockList() {
-    const livestockList =
-      (await promoterService.getGoodsList(1)) || [];
+    const livestockList = (await promoterService.getGoodsList(1)) || [];
     this.setData({ livestockList: [...livestockList, ...livestockList] });
   },
 
   async setGiftList() {
-    const giftList =
-      (await promoterService.getGoodsList(2)) || [];
+    const giftList = (await promoterService.getGoodsList(2)) || [];
     this.setData({ giftList });
   },
 
