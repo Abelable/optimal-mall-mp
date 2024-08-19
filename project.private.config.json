@@ -7,8 +7,8 @@
     "miniprogram": {
       "list": [
         {
-          "name": "注册",
-          "pathName": "pages/common/register/index",
+          "name": "推官员",
+          "pathName": "pages/rural/subpages/promoter/index",
           "query": "",
           "launchMode": "default",
           "scene": null

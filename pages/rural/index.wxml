@@ -5,11 +5,11 @@
 <view class="header" style="padding-top: {{statusBarHeight + 44}}px;">
   <image class="theme-title" style="margin-top" src="./images/title.png" />
   <view class="module-wrap">
-    <view class="module adopt">
+    <view class="module adopt" bindtap="checkLivestock">
       <view class="module-title">乡村认养</view>
       <view class="check-btn">去查看</view>
     </view>
-    <view class="module bag">
+    <view class="module bag" bindtap="checkGift">
       <view class="module-title">乡村礼包</view>
       <view class="check-btn">去查看</view>
     </view>

@@ -88,5 +88,17 @@ Page({
         });
         break;
     }
-  }
+  },
+
+  checkLivestock() {
+    wx.navigateTo({
+      url: './subpages/promoter/index'
+    });
+  },
+
+  checkGift() {
+    wx.navigateTo({
+      url: './subpages/promoter/index'
+    });
+  },
 });

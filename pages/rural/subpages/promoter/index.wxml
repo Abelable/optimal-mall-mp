@@ -1,0 +1,13 @@
+<view class="nav-bar {{ navBarBgVisible ? 'show-bg' : '' }}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar-title">乡村振兴推广员</view>
+</view>
+
+<view class="header" style="padding-top: {{statusBarHeight + 44}}px;"></view>
+
+<view class="container">
+  <view class="goods-list">
+    <fall-flow list="{{giftList}}" generic:item="goods-item" />
+    <empty-illus wx:if="{{!giftList.length}}" desc="暂无商品" />
+    <view class="no-more-tips" wx:if="{{giftList.length}}">～没有更多了～</view>
+  </view>
+</view>

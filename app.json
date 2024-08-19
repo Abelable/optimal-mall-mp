@@ -7,6 +7,7 @@
     "pages/home/subpages/order-check/index",
     "pages/category/index",
     "pages/rural/index",
+    "pages/rural/subpages/promoter/index",
     "pages/cart/index",
     "pages/mine/index",
     "pages/mine/subpages/setting/index",

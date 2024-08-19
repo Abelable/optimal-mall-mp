@@ -1,0 +1,10 @@
+{
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "fall-flow": "/components/fall-flow/index",
+    "goods-item": "/components/goods-item/index",
+    "empty-illus": "/components/empty-illus/index"
+  }
+}
