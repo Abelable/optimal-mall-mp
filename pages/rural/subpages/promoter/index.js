@@ -39,7 +39,7 @@ Page({
 
   async setLiveStockList() {
     const livestockList = (await promoterService.getGoodsList(1)) || [];
-    this.setData({ livestockList: [...livestockList, ...livestockList] });
+    this.setData({ livestockList });
   },
 
   async setGiftList() {

@@ -1,8 +1,17 @@
+.livestock-list {
+  margin-top: 24rpx;
+  white-space: nowrap;
+}
+
 .goods-item {
-  margin-left: 20rpx;
+  display: inline-block;
+  margin-right: 20rpx;
   width: 710rpx;
   background: #fff;
   border-radius: 18rpx;
+}
+.goods-item:first-child {
+  margin-left: 20rpx;
 }
 
 .cover {

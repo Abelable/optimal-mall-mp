@@ -43,14 +43,6 @@
   font-weight: 550;
 }
 
-.livestock-list {
-  display: flex;
-  flex-wrap: nowrap;
-  margin-top: 24rpx;
-  height: 538rpx;
-  overflow-x: scroll;
-}
-
 .gift-list {
   margin-top: 24rpx;
   padding: 0 20rpx;

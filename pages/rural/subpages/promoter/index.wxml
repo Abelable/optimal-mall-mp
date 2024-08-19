@@ -8,9 +8,7 @@
 <view class="header" style="padding-top: {{statusBarHeight + 44}}px;" />
 
 <view class="livestock-title" wx:if="{{livestockList.length}}">认养专区</view>
-<scroll-view class="livestock-list" wx:if="{{livestockList.length}}" scroll-x enable-flex>
-  <livestock-item wx:for="{{livestockList}}" wx:key="index" item="{{item}}" />
-</scroll-view>
+<livestock-list wx:if="{{livestockList.length}}" list="{{livestockList}}" />
 
 <view class="gift-title" wx:if="{{giftList.length}}">礼包专区</view>
 <view class="gift-list" wx:if="{{giftList.length}}">
