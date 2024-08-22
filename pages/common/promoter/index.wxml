@@ -1,0 +1,20 @@
+<view class="container">
+  <image class="avatar" src="{{promoterInfo.avatar}}" />
+  <view class="nickname">{{promoterInfo.nickname}}</view>
+  
+  <view class="info-list">
+    <view class="info-item">
+      <image class="icon" src="./images/tel.png" />
+      <view class="info">
+        <text>推广员手机号：</text>
+        <text>{{promoterInfo.mobile}}</text>
+      </view>
+      <view class="btn">复制</view>
+    </view>
+    <view class="info-item">
+      <image class="icon" src="./images/wechat.png" />
+      <view class="info">推广员微信二维码</view>
+      <view class="btn">保存</view>
+    </view>
+  </view>
+</view>

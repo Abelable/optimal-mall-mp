@@ -20,18 +20,20 @@
   </view>
 </view>
 
-<swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
-  <swiper-item 
-    class="banner-item" 
-    wx:for="{{bannerList}}"
-    wx:key="index"
-    bindtap="linkTo"
-    data-scene="{{item.scene}}"
-    data-param="{{item.param}}"
-  >
-    <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
-  </swiper-item>
-</swiper>
+<view class="banner-wrap">
+  <swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
+    <swiper-item 
+      class="banner-item" 
+      wx:for="{{bannerList}}"
+      wx:key="index"
+      bindtap="linkTo"
+      data-scene="{{item.scene}}"
+      data-param="{{item.param}}"
+    >
+      <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
+    </swiper-item>
+  </swiper>
+</view>
 
 <view class="container">
   <view class="activity-wrap">
