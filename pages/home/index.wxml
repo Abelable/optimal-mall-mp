@@ -11,30 +11,27 @@
       <image class="search-icon" src="./images/search.png" />
       <text class="placeholder omit single-line">好物尽在诚信星球</text>
     </view>
+    <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
+      <image class="search-icon" src="./images/search.png" />
+    </view>
     <view class="share-btn" bindtap="share">
       <image class="share-icon" src="./images/share.png" />
     </view>
   </view>
 </view>
 
-<view class="banner-wrap">
-  <swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
-    <swiper-item 
-      class="banner-item" 
-      wx:for="{{bannerList}}"
-      wx:key="index"
-      bindtap="linkTo"
-      data-scene="{{item.scene}}"
-      data-param="{{item.param}}"
-    >
-      <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
-    </swiper-item>
-  </swiper>
-  <view class="search-bar outside" wx:if="{{promoterInfo}}" style="top: {{statusBarHeight + 50}}px;" bindtap="search">
-    <image class="search-icon" src="./images/search.png" />
-    <text class="placeholder omit single-line">好物尽在诚信星球</text>
-  </view>
-</view>
+<swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
+  <swiper-item 
+    class="banner-item" 
+    wx:for="{{bannerList}}"
+    wx:key="index"
+    bindtap="linkTo"
+    data-scene="{{item.scene}}"
+    data-param="{{item.param}}"
+  >
+    <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
+  </swiper-item>
+</swiper>
 
 <view class="container">
   <view class="activity-wrap">
