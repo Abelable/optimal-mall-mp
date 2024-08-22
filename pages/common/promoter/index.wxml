@@ -14,7 +14,7 @@
     <view class="info-item">
       <image class="icon" src="./images/wechat.png" />
       <view class="info">推广员星球码</view>
-      <view class="btn">保存</view>
+      <view class="btn" bindtap="saveWxQrcode">保存</view>
     </view>
   </view>
 </view>
