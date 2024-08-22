@@ -1,5 +1,16 @@
 <view class="list-wrap">
   <view class="list row between">
+    <view class="title">我的微信二维码</view>
+    <image class="arrow" src="./images/arrow.png" />
+  </view>
+  <view class="list row between">
+    <view class="title">我的签名</view>
+    <image class="arrow" src="./images/arrow.png" />
+  </view>
+</view>
+
+<view class="list-wrap">
+  <view class="list row between">
     <view class="title">常见问题与反馈</view>
     <image class="arrow" src="./images/arrow.png" />
   </view>
