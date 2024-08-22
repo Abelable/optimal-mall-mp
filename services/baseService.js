@@ -39,15 +39,16 @@ class BaseService extends Base {
     return userInfo;
   }
 
-  async getSuperiorInfo(superiorId) {
-    return this.get({ url: `${this.baseUrl}/user/superior_info`, data: { superiorId } });
+  async updateUserInfo(userInfo, success) {
+    return await this.post({ 
+      url: `${this.baseUrl}/user/update`, 
+      data: cleanObject(userInfo),
+      success
+    })
   }
 
-  async getAuthorInfo(authorId) {
-    return await this.get({
-      url: `${this.baseUrl}/user/author_info`,
-      data: { authorId }
-    });
+  async getSuperiorInfo(superiorId) {
+    return this.get({ url: `${this.baseUrl}/user/superior_info`, data: { superiorId } });
   }
 
   async getOssConfig() {

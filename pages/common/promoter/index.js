@@ -1,18 +1,17 @@
-import { createStoreBindings } from 'mobx-miniprogram-bindings'
-import { store } from '../../../store/index'
+import { createStoreBindings } from "mobx-miniprogram-bindings";
+import { store } from "../../../store/index";
 
 Page({
-  data: {
-  },
+  data: {},
 
   onLoad() {
     this.storeBindings = createStoreBindings(this, {
       store,
-      fields: ['promoterInfo']
-    })
+      fields: ["promoterInfo"]
+    });
   },
 
   onUnload() {
-    this.storeBindings.destroyStoreBindings()
-  },
-})
+    this.storeBindings.destroyStoreBindings();
+  }
+});

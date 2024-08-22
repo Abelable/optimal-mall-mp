@@ -1,11 +1,14 @@
 <view class="list-wrap">
-  <view class="list row between">
+  <view class="list row between" bindtap="uploadWxQrcode">
     <view class="title">我的星球码</view>
-    <image class="arrow" src="./images/arrow.png" />
+    <view class="row">
+      <image class="qrcode" wx:if="{{wxQrcode}}" src="{{wxQrcode}}" mode="widthFix" />
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
   </view>
-  <view class="list row between">
+  <view class="list row between" bindtap="">
     <view class="title">我的签名</view>
-    <image class="arrow" src="./images/arrow.png" />
+    <input class="content" value="{{signature}}" bindinput="setSignature" placeholder="请输入您的签名" />
   </view>
 </view>
 
