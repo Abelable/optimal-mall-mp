@@ -69,7 +69,7 @@
   font-size: 28rpx;
   font-weight: bold;
 }
-.user-id, .user-identity {
+.user-mobile, .user-identity {
   color: #3C3F42;
   font-size: 24rpx;
 }

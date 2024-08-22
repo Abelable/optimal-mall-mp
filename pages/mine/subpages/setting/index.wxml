@@ -1,6 +1,6 @@
 <view class="list-wrap">
   <view class="list row between">
-    <view class="title">我的微信二维码</view>
+    <view class="title">我的星球码</view>
     <image class="arrow" src="./images/arrow.png" />
   </view>
   <view class="list row between">

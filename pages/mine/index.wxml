@@ -1,3 +1,5 @@
+<wxs module="NUM" src="/utils/filters/num.wxs" />
+
 <view 
   class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}} level-{{userInfo.level}}"
   style="padding-top: {{statusBarHeight}}px;"
@@ -10,8 +12,8 @@
     <image class="avatar" bindtap="showAuthInfoModal" src="{{userInfo.avatar}}" />
     <view class="user-info">
       <view class="user-name" bindtap="showAuthInfoModal">{{userInfo.nickname}}</view>
-      <view class="user-id">ID：TBjjjj</view>
-      <view class="user-identity" wx:if="{{userInfo.level}}">诚信星球第x号乡村振兴推广员</view>
+      <view class="user-mobile">{{NUM.mobileFormat(userInfo.mobile)}}</view>
+      <view class="user-identity" wx:if="{{userInfo.level}}">诚信星球第x号乡村振兴{{userInfo.level === 1 ? "推广员" : "服务商"}}</view>
     </view>
   </view>
 

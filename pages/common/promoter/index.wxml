@@ -13,7 +13,7 @@
     </view>
     <view class="info-item">
       <image class="icon" src="./images/wechat.png" />
-      <view class="info">推广员微信二维码</view>
+      <view class="info">推广员星球码</view>
       <view class="btn">保存</view>
     </view>
   </view>

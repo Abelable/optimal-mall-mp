@@ -1,8 +1,8 @@
 function split(num) {
-  num = num + '';
+  num = num + "";
   return {
-    integer: num.slice(0, num.indexOf('.')),
-    decimal: num.slice(num.indexOf('.'), num.length)
+    integer: num.slice(0, num.indexOf(".")),
+    decimal: num.slice(num.indexOf("."), num.length)
   };
 }
 
@@ -13,41 +13,47 @@ function toFixed(num, digit) {
 }
 
 function over(num, unit) {
-  var unitDesc = unit == 1000 ? 'k' : 'w';
+  var unitDesc = unit == 1000 ? "k" : "w";
   var baseUnit = unit == 1000 ? 1000 : 10000;
   num = num >= unit ? (num / baseUnit).toFixed(1) + unitDesc : num;
   return num;
 }
 
 function thousandFilter(num) {
-  newNum =0
+  newNum = 0;
   if (num > 1000 && num % 1000 != 0) {
-    newNum = formatDecimal(num/10000,1) + 'w+'
+    newNum = formatDecimal(num / 10000, 1) + "w+";
   } else {
-     newNum = num
+    newNum = num;
   }
   return newNum;
 }
 
 function formatDecimal(num, decimal) {
-  num = num.toString()
-  index = num.indexOf('.')
+  num = num.toString();
+  index = num.indexOf(".");
   if (index !== -1) {
-      num = num.substring(0, decimal + index + 1)
+    num = num.substring(0, decimal + index + 1);
   } else {
-      num = num.substring(0)
+    num = num.substring(0);
   }
-  return parseFloat(num).toFixed(decimal)
+  return parseFloat(num).toFixed(decimal);
 }
 
 function format(num) {
   num = num.toString();
-  return num[1] ? num : '0' + num;
+  return num[1] ? num : "0" + num;
 }
 
-function floatGoodsPrice(goodsPrice){
-   price =(goodsPrice*1).toFixed(2)
-  return price
+function floatGoodsPrice(goodsPrice) {
+  price = (goodsPrice * 1).toFixed(2);
+  return price;
+}
+
+function mobileFormat(mobile) {
+  if (mobile) {
+    return mobile.slice(0, 3) + "****" + mobile.slice(-4);
+  }
 }
 
 module.exports = {
@@ -55,6 +61,7 @@ module.exports = {
   toFixed: toFixed,
   over: over,
   format: format,
-  thousandFilter:thousandFilter,
-  floatGoodsPrice:floatGoodsPrice
-}
+  thousandFilter: thousandFilter,
+  floatGoodsPrice: floatGoodsPrice,
+  mobileFormat: mobileFormat
+};
