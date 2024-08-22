@@ -9,9 +9,9 @@
         <text>推广员手机号：</text>
         <text>{{promoterInfo.mobile}}</text>
       </view>
-      <view class="btn">复制</view>
+      <view class="btn" bindtap="copyMobile">复制</view>
     </view>
-    <view class="info-item">
+    <view class="info-item" wx:if="{{promoterInfo.wxQrcode}}">
       <image class="icon" src="./images/wechat.png" />
       <view class="info">推广员星球码</view>
       <view class="btn" bindtap="saveWxQrcode">保存</view>
