@@ -45,7 +45,7 @@
   width: 340rpx;
   height: 36px;
   border-radius: 18px;
-  border: 1px solid #ddd;
+  border: 0.5px solid #e1e1e1;
 }
 .placeholder {
   flex: 1;
@@ -62,7 +62,7 @@
   width: 34px;
   height: 34px;
   border-radius: 18px;
-  border: 1px solid #ddd;
+  border: 0.5px solid #e1e1e1;
 }
 .search-icon, .share-icon {
   width: 16px;
