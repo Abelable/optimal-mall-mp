@@ -1,6 +1,6 @@
-import PromoterService from "./utils/promoterService";
+import GiftService from "./utils/giftService";
 
-const promoterService = new PromoterService();
+const giftService = new GiftService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
@@ -38,12 +38,12 @@ Page({
   },
 
   async setLiveStockList() {
-    const livestockList = (await promoterService.getGoodsList(1)) || [];
+    const livestockList = (await giftService.getGoodsList(1)) || [];
     this.setData({ livestockList });
   },
 
   async setGiftList() {
-    const giftList = (await promoterService.getGoodsList(2)) || [];
+    const giftList = (await giftService.getGoodsList(2)) || [];
     this.setData({ giftList });
   },
 

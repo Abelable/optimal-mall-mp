@@ -12,7 +12,7 @@
   height: 44px;
 }
 
-.team-leader-info {
+.promoter-info {
   display: flex;
   align-items: center;
   margin-left: 24rpx;

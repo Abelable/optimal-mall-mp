@@ -1,6 +1,6 @@
 import BaseService from "../../../../../services/baseService";
 
-class PromoterService extends BaseService {
+class GiftService extends BaseService {
   async getGoodsList(type) {
     return await this.get({
       url: `${this.baseUrl}/gift/goods_list`,
@@ -10,4 +10,4 @@ class PromoterService extends BaseService {
   }
 }
 
-export default PromoterService;
+export default GiftService;

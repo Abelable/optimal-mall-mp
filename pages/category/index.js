@@ -114,6 +114,12 @@ Component({
       }
     },
 
+    checkPromoterInfo() {
+      wx.navigateTo({
+        url: "/pages/common/promoter/index"
+      });
+    },
+
     search() {
       wx.navigateTo({
         url: "/pages/common/search/index"

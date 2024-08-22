@@ -7,6 +7,13 @@
     "miniprogram": {
       "list": [
         {
+          "name": "推广员",
+          "pathName": "pages/common/promoter/index",
+          "query": "",
+          "launchMode": "default",
+          "scene": null
+        },
+        {
           "name": "推官员",
           "pathName": "pages/rural/subpages/promoter/index",
           "query": "",
