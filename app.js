@@ -17,8 +17,14 @@ App({
       await baseService.login();
     }
 
-    checkLogin(() => {
-      baseService.getUserInfo();
+    checkLogin(async () => {
+      const userInfo = await baseService.getUserInfo();
+      if (userInfo.level) {
+        store.setPromoterInfo(userInfo)
+      } else if (userInfo.superiorId) {
+        const superiorInfo = await baseService.getSuperiorInfo(userInfo.superiorId)
+        store.setPromoterInfo(superiorInfo)
+      }
     }, false);
   },
 
