@@ -20,7 +20,7 @@
   padding: 12rpx;
 }
 
-.title {
+.goods-title {
   color: #14191F;
   font-size: 28rpx;
   font-weight: bold;
