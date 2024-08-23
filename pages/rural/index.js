@@ -92,7 +92,7 @@ Page({
 
   checkLivestock() {
     wx.navigateTo({
-      url: "./subpages/gift/index?type=1"
+      url: "./subpages/gift/index"
     });
   },
 

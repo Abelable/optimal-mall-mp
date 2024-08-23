@@ -7,6 +7,7 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    curBgIdx: 0,
     livestockList: [],
     giftList: []
   },
@@ -14,19 +15,14 @@ Page({
   async onLoad({ type }) {
     await this.setLiveStockList();
     await this.setGiftList();
-    if (type === "1") {
-      this.scrollToLivestock();
-    } else {
+    if (type === "2") {
       this.scrollToGift();
     }
   },
 
-  scrollToLivestock() {
-    const query = wx.createSelectorQuery();
-    query.select(".livestock-title").boundingClientRect();
-    query.exec(res => {
-      wx.pageScrollTo({ scrollTop: res[0].top - statusBarHeight - 56 });
-    });
+  setCurBgIdx(e) {
+    const curBgIdx = Number(e.detail.current);
+    this.setData({ curBgIdx });
   },
 
   scrollToGift() {

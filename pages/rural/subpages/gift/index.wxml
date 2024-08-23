@@ -1,18 +1,33 @@
-<view class="nav-bar {{ navBarBgVisible ? 'show-bg' : '' }}" style="padding-top: {{statusBarHeight}}px;">
+<view 
+  class="nav-bar {{ navBarBgVisible ? 'show-bg-' + curBgIdx : '' }}" 
+  style="padding-top: {{statusBarHeight}}px;"
+>
   <view class="nav-bar-inner">
     <back-icon />
     <view class="nav-bar-title">乡村振兴推广员</view>
   </view>
 </view>
 
-<view class="header" style="padding-top: {{statusBarHeight + 44}}px;" />
+<view class="bg-wrap">
+  <swiper class="bg" style="height: 1058rpx;" bindchange="setCurBgIdx" autoplay="{{!navBarBgVisible}}" interval="10000" circular>
+    <swiper-item 
+      class="bg-item" 
+      wx:for="{{3}}"
+      wx:key="index"
+    >
+      <image class="bg-img" mode="aspectFill" src="https://static.youbozhenxuan.cn/mp/gift_bg_{{index + 1}}.png" lazy-load />
+    </swiper-item>
+  </swiper>
+</view>
 
-<view class="livestock-title" wx:if="{{livestockList.length}}">认养专区</view>
-<livestock-list wx:if="{{livestockList.length}}" list="{{livestockList}}" />
-
-<view class="gift-title" wx:if="{{giftList.length}}">礼包专区</view>
-<view class="gift-list" wx:if="{{giftList.length}}">
-  <fall-flow list="{{giftList}}" generic:item="goods-item" />
-  <empty-illus wx:if="{{!giftList.length}}" desc="暂无商品" />
-  <view class="no-more-tips" wx:if="{{giftList.length}}">～没有更多了～</view>
+<view class="main" style="padding-top: {{statusBarHeight + 268}}px;">
+  <view class="livestock-title" wx:if="{{livestockList.length}}">认养专区</view>
+  <livestock-list wx:if="{{livestockList.length}}" list="{{livestockList}}" />
+  
+  <view class="gift-title" wx:if="{{giftList.length}}">礼包专区</view>
+  <view class="gift-list" wx:if="{{giftList.length}}">
+    <fall-flow list="{{giftList}}" generic:item="goods-item" />
+    <empty-illus wx:if="{{!giftList.length}}" desc="暂无商品" />
+    <view class="no-more-tips" wx:if="{{giftList.length}}">～没有更多了～</view>
+  </view>
 </view>
