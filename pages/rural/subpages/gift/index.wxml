@@ -20,7 +20,7 @@
   </swiper>
 </view>
 
-<view class="main" style="padding-top: {{statusBarHeight + 268}}px;">
+<view class="main" style="padding-top: {{statusBarHeight + 318}}px;">
   <view class="livestock-wrap" wx:if="{{livestockList.length}}">
     <image class="livestock-title" src="./images/livestock-title.png" />
     <livestock-list list="{{livestockList}}" />
