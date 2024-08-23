@@ -13,19 +13,23 @@ Page({
 
   copyMobile() {
     wx.setClipboardData({
-      data: this.data.promoterInfo.mobile, 
+      data: this.data.promoterInfo.mobile,
       success: () => {
-        wx.showToast({ title: '复制成功', icon: 'none' })
+        wx.showToast({ title: "复制成功", icon: "none" });
       }
-    })
+    });
   },
 
   saveWxQrcode() {
-    wx.saveImageToPhotosAlbum({
-      filePath: this.data.promoterInfo.wxQrcode,
-      success: () => {
-        this.triggerEvent("hide");
-        wx.showToast({ title: "成功保存", icon: "none" });
+    wx.downloadFile({
+      url: this.data.promoterInfo.wxQrcode,
+      success: res => {
+        wx.saveImageToPhotosAlbum({
+          filePath: res.tempFilePath,
+          success: () => {
+            wx.showToast({ title: "成功保存", icon: "none" });
+          }
+        });
       }
     });
   },
