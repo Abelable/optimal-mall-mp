@@ -13,7 +13,7 @@
         <price-unit price="{{item.price || 0}}" />
         <view class="market-price">¥{{item.marketPrice}}</view>
       </view>
-      <image class="add-icon" src="./images/add.png" />
+      <image class="add-icon" src="/images/add.png" />
     </view>
   </view>
 </view>
