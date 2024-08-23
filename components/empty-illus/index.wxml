@@ -1,5 +1,5 @@
 <view class="empty" style="height: {{height}};">
-  <image class="illus" src="https://img.ubo.vip/tiddler/temp/empty.png" />
+  <image class="illus" src="https://static.youbozhenxuan.cn/mp/empty.png" />
   <view>{{desc}}</view>
   <button class="btn" wx:if="{{btnContent}}" bindtap="btnClick">{{ btnContent }}</button>
 </view>

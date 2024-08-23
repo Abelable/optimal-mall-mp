@@ -60,6 +60,10 @@
   justify-content: center;
   height: 500rpx;
 }
+.illus {
+  width: 240rpx;
+  height: 240rpx;
+}
 .empty-desc {
   color: #666;
   font-size: 28rpx;
