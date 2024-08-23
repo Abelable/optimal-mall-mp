@@ -9,7 +9,7 @@
 </view>
 
 <view class="bg-wrap">
-  <swiper class="bg" style="height: 1058rpx;" bindchange="setCurBgIdx" autoplay="{{!navBarBgVisible}}" interval="10000" circular>
+  <swiper class="bg" style="height: 1058rpx;" bindchange="setCurBgIdx" autoplay="{{!navBarBgVisible}}" circular>
     <swiper-item 
       class="bg-item" 
       wx:for="{{3}}"
