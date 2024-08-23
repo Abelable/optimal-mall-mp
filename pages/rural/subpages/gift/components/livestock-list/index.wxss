@@ -5,11 +5,11 @@
 .goods-item {
   display: inline-block;
   margin-right: 24rpx;
-  padding: 24rpx;
   width: 660rpx;
   font-size: 0;
   background: #fff;
   border-radius: 18rpx;
+  overflow: hidden;
 }
 .goods-item:first-child {
   margin-left: 24rpx;
@@ -18,17 +18,32 @@
   width: 620rpx;
 }
 
-.cover {
+.cover-wrap {
+  position: relative;
+  padding: 6rpx;
   width: 100%;
   height: 340rpx;
   border-radius: 18rpx;
+  background: linear-gradient(139deg, rgba(249, 250, 216), rgba(211, 225, 155));
 }
-.cover.scroll {
+.cover-wrap.scroll {
   height: 320rpx;
+}
+.cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 14rpx;
+}
+.promote-tag {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 190rpx;
+  height: 66rpx;
 }
 
 .content {
-  margin-top: 24rpx;
+  padding: 24rpx;
 }
 
 .goods-title {

@@ -1,20 +1,17 @@
 
 <scroll-view class="livestock-list" wx:if="{{list.length}}" scroll-x>
   <view class="goods-item {{ list.length > 1 ? 'scroll' : '' }}" wx:for="{{list}}" wx:key="index" item="{{item}}" bindtap="navToGoodsDetail" data-id="{{item.id}}">
-    <image class="cover {{ list.length > 1 ? 'scroll' : '' }}" mode="aspectFill" src="{{item.cover}}" lazy-load />
+    <view class="cover-wrap {{ list.length > 1 ? 'scroll' : '' }}">
+      <image class="cover" mode="aspectFill" src="{{item.cover}}" lazy-load />
+      <image class="promote-tag" src="/images/rural-promote-tag.png" />
+    </view>
     <view class="content">
       <view class="goods-title omit single-line">{{item.name}}</view>
       <view class="introduce-wrap">
-        <view class="introduce omit single-line" wx:if="{{item.introduction}}">
-          {{item.introduction}}
-        </view>
         <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
       </view>
       <view class="info-wrap row between">
-        <view class="row baseline">
-          <price-unit price="{{item.price || 0}}" />
-          <view class="market-price">¥{{item.marketPrice}}</view>
-        </view>
+        <price-unit price="{{item.price || 0}}" />
         <image class="add-icon" src="/images/add.png" />
       </view>
     </view>
