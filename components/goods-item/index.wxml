@@ -1,5 +1,8 @@
 <view class="goods-item {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
-  <image class="cover" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+  <view class="cover-wrap {{item.isGift ? 'is-gift' : ''}}">
+    <image class="cover {{item.isGift ? 'is-gift' : ''}}" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+    <image class="promote-tag" wx:if="{{item.isGift}}" src="/images/rural-promote-tag.png" />
+  </view>
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>
     <view class="introduce-wrap">
@@ -11,7 +14,7 @@
     <view class="info-wrap row between">
       <view class="row baseline">
         <price-unit price="{{item.price || 0}}" />
-        <view class="market-price">¥{{item.marketPrice}}</view>
+        <view class="market-price" wx:if="{{!item.isGift}}">¥{{item.marketPrice}}</view>
       </view>
       <image class="add-icon" src="/images/add.png" />
     </view>
