@@ -21,10 +21,12 @@
 </view>
 
 <view class="main" style="padding-top: {{statusBarHeight + 268}}px;">
-  <view class="livestock-title" wx:if="{{livestockList.length}}">认养专区</view>
-  <livestock-list wx:if="{{livestockList.length}}" list="{{livestockList}}" />
+  <view class="livestock-wrap" wx:if="{{livestockList.length}}">
+    <image class="livestock-title" src="./images/livestock-title.png" />
+    <livestock-list list="{{livestockList}}" />
+  </view>
   
-  <view class="gift-title" wx:if="{{giftList.length}}">礼包专区</view>
+  <image class="gift-title" wx:if="{{giftList.length}}" src="./images/gift-title.png" />
   <view class="gift-list" wx:if="{{giftList.length}}">
     <fall-flow list="{{giftList}}" generic:item="goods-item" />
     <empty-illus wx:if="{{!giftList.length}}" desc="暂无商品" />

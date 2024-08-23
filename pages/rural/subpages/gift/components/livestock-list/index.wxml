@@ -3,9 +3,7 @@
   <view class="goods-item" wx:for="{{list}}" wx:key="index" item="{{item}}" bindtap="navToGoodsDetail" data-id="{{item.id}}">
     <image class="cover" mode="aspectFill" src="{{item.cover}}" lazy-load />
     <view class="content">
-      <view class="title omit">
-        {{item.name}}
-      </view>
+      <view class="goods-title omit">{{item.name}}</view>
       <view class="info-wrap row between">
         <view class="row baseline">
           <price-unit price="{{item.price || 0}}" />
