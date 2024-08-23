@@ -27,7 +27,7 @@ Page({
         wx.saveImageToPhotosAlbum({
           filePath: res.tempFilePath,
           success: () => {
-            wx.showToast({ title: "成功保存", icon: "none" });
+            wx.showToast({ title: "保存成功", icon: "none" });
           }
         });
       }
