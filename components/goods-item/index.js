@@ -5,7 +5,6 @@ Component({
 
   properties: {
     item: Object,
-    isGift: Boolean
   },
 
   data: {
