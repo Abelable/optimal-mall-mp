@@ -10,7 +10,7 @@
     </view>
     <view class="info-wrap row between">
       <view class="row baseline">
-        <price-unit price="{{item.price || 0}}" color="#EB2240" unitColor="#EB2240" />
+        <price-unit price="{{item.price || 0}}" />
         <view class="market-price">¥{{item.marketPrice}}</view>
       </view>
       <image class="cart-icon" src="./images/cart-icon.png" />
