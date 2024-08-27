@@ -85,6 +85,7 @@
 }
 
 .banner-wrap {
+  position: relative;
   height: 530rpx;
 }
 .banner-item {
@@ -97,6 +98,21 @@
   width: 100%;
   height: 100%;
   border-radius: 0 0 18rpx 18rpx;
+}
+.banner-dots {
+  position: absolute;
+  right: 24rpx;
+  bottom: 26rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 80rpx;
+  height: 40rpx;
+  color: #fff;
+  font-size: 20rpx;
+  font-weight: 500;
+  background: rgba(0, 0, 0, 0.3);
+  border-radius: 20rpx;
 }
 
 .container {

@@ -20,6 +20,7 @@ Component({
     menuList: ["今日主推", "活动预告"],
     curMenuIdx: 0,
     bannerList: [],
+    curDot: 1,
     todayGoodsList: [],
     advanceGoodsList: [],
     goodsList: [],
@@ -81,6 +82,12 @@ Component({
     async setBannerList() {
       const bannerList = await homeService.getBannerList();
       this.setData({ bannerList });
+    },
+
+    bannerChange(event) {
+      this.setData({
+        curDot: event.detail.current + 1
+      });
     },
 
     onReachBottom() {

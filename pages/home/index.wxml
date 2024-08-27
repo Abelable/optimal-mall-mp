@@ -21,7 +21,7 @@
 </view>
 
 <view class="banner-wrap">
-  <swiper class="banner" wx:if="{{bannerList.length}}" style="height: 530rpx;" autoplay circular>
+  <swiper class="banner" wx:if="{{bannerList.length}}" bindchange="bannerChange" style="height: 530rpx;" autoplay circular>
     <swiper-item 
       class="banner-item" 
       wx:for="{{bannerList}}"
@@ -33,6 +33,9 @@
       <image class="banner-img" mode="aspectFill" src="{{ item.cover }}" lazy-load />
     </swiper-item>
   </swiper>
+  <view class="banner-dots" wx:if="{{bannerList.length}}">
+    {{curDot}} / {{bannerList.length}}
+  </view>
 </view>
 
 <view class="container">

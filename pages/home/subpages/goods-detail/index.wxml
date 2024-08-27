@@ -45,7 +45,7 @@
     <view class="mute-icon-wrap row center" wx:if="{{goodsInfo.video && curDot === 1}}" catchtap="toggleMuted">
       <image class="mute-icon" src="./images/{{muted ? 'muted' : 'unmuted'}}.png" />
     </view>
-    <view class="banner-dots">
+    <view class="banner-dots" wx:if="{{goodsInfo.imageList.length}}">
       <text class="cur-dot">{{curDot}}</text>
       <text> / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}</text>
     </view>
