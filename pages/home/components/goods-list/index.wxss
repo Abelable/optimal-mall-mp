@@ -25,8 +25,13 @@
   font-size: 24rpx;
   font-weight: 500;
   line-height: 50rpx;
-  background: linear-gradient( 48deg, #FF3636 0%, #FF3D39 36%, #FFA266 100%);
   border-radius: 0 0 0 16rpx;
+}
+.goods-tag.green {
+  background: linear-gradient( 48deg, #009F3C 0%, #00CD6F 100%);
+}
+.goods-tag.hot {
+  background: linear-gradient( 48deg, #FF3636 0%, #FF3D39 36%, #FFA266 100%);
 }
 
 .group-buying-data {
