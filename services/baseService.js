@@ -10,10 +10,10 @@ class BaseService extends Base {
     });
   }
 
-  async register(code, avatar, nickname, mobile, gender = 0) {
+  async register(code, avatar, nickname, mobile, superiorId, gender = 0) {
     return await this.post({
       url: `${this.baseUrl}/auth/wx_mp/register`,
-      data: { code, avatar, nickname, mobile, gender }
+      data: cleanObject({ code, avatar, nickname, mobile, superiorId, gender })
     });
   }
 

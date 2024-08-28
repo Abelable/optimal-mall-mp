@@ -12,6 +12,10 @@ Page({
     avatarUrl: ""
   },
 
+  onLoad({ superiorId }) {
+    this.superiorId = superiorId;
+  },
+
   async getMobile(e) {
     const mobile = await baseService.getUserMobile(e.detail.code);
     if (mobile) {
@@ -53,7 +57,8 @@ Page({
       code,
       this.data.avatarUrl,
       this.nickname,
-      this.mobile
+      this.mobile,
+      this.superiorId
     );
     if (token) {
       wx.setStorageSync("token", token);
@@ -63,7 +68,7 @@ Page({
 
   toggleAgree() {
     this.setData({
-      agree: !this.data.agree,
+      agree: !this.data.agree
     });
   },
 
