@@ -17,20 +17,6 @@ class HomeService extends BaseService {
     });
   }
 
-  async getTodayGoodsList() {
-    return await this.get({
-      url: `${this.baseUrl}/mall/today_goods_list`,
-      loadingTitle: "加载中..."
-    });
-  }
-
-  async getAdvanceGoodsList() {
-    return await this.get({
-      url: `${this.baseUrl}/mall/advance_goods_list`,
-      loadingTitle: "加载中..."
-    });
-  }
-
   async getGoodsInfo(id) {
     return await this.get({
       url: `${this.baseUrl}/goods/detail`,
