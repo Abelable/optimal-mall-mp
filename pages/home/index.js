@@ -45,12 +45,12 @@ Component({
     },
 
     async setTodayGoodsList() {
-      const todayGoodsList = (await homeService.getTodayGoodsList()) || [];
+      const todayGoodsList = (await homeService.getActivityList(1)) || [];
       this.setData({ todayGoodsList });
     },
 
     async setAdvanceGoodsList() {
-      const advanceGoodsList = (await homeService.getAdvanceGoodsList()) || [];
+      const advanceGoodsList = (await homeService.getActivityList(0)) || [];
       this.setData({ advanceGoodsList });
     },
 

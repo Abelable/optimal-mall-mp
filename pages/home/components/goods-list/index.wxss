@@ -54,7 +54,7 @@
   font-size: 32rpx;
   font-weight: 550;
 }
-.sales-volume {
+.sales-volume, .followers {
   color: #fff;
   font-size: 24rpx;
 }
@@ -101,6 +101,12 @@
   font-size: 18rpx;
   background: #FF4747;
   border-radius: 8px 8px 8px 0px;
+}
+.market-price {
+  margin-left: 8rpx;
+  color: #bbb;
+  font-size: 22rpx;
+  text-decoration: line-through;
 }
 
 .buy-btn {

@@ -5,21 +5,29 @@ class HomeService extends BaseService {
   async getBannerList() {
     return await this.get({
       url: `${this.baseUrl}/mall/banner_list`,
-      loadingTitle: "加载中...",
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async getActivityList(status) {
+    return await this.get({
+      url: `${this.baseUrl}/mall/activity_list`,
+      data: { status },
+      loadingTitle: "加载中..."
     });
   }
 
   async getTodayGoodsList() {
     return await this.get({
       url: `${this.baseUrl}/mall/today_goods_list`,
-      loadingTitle: "加载中...",
+      loadingTitle: "加载中..."
     });
   }
 
   async getAdvanceGoodsList() {
     return await this.get({
       url: `${this.baseUrl}/mall/advance_goods_list`,
-      loadingTitle: "加载中...",
+      loadingTitle: "加载中..."
     });
   }
 
