@@ -1,29 +1,43 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap">
     <image class="cover" src="{{item.cover}}" mode="aspectFill" lazy-load />
     <view class="goods-tag {{item.type === 1 ? 'green' : 'hot'}}">{{item.type === 1 ? "农产品" : "爆品"}}</view>
     <view class="group-buying-data">
       <view class="group-buying-title">{{item.activityInfo.name}}</view>
-      <view class="sales-volume" wx:if="{{item.activityInfo.status === 1}}">已抢{{ item.activityInfo.sales }}件</view>
+      <view class="countdown">
+        <block wx:if="{{countdown}}">
+          {{item.activityInfo.status === 0 ? '距开始' : '距结束'}} {{TIME.countdownFormat(countdown, 'd天hh:mm:ss')}}
+        </block>
+      </view>
+      <view class="activity-sales" wx:if="{{item.activityInfo.status === 1}}">已抢{{ item.activityInfo.sales }}件</view>
       <view class="followers" wx:if="{{item.activityInfo.status === 0}}">已有{{ item.activityInfo.followers }}人关注</view>
     </view>
   </view>
   <view class="content">
     <view class="title omit">{{item.name}}</view>
-    <view class="desc" wx:if="{{item.introduction}}">{{item.introduction}}</view>
+    <view class="desc-wrap row">
+      <view class="desc omit single-line">{{item.introduction}}</view>
+      <view class="sales">已售{{item.salesVolume}}</view>
+    </view>
     <!-- <view class="by-stages-tag">分期付款单</view> -->
     <view class="info-wrap row between">
       <view class="price-wrap row baseline">
         <!-- <price-unit price="{{item.marketPrice || 0}}" />
         <view class="price">最低到手价¥{{item.price}}起</view> -->
-        <price-unit price="{{item.price || 0}}" />
+        <price-unit price="{{item.price || 0}}" fontSize="26rpx" integerFontSize="36rpx" />
         <view class="market-price">¥{{item.marketPrice}}</view>
       </view>
-      <view class="buy-btn">
+      <view class="buy-btn" wx:if="{{item.activityInfo.status === 1}}">
         <view class="buy-btn-icon">
           <image class="cart-icon" src="./images/cart.png" />
         </view>
         <view class="buy-btn-content">购买</view>
+      </view>
+      <view class="notice-btn" wx:if="{{item.activityInfo.status === 0}}">
+        <image class="notice-icon" src="./images/notice.png" />
+        <view>提醒我</view>
       </view>
     </view>
   </view>

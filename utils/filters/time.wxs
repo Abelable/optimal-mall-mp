@@ -55,7 +55,7 @@ function countdownFormat(timeStamp, statement) {
   var hours = format(Math.floor((timeStamp % (24 * 60 * 60)) / (60 * 60)));
   var minutes = format(Math.floor((timeStamp % (60 * 60)) / 60));
   var seconds = format(Math.floor(timeStamp % 60));
-  if (statement.indexOf("d") !== -1) {
+  if (statement.indexOf("d") !== -1 && days) {
     return statement
       .replace("d", days)
       .replace("hh", hours)
