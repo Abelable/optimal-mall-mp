@@ -4,13 +4,13 @@ Component({
   },
 
   properties: {
-    list: Array
+    item: Object
   },
 
   methods: {
-    navToGoodsDetail(e) {
+    navToGoodsDetail() {
       wx.navigateTo({
-        url: `/pages/home/subpages/goods-detail/index?id=${e.currentTarget.dataset.id}`
+        url: `/pages/home/subpages/goods-detail/index?id=${this.properties.item.id}`
       });
     }
   }

@@ -57,7 +57,12 @@
     </view>
   </view>
 
-  <goods-list list="{{curMenuIdx === 0 ? todayGoodsList : advanceGoodsList}}" />
+  <view class="activity-goods-list" wx:if="{{curMenuIdx === 0}}">
+    <activity-goods-item wx:for="{{todayGoodsList}}" wx:key="index" item="{{item}}" />
+  </view>
+  <view class="activity-goods-list" wx:if="{{curMenuIdx === 1}}">
+    <activity-goods-item wx:for="{{advanceGoodsList}}" wx:key="index" item="{{item}}" />
+  </view>
   <fall-flow list="{{goodsList}}" generic:item="goods-item" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
