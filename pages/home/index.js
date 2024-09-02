@@ -50,7 +50,7 @@ Component({
     },
 
     async setAdvanceGoodsList() {
-      const advanceGoodsList = (await homeService.getActivityList(0)) || [];
+      const advanceGoodsList = (await homeService.getActivityList(2)) || [];
       this.setData({ advanceGoodsList });
     },
 

@@ -9,10 +9,10 @@ class HomeService extends BaseService {
     });
   }
 
-  async getActivityList(status) {
+  async getActivityList(tag) {
     return await this.get({
       url: `${this.baseUrl}/mall/activity_list`,
-      data: { status },
+      data: { tag },
       loadingTitle: "加载中..."
     });
   }
