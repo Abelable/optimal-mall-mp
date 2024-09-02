@@ -10,12 +10,37 @@ Component({
   },
 
   data: {
-    countdown: 0
+    countdown: 0,
+    bottomPrice: 0
   },
 
   lifetimes: {
     attached() {
-      const { status, startTime, endTime } = this.properties.item.activityInfo;
+      const { price, couponList, activityInfo } = this.properties.item;
+      const { status, startTime, endTime } = activityInfo;
+
+      if (couponList.length) {
+        const bottomPrice = couponList.map(
+          ({ type, numLimit, priceLimit, denomination }) => {
+            switch (type) {
+              case 1:
+                return Math.floor((price - denomination) * 100) / 100;
+              case 2:
+                return (
+                  Math.floor(
+                    ((price * numLimit - denomination) / numLimit) * 100
+                  ) / 100
+                );
+              case 3:
+                return priceLimit <= price
+                  ? Math.floor((price - denomination) * 100) / 100
+                  : 0;
+            }
+          }
+        )[0];
+        this.setData({ bottomPrice });
+      }
+
       if (status === 0) {
         const countdown = Math.floor(
           (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000

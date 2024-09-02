@@ -86,13 +86,16 @@
   font-size: 24rpx;
 }
 
-.by-stages-tag {
+.coupon-list {
+  display: flex;
   margin-top: 18rpx;
-  padding: 2rpx 8rpx;
+}
+.coupon {
+  margin-right: 12rpx;
+  padding: 4rpx 8rpx;
   width: fit-content;
   color: #FF4747;
   font-size: 18rpx;
-  line-height: 30rpx;
   border-radius: 8rpx;
   border: 1px solid #FF4747;
 }
@@ -103,21 +106,23 @@
 .price-wrap {
   display: flex;
 }
-.price {
-  margin-left: 10rpx;
-  padding: 0 8rpx;
-  width: fit-content;
-  height: 30rpx;
-  color: #fff;
-  font-size: 18rpx;
-  background: #FF4747;
-  border-radius: 8px 8px 8px 0px;
-}
 .market-price {
   margin-left: 8rpx;
   color: #bbb;
   font-size: 24rpx;
   text-decoration: line-through;
+}
+.bottom-price {
+  margin-left: 10rpx;
+  margin-bottom: 30rpx;
+  padding: 0 8rpx;
+  width: fit-content;
+  height: 30rpx;
+  color: #fff;
+  font-size: 18rpx;
+  line-height: 30rpx;
+  background: #FF4747;
+  border-radius: 8px 8px 8px 0px;
 }
 
 .buy-btn {
