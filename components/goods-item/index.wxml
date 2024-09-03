@@ -1,7 +1,14 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="goods-item {{visible ? 'show' : ''}}" bindtap="navToGoodsDetail">
   <view class="cover-wrap {{item.isGift ? 'is-gift' : ''}}">
-    <image class="cover {{item.isGift ? 'is-gift' : ''}}" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
+    <image class="cover {{item.isGift ? 'is-gift' : ''}} {{item.activityInfo ? 'in-activity' : ''}}" mode="widthFix" src="{{item.cover}}" bindload="onCoverLoaded" lazy-load />
     <image class="promote-tag" wx:if="{{item.isGift}}" src="/images/rural-promote-tag.png" />
+    <view class="group-buying-data" wx:if="{{item.activityInfo}}">
+      <view class="group-buying-title">{{item.activityInfo.name}}</view>
+      <view class="notice-time" wx:if="{{item.activityInfo.status === 0}}">{{TIME.transform(item.activityInfo.startTime, 'MM.DD hh:mm 开抢')}}</view>
+      <view class="activity-sales" wx:if="{{item.activityInfo.status === 1}}">已抢{{ item.activityInfo.sales }}件</view>
+    </view>
   </view>
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>
