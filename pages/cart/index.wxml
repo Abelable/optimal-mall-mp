@@ -8,7 +8,7 @@
 
 <view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? '100rpx' : 0}};">
   <view class="goods-list-wrap" wx:if="{{cartList.length}}">
-    <view wx:for="{{cartList}}" wx:key="index">
+    <view wx:for="{{cartList}}" wx:key="id">
       <van-swipe-cell bind:close="deleteGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
         <view class="goods-list row" bindtap="showGoodsDetail" data-id="{{item.goodsId}}">
           <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" disabled="{{item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleGoodsChecked" data-index="{{index}}" />

@@ -25,7 +25,7 @@ Page({
 
   async init() {
     await this.setCartList();
-    this.setRecommendGoodsList(true)
+    this.setRecommendGoodsList(true);
   },
 
   async setCartList() {
@@ -45,16 +45,8 @@ Page({
     const { cartList, recommendGoodsList } = this.data;
     const goodsIds = cartList.map(({ goodsId }) => goodsId);
     const categoryIds = Array.from(
-      new Set(
-        cartList
-          .map(({ categoryIds }) => categoryIds)
-          .join()
-          .split(",")
-      )
+      new Set(cartList.reduce((a, c) => [...a, ...c.categoryIds], []))
     );
-
-    console.log('goodsIds', goodsIds)
-    console.log('categoryIds', categoryIds)
 
     const list = await cartService.getRecommedGoodsList(
       goodsIds,
@@ -148,15 +140,13 @@ Page({
         title: "提示",
         content: "确定删除该商品吗？",
         showCancel: true,
-        success: async res => {
+        success: res => {
           if (res.confirm) {
             cartService.deleteCartList([id], () => {
               const cartList = this.data.cartList;
               cartList.splice(index, 1);
               this.setData({ cartList });
-              if (!cartList.length) {
-                this.init();
-              }
+              this.init();
               this.acount();
               instance.close();
             });
