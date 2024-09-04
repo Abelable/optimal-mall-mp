@@ -40,15 +40,18 @@ class BaseService extends Base {
   }
 
   async updateUserInfo(userInfo, success) {
-    return await this.post({ 
-      url: `${this.baseUrl}/user/update`, 
+    return await this.post({
+      url: `${this.baseUrl}/user/update`,
       data: cleanObject(userInfo),
       success
-    })
+    });
   }
 
   async getSuperiorInfo(superiorId) {
-    return this.get({ url: `${this.baseUrl}/user/superior_info`, data: { superiorId } });
+    return this.get({
+      url: `${this.baseUrl}/user/superior_info`,
+      data: { superiorId }
+    });
   }
 
   async getOssConfig() {
@@ -112,13 +115,7 @@ class BaseService extends Base {
     });
   }
 
-  async getGoodsList({
-    categoryId,
-    sort,
-    order,
-    page,
-    limit = 10
-  }) {
+  async getGoodsList({ categoryId, sort, order, page, limit = 10 }) {
     const { list = [] } =
       (await this.get({
         url: `${this.baseUrl}/goods/list`,
@@ -129,6 +126,16 @@ class BaseService extends Base {
           page,
           limit
         }),
+        loadingTitle: "加载中..."
+      })) || {};
+    return list;
+  }
+
+  async getRecommedGoodsList(goodsIds, categoryIds, page, limit = 10) {
+    const { list = [] } =
+      (await this.post({
+        url: `${this.baseUrl}/goods/recommend_list`,
+        data: { goodsIds, categoryIds, page, limit },
         loadingTitle: "加载中..."
       })) || {};
     return list;

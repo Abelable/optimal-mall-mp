@@ -1,5 +1,6 @@
 {
   "navigationStyle": "custom",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-stepper": "@vant/weapp/stepper/index",

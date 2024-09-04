@@ -9,6 +9,7 @@ Page({
     statusBarHeight,
     cartList: [],
     recommendGoodsList: [],
+    finished: false,
     isSelectAll: false,
     totalPrice: 0,
     selectedCount: 0,
@@ -23,13 +24,49 @@ Page({
   },
 
   async init() {
-    const { cartList: list, recommendGoodsList } =
-      (await cartService.getCartList()) || {};
+    await this.setCartList();
+    this.setRecommendGoodsList(true)
+  },
+
+  async setCartList() {
+    const list = (await cartService.getCartList()) || [];
     const cartList = list.map(item => ({
       ...item,
       checked: false
     }));
-    this.setData({ cartList, recommendGoodsList });
+    this.setData({ cartList });
+  },
+
+  async setRecommendGoodsList(init = false) {
+    if (init) {
+      this.page = 0;
+      this.setData({ finished: false });
+    }
+    const { cartList, recommendGoodsList } = this.data;
+    const goodsIds = cartList.map(({ goodsId }) => goodsId);
+    const categoryIds = Array.from(
+      new Set(
+        cartList
+          .map(({ categoryIds }) => categoryIds)
+          .join()
+          .split(",")
+      )
+    );
+
+    console.log('goodsIds', goodsIds)
+    console.log('categoryIds', categoryIds)
+
+    const list = await cartService.getRecommedGoodsList(
+      goodsIds,
+      categoryIds,
+      ++this.page
+    );
+    this.setData({
+      recommendGoodsList: init ? list : [...recommendGoodsList, ...list]
+    });
+    if (!list.length) {
+      this.setData({ finished: true });
+    }
   },
 
   /**
@@ -74,8 +111,7 @@ Page({
 
   async countChange(e) {
     const { cartIndex } = e.currentTarget.dataset;
-    const { id, goodsId, selectedSkuIndex } =
-      this.data.cartList[cartIndex];
+    const { id, goodsId, selectedSkuIndex } = this.data.cartList[cartIndex];
     cartService.editCart(id, goodsId, selectedSkuIndex, e.detail, () => {
       this.setData(
         {
@@ -145,15 +181,13 @@ Page({
   },
 
   hideSpecPopup(e) {
-    const cartInfo =
-      this.data.cartList[this.editingCartIndex];
+    const cartInfo = this.data.cartList[this.editingCartIndex];
     this.setData(
       {
-        [`cartList[${this.editingCartIndex}]`]:
-          {
-            ...cartInfo,
-            ...e.detail.cartInfo
-          },
+        [`cartList[${this.editingCartIndex}]`]: {
+          ...cartInfo,
+          ...e.detail.cartInfo
+        },
         specPopupVisible: false
       },
       () => {
@@ -213,6 +247,15 @@ Page({
         )}`
       });
     }
+  },
+
+  onReachBottom() {
+    this.setRecommendGoodsList();
+  },
+
+  onPullDownRefresh() {
+    this.init();
+    wx.stopPullDownRefresh();
   },
 
   showGoodsDetail(e) {

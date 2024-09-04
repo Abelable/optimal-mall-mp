@@ -50,7 +50,7 @@
     <fall-flow list="{{recommendGoodsList}}" generic:item="goods-item" />
   </view>
 
-  <view class="nomore-tip" wx:if="{{recommendGoodsList.length}}">～没有更多了～</view>
+  <view class="nomore-tip" wx:if="{{recommendGoodsList.length && finished}}">～没有更多了～</view>
 </view>
 
 <view class="bottom-bar" wx:if="{{cartList.length}}">
