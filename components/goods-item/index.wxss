@@ -16,6 +16,7 @@
   position: relative;
   width: 100%;
   height: fit-content;
+  font-size: 0;
 }
 .cover-wrap.is-gift {
   position: relative;
@@ -29,9 +30,7 @@
 .cover.is-gift {
   border-radius: 14rpx;
 }
-.cover.in-activity {
-  border-radius: 8rpx;
-}
+
 .promote-tag {
   position: absolute;
   right: 0;
@@ -41,17 +40,15 @@
 }
 
 .group-buying-data {
-  position: absolute;
-  left: 0;
-  bottom: 0;
   display: flex;
   align-items: center;
   justify-content: space-between;
   padding: 0 18rpx;
   width: 100%;
-  height: 32rpx;
+  height: 40rpx;
   background-image: url('https://static.youbozhenxuan.cn/mp/group-buying-tag-bg.png');
-  background-size: 100%;
+  background-size: cover;
+  background-position: -8rpx;
   background-repeat: no-repeat;
 }
 .group-buying-title {
