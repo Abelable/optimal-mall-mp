@@ -170,18 +170,14 @@
   align-items: center;
   justify-content: center;
   margin: 0 4rpx;
-  height: 26rpx;
+  padding-top: 1rpx;
+  width: 30rpx;
+  height: 30rpx;
   color: #fff;
   font-size: 24rpx;
   font-weight: 500;
   background: #FF3636;
   border-radius: 4rpx;
-}
-.countdown-days {
-  padding: 0 4rpx;
-}
-.countdown-unit {
-  width: 32rpx;
 }
 
 .goods-name {

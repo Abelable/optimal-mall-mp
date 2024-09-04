@@ -52,7 +52,7 @@
 
   <!-- 商品基本信息 -->
   <view class="goods-info-wrap">
-    <view class="activity-info-wrap row between">
+    <view class="activity-info-wrap row between" wx:if="{{goodsInfo.activityInfo}}">
       <view class="price-wrap">
         <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
           <price-unit price="{{goodsInfo.price || 0}}" color="#fff" fontSize="32rpx" integerFontSize="50rpx" />
@@ -69,9 +69,9 @@
           <image class="lightning" src="./images/lightning.png" />
           <view>{{goodsInfo.activityInfo.sales}}件</view>
         </view>
-        <view class="countdown">
+        <view class="countdown" wx:if="{{countdown}}">
           <view>还剩</view>
-          <view class="countdown-days">{{TIME.countdownUnit(countdown).days}}</view>
+          <view class="countdown-unit">{{TIME.countdownUnit(countdown).days}}</view>
           <view>天</view>
           <view class="countdown-unit">{{TIME.countdownUnit(countdown).hours}}</view>
           <view>:</view>
