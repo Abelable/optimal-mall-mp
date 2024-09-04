@@ -10,7 +10,7 @@
     </view>
   </view>
   <view class="content">
-    <view class="goods-title omit">{{item.name}}</view>
+    <view class="goods-title omit single-line">{{item.name}}</view>
     <view class="introduce-wrap">
       <view class="introduce omit single-line" wx:if="{{item.introduction}}">
         {{item.introduction}}
