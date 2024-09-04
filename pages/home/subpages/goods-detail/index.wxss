@@ -108,7 +108,7 @@
 }
 
 .activity-info-wrap {
-  padding: 16rpx;
+  padding: 20rpx;
   min-height: 140rpx;
   background-image: url('https://static.youbozhenxuan.cn/mp/goods_activity_bg.png');
   background-size: 100% 100%;
