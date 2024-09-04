@@ -1,17 +1,30 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="goods-item" bindtap="navToGoodsDetail">
-  <image class="cover" mode="aspectFit" src="{{item.cover}}" lazy-load />
+  <view class="cover-wrap {{item.isGift ? 'is-gift' : ''}}">
+    <image class="cover" src="{{item.cover}}" mode="aspectFit" lazy-load />
+    <image class="promote-tag" wx:if="{{item.isGift}}" src="/images/rural-promote-tag.png" />
+    <view class="activity-tag" wx:if="{{item.activityInfo && ((item.activityInfo.status === 0 && item.activityInfo.startTime) || (item.activityInfo.status === 1 && item.activityInfo.endTime))}}">
+      <view class="notice-time" wx:if="{{item.activityInfo.status === 0}}">{{TIME.transform(item.activityInfo.startTime, 'MM.DD hh:mm开抢')}}</view>
+      <view class="end-time" wx:if="{{item.activityInfo.status === 1}}">{{TIME.transform(item.activityInfo.endTime, 'MM.DD hh:mm结束')}}</view>
+    </view>
+  </view>
   <view class="content">
-    <view class="title omit">{{item.name}}</view>
+    <view class="title omit {{item.couponList.length ? 'single' : ''}}">{{item.name}}</view>
     <view class="introduce-wrap">
-      <view class="introduce omit single-line" wx:if="{{item.introduction}}">
+      <view class="introduce omit single" wx:if="{{item.introduction}}">
         {{item.introduction}}
       </view>
       <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
     </view>
-    <view class="info-wrap row between">
-      <view class="row baseline">
+    <view class="coupon-list" wx:if="{{item.couponList.length}}">
+      <view class="coupon" wx:for="{{item.couponList}}" wx:key="index" wx:for-item="coupon">{{coupon.name}}</view>
+    </view>
+    <view class="price-wrap row between">
+      <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
         <price-unit price="{{item.price || 0}}" />
-        <view class="market-price">¥{{item.marketPrice}}</view>
+        <view class="market-price" wx:if="{{!item.isGift && !bottomPrice}}">¥{{item.marketPrice}}</view>
+        <view class="bottom-price" wx:if="{{bottomPrice}}">到手价¥{{bottomPrice}}</view>
       </view>
       <image class="add-icon" src="/images/add.png" />
     </view>

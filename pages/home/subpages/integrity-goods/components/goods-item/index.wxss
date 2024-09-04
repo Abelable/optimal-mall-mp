@@ -14,6 +14,50 @@
   border-radius: 16rpx;
 }
 
+.cover-wrap {
+  position: relative;
+  width: 228rpx;
+  height: 228rpx;
+  font-size: 0;
+  border-radius: 16rpx;
+  overflow: hidden;
+}
+.cover-wrap.is-gift {
+  padding: 6rpx;
+  background: linear-gradient(139deg, rgba(249, 250, 216), rgba(211, 225, 155));
+}
+.cover {
+  width: 100%;
+  height: 100%;
+}
+
+.promote-tag {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 135rpx;
+  height: 50rpx;
+}
+
+.activity-tag {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 40rpx;
+  background-image: url('https://static.youbozhenxuan.cn/mp/group-buying-tag-bg.png');
+  background-size: cover;
+  background-position: -4rpx;
+  background-repeat: no-repeat;
+}
+.notice-time, .end-time {
+  color: #fff;
+  font-size: 22rpx;
+}
+
 .content {
   display: flex;
   flex-direction: column;
@@ -24,7 +68,7 @@
 
 .title {
   color: #14191F;
-  font-size: 28rpx;
+  font-size: 26rpx;
   font-weight: bold;
 }
 
@@ -44,7 +88,22 @@
   font-weight: 300;
 }
 
-.info-wrap {
+.coupon-list {
+  display: flex;
+  margin: 12rpx 0 10rpx;
+}
+.coupon {
+  margin-right: 12rpx;
+  padding: 2rpx 8rpx;
+  width: fit-content;
+  color: #FF4747;
+  font-size: 18rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #FF4747;
+}
+
+.price-wrap {
+  display: flex;
   margin-top: 12rpx;
 }
 .market-price {
@@ -52,6 +111,16 @@
   color: #bbb;
   font-size: 22rpx;
   text-decoration: line-through;
+}
+.bottom-price {
+  margin-left: 10rpx;
+  margin-bottom: 20rpx;
+  padding: 2rpx 8rpx;
+  width: fit-content;
+  color: #fff;
+  font-size: 18rpx;
+  background: #FF4747;
+  border-radius: 8px 8px 8px 0px;
 }
 
 .add-icon {

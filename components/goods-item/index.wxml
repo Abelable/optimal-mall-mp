@@ -13,13 +13,13 @@
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>
     <view class="introduce-wrap">
-      <view class="introduce omit single-line" wx:if="{{item.introduction}}">
+      <view class="introduce omit single" wx:if="{{item.introduction}}">
         {{item.introduction}}
       </view>
       <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
     </view>
     <view class="coupon-list" wx:if="{{item.couponList.length}}">
-      <view class="coupon" wx:for="{{item.couponList}}" wx:key="couponIndex" wx:for-index="couponIndex" wx:for-item="coupon">{{coupon.name}}</view>
+      <view class="coupon" wx:for="{{item.couponList}}" wx:key="index" wx:for-item="coupon">{{coupon.name}}</view>
     </view>
     <view class="price-wrap row between">
       <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">

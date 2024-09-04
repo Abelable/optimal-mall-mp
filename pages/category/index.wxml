@@ -3,13 +3,13 @@
     <view class="promoter-info" wx:if="{{promoterInfo}}" bindtap="checkPromoterInfo">
       <image class="avatar" src="{{promoterInfo.avatar}}" />
       <view class="nickname-wrap">
-        <view class="nickname omit single-line">{{promoterInfo.nickname}}</view>
-        <view class="signature omit single-line">{{promoterInfo.signature || '限时折扣 低至一折'}}</view>
+        <view class="nickname omit single">{{promoterInfo.nickname}}</view>
+        <view class="signature omit single">{{promoterInfo.signature || '限时折扣 低至一折'}}</view>
       </view>
     </view>
     <view class="search-bar" wx:if="{{!promoterInfo}}" bindtap="search">
       <image class="search-icon" src="./images/search.png" />
-      <text class="placeholder omit single-line">好物尽在诚信星球</text>
+      <text class="placeholder omit single">好物尽在诚信星球</text>
     </view>
     <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
       <image class="search-icon" src="./images/search.png" />

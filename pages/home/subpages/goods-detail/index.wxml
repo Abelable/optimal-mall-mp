@@ -67,7 +67,7 @@
   <view class="list-spec row">
     <view class="list-spec-title">规格</view>
     <view class="choose-btn" bindtap="showSpecPopup" data-mode="{{0}}">
-      <view class="choose-btn-desc omit single-line">
+      <view class="choose-btn-desc omit single">
         {{selecteSkuName ? ('已选：' + selecteSkuName) : '请选择'}}
       </view>
       <image class="choose-btn-icon" src="https://img.ubo.vip/mp/selection/goods-detail/to-icon.png" />

@@ -6,9 +6,9 @@
     <view class="card-header row between">
       <view class="shop-info row" wx:if="{{userInfo.level}}">
         <image class="shop-avatar" src="{{userInfo.avatar}}" />
-        <view class="shop-name omit single-line">{{userInfo.nickname}}</view>
+        <view class="shop-name omit single">{{userInfo.nickname}}</view>
       </view>
-      <view class="shop-name omit single-line" wx:if="{{!userInfo.level}}">诚信星球</view>
+      <view class="shop-name omit single" wx:if="{{!userInfo.level}}">诚信星球</view>
       <view class="countdown-wrap" wx:if="{{orderInfo.status === 101}}">
         <image class="alarm-icon" src="./images/alarm.png" />
         <view style="color: #666;">剩余 </view>

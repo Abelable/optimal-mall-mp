@@ -17,7 +17,7 @@
             <view class="goods-name omit {{item.status === 3 ? 'invalid' : ''}}">{{item.name}}</view>
             <block wx:if="{{item.status === 1}}">
               <view class="goods-sku-wrap" wx:if="{{item.selectedSkuName}}" catchtap="showSpecPopup" data-info="{{item}}" data-cart-index="{{index}}" data-goods-index="{{index}}">
-                <text class="goods-sku omit single-line">已选：{{item.selectedSkuName}}</text>
+                <text class="goods-sku omit single">已选：{{item.selectedSkuName}}</text>
                 <image class="sku-edit-icon" src="https://img.ubo.vip/mp/to-icon.png" />
               </view>
               <view class="goods-price-wrap">

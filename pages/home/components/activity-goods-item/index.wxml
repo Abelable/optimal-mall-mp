@@ -18,11 +18,11 @@
   <view class="content">
     <view class="title omit">{{item.name}}</view>
     <view class="desc-wrap row">
-      <view class="desc omit single-line">{{item.introduction}}</view>
+      <view class="desc omit single">{{item.introduction}}</view>
       <view class="sales">已售{{item.salesVolume}}</view>
     </view>
     <view class="coupon-list" wx:if="{{item.couponList.length}}">
-      <view class="coupon" wx:for="{{item.couponList}}" wx:key="couponIndex" wx:for-index="couponIndex" wx:for-item="coupon">{{coupon.name}}</view>
+      <view class="coupon" wx:for="{{item.couponList}}" wx:key="index" wx:for-item="coupon">{{coupon.name}}</view>
     </view>
     <view class="info-wrap row between">
       <view class="price-wrap row {{!bottomPrice ? 'baseline' : ''}}">

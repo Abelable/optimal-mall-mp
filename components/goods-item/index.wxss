@@ -35,7 +35,7 @@
   position: absolute;
   right: 0;
   bottom: 0;
-  width: 190rpx;
+  width: 180rpx;
   height: 66rpx;
 }
 
