@@ -117,7 +117,6 @@
   margin-bottom: 30rpx;
   padding: 2rpx 8rpx;
   width: fit-content;
-  height: 30rpx;
   color: #fff;
   font-size: 18rpx;
   background: #FF4747;

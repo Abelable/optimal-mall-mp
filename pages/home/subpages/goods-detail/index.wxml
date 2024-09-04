@@ -46,21 +46,43 @@
       <image class="mute-icon" src="./images/{{muted ? 'muted' : 'unmuted'}}.png" />
     </view>
     <view class="banner-dots" wx:if="{{goodsInfo.imageList.length}}">
-      <text class="cur-dot">{{curDot}}</text>
-      <text> / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}</text>
+      {{curDot}} / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}
     </view>
   </view>
 
   <!-- 商品基本信息 -->
   <view class="goods-info-wrap">
-    <view class="goods-name omit">{{goodsInfo.name}}</view>
-    <view class="row between">
+    <view class="activity-info-wrap row between">
+      <view class="price-wrap">
+        <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
+          <price-unit price="{{goodsInfo.price || 0}}" color="#fff" fontSize="32rpx" integerFontSize="50rpx" />
+          <view class="bottom-price row" wx:if="{{bottomPrice}}">
+            <view>最低到手价¥{{bottomPrice}}</view>
+            <image class="more-icon" src="./images/more.png" />
+          </view>
+        </view>
+      </view>
+      <view class="activity-info">
+        <view class="activity-name">{{goodsInfo.activityInfo.name}}</view>
+        <view class="activity-sales row">
+          <view>已抢</view>
+          <image class="lightning" src="./images/lightning.png" />
+          <view>{{goodsInfo.activityInfo.sales}}件</view>
+        </view>
+      </view>
+    </view>
+    <view class="goods-name">{{goodsInfo.name}}</view>
+    <view class="introduction-wrap">
+      <view class="introduction">{{goodsInfo.introduction}}</view>
+      <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
+    </view>
+    <!-- <view class="row between">
       <view class="row baseline">
         <price-unit price="{{goodsInfo.price || 0}}" fontSize="28rpx" integerFontSize="48rpx" />
         <view class="market-price">￥{{goodsInfo.marketPrice}}</view>
       </view>
       <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
-    </view>
+    </view> -->
   </view>
 
   <!-- 规格选择 -->

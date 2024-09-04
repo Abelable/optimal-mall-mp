@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { getQueryString, checkLogin } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
@@ -15,6 +16,8 @@ Page({
     curDot: 1,
     muted: true,
     goodsInfo: null,
+    countdown: 0,
+    bottomPrice: 0,
     evaluationSummary: null,
     cartGoodsNumber: 0,
     // 规格相关
@@ -54,6 +57,62 @@ Page({
     this.setData({ goodsInfo, evaluationSummary }, () => {
       this.getDetailTop();
     });
+
+    this.setBottomPrice();
+
+    if (goodsInfo.activityInfo) {
+      const { status, startTime, endTime } = goodsInfo.activityInfo;
+      if (status === 0) {
+        const countdown = Math.floor(
+          (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      } else if (status === 1 && endTime) {
+        const countdown = Math.floor(
+          (dayjs(endTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      }
+    }
+  },
+
+  setBottomPrice() {
+    const { price, couponList } = this.data.goodsInfo
+    if (couponList.length) {
+      const bottomPrice = couponList.map(
+        ({ type, numLimit, priceLimit, denomination }) => {
+          switch (type) {
+            case 1:
+              return Math.floor((price - denomination) * 100) / 100;
+            case 2:
+              return (
+                Math.floor(
+                  ((price * numLimit - denomination) / numLimit) * 100
+                ) / 100
+              );
+            case 3:
+              return priceLimit <= price
+                ? Math.floor((price - denomination) * 100) / 100
+                : 0;
+          }
+        }
+      )[0];
+      this.setData({ bottomPrice });
+    }
+  },
+
+  setCountdown() {
+    this.countdownInterval = setInterval(() => {
+      if (this.data.countdown === 0) {
+        clearInterval(this.countdownInterval);
+        return;
+      }
+      this.setData({
+        countdown: this.data.countdown - 1
+      });
+    }, 1000);
   },
 
   async setCartGoodsNumber() {
@@ -234,6 +293,10 @@ Page({
         console.log(err);
       }
     });
+  },
+
+  onUnload() {
+    clearInterval(this.countdownInterval);
   },
 
   // 分享
