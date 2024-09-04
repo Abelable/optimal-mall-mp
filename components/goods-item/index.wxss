@@ -61,7 +61,7 @@
 }
 .notice-time, .activity-sales {
   color: #fff;
-  font-size: 24rpx;
+  font-size: 22rpx;
 }
 
 .content {
@@ -90,14 +90,42 @@
   font-weight: 300;
 }
 
-.info-wrap {
+.coupon-list {
+  display: flex;
+  margin: 18rpx 0;
+}
+.coupon {
+  margin-right: 12rpx;
+  padding: 2rpx 8rpx;
+  width: fit-content;
+  color: #FF4747;
+  font-size: 18rpx;
+  border-radius: 8rpx;
+  border: 1rpx solid #FF4747;
+}
+
+.price-wrap {
   margin-top: 12rpx;
+}
+.price-wrap {
+  display: flex;
 }
 .market-price {
   margin-left: 8rpx;
   color: #bbb;
   font-size: 22rpx;
   text-decoration: line-through;
+}
+.bottom-price {
+  margin-left: 10rpx;
+  margin-bottom: 24rpx;
+  padding: 2rpx 8rpx;
+  width: fit-content;
+  height: 30rpx;
+  color: #fff;
+  font-size: 18rpx;
+  background: #FF4747;
+  border-radius: 8px 8px 8px 0px;
 }
 
 .add-icon {

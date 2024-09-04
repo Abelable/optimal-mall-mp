@@ -92,12 +92,12 @@
 }
 .coupon {
   margin-right: 12rpx;
-  padding: 4rpx 8rpx;
+  padding: 2rpx 8rpx;
   width: fit-content;
   color: #FF4747;
   font-size: 18rpx;
   border-radius: 8rpx;
-  border: 1px solid #FF4747;
+  border: 1rpx solid #FF4747;
 }
 
 .info-wrap {
@@ -115,12 +115,11 @@
 .bottom-price {
   margin-left: 10rpx;
   margin-bottom: 30rpx;
-  padding: 0 8rpx;
+  padding: 2rpx 8rpx;
   width: fit-content;
   height: 30rpx;
   color: #fff;
   font-size: 18rpx;
-  line-height: 30rpx;
   background: #FF4747;
   border-radius: 8px 8px 8px 0px;
 }

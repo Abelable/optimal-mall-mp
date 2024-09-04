@@ -18,10 +18,18 @@
       </view>
       <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
     </view>
-    <view class="info-wrap row between">
-      <view class="row baseline">
+    <view class="coupon-list" wx:if="{{item.couponList.length}}">
+      <view class="coupon" wx:for="{{item.couponList}}" wx:key="couponIndex" wx:for-index="couponIndex" wx:for-item="coupon">{{coupon.name}}</view>
+    </view>
+    <view class="price-wrap row between">
+      <!-- <view class="row baseline">
         <price-unit price="{{item.price || 0}}" />
         <view class="market-price" wx:if="{{!item.isGift}}">¥{{item.marketPrice}}</view>
+      </view> -->
+      <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
+        <price-unit price="{{item.price || 0}}" />
+        <view class="market-price" wx:if="{{!item.isGift && !bottomPrice}}">¥{{item.marketPrice}}</view>
+        <view class="bottom-price" wx:if="{{bottomPrice}}">到手价¥{{bottomPrice}}</view>
       </view>
       <image class="add-icon" src="/images/add.png" />
     </view>
