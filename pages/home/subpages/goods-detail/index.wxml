@@ -69,6 +69,16 @@
           <image class="lightning" src="./images/lightning.png" />
           <view>{{goodsInfo.activityInfo.sales}}件</view>
         </view>
+        <view class="countdown">
+          <view>还剩</view>
+          <view class="countdown-days">{{TIME.countdownUnit(countdown).days}}</view>
+          <view>天</view>
+          <view class="countdown-unit">{{TIME.countdownUnit(countdown).hours}}</view>
+          <view>:</view>
+          <view class="countdown-unit">{{TIME.countdownUnit(countdown).minutes}}</view>
+          <view>:</view>
+          <view class="countdown-unit">{{TIME.countdownUnit(countdown).seconds}}</view>
+        </view>
       </view>
     </view>
     <view class="goods-name">{{goodsInfo.name}}</view>

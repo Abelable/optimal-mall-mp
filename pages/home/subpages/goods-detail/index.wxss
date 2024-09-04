@@ -144,18 +144,44 @@
 }
 .activity-name {
   color: #fff;
-  font-size: 38rpx;
+  font-size: 40rpx;
   font-weight: bold;
 }
 .activity-sales {
-  margin-top: 4rpx;
+  margin-top: 6rpx;
   color: #fff;
   font-size: 24rpx;
 }
 .lightning {
   margin-bottom: -2rpx;
-  width: 20rpx;
+  width: 18rpx;
   height: 20rpx;
+}
+
+.countdown {
+  display: flex;
+  align-items: center;
+  margin-top: 8rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.countdown-days, .countdown-unit {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 4rpx;
+  height: 26rpx;
+  color: #fff;
+  font-size: 24rpx;
+  font-weight: 500;
+  background: #FF3636;
+  border-radius: 4rpx;
+}
+.countdown-days {
+  padding: 0 4rpx;
+}
+.countdown-unit {
+  width: 32rpx;
 }
 
 .goods-name {
