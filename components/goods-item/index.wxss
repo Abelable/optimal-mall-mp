@@ -102,10 +102,8 @@
 }
 
 .price-wrap {
-  margin-top: 12rpx;
-}
-.price-wrap {
   display: flex;
+  margin-top: 12rpx;
 }
 .market-price {
   margin-left: 8rpx;

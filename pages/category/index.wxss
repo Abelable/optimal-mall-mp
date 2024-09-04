@@ -127,7 +127,7 @@
   width: 100%;
   height: 80rpx;
   background: #fff;
-  border-bottom: 1px solid #f5f6f8;
+  border-bottom: 1rpx solid #eee;
 }
 .sort-item {
   display: flex;
@@ -153,6 +153,12 @@
   padding: 80rpx 20rpx 0;
   height: 100%;
   overflow-y: scroll;
+}
+::-webkit-scrollbar {
+  display:none;
+  width:0;
+  height:0;
+  color:transparent;
 }
 
 .no-more-tips {
