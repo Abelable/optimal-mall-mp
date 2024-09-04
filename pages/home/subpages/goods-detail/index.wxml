@@ -64,12 +64,16 @@
       </view>
       <view class="activity-info">
         <view class="activity-name">{{goodsInfo.activityInfo.name}}</view>
-        <view class="activity-sales row">
+        <view class="activity-followers row" wx:if="{{goodsInfo.activityInfo.status === 0}}">
+          已有{{goodsInfo.activityInfo.followers}}人关注
+        </view>
+        <view class="activity-sales row" wx:if="{{goodsInfo.activityInfo.status === 1}}">
           <view>已抢</view>
           <image class="lightning" src="./images/lightning.png" />
           <view>{{goodsInfo.activityInfo.sales}}件</view>
         </view>
-        <view class="countdown" wx:if="{{countdown}}">
+        <view class="notice-time" wx:if="{{goodsInfo.activityInfo.status === 0}}">{{TIME.transform(goodsInfo.activityInfo.startTime, 'MM月DD日hh:mm开抢')}}</view>
+        <view class="countdown" wx:if="{{goodsInfo.activityInfo.status === 1 && countdown}}">
           <view>还剩</view>
           <view class="countdown-unit">{{TIME.countdownUnit(countdown).days}}</view>
           <view>天</view>
