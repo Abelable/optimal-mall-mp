@@ -124,6 +124,7 @@
   margin-left: 16rpx;
   margin-bottom: 30rpx;
   padding: 2rpx 10rpx;
+  padding-right: 6rpx;
   width: fit-content;
   color: #F5701D;
   font-size: 20rpx;
@@ -131,7 +132,7 @@
   border-radius: 16rpx 16rpx 16rpx 0px;
 }
 .more-icon {
-  margin-left: 4rpx;
+  margin-left: 2rpx;
   width: 20rpx;
   height: 20rpx;
 }
@@ -152,7 +153,7 @@
   font-size: 24rpx;
 }
 .lightning {
-  margin-bottom: -6rpx;
+  margin-bottom: -2rpx;
   width: 20rpx;
   height: 20rpx;
 }
