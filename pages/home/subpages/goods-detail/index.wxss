@@ -232,7 +232,7 @@
 .goods-name {
   margin-top: 16rpx;
   color: #14191F;
-  font-size: 30rpx;
+  font-size: 32rpx;
   font-weight: 550;
 }
 
@@ -251,29 +251,59 @@
   font-size: 24rpx;
 }
 
-.list-spec {
-  margin: 18rpx 24rpx;
-  padding: 0 24rpx;
-  height: 110rpx;
-  font-size: 26rpx;
+.option-info-wrap {
+  margin: 18rpx 20rpx;
   background: #fff;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
 }
-.list-spec-title {
-  color: #333;
-  font-weight: 600;
-}
-.choose-btn {
+.option-item {
   display: flex;
-  align-items: center;
-  flex: 1;
-  margin-left: 24rpx;
+  padding: 24rpx;
 }
-.choose-btn-desc {
-  flex: 1;
-  color: #a6a6a6;
-  text-align: right;
+.option-label {
+  width: 136rpx;
+  color: #6A6F75;
+  font-size: 26rpx;
 }
+.option-content {
+  flex: 1;
+  color: #14191F;
+  font-size: 26rpx;
+}
+.option-arrow {
+  margin-top: 10rpx;
+  width: 18rpx;
+  height: 18rpx;
+}
+.address-icon {
+  margin-right: 8rpx;
+  width: 30rpx;
+  height: 30rpx;
+}
+.delivery-tips {
+  margin-top: 8rpx;
+  color: #6A6F75;
+  font-size: 26rpx;
+}
+.confidence-tag {
+  margin-right: 8rpx;
+  width: 78rpx;
+  height: 26rpx;
+}
+.license-icon {
+  margin-right: 8rpx;
+  width: 26rpx;
+  height: 26rpx;
+}
+
+
+
+
+
+
+
+
+
 .choose-btn-icon {
   width: 16rpx;
   height: 16rpx;

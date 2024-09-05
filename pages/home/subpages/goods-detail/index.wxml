@@ -104,14 +104,38 @@
     </view>
   </view>
 
-  <!-- 规格选择 -->
-  <view class="list-spec row">
-    <view class="list-spec-title">规格</view>
-    <view class="choose-btn" bindtap="showSpecPopup" data-mode="{{0}}">
-      <view class="choose-btn-desc omit single">
-        {{selecteSkuName ? ('已选：' + selecteSkuName) : '请选择'}}
+  <view class="option-info-wrap">
+    <view class="option-item">
+      <view class="option-label">选择</view>
+      <view class="option-content" bindtap="showSpecPopup" data-mode="{{0}}">{{selecteSkuName}}</view>
+      <image class="option-arrow" src="./images/option-arrow.png" />
+    </view>
+    <view class="option-item">
+      <view class="option-label">配送</view>
+      <view class="option-content">
+        <view class="address-info row">
+          <image class="address-icon" src="./images/address.png" />
+          <view class="omit single">{{addressDetail || "请填写地址"}}</view>
+        </view>
+        <view class="delivery-tips">现货 48小时发货</view>
       </view>
-      <image class="choose-btn-icon" src="https://img.ubo.vip/mp/selection/goods-detail/to-icon.png" />
+      <image class="option-arrow" src="./images/option-arrow.png" />
+    </view>
+    <view class="option-item">
+      <view class="option-label">购物保障</view>
+      <view class="option-content row">
+        <image class="confidence-tag" src="./images/confidence-tag.png" />
+        <view>七天无理由退货·品质严保·极速退款</view>
+      </view>
+      <image class="option-arrow" src="./images/option-arrow.png" />
+    </view>
+    <view class="option-item" wx:if="{{goodsInfo.merchantInfo}}">
+      <view class="option-label">证照</view>
+      <view class="option-content row">
+        <image class="license-icon" src="./images/license-icon.png" />
+        <view>经营资质</view>
+      </view>
+      <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
   </view>
 
