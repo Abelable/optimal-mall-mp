@@ -7,4 +7,5 @@
   height: 32px;
   border-radius: 50%;
   border: 0.5px solid #e1e1e1;
+  background: rgba(255, 255, 255, 0.5);
 }
