@@ -280,50 +280,111 @@
   height: 26rpx;
 }
 
-
-
-
-
-
-
-
-
-.choose-btn-icon {
-  width: 16rpx;
-  height: 16rpx;
-}
-
 .comment-summary-wrap {
-  margin: 18rpx 24rpx;
-  padding: 0 24rpx;
-  height: 110rpx;
+  margin: 18rpx 20rpx;
+  padding: 24rpx;
   background: #fff;
-  border-radius: 12rpx;
+  border-radius: 16rpx;
 }
-.comment-user-avatar-wrap {
-  margin-left: 8rpx;
+.comment-title {
+  color: #14191F;
+  font-size: 30rpx;
+  font-weight: 550;
+}
+.comment-rate-wrap {
+  margin-top: 16rpx;
+}
+.comment-rate {
+  color: #14191F;
+  font-size: 44rpx;
+  font-weight: 550;
+}
+.starts {
+  margin-left: 20rpx;
+}
+.start {
   margin-right: 12rpx;
+  width: 48rpx;
+  height: 48rpx;
+}
+.comment-labels {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 28rpx;
+}
+.comment-label {
+  margin-right: 16rpx;
+  margin-bottom: 16rpx;
+  padding: 0 8rpx;
+  height: 40rpx;
+  color: #F5701D;
+  font-size: 24rpx;
+  background: #FFF2EB;
+  border-radius: 8rpx;
+}
+
+.comment-item {
+  margin-top: 16rpx;
 }
 .comment-user-avatar {
-  margin-left: -8rpx;
-  width: 40rpx;
-  height: 40rpx;
-  border-radius: 50%;
-  border: 2rpx solid #fff;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 25rpx;
 }
-.comment-num {
-  color: #333;
-  font-size: 26rpx;
-  font-weight: 600;
+.comment-user-name {
+  margin-left: 16rpx;
+  flex: 1;
+  color: #3C3F42;
+  font-size: 24rpx;
 }
-.goods-score-wrap {
-  color: #666;
-  font-size: 26rpx;
+.comment-time {
+  color: #A1A9B3;
+  font-size: 20rpx;
 }
-.goods-score {
-  margin-left: 8rpx;
-  color: #333;
-  font-weight: 600;
+.comment-item-rate-wrap {
+  margin-top: 16rpx;
+  padding: 20rpx;
+  background: #F8F8F8;
+  border-radius: 16rpx;
+}
+.comment-item-start {
+  margin-right: 12rpx;
+  width: 28rpx;
+  height: 28rpx;
+}
+.comment-item-rate-desc {
+  color: #292929;
+  font-size: 24rpx;
+}
+.comment-item-content {
+  margin-top: 16rpx;
+  color: #3C3F42;
+  font-size: 24rpx;
+}
+.comment-item-goods-spec {
+  margin-top: 16rpx;
+  color: #A1A9B3;
+  font-size: 24rpx;
+}
+.comment-item-images {
+  margin-top: 16rpx;
+}
+.comment-item-image {
+  margin-right: 16rpx;
+  width: 156rpx;
+  height: 156rpx;
+  border-radius: 16rpx;
+}
+
+.more-comment-btn {
+  margin: 24rpx auto 0;
+  width: fit-content;
+  color: #7A7A7A;
+  font-size: 22rpx;
+}
+.more-comment-btn-arrow {
+  width: 18rpx;
+  height: 18rpx;
 }
 
 .goods-detail {

@@ -11,7 +11,8 @@ Page({
     statusBarHeight,
     // 导航栏相关
     showNavBar: false, // 导航栏显隐
-    detailActive: false, // 导航栏'详情'激活状态
+    commentActive: false,
+    detailActive: false,
     // 轮播图相关
     curDot: 1,
     muted: true,
@@ -55,6 +56,7 @@ Page({
       this.goodsId
     );
     this.setData({ goodsInfo, evaluationSummary }, () => {
+      this.getCommentTop();
       this.getDetailTop();
     });
 
@@ -79,7 +81,7 @@ Page({
   },
 
   setBottomPrice() {
-    const { price, couponList } = this.data.goodsInfo
+    const { price, couponList } = this.data.goodsInfo;
     if (couponList.length) {
       const bottomPrice = couponList.map(
         ({ type, numLimit, priceLimit, denomination }) => {
@@ -129,22 +131,33 @@ Page({
   },
 
   // 获取详情部分离窗口顶部的距离
+  getCommentTop() {
+    const query = wx.createSelectorQuery();
+    query.select(".comment-summary-wrap").boundingClientRect();
+    query.exec(res => {
+      if (res[0] !== null) {
+        this.commentTop = res[0].top - 8;
+      }
+    });
+  },
+
+  // 获取详情部分离窗口顶部的距离
   getDetailTop() {
     const query = wx.createSelectorQuery();
     query.select(".goods-detail-line").boundingClientRect();
     query.exec(res => {
       if (res[0] !== null) {
-        this.detailTop = res[0].top;
+        this.detailTop = res[0].top - 12;
       }
     });
   },
 
   // 监听滚动
   onPageScroll(e) {
-    const { showNavBar, detailActive } = this.data;
+    const { showNavBar, commentActive, detailActive } = this.data;
 
     // 控制导航栏显隐
-    if (e.scrollTop >= this.bannerHeight) {
+    if (e.scrollTop >= this.bannerHeight - navBarHeight) {
       if (!showNavBar) {
         this.setData({ showNavBar: true });
       }
@@ -155,10 +168,18 @@ Page({
     }
 
     // 控制导航栏tab的状态切换
-    if (e.scrollTop >= this.detailTop - navBarHeight) {
-      if (!detailActive) this.setData({ detailActive: true });
-    } else {
+    if (e.scrollTop < this.commentTop - navBarHeight) {
+      if (commentActive) this.setData({ commentActive: false });
       if (detailActive) this.setData({ detailActive: false });
+    } else if (
+      e.scrollTop >= this.commentTop - navBarHeight &&
+      e.scrollTop < this.detailTop - navBarHeight
+    ) {
+      if (!commentActive) this.setData({ commentActive: true });
+      if (detailActive) this.setData({ detailActive: false });
+    } else {
+      if (commentActive) this.setData({ commentActive: false });
+      if (!detailActive) this.setData({ detailActive: true });
     }
   },
 
@@ -169,10 +190,17 @@ Page({
     });
   },
 
+  // 滚动到评价部分
+  scrollToComment() {
+    wx.pageScrollTo({
+      scrollTop: this.commentTop - navBarHeight
+    });
+  },
+
   // 滚动到详情部分
   scrollToDetail() {
     wx.pageScrollTo({
-      scrollTop: this.detailTop - navBarHeight * 0.9
+      scrollTop: this.detailTop - navBarHeight
     });
   },
 
