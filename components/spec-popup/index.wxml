@@ -43,7 +43,7 @@
     </scroll-view>
     <view class="btns-wrap row">
       <button 
-        class="add-cart-btn {{btnActive ? 'active' : '' }}" 
+        class="add-cart-btn {{mode === 0 ? 'border' :  ''}} {{btnActive ? 'active' : '' }} " 
         style="margin-right: {{mode === 0 ? '12rpx' :  '0'}};"
         wx:if="{{mode === 0 || mode === 1}}" 
         bindtap="addCart"

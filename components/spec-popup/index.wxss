@@ -90,6 +90,16 @@
 .add-cart-btn.active {
   background: #F5701D;
 }
+.add-cart-btn.border {
+  color: #ccc;
+  border: 1px solid #ccc;
+  background: none !important;
+}
+.add-cart-btn.border.active {
+  color: #F5701D;
+  border: 1px solid #F5701D;
+  background: none !important;
+}
 .buy-btn.active {
   background: #F5701D;
 }
