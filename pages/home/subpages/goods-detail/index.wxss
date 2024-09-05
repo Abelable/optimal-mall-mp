@@ -430,7 +430,6 @@
   top: 12rpx;
   right: 12rpx;
   padding: 0 10rpx;
-  min-width: 30rpx;
   height: 30rpx;
   color: #fff;
   font-size: 18rpx;
@@ -444,14 +443,13 @@
   position: fixed;
   left: 0;
   bottom: 0;
-  padding: 12rpx 0 calc(10rpx + env(safe-area-inset-bottom));
+  padding: 12rpx 24rpx calc(10rpx + env(safe-area-inset-bottom));
   width: 100%;
   background: #fff;
   box-shadow: 0 -2rpx 2rpx 0 rgba(0,0,0,0.05);
 }
 .shortcut {
   position: relative;
-  flex: 1;
   color: #666;
   font-size: 20rpx;
   text-align: center;
@@ -462,27 +460,26 @@
   height: 48rpx;
 }
 
-.btns {
-  display: flex;
-  margin-right: 24rpx;
-  margin-left: 12rpx;
-  width: 456rpx;
-  height: 80rpx;
-  border-radius: 40rpx;
-  overflow: hidden;
-}
 .add-cart-btn, .buy-btn {
-  flex: 1;
-  color: #fff;
-  font-size: 28rpx;
+  width: 220rpx;
+  height: 80rpx;
+  font-size: 24rpx;
+  border-radius: 40rpx;
 }
 .add-cart-btn {
-  background: #FFAC40;
+  color: #FF3636;
+  border: 1px solid #FF3636;
 }
 .buy-btn {
+  margin-left: 12rpx;
+  color: #fff;
   background: #FF3636;
 }
-.add-cart-btn.invalid, .buy-btn.invalid {
+.add-cart-btn.invalid {
+  color: #ddd;
+  border-color: #ddd;
+}
+.buy-btn.invalid {
   color: #fff;
-  background: #ccc;
+  background: #ddd;
 }
