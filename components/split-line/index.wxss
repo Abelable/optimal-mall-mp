@@ -10,13 +10,13 @@
   top: 50%;
   transform: translateY(-50%);
   content: '';
-  width: 68rpx;
+  width: 20rpx;
   height: 1rpx;
-  background: #dbdbdb;
+  background: #333;
 }
 .split-line::before {
-  left: -88rpx;
+  left: -44rpx;
 }
 .split-line::after {
-  right: -88rpx;
+  right: -44rpx;
 }

@@ -5,10 +5,10 @@
 
 <!-- 顶部导航 -->
 <view class="nav-bar {{showNavBar ? 'show' : ''}}" style="padding-top: {{statusBarHeight}}px">
-  <back-icon />
+  <back-icon style="margin-left: 8px;" />
   <view class="menu-wrap" wx:if="{{showNavBar}}">
-    <view class="menu-tips {{!detailActive ? 'show' : ''}}" bindtap="scrollToTop">宝贝</view>
-    <view class="menu-split {{showNavBar ? 'show' : ''}}">|</view>
+    <view class="menu-tips {{!detailActive ? 'show' : ''}}" bindtap="scrollToTop">商品信息</view>
+    <view class="menu-tips {{detailActive ? 'show' : ''}}" bindtap="scrollToDetail">评价</view>
     <view class="menu-tips {{detailActive ? 'show' : ''}}" bindtap="scrollToDetail">详情</view>
   </view>
 </view>
@@ -153,7 +153,7 @@
   </view>
 
   <!-- 商品详情 -->
-  <split-line class="goods-detail-line" wx:if="{{goodsInfo.detailImageList.length}}" desc="宝贝详情" />
+  <split-line class="goods-detail-line" wx:if="{{goodsInfo.detailImageList.length}}" desc="详情" />
   <view class="goods-detail" wx:if="{{goodsInfo.detailImageList.length}}">
     <image 
       style="width: 100%"
@@ -170,7 +170,7 @@
 
   <!-- 商品推荐 -->
   <view class="recommend-goods-wrap" wx:if="{{goodsInfo.recommendGoodsList.length}}">
-    <split-line desc="为您推荐" />
+    <split-line desc="推荐" />
     <fall-flow list="{{goodsInfo.recommendGoodsList}}" generic:item="goods-item" />
   </view>
 
@@ -185,14 +185,10 @@
       <image class="shortcut-icon" src="./images/customer-icon.png"/>
       <view>客服</view>
     </view>
-    <!-- <view class="shortcut" bindtap="share">
+    <view class="shortcut" bindtap="share">
       <image class="shortcut-icon" src="./images/share-icon.png"/>
       <view>分享</view>
-    </view> -->
-    <button class="shortcut" style="flex-direction: column;" open-type="share" hover-class="none">
-      <image class="shortcut-icon" src="./images/share-icon.png"/>
-      <view>分享</view>
-    </button>
+    </view>
     <navigator class="shortcut" open-type="switchTab" url="/pages/cart/index" hover-class="none">
       <image class="shortcut-icon" src="./images/cart-icon.png"/>
       <view>购物车</view>
