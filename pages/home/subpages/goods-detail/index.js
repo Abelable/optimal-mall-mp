@@ -229,9 +229,9 @@ Page({
 
   // 关闭规格弹窗
   hideSpecPopup(e) {
-    const { selecteSkuName, cartGoodsNumber } = e.detail;
+    const { selectedSkuName, cartGoodsNumber } = e.detail;
     this.setData({ specPopupVisible: false });
-    if (selecteSkuName) this.setData({ selecteSkuName });
+    if (selectedSkuName) this.setData({ selectedSkuName });
     if (cartGoodsNumber) this.setData({ cartGoodsNumber });
   },
 

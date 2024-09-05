@@ -20,5 +20,5 @@
   font-size: 30rpx;
   font-weight: 600;
   border-radius: 18rpx;
-  background: #212121;
+  background: #F5701D;
 }

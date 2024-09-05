@@ -106,7 +106,7 @@
   <view class="option-info-wrap">
     <view class="option-item">
       <view class="option-label">选择</view>
-      <view class="option-content" bindtap="showSpecPopup" data-mode="{{0}}">{{selecteSkuName}}</view>
+      <view class="option-content" bindtap="showSpecPopup" data-mode="{{0}}">{{selectedSkuName}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
     <view class="option-item">
