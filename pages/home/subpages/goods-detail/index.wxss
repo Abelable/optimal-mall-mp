@@ -450,14 +450,17 @@
 }
 .shortcut {
   position: relative;
+  margin-right: 24rpx;
   color: #666;
-  font-size: 20rpx;
+  font-size: 18rpx;
   text-align: center;
   line-height: 1;
 }
 .shortcut-icon {
-  width: 48rpx;
-  height: 48rpx;
+  margin-bottom: 4rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border-radius: 50%;
 }
 
 .add-cart-btn, .buy-btn {

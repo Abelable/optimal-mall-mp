@@ -1,4 +1,6 @@
+import { createStoreBindings } from "mobx-miniprogram-bindings";
 import dayjs from "dayjs";
+import { store } from "../../../../store/index";
 import { getQueryString, checkLogin } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
@@ -33,6 +35,11 @@ Page({
     wx.showShareMenu({
       withShareTicket: true,
       menus: ["shareAppMessage", "shareTimeline"]
+    });
+
+    this.storeBindings = createStoreBindings(this, {
+      store,
+      fields: ["promoterInfo"]
     });
 
     const decodedScene = scene ? decodeURIComponent(scene) : "";
@@ -317,6 +324,7 @@ Page({
 
   onUnload() {
     clearInterval(this.countdownInterval);
+    this.storeBindings.destroyStoreBindings();
   },
 
   // 分享

@@ -88,7 +88,7 @@
   background: #e6e6e6;
 }
 .add-cart-btn.active {
-  background: #F5701D;
+  background: #FF3636;
 }
 .add-cart-btn.border {
   color: #ccc;
@@ -96,13 +96,13 @@
   background: none !important;
 }
 .add-cart-btn.border.active {
-  color: #F5701D;
-  border: 1px solid #F5701D;
+  color: #FF3636;
+  border: 1px solid #FF3636;
   background: none !important;
 }
 .buy-btn.active {
-  background: #F5701D;
+  background: #FF3636;
 }
 .edit-btn.active {
-  background: #F5701D;
+  background: #FF3636;
 }
