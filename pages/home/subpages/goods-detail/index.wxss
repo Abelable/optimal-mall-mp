@@ -463,7 +463,7 @@
   border-radius: 50%;
 }
 
-.add-cart-btn, .buy-btn {
+.add-cart-btn, .buy-btn, .notice-btn {
   width: 220rpx;
   height: 80rpx;
   font-size: 24rpx;
@@ -478,11 +478,15 @@
   color: #fff;
   background: #FF3636;
 }
+.notice-btn {
+  color: #fff;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+}
 .add-cart-btn.invalid {
   color: #ddd;
   border-color: #ddd;
 }
-.buy-btn.invalid {
+.notice-btn.invalid, .buy-btn.invalid {
   color: #fff;
   background: #ddd;
 }

@@ -67,7 +67,7 @@
   background-color: #F6F6F6;
 }
 .spec-tips.selected {
-  border: 1px solid #E1C7AA;
+  border: 1px solid #F5701D;
   background-color: rgb(254, 244, 245);
 }
 
