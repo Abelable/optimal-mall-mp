@@ -212,22 +212,23 @@
   <view class="nomore-tip">～没有更多了～</view>
 </view>
 
+<view class="hover-btns">
+  <navigator class="hover-btn" open-type="switchTab" url="/pages/cart/index" hover-class="none">
+    <image class="hover-btn-icon" src="./images/cart-icon.png" />
+    <view class="cart-count" wx:if="{{cartGoodsNumber}}">{{cartGoodsNumber}}</view>
+  </navigator>
+  <view class="hover-btn" bindtap="share">
+    <image class="hover-btn-icon" src="./images/share-icon.png" />
+  </view>
+</view>
+
 <!-- 底部工具栏 -->
-<view class="bottom-bar row">
+<view class="bottom-bar row between">
   <view class="shortcut-wrap row">
     <view class="shortcut" bindtap="CS">
       <image class="shortcut-icon" src="./images/customer-icon.png"/>
       <view>客服</view>
     </view>
-    <view class="shortcut" bindtap="share">
-      <image class="shortcut-icon" src="./images/share-icon.png"/>
-      <view>分享</view>
-    </view>
-    <navigator class="shortcut" open-type="switchTab" url="/pages/cart/index" hover-class="none">
-      <image class="shortcut-icon" src="./images/cart-icon.png"/>
-      <view>购物车</view>
-      <view class="cart-count" wx:if="{{cartGoodsNumber}}">{{cartGoodsNumber}}</view>
-    </navigator>
   </view>
   <view class="btns">
     <button class="add-cart-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>

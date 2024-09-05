@@ -404,6 +404,42 @@
   text-align: center;
 }
 
+.hover-btns {
+  position: fixed;
+  right: 24rpx;
+  bottom: calc(108rpx + env(safe-area-inset-bottom));
+}
+.hover-btn {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 24rpx;
+  width: 88rpx;
+  height: 88rpx;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.8);
+  box-shadow: 0 0 4rpx 4rpx rgba(0,0,0,0.05);
+}
+.hover-btn-icon {
+  width: 48rpx;
+  height: 48rpx;
+}
+.cart-count {
+  position: absolute;
+  top: 12rpx;
+  right: 12rpx;
+  padding: 0 10rpx;
+  min-width: 30rpx;
+  height: 30rpx;
+  color: #fff;
+  font-size: 18rpx;
+  line-height: 30rpx;
+  border-radius: 15rpx;
+  background: #FE4019;
+  transform: scale(0.8);
+}
+
 .bottom-bar {
   position: fixed;
   left: 0;
@@ -412,9 +448,6 @@
   width: 100%;
   background: #fff;
   box-shadow: 0 -2rpx 2rpx 0 rgba(0,0,0,0.05);
-}
-.shortcut-wrap {
-  flex: 1;
 }
 .shortcut {
   position: relative;
@@ -425,21 +458,8 @@
   line-height: 1;
 }
 .shortcut-icon {
-  width: 50rpx;
-  height: 50rpx;
-}
-.cart-count {
-  position: absolute;
-  top: -6rpx;
-  right: 6rpx;
-  padding: 0 10rpx;
-  height: 30rpx;
-  color: #fff;
-  font-size: 18rpx;
-  line-height: 30rpx;
-  border-radius: 15rpx;
-  background: #FE4019;
-  transform: scale(0.8);
+  width: 48rpx;
+  height: 48rpx;
 }
 
 .btns {
