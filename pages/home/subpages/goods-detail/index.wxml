@@ -99,7 +99,7 @@
     <view class="goods-name">{{goodsInfo.name}}</view>
     <view class="introduction-wrap">
       <view class="introduction">{{goodsInfo.introduction}}</view>
-      <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
+      <view class="sale-volume">销量{{goodsInfo.salesVolume}}</view>
     </view>
   </view>
 
