@@ -52,17 +52,17 @@
 
   <!-- 商品基本信息 -->
   <view class="goods-info-wrap">
-    <view class="activity-info-wrap row between" wx:if="{{goodsInfo.activityInfo}}">
+    <view class="{{goodsInfo.activityInfo ? 'activity-info-wrap' : ''}} row between ">
       <view class="price-wrap">
         <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
-          <price-unit price="{{goodsInfo.price || 0}}" color="#fff" fontSize="32rpx" integerFontSize="50rpx" />
+          <price-unit price="{{goodsInfo.price || 0}}" color="{{goodsInfo.activityInfo ? '#fff' : '#ff5040'}}" fontSize="32rpx" integerFontSize="50rpx" />
           <view class="bottom-price row" wx:if="{{bottomPrice}}">
             <view>最低到手价¥{{bottomPrice}}</view>
             <image class="more-icon" src="./images/more.png" />
           </view>
         </view>
       </view>
-      <view class="activity-info">
+      <view class="activity-info" wx:if="{{goodsInfo.activityInfo}}">
         <view class="activity-name">{{goodsInfo.activityInfo.name}}</view>
         <view class="activity-followers row" wx:if="{{goodsInfo.activityInfo.status === 0}}">
           已有{{goodsInfo.activityInfo.followers}}人关注
@@ -85,18 +85,23 @@
         </view>
       </view>
     </view>
+    <view class="coupon-wrap row" wx:if="{{goodsInfo.couponList.length}}">
+      <view class="coupon-list row">
+        <view class="coupon row" wx:for="{{goodsInfo.couponList}}" wx:key="id">
+          <view class="coupon-title">券</view>
+          <view class="coupon-content">{{item.name}}</view>
+        </view>
+      </view>
+      <view class="receive-btn">
+        <view>领取</view>
+        <image class="receive-btn-arrow" src="./images/btn-arrow.png" />
+      </view>
+    </view>
     <view class="goods-name">{{goodsInfo.name}}</view>
     <view class="introduction-wrap">
       <view class="introduction">{{goodsInfo.introduction}}</view>
       <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
     </view>
-    <!-- <view class="row between">
-      <view class="row baseline">
-        <price-unit price="{{goodsInfo.price || 0}}" fontSize="28rpx" integerFontSize="48rpx" />
-        <view class="market-price">￥{{goodsInfo.marketPrice}}</view>
-      </view>
-      <view class="sale-volume">已售{{goodsInfo.salesVolume}}</view>
-    </view> -->
   </view>
 
   <!-- 规格选择 -->
