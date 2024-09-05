@@ -458,8 +458,8 @@
 }
 .shortcut-icon {
   margin-bottom: 4rpx;
-  width: 50rpx;
-  height: 50rpx;
+  width: 54rpx;
+  height: 54rpx;
   border-radius: 50%;
 }
 
