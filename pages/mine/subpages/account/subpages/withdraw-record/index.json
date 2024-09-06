@@ -1,0 +1,7 @@
+{
+  "navigationBarTitleText": "提现明细",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty-illus": "/components/empty-illus/index"
+  }
+}

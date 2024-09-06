@@ -33,35 +33,75 @@
   background-repeat: no-repeat;
 }
 
-.amount-wrap {
-  margin-top: 52rpx;
-  text-align: center;
-}
-.amount-desc, .accumulate-amount {
-  color: #6A6F75;
-  font-size: 32rpx;
-}
-.amount {
-  margin-top: 10rpx;
-  color: #110E4B;
-  font-size: 68rpx;
-  font-weight: bold;
-  font-family: DINAlternate, DINAlternate;
-}
-.accumulate-amount {
-  margin-top: 12rpx;
-}
-
-.withdraw-card {
-  margin-top: 40rpx;
+.amount-card {
+  margin-top: 24rpx;
   background: linear-gradient( 90deg, #FFF8F7 0%, #FFEBE6 100%);
   border-radius: 20rpx;
+  overflow: hidden;
 }
-.withdraw-card-header {
+.amount-total {
+  position: relative;
+  padding: 32rpx;
+  height: 180rpx;
+  background-image: url('https://static.youbozhenxuan.cn/mp/account_amount_bg.png');
+  background-position: -20rpx -20rpx;
+  background-size: calc(100% + 40rpx) calc(100% + 40rpx);
+  background-repeat: no-repeat;
+}
+.amount-title {
+  color: #14191F;
+  font-size: 28rpx;
+}
+.withdraw-record-btn {
   display: flex;
   align-items: center;
-  padding: 0 20rpx;
-  height: 66rpx;
+  justify-content: center;
+  width: 130rpx;
+  height: 48rpx;
+  color: #FF4747;
+  font-size: 24rpx;
+  background: #FDF8F7;
+  border-radius: 24rpx;
+}
+.amount {
+  margin-top: 12rpx;
+  color: #14191F;
+  font-size: 44rpx;
+  font-weight: bold;
+}
+
+.amount-type-wrap {
+  padding: 32rpx 40rpx;
+  background: #fff;
+  border-radius: 0 0 20rpx 20rpx;
+}
+.amount-type-item:first-child {
+  margin-right: 152rpx;
+}
+.amount-type-name {
+  color: #3C3F42;
+  font-size: 24rpx;
+}
+.type-amount {
+  margin-top: 20rpx;
+  color: #14191F;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.type-withdraw-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24rpx;
+  width: 116rpx;
+  height: 48rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  border-radius: 24rpx;
+}
+.withdraw-tips-wrap {
+  padding: 24rpx 20rpx;
 }
 .withdraw-time-tips {
   flex: 1;
@@ -77,136 +117,4 @@
 .arrow {
   width: 32rpx;
   height: 32rpx;
-}
-.withdraw-card-inner {
-  padding: 44rpx;
-  padding-bottom: 50rpx;
-  background: #fff;
-  border-radius: 20rpx;
-}
-.withdraw-title {
-  color: #3C3F42;
-  font-size: 32rpx;
-}
-.withdraw-input {
-  margin-top: 18rpx;
-  padding: 16rpx 0;
-  font-size: 36rpx;
-  border-bottom: 1px solid #E2E5EA;
-}
-.withdraw-path {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  margin-top: 64rpx;
-  color: #3C3F42;
-  font-size: 28rpx;
-}
-.wx-path {
-  display: flex;
-  align-items: center;
-  color: #A1A9B3;
-  font-size: 28rpx;
-}
-.wx-icon {
-  margin-right: 8rpx;
-  width: 40rpx;
-  height: 40rpx;
-}
-
-.withdraw-btn {
-  display: flex;
-  margin: 52rpx auto 0;
-}
-.withdraw-amount-wrap {
-  display: flex;
-  align-items: center;
-  padding-left: 36rpx;
-  width: 364rpx;
-  height: 94rpx;
-  background: #FFF0E6;
-  border-radius: 47rpx 0 0 47rpx;
-}
-.currency-code {
-  color: #F5701D;
-  font-size: 24rpx;
-}
-.withdraw-amount {
-  margin-left: 6rpx;
-  color: #F5701D;
-  font-size: 40rpx;
-  font-weight: bold;
-}
-.commission {
-  margin-left: 12rpx;
-  color: #6A6F75;
-  font-size: 24rpx;
-}
-.withdraw-btn-desc {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 250rpx;
-  height: 94rpx;
-  color: #fff;
-  font-size: 36rpx;
-  background: #F5701D;
-  border-radius: 0 47rpx 47rpx 0;
-}
-
-.withdraw-record-list {
-  margin-top: 24rpx;
-  background: #fff;
-  border-radius: 20rpx;
-}
-.withdraw-record-item {
-  display: flex;
-  align-items: center;
-  justify-content: space-between;
-  padding-left: 24rpx;
-  padding-right: 56rpx;
-  height: 146rpx;
-  border-bottom: 1px solid #eee;
-}
-.record-status-wrap {
-  display: flex;
-  align-items: center;
-}
-.record-path {
-  color: #111;
-  font-size: 28rpx;
-}
-.record-status {
-  margin-left: 8rpx;
-  height: 36rpx;
-}
-.record-status.waiting {
-  width: 72rpx;
-}
-.record-status.success {
-  width: 74rpx;
-}
-.record-status.fail {
-  width: 92rpx;
-}
-.record-time {
-  margin-top: 6rpx;
-  color: #999;
-  font-size: 24rpx;
-}
-.record-amount {
-  color: #111;
-  font-size: 32rpx;
-}
-.record-commission {
-  margin-top: 7rpx;
-  color: #6A6F75;
-  font-size: 24rpx;
-}
-
-.no-more-tips {
-  margin-top: 36rpx;
-  color: #999;
-  font-size: 24rpx;
-  text-align: center;
 }

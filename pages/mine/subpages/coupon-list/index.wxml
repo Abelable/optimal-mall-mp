@@ -14,6 +14,6 @@
   <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" />
 </view>
 
-<view class="no-more-tips" wx:if="{{finished && orderList.length}}">～没有更多了～</view>
+<view class="no-more-tips" wx:if="{{finished && couponList.length}}">～没有更多了～</view>
 
 <empty-illus wx:if="{{!couponList.length}}" desc="暂无优惠券" />

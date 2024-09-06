@@ -1,0 +1,30 @@
+<view class="header">
+  <view class="date-picker">
+    <view>2024年8月</view>
+    <image class="arrow" src="./images/arrow.png" />
+  </view>
+  <view class="current-month-income">8月提现收益：¥888.00</view>
+  <view class="total-income">历史累计额提现收益：¥888.00</view>
+</view>
+
+<view class="withdraw-record-list" wx:if="{{recordList.length}}">
+  <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
+    <view class="record-content">
+      <view class="record-status-wrap">
+        <view class="record-path">提现至微信</view>
+        <image class="record-status {{['waiting', 'success', 'fail'][item.status]}}" src="./images/status_{{['waiting', 'success', 'fail'][item.status]}}.png" />
+      </view>
+      <view class="record-time">{{item.time}}</view>
+    </view>
+    <view class="record-amount-wrap">
+      <view class="record-amount">
+        <text style="font-size: 24rpx">¥</text>
+        <text>{{item.amount}}</text>
+      </view>
+      <view class="record-commission">手续费¥{{item.commission}}</view>
+    </view>
+  </view>
+</view>
+<view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
+
+<empty-illus wx:if="{{!recordList.length}}" desc="暂无提现记录" />

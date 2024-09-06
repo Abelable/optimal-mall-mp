@@ -1,0 +1,96 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 24rpx 32rpx;
+  background: #fff;
+  z-index: 100;
+}
+.date-picker {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 212rpx;
+  height: 58rpx;
+  color: #F57829;
+  font-size: 24rpx;
+  background: #FFF3EC;
+  border: 1px solid #F5701D;
+  border-radius: 29rpx;
+}
+.arrow {
+  margin-left: 12rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+.current-month-income, .total-income {
+  color: #111;
+  font-size: 28rpx;
+}
+.current-month-income {
+  margin-top: 32rpx;
+}
+.total-income {
+  margin-top: 8rpx;
+}
+
+.withdraw-record-list {
+  margin: 250rpx 24rpx 24rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.withdraw-record-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 24rpx;
+  padding-right: 56rpx;
+  height: 146rpx;
+  border-bottom: 1px solid #eee;
+}
+.withdraw-record-item:last-child {
+  border-bottom: none;
+}
+.record-status-wrap {
+  display: flex;
+  align-items: center;
+}
+.record-path {
+  color: #111;
+  font-size: 28rpx;
+}
+.record-status {
+  margin-left: 8rpx;
+  height: 36rpx;
+}
+.record-status.waiting {
+  width: 72rpx;
+}
+.record-status.success {
+  width: 74rpx;
+}
+.record-status.fail {
+  width: 92rpx;
+}
+.record-time {
+  margin-top: 6rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.record-amount {
+  color: #111;
+  font-size: 32rpx;
+}
+.record-commission {
+  margin-top: 7rpx;
+  color: #6A6F75;
+  font-size: 24rpx;
+}
+
+.no-more-tips {
+  margin-top: 36rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
