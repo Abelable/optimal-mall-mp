@@ -26,6 +26,7 @@
 .container {
   position: relative;
   padding: 24rpx;
+  padding-bottom: calc(142rpx + env(safe-area-inset-bottom));
   min-height: 100vh;
   background-image: url("https://static.youbozhenxuan.cn/mp/account_bg.png");
   background-position: top center;
@@ -33,266 +34,106 @@
   background-repeat: no-repeat;
 }
 
-.amount-card {
-  margin-top: 24rpx;
-  background: linear-gradient( 90deg, #FFF8F7 0%, #FFEBE6 100%);
-  border-radius: 20rpx;
-  overflow: hidden;
-}
-.amount-total {
-  position: relative;
-  padding: 32rpx;
-  height: 180rpx;
-  background-image: url('https://static.youbozhenxuan.cn/mp/account_amount_bg.png');
-  background-position: -20rpx -20rpx;
-  background-size: calc(100% + 40rpx) calc(100% + 40rpx);
-  background-repeat: no-repeat;
-}
-.amount-title {
-  color: #14191F;
-  font-size: 28rpx;
-}
-.withdraw-record-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 130rpx;
-  height: 48rpx;
-  color: #FF4747;
-  font-size: 24rpx;
-  background: #FDF8F7;
-  border-radius: 24rpx;
+.amount-label {
+  margin-top: 52rpx;
+  color: #6A6F75;
+  font-size: 32rpx;
+  text-align: center;
 }
 .amount {
-  margin-top: 12rpx;
-  color: #14191F;
-  font-size: 44rpx;
+  color: #110E4B;
+  font-size: 66rpx;
+  font-weight: bold;
+  text-align: center;
+}
+
+.fee-card {
+  margin-top: 52rpx;
+  padding: 16rpx 40rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.fee-item {
+  display: flex;
+  justify-content: space-between;
+  margin: 24rpx 0;
+}
+.fee-label, .fee-amount {
+  color: #3C3F42;
+  font-size: 28rpx;
+}
+.fee-amount.reality {
+  color: #EB2240;
   font-weight: bold;
 }
 
-.amount-type-wrap {
-  padding: 32rpx 40rpx;
+.withdraw-card {
+  margin-top: 16rpx;
+  padding: 36rpx 40rpx 32rpx;
   background: #fff;
-  border-radius: 0 0 20rpx 20rpx;
+  border-radius: 20rpx;
 }
-.amount-type-item:first-child {
-  margin-right: 152rpx;
-}
-.amount-type-name {
+.withdraw-title {
   color: #3C3F42;
-  font-size: 24rpx;
+  font-size: 28rpx;
 }
-.type-amount {
-  margin-top: 20rpx;
-  color: #14191F;
-  font-size: 40rpx;
-  font-weight: bold;
+.withdraw-option:first-child {
+  margin-top: 32rpx;
 }
-.type-withdraw-btn {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  margin-top: 24rpx;
-  width: 116rpx;
-  height: 48rpx;
-  color: #fff;
-  font-size: 24rpx;
-  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
-  border-radius: 24rpx;
+.withdraw-option:last-child {
+  margin-top: 48rpx;
 }
-.withdraw-tips-wrap {
-  padding: 24rpx 20rpx;
+.option-icon {
+  width: 56rpx;
+  height: 56rpx;
 }
-.withdraw-time-tips {
+.option-name {
+  margin-left: 16rpx;
   flex: 1;
-  color: #6A6F75;
-  font-size: 24rpx;
+  color: #242425;
+  font-size: 32rpx;
 }
-.withdraw-rules-btn {
-  display: flex;
-  align-items: center;
-  color: #F5701D;
+.selected-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+.bind-bank-tips {
+  margin-left: 72rpx;
+  color: #9899A1;
   font-size: 24rpx;
 }
 .arrow {
-  width: 32rpx;
-  height: 32rpx;
-}
-
-.menu-tabs {
-  display: flex;
-}
-.menu-tab {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  flex: 1;
-  height: 140rpx;
-  color: #6A6F75;
-  font-size: 28rpx;
-}
-.menu-tab.active {
-  position: relative;
-  color: #14191F;
-  font-size: 32rpx;
-  font-weight: 550;
-}
-.active-tag {
-  position: absolute;
-  left: 50%;
-  bottom: 28rpx;
-  transform: translateX(-50%);
-  width: 40rpx;
-  height: 16rpx;
-}
-
-.daily-data-wrap {
-  padding: 28rpx;
-  padding-bottom: 32rpx;
-  background: #fff;
-  border-radius: 16rpx;
-}
-.date-menu {
-  display: flex;
-  justify-content: space-between;
-}
-.date {
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  width: 116rpx;
-  height: 56rpx;
-  color: #6A6F75;
-  font-size: 28rpx;
-  border-radius: 28rpx;
-  border: 1px solid transparent;
-}
-.date.selected {
-  color: #F5701D;
-  background: #FFF3EC;
-  border: 1px solid #F5701D;
-}
-
-.daily-data-list {
-  display: flex;
-  margin-top: 46rpx;
-}
-.daily-data-item {
-  flex: 3;
-  text-align: center;
-}
-.daily-data-item:first-child {
-  flex: 2;
-}
-.daily-data {
-  color: #000;
-  font-size: 32rpx;
-  font-weight: 550;
-}
-.daily-data-desc {
-  margin-top: 16rpx;
-  color: #6A6F75;
-  font-size: 24rpx;
-}
-
-.sales-record-list {
-  margin-top: 24rpx;
-}
-.sales-record-item {
-  margin-bottom: 24rpx;
-  padding: 24rpx;
-  background: #fff;
-  border-radius: 16rpx;
-}
-.order-info {
-  display: flex;
-  align-items: center;
-  padding: 24rpx;
-  background: #f8f8f8;
-  border-radius: 16rpx;
-}
-.order-sn-wrap {
-  flex: 1;
-  color: #6A6F75;
-  font-size: 24rpx;
-}
-.order-sn {
-  display: flex;
-  align-items: center;
-}
-.order-sn-arrow {
   width: 24rpx;
   height: 24rpx;
 }
-.order-status-wrap {
-  display: flex;
-  margin-top: 12rpx;
-}
-.order-time {
-  margin-left: 48rpx;
-}
-.order-commission-wrap {
-  display: flex;
-  flex-direction: column;
-  align-items: flex-end;
-}
-.order-commission {
-  color: #14191F;
-  font-size: 32rpx;
-  font-weight: 550;  
-}
-.order-type {
-  margin-top: 8rpx;
-  padding: 6rpx 10rpx;
-  width: fit-content;
-  font-size: 20rpx;
-  line-height: 1;
+.remark {
+  margin-top: 42rpx;
+  padding: 28rpx;
+  width: calc(100% - 56rpx);
+  height: 110rpx;
+  background: #F8F8F8;
   border-radius: 8rpx;
 }
-.order-type.buy {
-  color: #F5701D;
-  border: 1px solid #F5701D;
-}
-.order-type.share {
-  color: #00AA5A;
-  border: 1px solid #00AA5A;
-}
-.goods-info-wrap {
-  display: flex;
-  align-items: center;
-  margin-top: 24rpx;
-}
-.goods-cover {
-  width: 150rpx;
-  height: 150rpx;
-  border-radius: 16rpx;
-}
-.goods-info {
-  display: flex;
-  flex-direction: column;
-  margin-left: 16rpx;
-  flex: 1;
-  height: 150rpx;
-}
-.goods-name {
-  color: #14191F;
-  font-size: 26rpx;
-  font-weight: 550;
-}
-.goods-spec {
-  margin: 4rpx;
-  flex: 1;
-  color: #6A6F75;
-  font-size: 22rpx;
-}
-.goods-commission {
-  color: #F5701D;
+
+.withdraw-tips {
+  margin-top: 22rpx;
+  color: #3C3F42;
   font-size: 24rpx;
 }
 
-.no-more-tips {
-  margin-top: 36rpx;
-  color: #999;
-  font-size: 24rpx;
-  text-align: center;
-}
+.withdraw-btn {
+  position: fixed;
+  left: 50%;
+  bottom: calc(24rpx + env(safe-area-inset-bottom));
+  transform: translateX(-50%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 614rpx;
+  height: 94rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #F5701D;
+  border-radius: 47rpx;
+  z-index: 100%;
+} 

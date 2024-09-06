@@ -3,7 +3,13 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 Page({
   data: {
     statusBarHeight,
-    navBarBgVisible: false
+    navBarBgVisible: false,
+    curOptionIdx: 0
+  },
+
+  selectOption(e) {
+    const curOptionIdx = e.currentTarget.dataset.index;
+    this.setData({ curOptionIdx });
   },
 
   onPageScroll(e) {
@@ -16,5 +22,5 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
-  },
+  }
 });

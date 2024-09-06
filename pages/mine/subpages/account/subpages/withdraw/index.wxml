@@ -6,5 +6,42 @@
 </view>
 
 <view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
-  
+  <view class="amount-label">提现金额</view>
+
+  <view class="amount">578.98</view>
+
+  <view class="fee-card">
+    <view class="fee-item">
+      <view class="fee-label">税费（费率6%）</view>
+      <view class="fee-amount">¥34.74</view>
+    </view>
+    <view class="fee-item">
+      <view class="fee-label">提现手续费（每笔1元）</view>
+      <view class="fee-amount">¥1</view>
+    </view>
+    <view class="fee-item">
+      <view class="fee-label">实际到账</view>
+      <view class="fee-amount reality">¥547.12</view>
+    </view>
+  </view>
+
+  <view class="withdraw-card">
+    <view class="withdraw-title">提现至：</view>
+    <view class="withdraw-options">
+      <view class="withdraw-option row" wx:for="{{['微信', '银行卡']}}" wx:key="index" bindtap="selectOption" data-index="{{index}}">
+        <image class="option-icon" src="./images/{{['wx', 'card'][index]}}.png" />
+        <view class="option-name">{{item}}</view>
+        <image class="selected-icon" src="./images/{{curOptionIdx === index ? 'selected' : 'unselected'}}.png" />
+      </view>
+    </view>
+    <view class="bind-bank-tips row" bindtap="bindBank">
+      <view>尚未绑定银行卡账号 去绑定</view>
+      <image class="arrow" src="./images/more.png" />
+    </view>
+    <textarea class="remark" style="font-size: 24rpx;" bindinput="setRemark" maxlength="32" placeholder="添加备注，最多32个字" />
+  </view>
+
+  <view class="withdraw-tips">提现说明：</view>
 </view>
+
+<view class="withdraw-btn">立即提现</view>
