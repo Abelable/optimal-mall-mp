@@ -349,6 +349,12 @@ Page({
     });
   },
 
+  checkLicense() {
+    const { license } = this.data.goodsInfo.merchantInfo;
+    const url = `./subpages/license/index?license=${JSON.stringify(license)}`;
+    wx.navigateTo({ url });
+  },
+
   checkEvaluationDetail() {
     const { avgScore } = this.data.evaluationSummary;
     const url = `./subpages/evaluation-list/index?goodsId=${this.goodsId}&avgScore=${avgScore}`;

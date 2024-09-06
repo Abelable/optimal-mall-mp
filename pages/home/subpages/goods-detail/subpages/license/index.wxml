@@ -1,0 +1,13 @@
+<view class="license-wrap">
+  <image 
+    style="width: 100%"
+    wx:for="{{licenseList}}" 
+    wx:key="index" 
+    src="{{item}}" 
+    mode="widthFix" 
+    lazy-load 
+    bindtap="previewImage"
+    data-current="{{item}}" 
+    data-urls="{{licenseList}}" 
+  />
+</view>

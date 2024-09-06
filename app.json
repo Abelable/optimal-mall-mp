@@ -3,6 +3,7 @@
     "pages/home/index",
     "pages/home/subpages/integrity-goods/index",
     "pages/home/subpages/goods-detail/index",
+    "pages/home/subpages/goods-detail/subpages/license/index",
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
     "pages/home/subpages/order-check/index",
     "pages/category/index",
