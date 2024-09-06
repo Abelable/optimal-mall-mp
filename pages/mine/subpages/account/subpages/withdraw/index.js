@@ -24,9 +24,15 @@ Page({
     }
   },
 
+  bindBank() {
+    wx.navigateTo({
+      url: "./subpages/bind-bank/index"
+    });
+  },
+
   withdraw() {
     wx.navigateTo({
-      url: "/pages/mine/subpages/account/subpages/withdraw-result/index"
+      url: "./subpages/withdraw-result/index"
     });
   }
 });

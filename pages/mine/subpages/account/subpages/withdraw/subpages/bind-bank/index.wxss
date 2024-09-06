@@ -1,0 +1,37 @@
+.form {
+  margin: 24rpx;
+}
+.form-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20rpx;
+  padding: 0 32rpx;
+  height: 108rpx;
+  background: #fff;
+  border-radius: 10rpx;
+}
+.form-label {
+  color: #14191F;
+  font-size: 32rpx;
+}
+.form-input {
+  flex: 1;
+  font-size: 32rpx;
+}
+
+.submit-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 180rpx auto 0;
+  width: 630rpx;
+  height: 110rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #F5701D;
+  border-radius: 55rpx;
+  opacity: 0.5;
+}
+.submit-btn.active {
+  opacity: 1;
+}

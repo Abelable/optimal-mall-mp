@@ -1,0 +1,16 @@
+<view class="form">
+  <view class="form-item">
+    <view class="form-label">姓名：</view>
+    <input class="form-input" bind:input="setName" placeholder="请输入姓名" />
+  </view>
+  <view class="form-item">
+    <view class="form-label">卡号：</view>
+    <input class="form-input" bind:input="setAcount" placeholder="请输入卡号" />
+  </view>
+  <view class="form-item">
+    <view class="form-label">开户行：</view>
+    <input class="form-input" bind:input="setBankName" placeholder="请输入开户行" />
+  </view>
+</view>
+
+<view class="submit-btn {{(name && acount && bankName) ? 'active' : '' }}" bindtap="submit">提交信息</view>
