@@ -1,2 +1,7 @@
-<nav-bar />
 <nav-bar title="提现结果" custom bind:navigateBack="navigateBack" />
+
+<image class="illus" style="margin-top: {{statusBarHeight + 92}}px" src="./images/illus.png" />
+
+<view class="result-desc">提现申请已提交，具体到账时间以您绑定的收款账户到账时间为准</view>
+
+<view class="withdraw-btn" bindtap="checkRecord">查看提现记录</view>

@@ -1,0 +1,26 @@
+.illus {
+  display: block;
+  width: 100%;
+  height: 610rpx;
+}
+
+.result-desc {
+  margin-top: 74rpx;
+  padding: 0 68rpx;
+  color: #283E5A;
+  font-size: 28rpx;
+  text-align: center;
+}
+
+.withdraw-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 38rpx auto 0;
+  width: 344rpx;
+  height: 94rpx;
+  color: #F5701D;
+  font-size: 36rpx;
+  border: 1px solid #F5701D;
+  border-radius: 47rpx;
+}
