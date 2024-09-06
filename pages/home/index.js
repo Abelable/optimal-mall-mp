@@ -33,6 +33,7 @@ Component({
     },
 
     async init() {
+      wx.showLoading({ title: "加载中..." });
       await this.setBannerList();
       await this.setTodayGoodsList();
       await this.setAdvanceGoodsList();

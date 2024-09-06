@@ -4,16 +4,14 @@ import BaseService from "../../../services/baseService";
 class HomeService extends BaseService {
   async getBannerList() {
     return await this.get({
-      url: `${this.baseUrl}/mall/banner_list`,
-      loadingTitle: "加载中..."
+      url: `${this.baseUrl}/mall/banner_list`
     });
   }
 
   async getActivityList(tag) {
     return await this.get({
       url: `${this.baseUrl}/mall/activity_list`,
-      data: { tag },
-      loadingTitle: "加载中..."
+      data: { tag }
     });
   }
 
