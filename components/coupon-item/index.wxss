@@ -95,6 +95,9 @@
   background: #FF4747;
   border-radius: 30rpx;
 }
+.coupon-receive-btn.invalid {
+  background: #ddd;
+}
 .received-num {
   margin-top: 10rpx;
   color: #999;
