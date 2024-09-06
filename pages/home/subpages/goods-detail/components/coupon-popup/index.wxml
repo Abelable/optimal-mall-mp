@@ -43,7 +43,7 @@
     </view>
 
     <view class="coupon-list">
-      <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" />
+      <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" bind:showSpecPopup="showSpecPopup" />
     </view>
   </view>
 </van-popup>

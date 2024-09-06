@@ -106,7 +106,7 @@
   <view class="option-info-wrap">
     <view class="option-item" wx:if="{{!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
       <view class="option-label">选择</view>
-      <view class="option-content" bindtap="showSpecPopup" data-mode="{{0}}">{{selectedSkuName}}</view>
+      <view class="option-content" bindtap="showSpecPopup">{{selectedSkuName}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
     <view class="option-item">
@@ -250,7 +250,12 @@
 </view>
 
 
-<coupon-popup show="{{couponPopupVisible}}" couponList="{{goodsInfo.couponList}}" bind:hide="hideCouponPopup" />
+<coupon-popup 
+  show="{{couponPopupVisible}}" 
+  couponList="{{goodsInfo.couponList}}" 
+  bind:showSpecPopup="showSpecPopup" 
+  bind:hide="hideCouponPopup"
+/>
 <!-- 商品规格选择弹窗 -->
 <spec-popup
   show="{{specPopupVisible}}"

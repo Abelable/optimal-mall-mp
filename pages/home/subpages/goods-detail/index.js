@@ -306,7 +306,7 @@ Page({
   // 显示规格弹窗
   showSpecPopup(e) {
     if (this.data.goodsInfo.stock) {
-      const { mode } = e.currentTarget.dataset;
+      const { mode = 0 } = e.currentTarget.dataset;
       this.setData({
         specPopupVisible: true,
         actionMode: mode
