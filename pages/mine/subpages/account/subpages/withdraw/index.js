@@ -1,3 +1,5 @@
+import { WEBVIEW_BASE_URL } from "../../../../../../config";
+
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
@@ -31,8 +33,10 @@ Page({
   },
 
   withdraw() {
-    wx.navigateTo({
-      url: "./subpages/withdraw-result/index"
-    });
+    const url = `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
+    wx.navigateTo({ url });
+    // wx.navigateTo({
+    //   url: "./subpages/withdraw-result/index"
+    // });
   }
 });
