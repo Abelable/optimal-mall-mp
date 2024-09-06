@@ -3,7 +3,7 @@
 <view class="coupon-item">
   <view class="coupon-main-wrap">
     <view class="coupon-main row">
-      <image class="received-chapter" wx:if="{{item.isReceived}}" src="./images/chapter_received.png" />
+      <image class="chapter" wx:if="{{item.isReceived}}" src="./images/chapter_received.png" />
       <view class="coupon-denomination-wrap">
         <view class="coupon-denomination">
           <text style="font-size: 32rpx;">¥</text>

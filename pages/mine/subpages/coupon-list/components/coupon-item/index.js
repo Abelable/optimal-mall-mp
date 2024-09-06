@@ -1,7 +1,4 @@
 import dayjs from "dayjs";
-import HomeService from "../../../../utils/homeService";
-
-const homeService = new HomeService();
 
 Component({
   options: {
@@ -44,18 +41,10 @@ Component({
       }, 1000);
     },
 
-    receive() {
-      const { id, isReceived, receivedNum } = this.properties.item;
-      if (isReceived) {
-        this.triggerEvent("showSpecPopup");
-      } else {
-        homeService.receiveCoupon(id, () => {
-          this.setData({
-            ["item.isReceived"]: 1,
-            ["item.receivedNum"]: receivedNum + 1
-          });
-        });
-      }
+    use() {
+      const { goodsId } = this.properties.item;
+      const url = `/pages/home/subpages/goods-detail/index?id=${goodsId}`;
+      wx.navigateTo({ url });
     }
   }
 });

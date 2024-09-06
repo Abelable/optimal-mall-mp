@@ -1,13 +1,13 @@
-import BaseService from '../../../../../services/baseService'
+import BaseService from "../../../../../services/baseService";
 
 class CouponService extends BaseService {
-  async getCouponList() {
-    return await this.get({ 
-      url: `${this.baseUrl}/address/detail`, 
-      data: { id },
-      loadingTitle: '加载中...'
-    })
+  async getCouponList(status) {
+    return await this.get({
+      url: `${this.baseUrl}/coupon/user_list`,
+      data: { status },
+      loadingTitle: "加载中..."
+    });
   }
 }
 
-export default CouponService
+export default CouponService;
