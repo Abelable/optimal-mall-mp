@@ -4,8 +4,6 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    withdrawAmount: undefined,
-    commission: 0,
     curMenuIdx: 0,
     dateList: ["今日", "昨日", "本月", "上月", "全部"],
     curDateIdx: 0,
@@ -43,12 +41,6 @@ Page({
     const { orderSn } = e.currentTarget.dataset;
     const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?orderSn=${orderSn}`;
     wx.navigateTo({ url });
-  },
-
-  setWithdrawAmount(e) {
-    const withdrawAmount = e.detail.value;
-    const commission = withdrawAmount * 0.001;
-    this.setData({ withdrawAmount, commission });
   },
 
   withdraw() {},
