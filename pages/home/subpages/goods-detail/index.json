@@ -11,6 +11,7 @@
     "spec-popup": "/components/spec-popup/index",
     "modal-mask": "/components/modal-mask/index",
     "poster-modal": "/components/poster-modal/index",
+    "empty-illus": "/components/empty-illus/index",
     "coupon-popup": "./components/coupon-popup/index"
   }
 }
