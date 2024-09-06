@@ -1,0 +1,121 @@
+<view class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar-inner">
+    <back-icon />
+    <view class="nav-bar-title">提现</view>
+  </view>
+</view>
+
+<view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
+  <view class="amount-card">
+    <view class="amount-total">
+      <view class="amount-title-wrap row between">
+        <view class="amount-title">可提现金额</view>
+        <view class="withdraw-record-btn" bindtap="checkWithdrawRecord">提现明细</view>
+      </view>
+      <view class="amount">
+        <text style="font-size: 32rpx;">¥</text>
+        <text>5578.98</text>
+      </view>
+    </view>
+    <view class="amount-type-wrap row">
+      <view class="amount-type-item">
+        <view class="amount-type-name">自购返现</view>
+        <view class="type-amount">
+          <text style="font-size: 28rpx;">¥</text>
+          <text>5000.00</text>
+        </view>
+        <view class="type-withdraw-btn">提现</view>
+      </view>
+      <view class="amount-type-item">
+        <view class="amount-type-name">分享奖励</view>
+        <view class="type-amount">
+          <text style="font-size: 28rpx;">¥</text>
+          <text>578.98</text>
+        </view>
+        <view class="type-withdraw-btn">提现</view>
+      </view>
+    </view>
+    <view class="withdraw-tips-wrap row">
+      <view class="withdraw-time-tips">每月25～31号可提现上月的结算收益</view>
+      <view class="withdraw-rules-btn">
+        <view>提现规则</view>
+        <image class="arrow" src="./images/more.png" />
+      </view>
+    </view>
+  </view>
+
+  <view class="menu-tabs">
+    <view 
+      class="menu-tab {{ curMenuIdx === index ? 'active' : '' }}"
+      wx:for="{{['自购返现', '分享奖励']}}"
+      wx:key="index"
+      bindtap="selectMenu"
+      data-index="{{index}}"
+    >
+      <view>{{item}}</view>
+      <image class="active-tag" wx:if="{{curMenuIdx === index}}" src="./images/tag.png" />
+    </view>
+  </view>
+
+  <view class="daily-data-wrap">
+    <view class="date-menu">
+      <view
+        class="date {{curDateIdx === index ? 'selected' : ''}}"
+        wx:for="{{dateList}}"
+        wx:key="index"
+        bindtap="selectDate"
+        data-index="{{index}}"
+      >
+        {{item}}
+      </view>
+    </view>
+    <view class="daily-data-list">
+      <view class="daily-data-item">
+        <view class="daily-data">0</view>
+        <view class="daily-data-desc">订单量</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">销售额</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">待结算金额</view>
+      </view>
+      <view class="daily-data-item">
+        <view class="daily-data">0.00</view>
+        <view class="daily-data-desc">已结算金额</view>
+      </view>
+    </view>
+  </view>
+
+  <view class="sales-record-list" wx:if="{{recordList}}">
+    <view class="sales-record-item" wx:for="{{recordList}}" wx:key="index">
+      <view class="order-info">
+        <view class="order-sn-wrap">
+          <view class="order-sn" bindtap="checkOrderDetail" data-order-sn="{{item.orderInfo.orderSn}}">
+            <view>订单编号：{{item.orderInfo.orderSn}}</view>
+            <image class="order-sn-arrow" src="./images/more-gray.png" />
+          </view>
+          <view class="order-status-wrap">
+            <view class="order-status">{{item.orderInfo.status}}</view>
+            <view class="order-time">下单时间：{{item.orderInfo.time}}</view>
+          </view>
+        </view>
+        <view class="order-commission-wrap">
+          <view class="order-commission">+{{item.orderInfo.commission}}</view>
+          <view class="order-type {{curMenuIdx === 0 ? 'buy' : 'share'}}">{{curMenuIdx === 0 ? "自购" : "分享"}}</view>
+        </view>
+      </view>
+      <view class="goods-info-wrap">
+        <image class="goods-cover" src="{{item.goodsInfo.cover}}" />
+        <view class="goods-info">
+          <view class="goods-name omit">{{item.goodsInfo.name}}</view>
+          <view class="goods-spec">{{item.goodsInfo.spec}}</view>
+          <view class="goods-commission">返现¥{{item.goodsInfo.commission}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
+</view>

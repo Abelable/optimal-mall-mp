@@ -21,6 +21,7 @@
     "pages/mine/subpages/order-center/subpages/shipping/index",
     "pages/mine/subpages/wallet/index",
     "pages/mine/subpages/account/index",
+    "pages/mine/subpages/account/subpages/withdraw/index",
     "pages/mine/subpages/account/subpages/withdraw-record/index",
     "pages/mine/subpages/coupon-list/index",
     "pages/common/register/index",
