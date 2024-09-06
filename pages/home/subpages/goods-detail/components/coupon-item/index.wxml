@@ -3,6 +3,7 @@
 <view class="coupon-item">
   <view class="coupon-main-wrap">
     <view class="coupon-main row">
+      <image class="received-chapter" src="./images/chapter_received.png" />
       <view class="coupon-denomination-wrap">
         <view class="coupon-denomination">
           <text style="font-size: 32rpx;">¥</text>
@@ -23,7 +24,7 @@
           <view class="coupon-countdown">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
         </view>
         <view class="receive-btn-wrap">
-          <view class="coupon-receive-btn {{item.isReceived ? 'invalid' : ''}}">{{ item.isReceived ? '已领取' : '领取' }}</view>
+          <view class="coupon-receive-btn" bindtap="receive">{{item.isReceived ? '去使用' : '领取'}}</view>
           <view class="received-num">已发放{{item.receivedNum}}张</view>
         </view>
       </view>

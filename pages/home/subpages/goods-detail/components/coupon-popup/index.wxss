@@ -19,8 +19,9 @@
 }
 .close-icon {
   margin-left: 24rpx;
-  width: 40rpx;
-  height: 40rpx;
+  width: 44rpx;
+  height: 44rpx;
+  color: #b0b0b0;
 }
 
 .discount-formula-wrap {

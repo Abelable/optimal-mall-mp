@@ -55,6 +55,14 @@ class HomeService extends BaseService {
       loadingTitle: "加载中..."
     });
   }
+
+  async receiveCoupon(id, success) {
+    return await this.post({
+      url: `${this.baseUrl}/coupon/receive`,
+      data: { id },
+      success
+    });
+  }
 }
 
 export default HomeService;

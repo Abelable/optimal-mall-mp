@@ -5,6 +5,7 @@
 .coupon-main-wrap {
   overflow: hidden;
 }
+
 .coupon-main {
   position: relative;
   height: 180rpx;
@@ -29,6 +30,16 @@
   bottom: -24rpx;
   background: #f5f6f7;
 }
+
+.received-chapter {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0.4;
+}
+
 .coupon-denomination-wrap {
   display: flex;
   flex-direction: column;
@@ -94,9 +105,6 @@
   font-size: 24rpx;
   background: #FF4747;
   border-radius: 30rpx;
-}
-.coupon-receive-btn.invalid {
-  background: #ddd;
 }
 .received-num {
   margin-top: 10rpx;
