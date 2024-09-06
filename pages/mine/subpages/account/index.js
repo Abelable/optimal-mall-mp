@@ -43,7 +43,11 @@ Page({
     wx.navigateTo({ url });
   },
 
-  withdraw() {},
+  withdraw() {
+    wx.navigateTo({
+      url: "./subpages/withdraw/index"
+    });
+  },
 
   onPullDownRefresh() {
     wx.stopPullDownRefresh();
@@ -63,7 +67,7 @@ Page({
 
   checkWithdrawRecord() {
     wx.navigateTo({
-      url: './subpages/withdraw-record/index'
+      url: "./subpages/withdraw-record/index"
     });
   }
 });
