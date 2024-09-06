@@ -22,6 +22,8 @@ Page({
     countdown: 0,
     bottomPrice: 0,
     evaluationSummary: null,
+    recommendGoodsList: [],
+    finished: false,
     cartGoodsNumber: 0,
     // 规格相关
     selectedSpecDesc: "",
@@ -47,14 +49,21 @@ Page({
     this.goodsId =
       id || decodedScene.split("-")[0] || getQueryString(decodedQ, "id");
 
-    await this.setGoodsInfo();
     this.getBannerHeight();
+    this.init();
   },
 
   onShow() {
     checkLogin(() => {
       this.setCartGoodsNumber();
     }, false);
+  },
+
+  async init() {
+    await this.setGoodsInfo();
+    this.setBottomPrice();
+    this.setCountdown();
+    this.setRecommendGoodsList(true);
   },
 
   async setGoodsInfo() {
@@ -66,25 +75,6 @@ Page({
       this.getCommentTop();
       this.getDetailTop();
     });
-
-    this.setBottomPrice();
-
-    if (goodsInfo.activityInfo) {
-      const { status, startTime, endTime } = goodsInfo.activityInfo;
-      if (status === 0) {
-        const countdown = Math.floor(
-          (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000
-        );
-        this.setData({ countdown });
-        this.setCountdown();
-      } else if (status === 1 && endTime) {
-        const countdown = Math.floor(
-          (dayjs(endTime).valueOf() - dayjs().valueOf()) / 1000
-        );
-        this.setData({ countdown });
-        this.setCountdown();
-      }
-    }
   },
 
   setBottomPrice() {
@@ -113,6 +103,28 @@ Page({
   },
 
   setCountdown() {
+    if (this.data.goodsInfo.activityInfo) {
+      const { status, startTime, endTime } = this.data.goodsInfo.activityInfo;
+      if (status === 0) {
+        const countdown = Math.floor(
+          (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.startCountdown();
+      } else if (status === 1 && endTime) {
+        const countdown = Math.floor(
+          (dayjs(endTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.startCountdown();
+      }
+    }
+  },
+
+  startCountdown() {
+    if (this.countdownInterval) {
+      clearInterval(this.countdownInterval);
+    }
     this.countdownInterval = setInterval(() => {
       if (this.data.countdown === 0) {
         clearInterval(this.countdownInterval);
@@ -122,6 +134,27 @@ Page({
         countdown: this.data.countdown - 1
       });
     }, 1000);
+  },
+
+  async setRecommendGoodsList(init = false) {
+    if (init) {
+      this.page = 0;
+      this.setData({ finished: false });
+    }
+    const { goodsInfo, recommendGoodsList } = this.data;
+    const { id, categoryIds } = goodsInfo;
+
+    const list = await homeService.getRecommedGoodsList(
+      [id],
+      categoryIds,
+      ++this.page
+    );
+    this.setData({
+      recommendGoodsList: init ? list : [...recommendGoodsList, ...list]
+    });
+    if (!list.length) {
+      this.setData({ finished: true });
+    }
   },
 
   async setCartGoodsNumber() {
@@ -157,6 +190,15 @@ Page({
         this.detailTop = res[0].top - 12;
       }
     });
+  },
+
+  onReachBottom() {
+    this.setRecommendGoodsList();
+  },
+
+  onPullDownRefresh() {
+    this.init();
+    wx.stopPullDownRefresh();
   },
 
   // 监听滚动
