@@ -4,3 +4,90 @@
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
 }
+.title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.share-btn {
+  padding: 0 16rpx;
+  height: 48rpx;
+  color: #333;
+  font-size: 22rpx;
+  background: #f5f6f8;
+  border-radius: 24rpx;
+}
+.close-icon {
+  margin-left: 24rpx;
+  width: 40rpx;
+  height: 40rpx;
+}
+
+.discount-formula-wrap {
+  margin-top: 32rpx;
+}
+.discount-title {
+  color: #333;
+  font-size: 28rpx;
+  text-align: center;
+}
+.discount-formula {
+  position: relative;
+  justify-content: center;
+  margin-top: 32rpx;
+  padding: 32rpx 0;
+  color: #FF4747;
+  border: 1px solid #FF4747;
+  border-radius: 24rpx;
+}
+.arrow {
+  position: absolute;
+  top: -16rpx;
+  width: 30rpx;
+  height: 30rpx;
+  border-color: #FF4747;
+  border-width: 1px 1px 0 0;
+  border-style: solid;
+  border-top-right-radius: 6rpx;
+  background: #fff;
+  transform: rotateZ(-45deg);
+}
+.formula-result {
+  margin-right: 8rpx;
+  padding: 12rpx 24rpx;
+  color: #fff;
+  text-align: center;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  border-radius: 18rpx;
+}
+.result-price {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.result-desc {
+  font-size: 22rpx;
+}
+.symbol {
+  margin: 0 8rpx 8rpx;
+  font-size: 42rpx;
+}
+.bracket {
+  margin: 0 8rpx;
+  font-size: 36rpx;
+}
+.formula-unit {
+  margin: 0 8rpx;
+  font-size: 42rpx;
+  text-align: center;
+}
+.unit-price {
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.unit-desc {
+  font-size: 22rpx;
+}
+
+.coupon-list {
+  margin-top: 32rpx;
+}

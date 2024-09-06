@@ -55,7 +55,7 @@
       <view class="price-wrap">
         <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
           <price-unit price="{{goodsInfo.price || 0}}" color="{{goodsInfo.activityInfo ? '#fff' : '#ff5040'}}" fontSize="32rpx" integerFontSize="50rpx" />
-          <view class="bottom-price row" wx:if="{{bottomPrice}}">
+          <view class="bottom-price row" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
             <view>最低到手价¥{{bottomPrice}}</view>
             <image class="more-icon" src="./images/more.png" />
           </view>
@@ -91,7 +91,7 @@
           <view class="coupon-content">{{item.name}}</view>
         </view>
       </view>
-      <view class="receive-btn">
+      <view class="receive-btn" bindtap="showCouponPopup">
         <view>领取</view>
         <image class="receive-btn-arrow" src="./images/btn-arrow.png" />
       </view>
@@ -249,6 +249,8 @@
   <button wx:if="{{goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" class="notice-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="notice">开售提醒我</button>
 </view>
 
+
+<coupon-popup show="{{couponPopupVisible}}" couponList="{{goodsInfo.couponList}}" bind:hide="hideCouponPopup" />
 <!-- 商品规格选择弹窗 -->
 <spec-popup
   show="{{specPopupVisible}}"
@@ -256,7 +258,6 @@
   goodsInfo="{{goodsInfo}}"
   bind:hide="hideSpecPopup"
 />
-
 <!-- 分享 -->
 <modal-mask wx:if="{{posterModalVisible}}" bindtap="hidePosterModal" filter />
 <poster-modal wx:if="{{posterModalVisible}}" scene="7" info="{{posterInfo}}" bind:hide="hidePosterModal" />

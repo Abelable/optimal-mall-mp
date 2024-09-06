@@ -25,6 +25,7 @@ Page({
     recommendGoodsList: [],
     finished: false,
     cartGoodsNumber: 0,
+    couponPopupVisible: false,
     // 规格相关
     selectedSpecDesc: "",
     specPopupVisible: false,
@@ -191,6 +192,14 @@ Page({
         this.detailTop = res[0].top - 12;
       }
     });
+  },
+
+  showCouponPopup() {
+    this.setData({ couponPopupVisible: true });
+  },
+
+  hideCouponPopup() {
+    this.setData({ couponPopupVisible: false });
   },
 
   onReachBottom() {

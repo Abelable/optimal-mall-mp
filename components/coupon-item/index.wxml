@@ -1,2 +1,19 @@
 <view class="coupon-item">
+  <view class="coupon-main-wrap">
+    <view class="coupon-main row">
+      <view class="coupon-denomination-wrap">
+        <view class="coupon-denomination">
+          <text style="font-size: 32rpx;">¥</text>
+          <text>{{item.denomination}}</text>
+        </view>
+        <view class="coupon-limit-desc">
+          {{item.type === 1 ? "满" + item.priceLimit + "元可用" : item.type === 2 ? "满" + item.numLimit + "件可用" : "无门槛"}}
+        </view>
+      </view>
+      <view class="coupon-info">
+        <view class="coupon-name">{{item.name}}</view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-desc">{{item.description}}</view>
 </view>
