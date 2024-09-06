@@ -128,7 +128,7 @@
       </view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
-    <view class="option-item" wx:if="{{goodsInfo.merchantInfo}}" bindtap="checkLicense">
+    <view class="option-item" wx:if="{{goodsInfo.merchantInfo && goodsInfo.merchantInfo.license.length}}" bindtap="checkLicense">
       <view class="option-label">证照</view>
       <view class="option-content row">
         <image class="license-icon" src="./images/license-icon.png" />
