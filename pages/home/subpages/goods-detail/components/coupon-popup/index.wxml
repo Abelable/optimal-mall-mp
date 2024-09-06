@@ -7,43 +7,44 @@
         <image class="close-icon" bindtap="hide" src="./images/close.png" />
       </view>
     </view>
-
-    <view class="discount-formula-wrap">
-      <view class="discount-title">购买3件，享受以下优惠</view>
-      <view class="discount-formula row">
-        <view class="arrow" />
-        <view class="formula-result">
-          <view class="result-price">
-            <text style="font-size: 24rpx;">¥</text>
-            <text>499</text>
+    <scroll-view class="popup-main" scroll-y>
+      <view class="discount-formula-wrap">
+        <view class="discount-title">购买3件，享受以下优惠</view>
+        <view class="discount-formula row">
+          <view class="arrow" />
+          <view class="formula-result">
+            <view class="result-price">
+              <text style="font-size: 24rpx;">¥</text>
+              <text>499</text>
+            </view>
+            <view class="result-desc">单件到手</view>
           </view>
-          <view class="result-desc">单件到手</view>
-        </view>
-        <view class="symbol">=</view>
-        <view class="bracket">(</view>
-        <view class="formula-unit">
-          <view class="unit-price">
-            <text style="font-size: 24rpx;">¥</text>
-            <text>3950</text>
+          <view class="symbol">=</view>
+          <view class="bracket">(</view>
+          <view class="formula-unit">
+            <view class="unit-price">
+              <text style="font-size: 24rpx;">¥</text>
+              <text>3950</text>
+            </view>
+            <view class="unit-desc">6件总价</view>
           </view>
-          <view class="unit-desc">6件总价</view>
-        </view>
-        <view class="symbol">-</view>
-        <view class="formula-unit">
-          <view class="unit-price">
-            <text style="font-size: 24rpx;">¥</text>
-            <text>600</text>
+          <view class="symbol">-</view>
+          <view class="formula-unit">
+            <view class="unit-price">
+              <text style="font-size: 24rpx;">¥</text>
+              <text>600</text>
+            </view>
+            <view class="unit-desc">优惠券</view>
           </view>
-          <view class="unit-desc">优惠券</view>
+          <view class="bracket">)</view>
+          <view class="symbol">÷</view>
+          <view class="formula-unit">6</view>
         </view>
-        <view class="bracket">)</view>
-        <view class="symbol">÷</view>
-        <view class="formula-unit">6</view>
       </view>
-    </view>
-
-    <view class="coupon-list">
-      <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" bind:showSpecPopup="showSpecPopup" />
-    </view>
+  
+      <view class="coupon-list">
+        <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" bind:showSpecPopup="showSpecPopup" />
+      </view>
+    </scroll-view>
   </view>
 </van-popup>

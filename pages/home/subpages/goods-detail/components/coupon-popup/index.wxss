@@ -1,8 +1,11 @@
 .coupon-popup {
-  padding: 24rpx;
-  height: 900rpx;
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
+}
+
+.popup-header {
+  padding: 0 24rpx;
+  height: 88rpx;
 }
 .title {
   color: #333;
@@ -24,8 +27,12 @@
   color: #b0b0b0;
 }
 
+.popup-main {
+  height: 800rpx;
+}
+
 .discount-formula-wrap {
-  margin-top: 32rpx;
+  margin: 0 24rpx;
 }
 .discount-title {
   color: #333;
@@ -91,4 +98,5 @@
 
 .coupon-list {
   margin-top: 32rpx;
+  padding: 0 24rpx 2rpx;
 }
