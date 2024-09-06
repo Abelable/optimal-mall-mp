@@ -213,6 +213,9 @@
 </view>
 
 <view class="hover-btns">
+  <view class="hover-btn" wx:if="{{topBtnVisible}}" bindtap="scrollToTop">
+    <image class="hover-btn-icon" src="./images/top.png" />
+  </view>
   <navigator class="hover-btn" open-type="switchTab" url="/pages/cart/index" hover-class="none">
     <image class="hover-btn-icon" src="./images/cart-icon.png" />
     <view class="cart-count" wx:if="{{cartGoodsNumber}}">{{cartGoodsNumber}}</view>

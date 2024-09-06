@@ -30,7 +30,8 @@ Page({
     specPopupVisible: false,
     actionMode: 0,
     posterInfo: null,
-    posterModelVisible: false
+    posterModelVisible: false,
+    topBtnVisible: false
   },
 
   async onLoad({ id, scene, q }) {
@@ -208,11 +209,11 @@ Page({
     // 控制导航栏显隐
     if (e.scrollTop >= this.bannerHeight - navBarHeight) {
       if (!showNavBar) {
-        this.setData({ showNavBar: true });
+        this.setData({ showNavBar: true, topBtnVisible: true });
       }
     } else {
       if (showNavBar) {
-        this.setData({ showNavBar: false });
+        this.setData({ showNavBar: false, topBtnVisible: false });
       }
     }
 
