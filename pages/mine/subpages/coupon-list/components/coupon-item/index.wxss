@@ -2,10 +2,13 @@
   margin-bottom: 32rpx;
   background: #fff;
 }
+.coupon-item.invalid {
+  filter: grayscale(100%);
+}
+
 .coupon-main-wrap {
   overflow: hidden;
 }
-
 .coupon-main {
   position: relative;
   height: 180rpx;
@@ -85,7 +88,7 @@
   margin-left: 8rpx;
   flex: 1;
 }
-.coupon-countdown {
+.coupon-countdown, .coupon-time {
   margin-top: 8rpx;
   color: #333;
   font-size: 24rpx;

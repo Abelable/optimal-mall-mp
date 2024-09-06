@@ -2,6 +2,45 @@ page {
   background: #fff;
 }
 
+.menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  display: flex;
+  align-items: center;
+  padding: 0 24rpx;
+  width: 100%;
+  height: 120rpx;
+  background: #fff;
+  z-index: 100;
+}
+.menu-item {
+  margin-right: 48rpx;
+  color: #333;
+  font-size: 32rpx;
+}
+.menu-item.active {
+  position: relative;
+  font-size: 40rpx;
+  font-weight: bold;
+}
+.menu-item.active::after {
+  position: absolute;
+  left: 0;
+  bottom: 8rpx;
+  width: 100rpx;
+  height: 8rpx;
+  content: "";
+  background: linear-gradient(135deg, #F5701D 0%, #fff 100%);
+  border-radius: 4rpx;
+  z-index: -1;
+}
+
+.coupon-list {
+  margin-top: 120rpx;
+  padding: 0 24rpx 1rpx;
+}
+
 .no-more-tips {
   margin-top: 36rpx;
   color: #999;

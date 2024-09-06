@@ -15,12 +15,14 @@ Component({
 
   lifetimes: {
     attached() {
-      const { expirationTime } = this.properties.item;
-      const countdown = Math.floor(
-        (dayjs(expirationTime).valueOf() - dayjs().valueOf()) / 1000
-      );
-      this.setData({ countdown });
-      this.setCountdown();
+      const { status, expirationTime } = this.properties.item;
+      if (status === 1) {
+        const countdown = Math.floor(
+          (dayjs(expirationTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      }
     },
 
     detached() {
@@ -42,9 +44,11 @@ Component({
     },
 
     use() {
-      const { goodsId } = this.properties.item;
-      const url = `/pages/home/subpages/goods-detail/index?id=${goodsId}`;
-      wx.navigateTo({ url });
+      const { status, goodsId } = this.properties.item;
+      if (status === 1) {
+        const url = `/pages/home/subpages/goods-detail/index?id=${goodsId}`;
+        wx.navigateTo({ url });
+      }
     }
   }
 });

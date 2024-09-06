@@ -15,7 +15,7 @@ Page({
   },
 
   onLoad() {
-    this.setCouponList(init);
+    this.setCouponList(true);
   },
 
   selectMenu(e) {

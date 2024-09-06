@@ -1,9 +1,9 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 
-<view class="coupon-item">
+<view class="coupon-item {{item.status !== 1 ? 'invalid' : ''}}">
   <view class="coupon-main-wrap">
     <view class="coupon-main row">
-      <image class="chapter" wx:if="{{item.isReceived}}" src="./images/chapter_received.png" />
+      <image class="chapter" src="./images/chapter_{{['received', 'used', 'expierd'][item.status - 1]}}.png" />
       <view class="coupon-denomination-wrap">
         <view class="coupon-denomination">
           <text style="font-size: 32rpx;">¥</text>
@@ -15,17 +15,22 @@
       </view>
       <view class="coupon-info-wrap row">
         <view class="coupon-info">
-          <view class="coupon-name">{{item.name}}</view>
+          <view class="coupon-name omit single">{{item.name}}</view>
           <view class="coupon-goods-info row">
             <image class="coupon-goods-image" src="{{item.goodsCover}}" />
             <view class="coupon-goods-name omit single">{{item.goodsName}}</view>
             <view>可用</view>
           </view>
-          <view class="coupon-countdown">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
+          <view class="coupon-countdown" wx:if="{{item.status === 1}}">
+            仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}
+          </view>
+          <view class="coupon-time" wx:if="{{item.status !== 1}}">
+            {{TIME.transform(item.createdTime, 'YYYY.MM.DD hh:mm')}}-{{TIME.transform(item.expirationTime, 'YYYY.MM.DD hh:mm')}}
+          </view>
         </view>
         <view class="receive-btn-wrap">
-          <view class="use-btn" bindtap="use">使用</view>
-          <view class="received-num">已发放{{item.receivedNum}}张</view>
+          <view class="use-btn" bindtap="use">{{['去使用', '已使用', '已过期'][item.status - 1]}}</view>
+          <view class="received-num" wx:if="{{item.status === 1}}">已发放{{item.receivedNum}}张</view>
         </view>
       </view>
     </view>

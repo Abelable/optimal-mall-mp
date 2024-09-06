@@ -1,4 +1,16 @@
-<view class="address-list" wx:if="{{couponList.length}}">
+<view class="menu">
+  <view 
+    class="menu-item {{curMenuIdx === index ? 'active' : ''}}"
+    wx:for="{{menuList}}" 
+    wx:key="index" 
+    bindtap="selectMenu"
+    data-index="{{index}}"
+  >
+    {{item.name}}
+  </view>
+</view>
+
+<view class="coupon-list" wx:if="{{couponList.length}}">
   <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" />
 </view>
 
