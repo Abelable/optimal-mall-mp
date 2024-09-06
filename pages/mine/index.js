@@ -88,12 +88,6 @@ Component({
       });
     },
 
-    checkSalesData() {
-      wx.navigateTo({
-        url: "./subpages/sales-data/index"
-      });
-    },
-
     navToIntegritySchool() {},
 
     navToOrderCenter(e) {
