@@ -45,3 +45,5 @@
 </view>
 
 <view class="withdraw-btn" bindtap="withdraw">立即提现</view>
+
+<auth-modal wx:if="{{authModalVisible}}" bind:hide="hideAuthModal" />

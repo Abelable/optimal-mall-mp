@@ -1,4 +1,5 @@
 import { WEBVIEW_BASE_URL } from "../../../../../../config";
+import { store } from "../../../../../../store";
 
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
@@ -6,7 +7,8 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    curOptionIdx: 0
+    curOptionIdx: 0,
+    authModalVisible: false
   },
 
   selectOption(e) {
@@ -33,10 +35,16 @@ Page({
   },
 
   withdraw() {
-    const url = `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
-    wx.navigateTo({ url });
-    // wx.navigateTo({
-    //   url: "./subpages/withdraw-result/index"
-    // });
+    if (store.userInfo.authInfoId) {
+      wx.navigateTo({
+        url: "./subpages/withdraw-result/index"
+      });
+    } else {
+      this.setData({ authModalVisible: true })
+    }
+  },
+
+  hideAuthModal() {
+    this.setData({ authModalVisible: false })
   }
 });

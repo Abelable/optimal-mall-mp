@@ -1,0 +1,6 @@
+<view class="auth-modal" bindtap="hide">
+  <view class="modal-main" catchtap="catchtap">
+    <view class="modal-title">为了您的账户安全，请您先完成实名认证</view>
+    <view class="modal-btn" bindtap="toAuth">去认证</view>
+  </view>
+</view>

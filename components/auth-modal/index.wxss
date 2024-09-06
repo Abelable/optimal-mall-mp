@@ -1,0 +1,38 @@
+.auth-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
+}
+.modal-main {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 600rpx;
+  height: 388rpx;
+  background: #fff;
+  border-radius: 20rpx;
+}
+.modal-title {
+  margin: 90rpx 80rpx 70rpx;
+  color: #333;
+  font-size: 36rpx;
+  font-weight: 550;
+  text-align: center;
+}
+.modal-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 400rpx;
+  height: 88rpx;
+  color: #fff;
+  font-size: 36rpx;
+  background: #F5701D;
+  border-radius: 44rpx;
+}
