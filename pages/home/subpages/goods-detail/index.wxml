@@ -84,14 +84,14 @@
         </view>
       </view>
     </view>
-    <view class="coupon-wrap row" wx:if="{{goodsInfo.couponList.length}}">
+    <view class="coupon-wrap row" wx:if="{{goodsInfo.couponList.length}}" bindtap="showCouponPopup">
       <view class="coupon-list row">
         <view class="coupon row" wx:for="{{goodsInfo.couponList}}" wx:key="id">
           <view class="coupon-title">券</view>
           <view class="coupon-content">{{item.name}}</view>
         </view>
       </view>
-      <view class="receive-btn" bindtap="showCouponPopup">
+      <view class="receive-btn">
         <view>领取</view>
         <image class="receive-btn-arrow" src="./images/btn-arrow.png" />
       </view>
