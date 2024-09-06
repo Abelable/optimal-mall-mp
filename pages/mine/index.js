@@ -109,6 +109,12 @@ Component({
       });
     },
 
+    navToCoupon() {
+      wx.navigateTo({
+        url: "./subpages/coupon-list/index"
+      });
+    },
+
     navToWallet() {
       wx.navigateTo({
         url: "./subpages/wallet/index"

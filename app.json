@@ -21,6 +21,7 @@
     "pages/mine/subpages/wallet/index",
     "pages/mine/subpages/account/index",
     "pages/mine/subpages/sales-data/index",
+    "pages/mine/subpages/coupon-list/index",
     "pages/common/register/index",
     "pages/common/webview/index",
     "pages/common/pay/index",

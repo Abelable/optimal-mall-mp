@@ -127,7 +127,7 @@
       <view class="tool-desc">消息中心</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row">
+    <view class="tool-item row" bindtap="navToCoupon">
       <image class="tool-icon" src="./images/coupon.png" />
       <view class="tool-desc">我的礼券</view>
       <image class="arrow" src="./images/arrow.png" />

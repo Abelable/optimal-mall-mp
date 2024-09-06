@@ -1,0 +1,124 @@
+.coupon-item {
+  margin-bottom: 32rpx;
+  background: #fff;
+}
+.coupon-main-wrap {
+  overflow: hidden;
+}
+
+.coupon-main {
+  position: relative;
+  height: 180rpx;
+  background: #fdf4f0;
+  border: 1px solid #FF4747;
+  border-radius: 16rpx;
+}
+.coupon-main::before, .coupon-main::after {
+  position: absolute;
+  left: 183rpx;
+  width: 30rpx;
+  height: 30rpx;
+  content: "";
+  border: 1px solid #FF4747;
+  border-radius: 50%;
+}
+.coupon-main::before {
+  top: -24rpx;
+  background: #fff;
+}
+.coupon-main::after {
+  bottom: -24rpx;
+  background: #f5f6f7;
+}
+
+.received-chapter {
+  position: absolute;
+  top: -10rpx;
+  right: -10rpx;
+  width: 80rpx;
+  height: 80rpx;
+  opacity: 0.4;
+}
+
+.coupon-denomination-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  width: 200rpx;
+  height: 140rpx;
+  border-right: 1px dashed #FF4747;
+}
+.coupon-denomination {
+  color: #FF4747;
+  font-size: 56rpx;
+  font-weight: bold;
+}
+.coupon-limit-desc {
+  color: #FF4747;
+  font-size: 24rpx;
+}
+
+.coupon-info-wrap {
+  padding: 24rpx;
+  flex: 1;
+}
+.coupon-info {
+  flex: 1;
+}
+.coupon-name {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+
+.coupon-goods-info {
+  margin-top: 8rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+.coupon-goods-image {
+  width: 28rpx;
+  height: 28rpx;
+}
+.coupon-goods-name {
+  margin-left: 8rpx;
+  flex: 1;
+}
+.coupon-countdown {
+  margin-top: 8rpx;
+  color: #333;
+  font-size: 24rpx;
+}
+
+.receive-btn-wrap {
+  margin-left: 24rpx;
+}
+.coupon-receive-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  width: 120rpx;
+  height: 60rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background: #FF4747;
+  border-radius: 30rpx;
+}
+.received-num {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 20rpx;
+  text-align: center;
+}
+
+.coupon-desc {
+  margin-top: -18rpx;
+  padding: 12rpx;
+  padding-top: 30rpx;
+  color: #333;
+  font-size: 20rpx;
+  background: #faf7f5;
+  border-radius: 0 0 16rpx 16rpx;
+}

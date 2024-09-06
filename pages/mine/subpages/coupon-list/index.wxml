@@ -1,0 +1,5 @@
+<view class="address-list" wx:if="{{couponList.length}}">
+  <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" />
+</view>
+
+<empty-illus wx:if="{{!couponList.length}}" desc="暂无优惠券" />

@@ -1,0 +1,34 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
+<view class="coupon-item">
+  <view class="coupon-main-wrap">
+    <view class="coupon-main row">
+      <image class="received-chapter" wx:if="{{item.isReceived}}" src="./images/chapter_received.png" />
+      <view class="coupon-denomination-wrap">
+        <view class="coupon-denomination">
+          <text style="font-size: 32rpx;">¥</text>
+          <text>{{item.denomination}}</text>
+        </view>
+        <view class="coupon-limit-desc">
+          {{item.type === 1 ? "满" + item.priceLimit + "元可用" : item.type === 2 ? "满" + item.numLimit + "件可用" : "无门槛"}}
+        </view>
+      </view>
+      <view class="coupon-info-wrap row">
+        <view class="coupon-info">
+          <view class="coupon-name">{{item.name}}</view>
+          <view class="coupon-goods-info row">
+            <image class="coupon-goods-image" src="{{item.goodsCover}}" />
+            <view class="coupon-goods-name omit single">{{item.goodsName}}</view>
+            <view>可用</view>
+          </view>
+          <view class="coupon-countdown">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
+        </view>
+        <view class="receive-btn-wrap">
+          <view class="coupon-receive-btn" bindtap="receive">{{item.isReceived ? '去使用' : '领取'}}</view>
+          <view class="received-num">已发放{{item.receivedNum}}张</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="coupon-desc">{{item.description}}</view>
+</view>
