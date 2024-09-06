@@ -1,0 +1,6 @@
+.coupon-popup {
+  padding: 24rpx;
+  height: 900rpx;
+  background-color: #fff;
+  border-radius: 16rpx 16rpx 0 0;
+}

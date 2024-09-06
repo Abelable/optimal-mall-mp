@@ -1,0 +1,5 @@
+<van-popup show="{{show}}" round position="bottom" bind:close="hide">
+  <view class="coupon-popup">
+    
+  </view>
+</van-popup>

@@ -10,6 +10,7 @@
     "goods-item": "/components/goods-item/index",
     "spec-popup": "/components/spec-popup/index",
     "modal-mask": "/components/modal-mask/index",
-    "poster-modal": "/components/poster-modal/index"
+    "poster-modal": "/components/poster-modal/index",
+    "coupon-popup": "./components/coupon-popup/index"
   }
 }
