@@ -23,7 +23,10 @@
           </view>
           <view class="coupon-countdown">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
         </view>
-        <view class="use-btn" bindtap="use">使用</view>
+        <view class="receive-btn-wrap">
+          <view class="use-btn" bindtap="use">使用</view>
+          <view class="received-num">已发放{{item.receivedNum}}张</view>
+        </view>
       </view>
     </view>
   </view>

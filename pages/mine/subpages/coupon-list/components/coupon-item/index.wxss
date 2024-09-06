@@ -91,17 +91,26 @@
   font-size: 24rpx;
 }
 
+.receive-btn-wrap {
+  margin-left: 24rpx;
+}
 .use-btn {
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-left: 24rpx;
+  margin: 0 auto;
   width: 120rpx;
   height: 60rpx;
   color: #fff;
   font-size: 24rpx;
   background: #FF4747;
   border-radius: 30rpx;
+}
+.received-num {
+  margin-top: 10rpx;
+  color: #999;
+  font-size: 20rpx;
+  text-align: center;
 }
 
 .coupon-desc {

@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "优惠券",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
     "coupon-item": "./components/coupon-item/index"
