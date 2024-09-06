@@ -44,4 +44,4 @@
   <view class="withdraw-tips">提现说明：</view>
 </view>
 
-<view class="withdraw-btn">立即提现</view>
+<view class="withdraw-btn" bindtap="withdraw">立即提现</view>

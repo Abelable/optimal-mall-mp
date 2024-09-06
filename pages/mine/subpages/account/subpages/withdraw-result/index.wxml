@@ -1,0 +1,2 @@
+<nav-bar />
+<nav-bar title="提现结果" custom bind:navigateBack="navigateBack" />

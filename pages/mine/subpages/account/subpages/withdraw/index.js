@@ -22,5 +22,11 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
+  },
+
+  withdraw() {
+    wx.navigateTo({
+      url: "/pages/mine/subpages/account/subpages/withdraw-result/index"
+    });
   }
 });
