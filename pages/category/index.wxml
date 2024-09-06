@@ -40,7 +40,7 @@
       </view>
     </view>
     <scroll-view class="goods-list" bindscrolltolower="onReachBottom" scroll-y>
-      <goods-item wx:for="{{goodsLists[curCategoryIdx].list}}" wx:key="index" item="{{item}}" />
+      <goods-item wx:for="{{goodsLists[curCategoryIdx].list}}" wx:key="id" item="{{item}}" />
       <empty-illus wx:if="{{goodsLists[curCategoryIdx].finished && !goodsLists[curCategoryIdx].list.length}}" desc="暂无该分类商品" />
       <view class="no-more-tips" wx:if="{{goodsLists[curCategoryIdx].finished && goodsLists[curCategoryIdx].list.length}}">～没有更多了～</view>
     </scroll-view>

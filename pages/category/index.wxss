@@ -2,7 +2,7 @@
   position: fixed;
   width: 100%;
   background: #fff;
-  box-shadow: 0 2px 20px -2px #f0f0f0;
+  border-bottom: 1rpx solid #eee;
   box-sizing: initial;
   z-index: 100;
 }
