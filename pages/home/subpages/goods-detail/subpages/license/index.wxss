@@ -3,4 +3,5 @@
   padding: 24rpx;
   font-size: 0;
   background: #fff;
+  border-radius: 24rpx;
 }
