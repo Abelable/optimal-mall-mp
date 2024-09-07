@@ -257,9 +257,9 @@
   <button wx:if="{{goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" class="notice-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="notice">开售提醒我</button>
 </view>
 
-
 <coupon-popup 
-  show="{{couponPopupVisible}}" 
+  show="{{couponPopupVisible}}"
+  basePrice="{{goodsInfo.price}}"
   couponList="{{goodsInfo.couponList}}" 
   bind:showSpecPopup="showSpecPopup" 
   bind:hide="hideCouponPopup"
