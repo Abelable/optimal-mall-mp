@@ -15,10 +15,10 @@ class HomeService extends BaseService {
     });
   }
 
-  async getGoodsInfo(id) {
+  async getGoodsInfo(id, addressId) {
     return await this.get({
       url: `${this.baseUrl}/goods/detail`,
-      data: { id },
+      data: cleanObject({ id, addressId }),
       loadingTitle: "加载中..."
     });
   }

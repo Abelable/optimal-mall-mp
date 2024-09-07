@@ -164,6 +164,12 @@ class BaseService extends Base {
     });
   }
 
+  async getDefaultAddress() {
+    return await this.get({
+      url: `${this.baseUrl}/address/default`
+    });
+  }
+
   async fastAddCart(goodsId, selectedSkuIndex, number) {
     return await this.post({
       url: `${this.baseUrl}/cart/fast_add`,

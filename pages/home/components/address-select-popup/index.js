@@ -52,7 +52,7 @@ Component({
 
     confirm() {
       const { addressList, selectedIndex } = this.data;
-      const { id } = addressList[selectedIndex];
+      const { id } = addressList[selectedIndex]
       this.triggerEvent("confirm", { id });
     },
 

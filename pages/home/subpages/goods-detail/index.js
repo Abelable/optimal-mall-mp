@@ -32,7 +32,8 @@ Page({
     actionMode: 0,
     posterInfo: null,
     posterModelVisible: false,
-    topBtnVisible: false
+    topBtnVisible: false,
+    addressSelectPopupVisible: false
   },
 
   async onLoad({ id, scene, q }) {
@@ -63,20 +64,27 @@ Page({
 
   async init() {
     await this.setGoodsInfo();
+    await this.setEvaluationSummary();
+    this.getCommentTop();
+    this.getDetailTop();
     this.setBottomPrice();
     this.setCountdown();
     this.setRecommendGoodsList(true);
   },
 
   async setGoodsInfo() {
-    const goodsInfo = await homeService.getGoodsInfo(this.goodsId);
+    const goodsInfo = await homeService.getGoodsInfo(
+      this.goodsId,
+      this.addressId
+    );
+    this.setData({ goodsInfo });
+  },
+
+  async setEvaluationSummary() {
     const evaluationSummary = await homeService.getGoodsEvaluationSummary(
       this.goodsId
     );
-    this.setData({ goodsInfo, evaluationSummary }, () => {
-      this.getCommentTop();
-      this.getDetailTop();
-    });
+    this.setData({ evaluationSummary });
   },
 
   setBottomPrice() {
@@ -200,6 +208,24 @@ Page({
 
   hideCouponPopup() {
     this.setData({ couponPopupVisible: false });
+  },
+
+  showAddressSelectPopup() {
+    this.setData({
+      addressSelectPopupVisible: true
+    });
+  },
+
+  confirmAddressSelect(e) {
+    this.addressId = e.detail.id;
+    this.setGoodsInfo();
+    this.hideAddressSelectPopup();
+  },
+
+  hideAddressSelectPopup() {
+    this.setData({
+      addressSelectPopupVisible: false
+    });
   },
 
   onReachBottom() {

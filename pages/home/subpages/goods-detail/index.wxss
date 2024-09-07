@@ -264,6 +264,9 @@
   width: 30rpx;
   height: 30rpx;
 }
+.address-detail {
+  flex: 1;
+}
 .delivery-tips {
   margin-top: 8rpx;
   color: #6A6F75;

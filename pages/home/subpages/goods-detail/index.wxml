@@ -109,12 +109,14 @@
       <view class="option-content" bindtap="showSpecPopup">{{selectedSkuName}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
-    <view class="option-item">
+    <view class="option-item" bindtap="showAddressSelectPopup">
       <view class="option-label">配送</view>
       <view class="option-content">
         <view class="address-info row">
           <image class="address-icon" src="./images/address.png" />
-          <view class="omit single">{{addressDetail || "请填写地址"}}</view>
+          <view class="address-detail omit single">
+            {{goodsInfo.addressInfo ? goodsInfo.addressInfo.regionDesc + " " + goodsInfo.addressInfo.addressDetail : "请选择地址"}}
+          </view>
         </view>
         <view class="delivery-tips">现货 48小时发货</view>
       </view>
@@ -262,6 +264,14 @@
   bind:showSpecPopup="showSpecPopup" 
   bind:hide="hideCouponPopup"
 />
+
+<address-select-popup 
+  show="{{addressSelectPopupVisible}}" 
+  addressId="{{preOrderInfo.addressInfo.id || 0}}" 
+  bind:confirm="confirmAddressSelect" 
+  bind:hide="hideAddressSelectPopup"
+/>
+
 <!-- 商品规格选择弹窗 -->
 <spec-popup
   show="{{specPopupVisible}}"
