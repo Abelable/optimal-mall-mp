@@ -27,14 +27,16 @@ Page({
     });
   },
 
-  hideAddressSelectPopup(e) {
+  confirmAddressSelect(e) {
+    this.addressId = e.detail.id;
+    this.setPreOrderInfo();
+    this.hideAddressSelectPopup()
+  },
+
+  hideAddressSelectPopup() {
     this.setData({
       addressSelectPopupVisible: false
     });
-    if (e.detail) {
-      this.addressId = e.detail;
-      this.setPreOrderInfo();
-    }
   },
 
   // 提交订单
