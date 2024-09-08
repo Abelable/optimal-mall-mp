@@ -1,2 +1,1 @@
-<!--pages/common/webview/index.wxml-->
-<text>pages/common/webview/index.wxml</text>
+<web-view src="{{url}}" />

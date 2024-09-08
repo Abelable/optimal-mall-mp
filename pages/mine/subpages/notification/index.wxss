@@ -17,3 +17,51 @@
   font-weight: 550;
   text-align: center;
 }
+.clear-icon {
+  margin-left: 12rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+
+.notification {
+  padding: 0 24rpx;
+  height: 150rpx;
+  background: #fff;
+  border-top: 1px solid #F0F3F7;
+}
+.notification-icon {
+  width: 76rpx;
+  height: 76rpx;
+}
+.notification-info {
+  margin: 0 24rpx;
+  flex: 1;
+}
+.notification-title {
+  color: #333333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.notification-content {
+  margin-top: 12rpx;
+  color: #3C3F42;
+  font-size: 24rpx;
+}
+.notification-time-wrap {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-end;
+}
+.notification-time {
+  color: #A1A9B3;
+  font-size: 20rpx;
+}
+.notification-news-count {
+  margin-top: 18rpx;
+  padding: 0 10rpx;
+  height: 32rpx;
+  color: #fff;
+  font-size: 20rpx;
+  background: #E34D59;
+  border-radius: 16rpx;
+}

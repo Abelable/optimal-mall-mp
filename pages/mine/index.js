@@ -103,6 +103,12 @@ Component({
       });
     },
 
+    navToNotification() {
+      wx.navigateTo({
+        url: "./subpages/notification/index"
+      });
+    },
+
     navToCoupon() {
       wx.navigateTo({
         url: "./subpages/coupon-list/index"
