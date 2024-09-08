@@ -264,21 +264,16 @@
   bind:showSpecPopup="showSpecPopup" 
   bind:hide="hideCouponPopup"
 />
-
 <address-select-popup 
   show="{{addressSelectPopupVisible}}" 
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
   bind:hide="hideAddressSelectPopup"
 />
-
-<!-- 商品规格选择弹窗 -->
 <spec-popup
   show="{{specPopupVisible}}"
   mode="{{actionMode}}"
   goodsInfo="{{goodsInfo}}"
   bind:hide="hideSpecPopup"
 />
-<!-- 分享 -->
-<modal-mask wx:if="{{posterModalVisible}}" bindtap="hidePosterModal" filter />
 <poster-modal wx:if="{{posterModalVisible}}" scene="7" info="{{posterInfo}}" bind:hide="hidePosterModal" />

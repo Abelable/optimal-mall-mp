@@ -1,1 +1,0 @@
-<view class="modal-mask {{filter ? 'filter' : ''}}" style="background: rgba(0, 0, 0, {{opacity}});" />

@@ -580,6 +580,12 @@ Component({
           wx.showToast({ title: "成功保存", icon: "none" });
         }
       });
-    }
+    },
+
+    hide() {
+      this.triggerEvent("hide");
+    },
+
+    catchtap() {}
   }
 });
