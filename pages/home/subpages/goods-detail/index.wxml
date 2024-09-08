@@ -236,7 +236,7 @@
 <!-- 底部工具栏 -->
 <view class="bottom-bar row between">
   <view class="shortcut-wrap row">
-    <navigator class="shortcut" open-type="switchTab" url="/pages/home/index" hover-class="none">
+    <navigator class="shortcut" wx:if="{{promoterInfo}}" open-type="switchTab" url="/pages/home/index" hover-class="none">
       <image class="shortcut-icon" src="{{promoterInfo.avatar}}"/>
       <view>首页</view>
     </navigator>

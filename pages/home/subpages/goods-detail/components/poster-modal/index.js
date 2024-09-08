@@ -1,23 +1,10 @@
-import dayjs from "dayjs";
-import { store } from "../../store/index";
+import { store } from "../../../../../../store/index";
 
-const descList = [
-  "发现精彩直播",
-  "发现趣味短视频",
-  "发现趣味游记",
-  "推荐秀美景点",
-  "推荐舒适酒店",
-  "推荐美味餐厅",
-  "推荐优质好物",
-  "推荐优质店铺",
-  "发现有趣达人"
-];
 let canvas = null;
 let ctx = null;
 
 Component({
   properties: {
-    scene: String,
     info: Object
   },
 
@@ -55,232 +42,86 @@ Component({
 
     async createPoster() {
       const { avatar, nickname } = store.userInfo;
-      const { scene, info } = this.properties;
       const {
-        status,
         cover,
-        title,
-        content,
+        name,
+        introduction,
+        couponList,
         price,
-        marketPrice,
-        salesVolume,
-        authorInfo,
-        shopInfo,
-        likeNumber,
-        noticeTime,
-        startTime,
-        auchorDataDesc,
-        tagList,
+        isGift,
         qrcode
-      } = info || {};
+      } = this.properties.info || {};
 
       await this.drawImage(
-        "https://static.youbozhenxuan.cn/img/poster-bg.png",
+        "https://static.youbozhenxuan.cn/mp/poster_bg.png",
         0,
         0,
-        291,
-        416
+        275,
+        525
       );
+      await this.drawImage(
+        "https://static.youbozhenxuan.cn/mp/poster_logo.png",
+        12,
+        14,
+        96,
+        32
+      );
+      this.setText(14, "#fff", 137.5, 500, "让  时  间  见  证  信  任", 'center');
 
-      await this.roundRect(15, 17, 32, 32, 16, avatar);
-      this.setText(13, "#fff", 55, 30, nickname);
-      this.setText(8, "#fff", 55, 45, descList[scene - 1]);
+      this.roundRect(
+        162,
+        15,
+        100,
+        30,
+        15,
+        "",
+        null,
+        "rgba(255, 255, 255, 0.5)"
+      );
+      await this.roundRect(165, 18, 24, 24, 12, avatar);
+      this.setText(10, "#000", 192, 29, nickname, 'left');
+      this.setText(7, "#6A6F75", 192, 40, "为您推荐优质好物");
 
-      if (["8", "9"].includes(scene)) {
-        await this.roundRect(27, 116, 237, 130, 5, cover);
-        const linearGradient = this.createLinearGradient(
-          27,
-          166,
-          27,
-          246,
-          "rgba(0, 0, 0, 0)",
-          "rgba(0, 0, 0, 0.5)"
+      this.roundRect(12, 55, 249, 411, 10, '', null, '#fff')
+      await this.roundRect(24, 67, 225, 225, 5, cover);
+
+      if (isGift) {
+        await this.drawImage(
+          "https://static.youbozhenxuan.cn/mp/rural-promote-tag.png",
+          152,
+          257,
+          97,
+          36
         );
-        this.roundRect(
-          27,
-          166,
-          237,
-          80,
-          [0, 0, 5, 5],
-          "",
-          null,
-          linearGradient
-        );
-        this.roundRect(100, 71, 90, 90, 45, "", null, "#fff");
-        await this.roundRect(
-          105,
-          76,
-          80,
-          80,
-          40,
-          scene === "8" ? shopInfo.avatar : authorInfo.avatar
-        );
-        this.setText(
-          16,
-          "#fff",
-          145,
-          195,
-          scene === "8" ? title : authorInfo.nickname,
-          "center",
-          true
-        );
-        if (scene === "8") {
-          this.roundRect(115, 210, 60, 20, 10, "", null, "#434D5E");
-          this.setText(
-            10,
-            "#FFE5BD",
-            145,
-            224,
-            shopInfo.type === 1 ? "个人店铺" : "企业店铺",
-            "center",
-            true
-          );
-        } else {
-          this.setText(10, "#fff", 145, 220, auchorDataDesc, "center");
-        }
-
-        await this.roundRect(100, 270, 90, 90, 45, qrcode);
-        this.setText(10, "#999", 145, 380, "长按识别二维码", "center");
-      } else {
-        await this.roundRect(27, 71, 237, 240, 5, cover);
-
-        if (scene === "1") {
-          this.roundRect(
-            38,
-            82,
-            status === 1 ? 57 : 47,
-            22,
-            11,
-            "",
-            null,
-            "rgba(0, 0, 0, 0.5)"
-          );
-          this.roundRect(
-            45,
-            91,
-            5,
-            5,
-            2.5,
-            "",
-            null,
-            ["#00D011", "#5562F9", "#D07A00"][status - 1]
-          );
-          this.setText(
-            10,
-            "#fff",
-            55,
-            96.5,
-            ["直播中", "回放", "预告"][status - 1]
-          );
-        }
-
-        if (scene === "2") {
-          this.roundRect(
-            126,
-            171,
-            40,
-            40,
-            20,
-            "",
-            null,
-            "rgba(225, 225, 225, 0.6)"
-          );
-          await this.drawImage(
-            "https://img.ubo.vip/tiddler/poster/play-icon.png",
-            139,
-            183,
-            16,
-            16
-          );
-        }
-
-        if (scene === "3") {
-          const linearGradient = this.createLinearGradient(
-            27,
-            281,
-            27,
-            311,
-            "rgba(0, 0, 0, 0)",
-            "rgba(0, 0, 0, 0.5)"
-          );
-          this.roundRect(
-            27,
-            281,
-            237,
-            30,
-            [0, 0, 5, 5],
-            "",
-            null,
-            linearGradient
-          );
-
-          this.roundRect(128, 300, 4, 4, 2, "", null, "#00cffc");
-          this.roundRect(138, 300, 4, 4, 2, "", null, "#fff");
-          this.roundRect(148, 300, 4, 4, 2, "", null, "#fff");
-          this.roundRect(158, 300, 4, 4, 2, "", null, "#fff");
-        }
-
-        this.setWrapText(
-          12,
-          "#333",
-          27,
-          334,
-          title,
-          16,
-          173,
-          true,
-          ["1", "3", "4", "5", "6"].includes(scene) ? 1 : 2
-        );
-
-        if (scene === "1") {
-          const time = `直播时间：${dayjs(
-            status === 3 ? noticeTime : startTime
-          ).format("MM-DD HH:mm")}`;
-          this.setText(10, "#999", 27, 354, time);
-        }
-
-        if (scene === "3") {
-          this.setWrapText(10, "#666", 27, 354, content, 16, 173, false, 1);
-        }
-
-        if (["4", "5", "6"].includes(scene)) {
-          this.roundRect(
-            39,
-            83,
-            32,
-            16.8,
-            4,
-            "",
-            null,
-            ["rgb(184, 64, 211)", "rgb(98, 97, 238)", "rgb(251, 49, 105)"][
-              scene - 4
-            ]
-          );
-          this.setText(10, "#fff", 45, 95, ["景点", "酒店", "美食"][scene - 4]);
-
-          this.setTagList(tagList, 27, 356);
-        }
-
-        if (["4", "5", "6", "7"].includes(scene)) {
-          if (scene === "7") {
-            this.setGoodsPrice(price, `¥${marketPrice}`, 27, 382);
-          } else {
-            this.setPrice(price, 27, 382);
-          }
-          this.setText(10, "#999", 197, 382, `已售${salesVolume}`, "right");
-        }
-
-        if (["1", "2", "3"].includes(scene)) {
-          await this.roundRect(27, 366, 18, 18, 9, authorInfo.avatar);
-          this.setText(10, "#333", 50, 379, authorInfo.nickname);
-          if (["2", "3"].includes(scene)) {
-            await this.setLikeNumber(likeNumber, 197, 380);
-          }
-        }
-
-        await this.drawImage(qrcode, 208, 318, 56, 56);
-        this.setText(7, "#999", 237, 382, "长按识别二维码", "center");
       }
+      
+      this.setWrapText(
+        16,
+        "#333",
+        24,
+        318,
+        name,
+        22,
+        225,
+        false,
+        2
+      );
+      this.setWrapText(
+        13,
+        "#F5701D",
+        24,
+        363,
+        introduction,
+        12,
+        225,
+        false,
+        1
+      );
+      this.setCouponList(couponList, 24, 390)
+      this.setPrice(price, 24, 435);
+
+      await this.drawImage(qrcode, 185, 384, 56, 56);
+      this.setText(8, "#F5701D", 213, 452, "微信长按识别商品", "center");
 
       wx.canvasToTempFilePath(
         {
@@ -293,66 +134,24 @@ Component({
       );
     },
 
-    setTagList(tagList, x, y) {
-      for (let i = 0; i < tagList.length; i++) {
-        const tag = tagList[i];
-        ctx.font = "8px sans-serif";
-        ctx.fillStyle = "#999";
-        const { width } = ctx.measureText(tag);
-        this.roundRect(x, y - 11, width + 8, 16, 5, "", null, "#f1f1f1");
-        ctx.fillText(tag, x + 4, y);
+    setCouponList(couponList, x, y) {
+      for (let i = 0; i < couponList.length; i++) {
+        const coupon = couponList[i];
+        ctx.font = "10px sans-serif";
+        ctx.fillStyle = "#FF4747";
+        const { width } = ctx.measureText(coupon.name);
+        this.roundRect(x, y - 12, width + 8, 16, 5, "", null, "transparent", "#FF4747", 1);
+        ctx.fillText(coupon.name, x + 4, y);
         x = x + width + 12;
       }
     },
 
-    setGoodsPrice(price, marketPrice, x, y) {
-      this.setText(10, "#ff5040", x, y, "¥");
-
-      ctx.font = "bold 15px sans-serif";
-      ctx.fillStyle = "#ff5040";
-      ctx.fillText(price, x + 7, y);
-
-      const priceWidth = ctx.measureText(price).width;
-      ctx.font = "10px sans-serif";
-      ctx.fillStyle = "#bbb";
-      ctx.fillText(marketPrice, x + priceWidth + 12, y);
-
-      ctx.beginPath();
-      const marketPriceWidth = ctx.measureText(marketPrice).width;
-      ctx.rect(x + priceWidth + 12, y - 4, marketPriceWidth, 1);
-      ctx.fillStyle = "#bbb";
-      ctx.fill();
-
-      ctx.restore();
-    },
-
     setPrice(price, x, y) {
-      this.setText(10, "#ff5040", x, y, "¥");
+      this.setText(14, "#ff5040", x, y, "¥");
 
-      ctx.font = "bold 15px sans-serif";
+      ctx.font = "bold 24px sans-serif";
       ctx.fillStyle = "#ff5040";
-      ctx.fillText(price, x + 7, y);
-
-      const priceWidth = ctx.measureText(price).width;
-      ctx.font = "9px sans-serif";
-      ctx.fillStyle = "#999";
-      ctx.fillText("起", x + priceWidth + 9, y);
-    },
-
-    async setLikeNumber(likeNumber, x, y) {
-      ctx.font = "10px sans-serif";
-      ctx.fillStyle = "#333";
-      ctx.textAlign = "right";
-      ctx.fillText(likeNumber, x, y);
-
-      const likeNumberWidth = ctx.measureText(likeNumber).width;
-      await this.drawImage(
-        "https://img.ubo.vip/tiddler/media-item/heart.png",
-        x - likeNumberWidth - 15,
-        y - 9,
-        13,
-        12
-      );
+      ctx.fillText(price, x + 10, y);
     },
 
     /**
@@ -374,7 +173,9 @@ Component({
       r = 0,
       cover = "",
       shadow = null,
-      c = "transparent"
+      c = "transparent",
+      lineColor,
+      lineWidth
     ) {
       ctx.save();
       ctx.beginPath();
@@ -389,13 +190,23 @@ Component({
       let r1, r2, r3, r4;
       typeof r === "number" ? (r1 = r2 = r3 = r4 = r) : ([r1, r2, r3, r4] = r);
 
-      ctx.moveTo(x, y);
+      if (lineColor) {
+        ctx.moveTo(x + r1, y);
+      } else {
+        ctx.moveTo(x, y);
+      }
+      
       r2 ? ctx.arcTo(x + w, y, x + w, y + h, r2) : ctx.lineTo(x + w, y);
       r3 ? ctx.arcTo(x + w, y + h, x, y + h, r3) : ctx.lineTo(x + w, y + h);
       r4 ? ctx.arcTo(x, y + h, x, y, r4) : ctx.lineTo(x, y + h);
       r1 ? ctx.arcTo(x, y, x + w, y, r1) : ctx.lineTo(x, y);
 
       ctx.fillStyle = c;
+      if (lineColor) {
+        ctx.strokeStyle = lineColor;
+        ctx.lineWidth = lineWidth;
+        ctx.stroke();
+      }
       ctx.fill();
 
       if (cover) {
@@ -403,13 +214,6 @@ Component({
         await this.drawImage(cover, x, y, w, h);
       }
       ctx.restore();
-    },
-
-    createLinearGradient(startX, startY, stopX, stopY, startColor, stopColor) {
-      const grad = ctx.createLinearGradient(startX, startY, stopX, stopY);
-      grad.addColorStop(0, startColor);
-      grad.addColorStop(1, stopColor);
-      return grad;
     },
 
     setText(

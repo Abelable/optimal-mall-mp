@@ -2,22 +2,24 @@
   position: fixed;
   top: 0;
   left: 0;
-  width: 100vh;
-  height: 100vw;
+  width: 100vw;
+  height: 100vh;
   background: rgba(0, 0, 0, 0.3);
   backdrop-filter: blur(10px);
   z-index: 100;
 }
+
 .poster-modal-main {
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 291px;
+  width: 275px;
 }
+
 .poster {
-  width: 291px;
-  height: 416px;
+  width: 275px;
+  height: 525px;
 }
 
 .btns {

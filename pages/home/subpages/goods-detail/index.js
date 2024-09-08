@@ -356,15 +356,16 @@ Page({
 
       const {
         cover,
-        name: title,
+        name,
+        introduction,
+        couponList,
         price,
-        marketPrice,
-        salesVolume
+        isGift
       } = this.data.goodsInfo;
 
       this.setData({
         posterModalVisible: true,
-        posterInfo: { cover, title, price, marketPrice, salesVolume, qrcode }
+        posterInfo: { cover, name, introduction, couponList, price, isGift, qrcode }
       });
     });
   },
