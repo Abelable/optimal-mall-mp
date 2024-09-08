@@ -1,30 +1,66 @@
-import { checkLogin } from '../../../utils/index'
-
+// pages/common/webview/index.js
 Page({
+
+  /**
+   * 页面的初始数据
+   */
   data: {
-    url: ''
+
   },
 
-  async onLoad(options) {
-    let { url, ...rest } = options
-    for (let key in rest) {
-      if (rest.hasOwnProperty(key) && rest[key]) url += `${url.indexOf('?') === -1 ? '?' : '&'}${key}=${rest[key]}`
-    }
-    this.webviewUrl = url
+  /**
+   * 生命周期函数--监听页面加载
+   */
+  onLoad(options) {
+
   },
 
+  /**
+   * 生命周期函数--监听页面初次渲染完成
+   */
+  onReady() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面显示
+   */
   onShow() {
-    setTimeout(() => {
-      checkLogin(() => {
-        this.setData({
-          url: `${this.webviewUrl}${this.webviewUrl.indexOf('?') === -1 ? '?' : '&'}token=${wx.getStorageSync('token')}`
-        })
-      }, false)
-    })
+
   },
 
+  /**
+   * 生命周期函数--监听页面隐藏
+   */
+  onHide() {
+
+  },
+
+  /**
+   * 生命周期函数--监听页面卸载
+   */
+  onUnload() {
+
+  },
+
+  /**
+   * 页面相关事件处理函数--监听用户下拉动作
+   */
+  onPullDownRefresh() {
+
+  },
+
+  /**
+   * 页面上拉触底事件的处理函数
+   */
+  onReachBottom() {
+
+  },
+
+  /**
+   * 用户点击右上角分享
+   */
   onShareAppMessage() {
-    const path = `/pages/common/webview/index?url=${this.webviewUrl.replace('?', '&')}`
-    return { path }
+
   }
 })

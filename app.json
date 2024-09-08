@@ -26,6 +26,7 @@
     "pages/mine/subpages/account/subpages/withdraw/subpages/withdraw-result/index",
     "pages/mine/subpages/account/subpages/withdraw-record/index",
     "pages/mine/subpages/coupon-list/index",
+    "pages/mine/subpages/notification/index",
     "pages/common/register/index",
     "pages/common/webview/index",
     "pages/common/pay/index",
