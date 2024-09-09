@@ -13,17 +13,23 @@ Page({
     livestockList: [],
     giftList: [],
     posterInfo: null,
-    posterModelVisible: false,
+    posterModelVisible: false
   },
 
-  async onLoad({ type, superiorId = "" }) {
+  async onLoad({ type, superiorId = "", scene = "", q = "" }) {
     wx.showShareMenu({
       withShareTicket: true,
       menus: ["shareAppMessage", "shareTimeline"]
     });
 
-    if (superiorId) {
-      wx.setStorageSync("superiorId", superiorId);
+    const decodedScene = scene ? decodeURIComponent(scene) : "";
+    const decodedQ = q ? decodeURIComponent(q) : "";
+    this.superiorId =
+      superiorId ||
+      decodedScene.split("-")[0] ||
+      getQueryString(decodedQ, "id");
+    if (this.superiorId) {
+      wx.setStorageSync("superiorId", this.superiorId);
     }
 
     await this.setLiveStockList();
