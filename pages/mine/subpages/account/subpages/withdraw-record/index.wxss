@@ -35,8 +35,11 @@
   margin-top: 8rpx;
 }
 
+.container {
+  margin-top: 226rpx;
+}
 .withdraw-record-list {
-  margin: 250rpx 24rpx 24rpx;
+  margin: 24rpx;
   background: #fff;
   border-radius: 20rpx;
 }
