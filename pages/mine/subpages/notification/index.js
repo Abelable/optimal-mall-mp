@@ -2,7 +2,9 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
-    statusBarHeight
+    statusBarHeight,
+    newsCount: 0,
+    newsList: []
   },
 
   onLoad() {}

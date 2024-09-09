@@ -25,15 +25,15 @@
       </view>
       <view class="amount-list">
         <view class="amount-item">
-          <view class="amount">78.98</view>
+          <view class="amount">0.00</view>
           <view class="amount-desc">可提现金额</view>
         </view>
         <view class="amount-item">
-          <view class="amount">78.98</view>
+          <view class="amount">0.00</view>
           <view class="amount-desc">带结算金额</view>
         </view>
         <view class="amount-item">
-          <view class="amount">5578.98</view>
+          <view class="amount">0.00</view>
           <view class="amount-desc">累积已结算金额</view>
         </view>
       </view>
@@ -81,11 +81,11 @@
       </view>
       <view class="customer-data-item">
         <view class="customer-data-desc">今日下单客户数</view>
-        <view class="customer-data">23</view>
+        <view class="customer-data">-</view>
       </view>
       <view class="customer-data-item">
         <view class="customer-data-desc">累积客户总数</view>
-        <view class="customer-data">800</view>
+        <view class="customer-data">-</view>
       </view>
     </view>
   </view>
