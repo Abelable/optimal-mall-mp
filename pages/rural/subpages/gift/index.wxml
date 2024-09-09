@@ -33,3 +33,7 @@
     <view class="no-more-tips" wx:if="{{giftList.length}}">～没有更多了～</view>
   </view>
 </view>
+
+<view class="hover-btn" bindtap="share">
+  <image class="hover-btn-icon" src="./images/share-icon.png" />
+</view>
