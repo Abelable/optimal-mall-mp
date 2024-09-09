@@ -156,14 +156,14 @@
 }
 
 .split-title {
-  margin-bottom: 16rpx;
+  margin-bottom: 14rpx;
   color: #14191F;
   font-size: 32rpx;
   font-weight: 550;
 }
 .praise-icon {
   margin-left: 10rpx;
-  margin-bottom: 12rpx;
+  margin-bottom: 14rpx;
   width: 40rpx;
   height: 46rpx;
 }
