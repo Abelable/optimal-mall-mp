@@ -6,6 +6,7 @@
     "fall-flow": "/components/fall-flow/index",
     "goods-item": "/components/goods-item/index",
     "empty-illus": "/components/empty-illus/index",
-    "livestock-list": "./components/livestock-list/index"
+    "livestock-list": "./components/livestock-list/index",
+    "poster-modal": "./components/poster-modal/index"
   }
 }

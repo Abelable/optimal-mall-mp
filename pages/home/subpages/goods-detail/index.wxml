@@ -276,4 +276,4 @@
   goodsInfo="{{goodsInfo}}"
   bind:hide="hideSpecPopup"
 />
-<poster-modal wx:if="{{posterModalVisible}}" scene="7" info="{{posterInfo}}" bind:hide="hidePosterModal" />
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />

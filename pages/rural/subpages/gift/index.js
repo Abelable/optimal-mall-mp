@@ -1,3 +1,5 @@
+import { store } from "../../../../store/index";
+import { checkLogin } from "../../../../utils/index";
 import GiftService from "./utils/giftService";
 
 const giftService = new GiftService();
@@ -9,10 +11,21 @@ Page({
     navBarBgVisible: false,
     curBgIdx: 0,
     livestockList: [],
-    giftList: []
+    giftList: [],
+    posterInfo: null,
+    posterModelVisible: false,
   },
 
-  async onLoad({ type }) {
+  async onLoad({ type, superiorId = "" }) {
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"]
+    });
+
+    if (superiorId) {
+      wx.setStorageSync("superiorId", superiorId);
+    }
+
     await this.setLiveStockList();
     await this.setGiftList();
     if (type === "2") {
@@ -59,5 +72,41 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
+  },
+
+  share() {
+    checkLogin(async () => {
+      const scene = `superiorId=${store.promoterInfo.id}`;
+      const page = "pages/rural/subpages/gift/index";
+      const qrcode = await giftService.getQRCode(scene, page);
+
+      this.setData({
+        posterModalVisible: true,
+        posterInfo: { qrcode }
+      });
+    });
+  },
+
+  hidePosterModal() {
+    this.setData({
+      posterModalVisible: false
+    });
+  },
+
+  // 分享
+  onShareAppMessage() {
+    const { id, nickname, signature } = store.promoterInfo;
+    const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
+    const path = `/pages/rural/subpages/gift/index?superiorId=${id}`;
+    const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+    return { title, imageUrl, path };
+  },
+
+  onShareTimeline() {
+    const { id, nickname, signature } = store.promoterInfo;
+    const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
+    const query = `superiorId=${id}`;
+    const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+    return { query, title, imageUrl };
   }
 });

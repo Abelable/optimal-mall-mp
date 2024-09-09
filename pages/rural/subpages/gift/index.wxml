@@ -37,3 +37,5 @@
 <view class="hover-btn" bindtap="share">
   <image class="hover-btn-icon" src="./images/share-icon.png" />
 </view>
+
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />
