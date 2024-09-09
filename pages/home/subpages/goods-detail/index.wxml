@@ -140,12 +140,12 @@
     </view>
   </view>
 
-  <view class="comment-summary-wrap" bindtap="checkEvaluationDetail">
+  <view class="comment-summary-wrap">
     <view class="comment-title">
       <text>用户评价</text>
       <text wx:if="{{evaluationSummary.total}}">（{{evaluationSummary.total}}）</text>
     </view>
-    <view wx:if="{{evaluationSummary.total}}">
+    <view wx:if="{{evaluationSummary.total}}" bindtap="checkEvaluationDetail">
       <view class="comment-rate-wrap row">
         <view class="comment-rate">96.1%</view>
         <view class="starts row">
