@@ -14,9 +14,9 @@
     <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
       <image class="search-icon" src="/images/search.png" />
     </view>
-    <view class="share-btn" bindtap="share">
+    <button class="share-btn" open-type="share" hover-class="none">
       <image class="share-icon" src="/images/share.png" />
-    </view>
+    </button>
   </view>
 </view>
 

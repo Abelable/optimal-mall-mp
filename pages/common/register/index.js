@@ -12,8 +12,8 @@ Page({
     avatarUrl: ""
   },
 
-  onLoad({ superiorId }) {
-    this.superiorId = superiorId;
+  onLoad() {
+    this.superiorId = wx.getStorageSync("superiorId") || "";
   },
 
   async getMobile(e) {
@@ -62,6 +62,7 @@ Page({
     );
     if (token) {
       wx.setStorageSync("token", token);
+      wx.removeStorageSync("superiorId");
       wx.navigateBack();
     }
   },
