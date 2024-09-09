@@ -14,12 +14,12 @@
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 220px;
+  width: 275px;
 }
 
 .poster {
-  width: 220px;
-  height: 361px;
+  width: 275px;
+  height: 451px;
 }
 
 .btns {

@@ -39,27 +39,27 @@ Component({
     },
 
     async createPoster() {
-      const {
-        qrcode
-      } = this.properties.info || {};
+      const { qrcode } = this.properties.info || {};
 
       await this.drawImage(
         "https://static.youbozhenxuan.cn/mp/gift_poster_bg.png",
         0,
         0,
-        220,
-        361
+        275,
+        451
       );
       await this.drawImage(
         "https://static.youbozhenxuan.cn/mp/gift_poster_logo.png",
-        77,
-        29,
-        66,
-        26
+        96,
+        36,
+        82.5,
+        32.5
       );
 
-      await this.drawImage(qrcode, 185, 384, 56, 56);
-      this.setText(8, "#F5701D", 213, 452, "微信长按识别商品", "center");
+      this.roundRect(64, 168, 150, 150, 75, "", null, "#fff");
+
+      await this.drawImage(qrcode, 74, 178, 130, 130);
+      this.setText(16, "#633800", 137.5, 350, "扫二维码打开小程序", "center");
 
       wx.canvasToTempFilePath(
         {
@@ -78,7 +78,18 @@ Component({
         ctx.font = "10px sans-serif";
         ctx.fillStyle = "#FF4747";
         const { width } = ctx.measureText(coupon.name);
-        this.roundRect(x, y - 12, width + 8, 16, 5, "", null, "transparent", "#FF4747", 1);
+        this.roundRect(
+          x,
+          y - 12,
+          width + 8,
+          16,
+          5,
+          "",
+          null,
+          "transparent",
+          "#FF4747",
+          1
+        );
         ctx.fillText(coupon.name, x + 4, y);
         x = x + width + 12;
       }
@@ -133,7 +144,7 @@ Component({
       } else {
         ctx.moveTo(x, y);
       }
-      
+
       r2 ? ctx.arcTo(x + w, y, x + w, y + h, r2) : ctx.lineTo(x + w, y);
       r3 ? ctx.arcTo(x + w, y + h, x, y + h, r3) : ctx.lineTo(x + w, y + h);
       r4 ? ctx.arcTo(x, y + h, x, y, r4) : ctx.lineTo(x, y + h);
