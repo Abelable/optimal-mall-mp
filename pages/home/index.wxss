@@ -155,6 +155,19 @@
   height: 16rpx;
 }
 
+.split-title {
+  margin-bottom: 16rpx;
+  color: #14191F;
+  font-size: 32rpx;
+  font-weight: 550;
+}
+.praise-icon {
+  margin-left: 10rpx;
+  margin-bottom: 12rpx;
+  width: 40rpx;
+  height: 46rpx;
+}
+
 .no-more-tips {
   margin-top: 36rpx;
   color: #999;

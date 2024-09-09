@@ -8,14 +8,14 @@
       </view>
     </view>
     <view class="search-bar" wx:if="{{!promoterInfo}}" bindtap="search">
-      <image class="search-icon" src="./images/search.png" />
+      <image class="search-icon" src="/images/search.png" />
       <text class="placeholder omit single">好物尽在诚信星球</text>
     </view>
     <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
-      <image class="search-icon" src="./images/search.png" />
+      <image class="search-icon" src="/images/search.png" />
     </view>
     <view class="share-btn" bindtap="share">
-      <image class="share-icon" src="./images/share.png" />
+      <image class="share-icon" src="/images/share.png" />
     </view>
   </view>
 </view>
@@ -62,6 +62,10 @@
   </view>
   <view class="activity-goods-list" wx:if="{{curMenuIdx === 1}}">
     <activity-goods-item wx:for="{{advanceGoodsList}}" wx:key="index" item="{{item}}" />
+  </view>
+  <view class="split-title row">
+    <view>星球精选</view>
+    <image class="praise-icon" src="./images/praise-icon.png" />
   </view>
   <fall-flow list="{{goodsList}}" generic:item="goods-item" />
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
