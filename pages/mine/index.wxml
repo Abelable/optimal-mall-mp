@@ -137,11 +137,11 @@
       <view class="tool-desc">在线客服</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row" wx:if="{{userInfo.level}}">
+    <button class="tool-item" wx:if="{{userInfo.level}}" open-type="share" hover-class="none">
       <image class="tool-icon" src="./images/share.png" />
-      <view class="tool-desc">分享店铺</view>
+      <view class="tool-desc" style="text-align: left;">分享店铺</view>
       <image class="arrow" src="./images/arrow.png" />
-    </view>
+    </button>
   </view>
 </view>
 

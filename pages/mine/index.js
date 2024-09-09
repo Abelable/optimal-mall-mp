@@ -11,7 +11,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo"]
+    fields: ["userInfo", "promoterInfo"]
   },
 
   data: {
@@ -125,6 +125,16 @@ Component({
       wx.navigateTo({
         url: "./subpages/setting/index"
       });
+    },
+
+    // 分享
+    onShareAppMessage() {
+      const { id, nickname, signature } = this.data.promoterInfo;
+      const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
+      const path = `/pages/home/index?superiorId=${id}`;
+      const imageUrl =
+        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+      return { title, imageUrl, path };
     }
   }
 });
