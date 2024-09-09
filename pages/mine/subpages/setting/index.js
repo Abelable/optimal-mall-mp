@@ -6,12 +6,13 @@ const mineService = new MineService();
 Page({
   data: {
     wxQrcode: "",
-    signature: ""
+    signature: "",
+    level: 0
   },
 
   onLoad() {
-    const { wxQrcode, signature } = store.userInfo;
-    this.setData({ wxQrcode, signature });
+    const { wxQrcode, signature, level } = store.userInfo;
+    this.setData({ wxQrcode, signature, level });
   },
 
   uploadWxQrcode() {

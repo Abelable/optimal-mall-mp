@@ -1,4 +1,4 @@
-<view class="list-wrap">
+<view class="list-wrap" wx:if="{{level}}">
   <view class="list row between" bindtap="uploadWxQrcode">
     <view class="title">我的星球码</view>
     <view class="row">

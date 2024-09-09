@@ -137,15 +137,7 @@
       <view class="tool-desc">在线客服</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-  </view>
-
-  <view class="tool-list" wx:if="{{userInfo.level}}">
-    <view class="tool-item row">
-      <image class="tool-icon" src="./images/member.png" />
-      <view class="tool-desc">会员中心</view>
-      <image class="arrow" src="./images/arrow.png" />
-    </view>
-    <view class="tool-item row">
+    <view class="tool-item row" wx:if="{{userInfo.level}}">
       <image class="tool-icon" src="./images/share.png" />
       <view class="tool-desc">分享店铺</view>
       <image class="arrow" src="./images/arrow.png" />
