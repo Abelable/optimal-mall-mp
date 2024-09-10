@@ -1,5 +1,3 @@
-import { checkLogin } from "../../../utils/index";
-
 Page({
   data: {
     url: ""
@@ -16,13 +14,18 @@ Page({
 
   onShow() {
     setTimeout(() => {
-      checkLogin(() => {
+      const token = wx.getStorageSync("token");
+      if (token) {
         this.setData({
           url: `${this.webviewUrl}${
             this.webviewUrl.indexOf("?") === -1 ? "?" : "&"
           }token=${wx.getStorageSync("token")}`
         });
-      }, false);
+      } else {
+        this.setData({
+          url: this.webviewUrl
+        });
+      }
     });
   },
 
