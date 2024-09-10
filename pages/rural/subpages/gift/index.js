@@ -1,5 +1,5 @@
 import { store } from "../../../../store/index";
-import { checkLogin } from "../../../../utils/index";
+import { checkLogin, getQueryString } from "../../../../utils/index";
 import GiftService from "./utils/giftService";
 
 const giftService = new GiftService();
