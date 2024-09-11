@@ -126,6 +126,14 @@
   color: #fff;
   font-size: 24rpx;
 }
+.commission.show-bg {
+  padding: 0 12rpx;
+  width: fit-content;
+  height: 36rpx;
+  font-size: 22rpx;
+  background: #F5701D;
+  border-radius: 18rpx;
+}
 .commission-visible-icon {
   margin-left: 8rpx;
   width: 28rpx;

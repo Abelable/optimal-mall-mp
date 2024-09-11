@@ -60,12 +60,13 @@
             fontSize="32rpx" 
             integerFontSize="50rpx"
           />
+          <view class="market-price" wx:if="{{!goodsInfo.activityInfo}}">¥{{goodsInfo.marketPrice}}</view>
           <view class="bottom-price row" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
             <view>最低到手价¥{{bottomPrice}}</view>
             <image class="more-icon" src="./images/more.png" />
           </view>
         </view>
-        <view class="commission row" wx:if="{{userInfo.level}}" bindtap="toggleCommissionVisible">
+        <view class="commission row {{!goodsInfo.activityInfo ? 'show-bg' : ''}}" wx:if="{{userInfo.level}}" bindtap="toggleCommissionVisible">
           <view>{{commissionVisible ? '利润：¥' + commission : '******'}}</view>
           <image class="commission-visible-icon" src="./images/commission_{{commissionVisible ? 'show' : 'hide'}}.png" />
         </view>
