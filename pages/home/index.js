@@ -29,7 +29,7 @@ Component({
 
   methods: {
     onLoad({ superiorId = "" }) {
-      if (superiorId) {
+      if (superiorId && !store.promoterInfo) {
         wx.setStorageSync("superiorId", superiorId);
       }
 
@@ -137,7 +137,7 @@ Component({
               url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}${param}`
             });
             break;
-  
+
           case "2":
             wx.navigateTo({
               url: `/pages/home/subpages/goods-detail/index?id=${param}`

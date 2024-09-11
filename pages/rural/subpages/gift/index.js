@@ -1,5 +1,5 @@
 import { store } from "../../../../store/index";
-import { checkLogin, getQueryString } from "../../../../utils/index";
+import { checkLogin } from "../../../../utils/index";
 import GiftService from "./utils/giftService";
 
 const giftService = new GiftService();
@@ -16,19 +16,15 @@ Page({
     posterModelVisible: false
   },
 
-  async onLoad({ type, superiorId = "", scene = "", q = "" }) {
+  async onLoad({ type, superiorId = "", scene = "" }) {
     wx.showShareMenu({
       withShareTicket: true,
       menus: ["shareAppMessage", "shareTimeline"]
     });
 
     const decodedScene = scene ? decodeURIComponent(scene) : "";
-    const decodedQ = q ? decodeURIComponent(q) : "";
-    this.superiorId =
-      superiorId ||
-      decodedScene.split("-")[0] ||
-      getQueryString(decodedQ, "id");
-    if (this.superiorId) {
+    this.superiorId = superiorId || decodedScene.split("-")[0];
+    if (this.superiorId && !store.promoterInfo) {
       wx.setStorageSync("superiorId", this.superiorId);
     }
 
@@ -82,7 +78,7 @@ Page({
 
   share() {
     checkLogin(async () => {
-      const scene = `superiorId=${store.promoterInfo.id}`;
+      const scene = `${store.promoterInfo.id}`;
       const page = "pages/rural/subpages/gift/index";
       const qrcode = await giftService.getQRCode(scene, page);
 

@@ -1,7 +1,7 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import dayjs from "dayjs";
 import { store } from "../../../../store/index";
-import { getQueryString, checkLogin } from "../../../../utils/index";
+import { checkLogin } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
 const homeService = new HomeService();
@@ -36,7 +36,7 @@ Page({
     addressSelectPopupVisible: false
   },
 
-  async onLoad({ id, scene, q }) {
+  async onLoad({ id, superiorId, scene }) {
     wx.showShareMenu({
       withShareTicket: true,
       menus: ["shareAppMessage", "shareTimeline"]
@@ -47,10 +47,12 @@ Page({
       fields: ["promoterInfo"]
     });
 
-    const decodedScene = scene ? decodeURIComponent(scene) : "";
-    const decodedQ = q ? decodeURIComponent(q) : "";
-    this.goodsId =
-      id || decodedScene.split("-")[0] || getQueryString(decodedQ, "id");
+    const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
+    this.goodsId = id || decodedSceneList[0];
+    this.superiorId = superiorId || decodedSceneList[1];
+    if (this.superiorId && !store.promoterInfo) {
+      wx.setStorageSync("superiorId", this.superiorId);
+    }
 
     this.getBannerHeight();
     this.init();
@@ -350,22 +352,27 @@ Page({
 
   share() {
     checkLogin(async () => {
-      const scene = `id=${this.goodsId}`;
-      const page = "pages/tab-bar-pages/home/index";
-      const qrcode = await homeService.getQRCode(scene, page);
+      const { promoterInfo, goodsInfo } = this.data;
+      const { cover, name, introduction, couponList, price, isGift } =
+        goodsInfo;
 
-      const {
-        cover,
-        name,
-        introduction,
-        couponList,
-        price,
-        isGift
-      } = this.data.goodsInfo;
+      const scene = promoterInfo.id
+        ? `${this.goodsId}-${promoterInfo.id}`
+        : `${this.goodsId}`;
+      const page = "pages/home/subpages/goods-detail/index";
+      const qrcode = await homeService.getQRCode(scene, page);
 
       this.setData({
         posterModalVisible: true,
-        posterInfo: { cover, name, introduction, couponList, price, isGift, qrcode }
+        posterInfo: {
+          cover,
+          name,
+          introduction,
+          couponList,
+          price,
+          isGift,
+          qrcode
+        }
       });
     });
   },
@@ -412,17 +419,22 @@ Page({
     this.storeBindings.destroyStoreBindings();
   },
 
-  // 分享
   onShareAppMessage() {
-    const { id, name: title, cover: imageUrl } = this.data.goodsInfo;
-    const path = `/pages/home/subpages/goods-detail/index?id=${id}`;
+    const { goodsInfo, promoterInfo } = this.data;
+    const { id, name: title, cover: imageUrl } = goodsInfo;
+    const path = promoterInfo
+      ? `/pages/home/subpages/goods-detail/index?id=${id}&superiorId=${promoterInfo.id}`
+      : `/pages/home/subpages/goods-detail/index?id=${id}`;
     return { title, imageUrl, path };
   },
 
   onShareTimeline() {
-    const { id, name, image: imageUrl } = this.data.goodsInfo;
+    const { goodsInfo, promoterInfo } = this.data;
+    const { id, name, image: imageUrl } = goodsInfo;
     const title = `诚信星球商品：${name}`;
-    const query = `id=${id}`;
+    const query = promoterInfo
+      ? `id=${id}`
+      : `id=${id}&superiorId=${promoterInfo.id}`;
     return { query, title, imageUrl };
   }
 });
