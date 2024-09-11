@@ -19,6 +19,9 @@ Page({
     curDot: 1,
     muted: true,
     goodsInfo: null,
+    selectedSkuIndex: 0,
+    commission: 0,
+    commissionVisible: false,
     countdown: 0,
     bottomPrice: 0,
     evaluationSummary: null,
@@ -44,7 +47,7 @@ Page({
 
     this.storeBindings = createStoreBindings(this, {
       store,
-      fields: ["promoterInfo"]
+      fields: ["promoterInfo", "userInfo"]
     });
 
     const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
@@ -70,6 +73,7 @@ Page({
     this.getCommentTop();
     this.getDetailTop();
     this.setBottomPrice();
+    this.setCommisstion();
     this.setCountdown();
     this.setRecommendGoodsList(true);
   },
@@ -90,22 +94,25 @@ Page({
   },
 
   setBottomPrice() {
-    const { price, couponList } = this.data.goodsInfo;
+    const { goodsInfo, selectedSkuIndex } = this.data;
+    const { price, couponList, skuList } = goodsInfo;
+    const basePrice = skuList.length ? skuList[selectedSkuIndex].price : price;
+
     if (couponList.length) {
       const bottomPrice = couponList.map(
         ({ type, numLimit, priceLimit, denomination }) => {
           switch (type) {
             case 1:
-              return Math.floor((price - denomination) * 100) / 100;
+              return Math.floor((basePrice - denomination) * 100) / 100;
             case 2:
               return (
                 Math.floor(
-                  ((price * numLimit - denomination) / numLimit) * 100
+                  ((basePrice * numLimit - denomination) / numLimit) * 100
                 ) / 100
               );
             case 3:
-              return priceLimit <= price
-                ? Math.floor((price - denomination) * 100) / 100
+              return priceLimit <= basePrice
+                ? Math.floor((basePrice - denomination) * 100) / 100
                 : 0;
           }
         }
@@ -344,10 +351,26 @@ Page({
 
   // 关闭规格弹窗
   hideSpecPopup(e) {
-    const { selectedSkuName, cartGoodsNumber } = e.detail;
+    const { selectedSkuIndex, cartGoodsNumber } = e.detail;
     this.setData({ specPopupVisible: false });
-    if (selectedSkuName) this.setData({ selectedSkuName });
+    if (selectedSkuIndex) {
+      this.setData({ selectedSkuIndex });
+      this.setBottomPrice()
+      this.setCommisstion();
+    }
     if (cartGoodsNumber) this.setData({ cartGoodsNumber });
+  },
+
+  setCommisstion() {
+    const { goodsInfo, selectedSkuIndex } = this.data;
+    const { skuList, commissionRate } = goodsInfo;
+    const commission =
+      Math.floor(skuList[selectedSkuIndex].price * commissionRate) / 100;
+    this.setData({ commission });
+  },
+
+  toggleCommissionVisible() {
+    this.setData({ commissionVisible: !this.data.commissionVisible });
   },
 
   share() {

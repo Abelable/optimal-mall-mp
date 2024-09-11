@@ -121,6 +121,17 @@
   height: 20rpx;
 }
 
+.commission {
+  margin-top: 6rpx;
+  color: #fff;
+  font-size: 24rpx;
+}
+.commission-visible-icon {
+  margin-left: 8rpx;
+  width: 28rpx;
+  height: 16rpx;
+}
+
 .activity-info {
   display: flex;
   flex-direction: column;

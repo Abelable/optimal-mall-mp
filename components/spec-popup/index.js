@@ -36,16 +36,16 @@ Component({
                 });
                 return;
               }
+            } else {
+              const specList = goodsInfo.specList.map(item => ({
+                ...item,
+                options: item.options.map((_item, _index) => ({
+                  name: _item,
+                  selected: _index === 0
+                }))
+              }));
+              this.setData({ specList });
             }
-
-            const specList = goodsInfo.specList.map(item => ({
-              ...item,
-              options: item.options.map((_item, _index) => ({
-                name: _item,
-                selected: _index === 0
-              }))
-            }));
-            this.setData({ specList });
           }
         }
       }
@@ -167,8 +167,8 @@ Component({
     },
 
     hide() {
-      const { selectedSkuName } = this.data;
-      this.triggerEvent("hide", { selectedSkuName });
+      const { selectedSkuName, selectedSkuIndex } = this.data;
+      this.triggerEvent("hide", { selectedSkuName, selectedSkuIndex });
     }
   }
 });

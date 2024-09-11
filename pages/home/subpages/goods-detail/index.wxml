@@ -54,11 +54,20 @@
     <view class="{{goodsInfo.activityInfo ? 'activity-info-wrap' : ''}} row between ">
       <view class="price-wrap">
         <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
-          <price-unit price="{{goodsInfo.price || 0}}" color="{{goodsInfo.activityInfo ? '#fff' : '#ff5040'}}" fontSize="32rpx" integerFontSize="50rpx" />
+          <price-unit 
+            price="{{(goodsInfo && goodsInfo.skuList.length) ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}" 
+            color="{{goodsInfo.activityInfo ? '#fff' : '#ff5040'}}" 
+            fontSize="32rpx" 
+            integerFontSize="50rpx"
+          />
           <view class="bottom-price row" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
             <view>最低到手价¥{{bottomPrice}}</view>
             <image class="more-icon" src="./images/more.png" />
           </view>
+        </view>
+        <view class="commission row" wx:if="{{userInfo.level}}" bindtap="toggleCommissionVisible">
+          <view>{{commissionVisible ? '利润：¥' + commission : '******'}}</view>
+          <image class="commission-visible-icon" src="./images/commission_{{commissionVisible ? 'show' : 'hide'}}.png" />
         </view>
       </view>
       <view class="activity-info" wx:if="{{goodsInfo.activityInfo}}">
@@ -106,7 +115,7 @@
   <view class="option-info-wrap">
     <view class="option-item" wx:if="{{!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
       <view class="option-label">选择</view>
-      <view class="option-content" bindtap="showSpecPopup">{{selectedSkuName}}</view>
+      <view class="option-content" bindtap="showSpecPopup">{{goodsInfo.skuList[selectedSkuIndex].name}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
     <view class="option-item" bindtap="showAddressSelectPopup">
@@ -259,7 +268,7 @@
 
 <coupon-popup 
   show="{{couponPopupVisible}}"
-  basePrice="{{goodsInfo.price}}"
+  basePrice="{{goodsInfo.skuList.length ? goodsInfo.skuList[selectedSkuIndex].price : goodsInfo.price}}"
   couponList="{{goodsInfo.couponList}}" 
   bind:showSpecPopup="showSpecPopup" 
   bind:hide="hideCouponPopup"
