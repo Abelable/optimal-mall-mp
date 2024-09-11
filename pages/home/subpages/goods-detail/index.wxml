@@ -66,7 +66,7 @@
             <image class="more-icon" src="./images/more.png" />
           </view>
         </view>
-        <view class="commission row {{!goodsInfo.activityInfo ? 'show-bg' : ''}}" wx:if="{{userInfo.level}}" bindtap="toggleCommissionVisible">
+        <view class="commission row {{!goodsInfo.activityInfo ? 'show-bg' : ''}}" wx:if="{{userInfo.level && goodsInfo.commissionRate}}" bindtap="toggleCommissionVisible">
           <view>{{commissionVisible ? '利润：¥' + commission : '******'}}</view>
           <image class="commission-visible-icon" src="./images/commission_{{commissionVisible ? 'show' : 'hide'}}.png" />
         </view>
@@ -284,6 +284,14 @@
   show="{{specPopupVisible}}"
   mode="{{actionMode}}"
   goodsInfo="{{goodsInfo}}"
+  commission="{{commission}}"
+  commissionVisible="{{commissionVisible}}"
+  bind:selectSpec="selectSpec"
+  bind:addCartSuccess="addCartSuccess"
   bind:hide="hideSpecPopup"
 />
-<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />
+<poster-modal 
+  wx:if="{{posterModalVisible}}"
+  info="{{posterInfo}}"
+  bind:hide="hidePosterModal"
+/>

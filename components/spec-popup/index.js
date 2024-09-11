@@ -55,6 +55,8 @@ Component({
       value: 0
     },
     goodsInfo: Object,
+    commission: Number,
+    commissionVisible: Boolean,
     cartInfo: Object
   },
 
@@ -63,6 +65,7 @@ Component({
     selectedSkuName: "",
     selectedSkuIndex: -1,
     count: 1,
+    couponDiscount: 0,
     btnActive: false
   },
 
@@ -76,6 +79,8 @@ Component({
           item => item.name === selectedSkuName
         );
         this.setData({ selectedSkuName, selectedSkuIndex });
+        this.setCouponDiscount();
+        this.triggerEvent("selectSpec", { selectedSkuIndex });
       }
     },
     selectedSkuIndex: function (index) {
@@ -109,6 +114,7 @@ Component({
 
     countChange({ detail: count }) {
       this.setData({ count });
+      this.setCouponDiscount();
     },
 
     // 加入购物车
@@ -121,7 +127,8 @@ Component({
             selectedSkuIndex,
             count
           );
-          cartGoodsNumber && this.triggerEvent("hide", { cartGoodsNumber });
+          cartGoodsNumber &&
+            this.triggerEvent("addCartSuccess", { cartGoodsNumber });
         });
       }
     },
@@ -152,9 +159,39 @@ Component({
           selectedSkuIndex,
           count,
           res => {
-            this.triggerEvent("hide", { cartInfo: res.data });
+            this.triggerEvent("editSpecSuccess", { cartInfo: res.data });
           }
         );
+      }
+    },
+
+    setCouponDiscount() {
+      const { couponList, skuList } = this.properties.goodsInfo;
+      if (couponList.length) {
+        if (!this.couponList) {
+          this.couponList = couponList.filter(item => item.isReceived);
+        }
+        const { selectedSkuIndex, count } = this.data;
+        const couponDiscount =
+          this.couponList
+            .filter(({ type, numLimit, priceLimit }) => {
+              if (type === 1) {
+                return true;
+              }
+              if (type === 2 && count >= numLimit) {
+                return true;
+              }
+              if (
+                type === 3 &&
+                skuList[selectedSkuIndex].price * count > priceLimit
+              ) {
+                return true;
+              }
+              return false;
+            })
+            .map(item => item.denomination)
+            .sort((a, b) => b - a)[0] || 0;
+        this.setData({ couponDiscount });
       }
     },
 
@@ -167,8 +204,7 @@ Component({
     },
 
     hide() {
-      const { selectedSkuName, selectedSkuIndex } = this.data;
-      this.triggerEvent("hide", { selectedSkuName, selectedSkuIndex });
+      this.triggerEvent("hide");
     }
   }
 });

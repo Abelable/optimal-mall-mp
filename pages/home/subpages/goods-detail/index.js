@@ -338,7 +338,6 @@ Page({
     this.data.showMask && this.setData({ showMask: false });
   },
 
-  // 显示规格弹窗
   showSpecPopup(e) {
     if (this.data.goodsInfo.stock) {
       const { mode = 0 } = e.currentTarget.dataset;
@@ -349,16 +348,20 @@ Page({
     }
   },
 
-  // 关闭规格弹窗
-  hideSpecPopup(e) {
-    const { selectedSkuIndex, cartGoodsNumber } = e.detail;
+  selectSpec(e) {
+    const { selectedSkuIndex } = e.detail;
+    this.setData({ selectedSkuIndex });
+    this.setBottomPrice();
+    this.setCommisstion();
+  },
+
+  addCartSuccess(e) {
+    const { cartGoodsNumber } = e.detail;
+    this.setData({ cartGoodsNumber, specPopupVisible: false });
+  },
+
+  hideSpecPopup() {
     this.setData({ specPopupVisible: false });
-    if (selectedSkuIndex) {
-      this.setData({ selectedSkuIndex });
-      this.setBottomPrice()
-      this.setCommisstion();
-    }
-    if (cartGoodsNumber) this.setData({ cartGoodsNumber });
   },
 
   setCommisstion() {

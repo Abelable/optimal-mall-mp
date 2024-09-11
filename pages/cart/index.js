@@ -170,12 +170,12 @@ Page({
     this.editingGoodsIndex = goodsIndex;
   },
 
-  hideSpecPopup(e) {
-    const cartInfo = this.data.cartList[this.editingCartIndex];
+  editSpecSuccess(e) {
+    const curCartInfo = this.data.cartList[this.editingCartIndex];
     this.setData(
       {
         [`cartList[${this.editingCartIndex}]`]: {
-          ...cartInfo,
+          ...curCartInfo,
           ...e.detail.cartInfo
         },
         specPopupVisible: false
@@ -184,6 +184,10 @@ Page({
         this.acount();
       }
     );
+  },
+
+  hideSpecPopup() {
+    this.setData({ specPopupVisible: false });
   },
 
   toggleDeleteBtnVisible() {

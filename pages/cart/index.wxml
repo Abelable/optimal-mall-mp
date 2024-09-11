@@ -71,4 +71,4 @@
   <button class="delete-btn {{selectedCount ? 'active' : ''}}" wx:if="{{deleteBtnVisible}}" bindtap="deleteGoodsList" hover-class="none">删除</button>
 </view>
 
-<spec-popup show="{{specPopupVisible}}" mode="{{3}}" goodsInfo="{{goodsInfo}}" cartInfo="{{cartInfo}}" bind:hide="hideSpecPopup" />
+<spec-popup show="{{specPopupVisible}}" mode="{{3}}" goodsInfo="{{goodsInfo}}" cartInfo="{{cartInfo}}" bind:editSpecSuccess="editSpecSuccess" bind:hide="hideSpecPopup" />

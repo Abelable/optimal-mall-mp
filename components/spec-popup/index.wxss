@@ -2,14 +2,13 @@
   display: flex;
   flex-direction: column;
   padding: 24rpx;
-  height: 900rpx;
+  height: 1000rpx;
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
 }
 
 .spec-info-wrap {
   display: flex;
-  align-items: flex-end;
   margin-bottom: 20rpx;
   height: 200rpx;
 }
@@ -21,37 +20,36 @@
 .spec-info {
   margin-left: 24rpx;
   flex: 1;
+  height: 190rpx;
   color: #333;
+  font-size: 24rpx;
+}
+.commission {
+  color: #F5701D;
   font-size: 24rpx;
 }
 .spec-stock {
   margin: 8rpx 0;
+  flex: 1;
   color: #999;
 }
 
 .selection-mian {
+  margin-top: 32rpx;
   flex: 1;
   overflow-y: scroll;
 }
 .spec-list {
-  padding: 30rpx 0;
+  margin-bottom: 32rpx;
 }
-.dividing-line {
-  position: relative;
-  margin-bottom: 30rpx;
-  height: 1rpx;
-  background-color: #dbdbdb;
-}
-.dividing-line-title {
-  position: absolute;
-  top: -14rpx;
-  left: 0;
-  padding-right: 20rpx;
-  line-height: 30rpx;
+.spec-title {
   color: #333;
-  font-size: 30rpx;
-  font-weight: 500;
-  background-color: #fff;
+  font-size: 26rpx;
+  font-weight: 550;
+}
+.spec-content {
+  color: #666;
+  font-size: 26rpx;
 }
 .spec-tips {
   display: inline-block;
@@ -67,6 +65,7 @@
   background-color: #F6F6F6;
 }
 .spec-tips.selected {
+  color: #F5701D;
   border: 1px solid #F5701D;
   background-color: rgb(254, 244, 245);
 }

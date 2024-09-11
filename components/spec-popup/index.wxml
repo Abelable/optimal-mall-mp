@@ -9,16 +9,33 @@
         data-url="{{selectedSkuIndex !== -1 ? (goodsInfo.skuList[selectedSkuIndex].image || goodsInfo.defaultSpecImage) : goodsInfo.defaultSpecImage}}"
       />
       <view class="spec-info">
-        <price-unit price="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}" />
+        <price-unit
+          price="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}"
+          fontSize="32rpx" 
+          integerFontSize="50rpx"
+        />
+        <view class="commission" wx:if="{{commissionVisible}}">利润：¥{{commission}}</view>
         <view class="spec-stock">库存{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].stock : goodsInfo.stock}}</view>
         <view class="omit single">{{ selectedSkuName ? '已选：' + selectedSkuName : '请选择规格'}}</view>
       </view>
     </view>
     <scroll-view class="selection-mian" scroll-y>
-      <view class="spec-list" wx:for="{{specList}}" wx:key="index">
-        <view class="dividing-line">
-          <view class="dividing-line-title">{{item.name}}</view>
+      <view class="spec-list row between" wx:if="{{goodsInfo.couponList.length}}">
+        <view class="spec-title">优惠</view>
+        <view class="spec-content">
+          <text wx:if="{{!couponDiscount}}">未达优惠使用门槛</text>
+          <text wx:if="{{couponDiscount}}">优惠券</text>
+          <text wx:if="{{couponDiscount}}" style="color: #FF3636">-{{couponDiscount}}元</text>
         </view>
+      </view>
+      <view class="spec-list row between">
+        <view class="spec-title">数量</view>
+        <view class="count-control-wrap">
+          <van-stepper value="{{ count }}" bind:change="countChange" integer max="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].stock : goodsInfo.stock}}" />
+        </view>
+      </view>
+      <view class="spec-list" wx:for="{{specList}}" wx:key="index">
+        <view class="spec-title">{{item.name}}</view>
         <view 
           class="spec-tips {{_item.selected ? 'selected' : ''}}" 
           wx:for="{{item.options}}" 
@@ -30,14 +47,6 @@
           data-option-index="{{_index}}"
           >
           {{_item.name}}
-        </view>
-      </view>
-      <view class="spec-list">
-        <view class="dividing-line">
-          <view class="dividing-line-title">数量</view>
-        </view>
-        <view class="count-control-wrap">
-          <van-stepper value="{{ count }}" bind:change="countChange" integer max="{{selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].stock : goodsInfo.stock}}" />
         </view>
       </view>
     </scroll-view>
