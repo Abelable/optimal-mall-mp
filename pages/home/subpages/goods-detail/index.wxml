@@ -83,8 +83,8 @@
         <view class="notice-time" wx:if="{{goodsInfo.activityInfo.status === 0}}">{{TIME.transform(goodsInfo.activityInfo.startTime, 'MM月DD日hh:mm开抢')}}</view>
         <view class="countdown" wx:if="{{goodsInfo.activityInfo.status === 1 && countdown}}">
           <view>还剩</view>
-          <view class="countdown-unit">{{TIME.countdownUnit(countdown).days}}</view>
-          <view>天</view>
+          <view class="countdown-unit" wx:if="{{TIME.countdownUnit(countdown).days}}">{{TIME.countdownUnit(countdown).days}}</view>
+          <view wx:if="{{TIME.countdownUnit(countdown).days}}">天</view>
           <view class="countdown-unit">{{TIME.countdownUnit(countdown).hours}}</view>
           <view>:</view>
           <view class="countdown-unit">{{TIME.countdownUnit(countdown).minutes}}</view>
