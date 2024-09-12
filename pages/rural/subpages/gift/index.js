@@ -26,6 +26,8 @@ Page({
     this.superiorId = superiorId || decodedScene.split("-")[0];
     if (this.superiorId && !store.promoterInfo) {
       wx.setStorageSync("superiorId", this.superiorId);
+      const superiorInfo = await giftService.getSuperiorInfo(this.superiorId);
+      store.setPromoterInfo(superiorInfo);
     }
 
     await this.setLiveStockList();

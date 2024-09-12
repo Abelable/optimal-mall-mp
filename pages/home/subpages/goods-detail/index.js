@@ -55,6 +55,8 @@ Page({
     this.superiorId = superiorId || decodedSceneList[1];
     if (this.superiorId && !store.promoterInfo) {
       wx.setStorageSync("superiorId", this.superiorId);
+      const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
+      store.setPromoterInfo(superiorInfo);
     }
 
     this.getBannerHeight();

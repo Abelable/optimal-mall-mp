@@ -28,9 +28,11 @@ Component({
   },
 
   methods: {
-    onLoad({ superiorId = "" }) {
+    async onLoad({ superiorId = "" }) {
       if (superiorId && !store.promoterInfo) {
         wx.setStorageSync("superiorId", superiorId);
+        const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
+        store.setPromoterInfo(superiorInfo);
       }
 
       this.init();
