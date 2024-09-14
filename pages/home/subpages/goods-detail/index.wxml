@@ -119,7 +119,7 @@
       <view class="option-content" bindtap="showSpecPopup">{{goodsInfo.skuList[selectedSkuIndex].name}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
-    <view class="option-item" bindtap="showAddressSelectPopup">
+    <view class="option-item" bindtap="showAddressPopup">
       <view class="option-label">配送</view>
       <view class="option-content">
         <view class="address-info row">
@@ -275,10 +275,10 @@
   bind:hide="hideCouponPopup"
 />
 <address-popup 
-  show="{{addressSelectPopupVisible}}" 
+  show="{{addressPopupVisible}}" 
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
-  bind:hide="hideAddressSelectPopup"
+  bind:hide="hideAddressPopup"
 />
 <spec-popup
   show="{{specPopupVisible}}"

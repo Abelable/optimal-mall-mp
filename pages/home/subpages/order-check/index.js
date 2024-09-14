@@ -5,7 +5,7 @@ const homeService = new HomeService();
 Page({
   data: {
     preOrderInfo: null,
-    addressSelectPopupVisible: false
+    addressPopupVisible: false
   },
 
   onLoad({ cartGoodsIds }) {
@@ -21,21 +21,21 @@ Page({
     this.setData({ preOrderInfo });
   },
 
-  showAddressSelectPopup() {
+  showAddressPopup() {
     this.setData({
-      addressSelectPopupVisible: true
+      addressPopupVisible: true
     });
   },
 
   confirmAddressSelect(e) {
     this.addressId = e.detail.id;
     this.setPreOrderInfo();
-    this.hideAddressSelectPopup()
+    this.hideAddressPopup()
   },
 
-  hideAddressSelectPopup() {
+  hideAddressPopup() {
     this.setData({
-      addressSelectPopupVisible: false
+      addressPopupVisible: false
     });
   },
 

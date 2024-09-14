@@ -4,7 +4,7 @@
     <view class="err-msg">{{preOrderInfo.errMsg}}</view>
   </view>
 
-  <view class="card row" bindtap="showAddressSelectPopup">
+  <view class="card row" bindtap="showAddressPopup">
     <image class="address-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/address-icon.png" />
     <view class="consignee">
       <view class="person-info" wx:if="{{preOrderInfo.addressInfo}}">
@@ -78,8 +78,14 @@
 </view>
 
 <address-popup 
-  show="{{addressSelectPopupVisible}}" 
+  show="{{addressPopupVisible}}" 
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
-  bind:hide="hideAddressSelectPopup"
+  bind:hide="hideAddressPopup"
+/>
+<coupon-popup 
+  show="{{couponPopupVisible}}"
+  couponId="{{couponId}}" 
+  bind:confirm="confirmCouponSelect" 
+  bind:hide="hideCouponPopup"
 />

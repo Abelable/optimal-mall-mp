@@ -38,10 +38,10 @@ class HomeService extends BaseService {
     });
   }
 
-  async submitOrder(cartGoodsIds, addressId) {
+  async submitOrder(cartGoodsIds, addressId, couponId) {
     return await this.post({
       url: `${this.baseUrl}/order/submit`,
-      data: { addressId, cartGoodsIds },
+      data: cleanObject({ addressId, cartGoodsIds, couponId }),
       loadingTitle: "订单提交中..."
     });
   }

@@ -1,49 +1,30 @@
-import HomeService from "../../utils/homeService";
-
-const homeService = new HomeService();
-
 Component({
   options: {
     addGlobalClass: true
   },
 
   properties: {
-    addressId: Number,
-    show: {
-      type: Boolean,
-      observer(truthy) {
-        if (truthy) {
-          this.setAddressList();
+    couponId: Number,
+    list: {
+      type: Array,
+      observer(list) {
+        if (list.length) {
+          const couponList = [
+            { id: 0, name: "不使用优惠券", denomination: 0 },
+            ...list
+          ];
+          this.setData({ couponList });
         }
       }
-    }
-  },
-
-  pageLifetimes: {
-    show() {
-      this.setAddressList();
-    }
+    },
+    show: Boolean
   },
 
   data: {
-    addressList: [],
-    selectedIndex: 0
+    selectedIndex: 1
   },
 
   methods: {
-    async setAddressList() {
-      const addressList = await homeService.getAddressList();
-      this.setData({ addressList });
-
-      const { addressId } = this.properties;
-      if (addressId) {
-        const selectedIndex = addressList.findIndex(
-          item => item.id === addressId
-        );
-        this.setData({ selectedIndex });
-      }
-    },
-
     selectAddress(e) {
       this.setData({
         selectedIndex: Number(e.detail.value)
@@ -51,19 +32,13 @@ Component({
     },
 
     confirm() {
-      const { addressList, selectedIndex } = this.data;
-      const { id } = addressList[selectedIndex]
+      const { couponList, selectedIndex } = this.data;
+      const { id } = couponList[selectedIndex];
       this.triggerEvent("confirm", { id });
     },
 
     hide() {
       this.triggerEvent("hide");
-    },
-
-    navToAddressListPage() {
-      wx.navigateTo({
-        url: "/pages/mine/subpages/address-list/index"
-      });
     }
   }
 });

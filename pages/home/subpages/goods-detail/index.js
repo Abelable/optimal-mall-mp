@@ -36,7 +36,7 @@ Page({
     posterInfo: null,
     posterModelVisible: false,
     topBtnVisible: false,
-    addressSelectPopupVisible: false
+    addressPopupVisible: false
   },
 
   async onLoad({ id, superiorId, scene }) {
@@ -221,21 +221,21 @@ Page({
     this.setData({ couponPopupVisible: false });
   },
 
-  showAddressSelectPopup() {
+  showAddressPopup() {
     this.setData({
-      addressSelectPopupVisible: true
+      addressPopupVisible: true
     });
   },
 
   confirmAddressSelect(e) {
     this.addressId = e.detail.id;
     this.setGoodsInfo();
-    this.hideAddressSelectPopup();
+    this.hideAddressPopup();
   },
 
-  hideAddressSelectPopup() {
+  hideAddressPopup() {
     this.setData({
-      addressSelectPopupVisible: false
+      addressPopupVisible: false
     });
   },
 
