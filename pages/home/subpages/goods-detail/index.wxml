@@ -274,7 +274,7 @@
   bind:showSpecPopup="showSpecPopup" 
   bind:hide="hideCouponPopup"
 />
-<address-select-popup 
+<address-popup 
   show="{{addressSelectPopupVisible}}" 
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 

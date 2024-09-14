@@ -1,4 +1,4 @@
-.address-select-popup {
+.address-popup {
   padding: 24rpx;
   background: #f5f6f8;
 }

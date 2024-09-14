@@ -136,6 +136,14 @@
   padding-bottom: 0;
   border-bottom: none;
 }
+
+.arrow {
+  margin-left: 6rpx;
+  margin-right: -6rpx;
+  width: 24rpx;
+  height: 24rpx;
+}
+
 .balance-wrap {
   display: flex;
   align-items: center;

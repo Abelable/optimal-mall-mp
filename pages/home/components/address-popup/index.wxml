@@ -1,5 +1,5 @@
 <van-popup show="{{show}}" round position="bottom" bind:close="hide">
-  <view class="address-select-popup">
+  <view class="address-popup">
     <view class="row between">
       <view class="title">常用地址</view>
       <view class="row" bindtap="navToAddressListPage">

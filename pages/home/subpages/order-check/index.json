@@ -2,6 +2,7 @@
   "navigationBarTitleText": "确认订单",
   "usingComponents": {
     "price-unit": "/components/price-unit/index",
-    "address-select-popup": "../../components/address-select-popup/index"
+    "address-popup": "../../components/address-popup/index",
+    "coupon-popup": "./components/coupon-popup/index"
   }
 }

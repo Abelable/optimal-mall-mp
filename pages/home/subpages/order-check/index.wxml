@@ -49,6 +49,16 @@
       </view>
       <price-unit price="{{preOrderInfo.freightPrice || 0}}" color="#333" />
     </view>
+    <view class="list row between" wx:if="{{preOrderInfo.couponList.length}}" bindtap="showCouponPopup">
+      <view class="list-title">
+        <text>优惠券</text>
+      </view>
+      <view class="row">
+        <text style="color: #ff5040">-</text>
+        <price-unit price="{{preOrderInfo.couponDenomination || 0}}" />
+        <image class="arrow" src="./images/arrow.png" />
+      </view>
+    </view>
     <view class="list row between">
       <view class="list-title">
         <text>合计</text>
@@ -67,7 +77,7 @@
   <button class="submit-btn {{preOrderInfo.addressInfo && !preOrderInfo.errMsg ? 'active' : ''}}" bindtap="submit">提交订单</button>
 </view>
 
-<address-select-popup 
+<address-popup 
   show="{{addressSelectPopupVisible}}" 
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
