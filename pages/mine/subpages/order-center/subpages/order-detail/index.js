@@ -77,7 +77,7 @@ Page({
   },
 
   async payOrder() {
-    const params = await orderService.getPayParams(this.orderId);
+    const params = await orderService.getPayParams([this.orderId]);
     wx.requestPayment({
       ...params,
       success: () => {
