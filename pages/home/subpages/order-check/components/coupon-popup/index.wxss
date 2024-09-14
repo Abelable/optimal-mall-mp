@@ -1,59 +1,30 @@
-.address-popup {
+.coupon-popup {
   padding: 24rpx;
-  background: #f5f6f8;
 }
 
 .title {
   color: #333;
   font-size: 32rpx;
   font-weight: 550;
-}
-.add-btn {
-  color: #F5701D;
-  font-size: 28rpx;
+  text-align: center;
 }
 
-.address-list {
+.coupon-list {
   margin-top: 24rpx;
   height: 800rpx;
   overflow-y: scroll;
 }
-.address-item {
-  margin-bottom: 24rpx;
-  padding: 24rpx;
-  background: #fff;
-  border-radius: 24rpx;
-  overflow: hidden;
+.coupon-item {
+  padding: 24rpx 0;
+  font-size: 24rpx;
 }
-.address-icon {
-  width: 36rpx; 
-  height: 36rpx;
-}
-.content {
-  margin: 0 24rpx;
+.coupon-name {
   flex: 1;
-  color: #999;
-  font-size: 26rpx;
-}
-.user-name {
-  margin-right: 20rpx; 
   color: #333;
-  font-size: 30rpx;
-  font-weight: bold;
 }
-.default-icon {
-  margin-left: 24rpx;
-  padding: 6rpx 8rpx;
-  color: #F5701D;
-  font-size: 20rpx;
-  line-height: 1;
-  border-radius: 8rpx;
-  border: 2rpx solid #F5701D;
-}
-.address-detail {
-  margin-top: 16rpx;
-  color: #333;
-  font-size: 26rpx;
+.coupon-denomination {
+  margin: 0 24rpx;
+  color: #ff5040;
 }
 .radio {
   transform: scale(0.8);

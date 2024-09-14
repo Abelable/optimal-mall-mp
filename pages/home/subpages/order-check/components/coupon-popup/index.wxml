@@ -1,24 +1,11 @@
 <van-popup show="{{show}}" round position="bottom" bind:close="hide">
-  <view class="address-popup">
-    <view class="row between">
-      <view class="title">常用地址</view>
-      <view class="row" bindtap="navToAddressListPage">
-        <van-icon name="plus" color="#F5701D" size="12px" />
-        <view class="add-btn">增加</view>
-      </view>
-    </view>
-    <scroll-view class="address-list" scroll-y>
-      <radio-group bindchange="selectAddress">
-        <view class="address-item row" wx:for="{{addressList}}" wx:key="index">
-          <image class="address-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/address-icon.png" />
-          <view class="content">
-            <view class="row">
-              <text class="user-name">{{item.name}}</text>
-              <text>{{item.mobile}}</text>
-              <text class="default-icon" wx:if="{{item.isDefault}}">默认</text>
-            </view>
-            <view class="address-detail">{{item.regionDesc + ' ' + item.addressDetail}}</view>
-          </view>
+  <view class="coupon-popup">
+    <view class="title">优惠券</view>
+    <scroll-view class="coupon-list" scroll-y>
+      <radio-group bindchange="selectCoupon">
+        <view class="coupon-item row" wx:for="{{couponList}}" wx:key="index">
+          <view class="coupon-name">{{item.name}}</view>
+          <view class="coupon-denomination" wx:if="{{item.denomination}}">减¥{{item.denomination}}</view>
           <radio class="radio" value="{{index}}" checked="{{ selectedIndex === index }}" color="#F5701D" />
         </view>
       </radio-group>

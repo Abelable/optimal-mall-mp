@@ -25,7 +25,7 @@ Component({
   },
 
   methods: {
-    selectAddress(e) {
+    selectCoupon(e) {
       this.setData({
         selectedIndex: Number(e.detail.value)
       });

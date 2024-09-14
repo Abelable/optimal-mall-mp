@@ -69,10 +69,10 @@ class BaseService extends Base {
     return ossConfig;
   }
 
-  async getPayParams(orderId) {
+  async getPayParams(orderIds) {
     return await this.post({
       url: `${this.baseUrl}/order/pay_params`,
-      data: { orderId }
+      data: { orderIds }
     });
   }
 

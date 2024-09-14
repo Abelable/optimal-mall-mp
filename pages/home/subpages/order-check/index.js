@@ -5,7 +5,8 @@ const homeService = new HomeService();
 Page({
   data: {
     preOrderInfo: null,
-    addressPopupVisible: false
+    addressPopupVisible: false,
+    couponPopupVisible: false,
   },
 
   onLoad({ cartGoodsIds }) {
@@ -16,7 +17,8 @@ Page({
   async setPreOrderInfo() {
     const preOrderInfo = await homeService.getPreOrderInfo(
       this.cartGoodsIds,
-      this.addressId
+      this.addressId,
+      this.couponId
     );
     this.setData({ preOrderInfo });
   },
@@ -39,6 +41,24 @@ Page({
     });
   },
 
+  showCouponPopup() {
+    this.setData({
+      couponPopupVisible: true
+    });
+  },
+
+  confirmCouponSelect(e) {
+    this.couponId = e.detail.id;
+    this.setPreOrderInfo();
+    this.hideCouponPopup()
+  },
+
+  hideCouponPopup() {
+    this.setData({
+      couponPopupVisible: false
+    });
+  },
+
   // 提交订单
   async submit() {
     const { addressInfo, errMsg } = this.data.preOrderInfo;
@@ -49,14 +69,14 @@ Page({
     if (errMsg) {
       return;
     }
-    const orderId = await homeService.submitOrder(this.cartGoodsIds, addressId);
-    if (orderId) {
-      this.pay(orderId);
+    const orderIds = await homeService.submitOrder(this.cartGoodsIds, addressId, this.couponId);
+    if (orderIds) {
+      this.pay(orderIds);
     }
   },
 
-  async pay(orderId) {
-    const payParams = await homeService.getPayParams(orderId);
+  async pay(orderIds) {
+    const payParams = await homeService.getPayParams(orderIds);
     if (payParams) {
       wx.requestPayment({
         ...payParams,
