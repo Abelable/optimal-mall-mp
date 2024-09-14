@@ -6,7 +6,7 @@ Page({
   data: {
     preOrderInfo: null,
     addressPopupVisible: false,
-    couponPopupVisible: false,
+    couponPopupVisible: false
   },
 
   onLoad({ cartGoodsIds }) {
@@ -32,7 +32,7 @@ Page({
   confirmAddressSelect(e) {
     this.addressId = e.detail.id;
     this.setPreOrderInfo();
-    this.hideAddressPopup()
+    this.hideAddressPopup();
   },
 
   hideAddressPopup() {
@@ -50,7 +50,7 @@ Page({
   confirmCouponSelect(e) {
     this.couponId = e.detail.id;
     this.setPreOrderInfo();
-    this.hideCouponPopup()
+    this.hideCouponPopup();
   },
 
   hideCouponPopup() {
@@ -61,7 +61,7 @@ Page({
 
   // 提交订单
   async submit() {
-    const { addressInfo, errMsg } = this.data.preOrderInfo;
+    const { errMsg, addressInfo, couponList } = this.data.preOrderInfo;
     const addressId = addressInfo.id;
     if (!addressId) {
       return;
@@ -69,7 +69,14 @@ Page({
     if (errMsg) {
       return;
     }
-    const orderIds = await homeService.submitOrder(this.cartGoodsIds, addressId, this.couponId);
+    if (this.couponId === undefined && couponList.length) {
+      this.couponId = couponList[0].id;
+    }
+    const orderIds = await homeService.submitOrder(
+      this.cartGoodsIds,
+      addressId,
+      this.couponId
+    );
     if (orderIds) {
       this.pay(orderIds);
     }
