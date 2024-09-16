@@ -72,15 +72,16 @@ Component({
   observers: {
     specList: function (list) {
       if (list.length) {
+        const { goodsInfo, count } = this.data;
         const selectedSkuName = list
           .map(item => item.options.find(_item => _item.selected).name)
           .join();
-        const selectedSkuIndex = this.data.goodsInfo.skuList.findIndex(
+        const selectedSkuIndex = goodsInfo.skuList.findIndex(
           item => item.name === selectedSkuName
         );
         this.setData({ selectedSkuName, selectedSkuIndex });
         this.setCouponDiscount();
-        this.triggerEvent("selectSpec", { selectedSkuIndex });
+        this.triggerEvent("selectSpec", { selectedSkuIndex, count });
       }
     },
     selectedSkuIndex: function (index) {

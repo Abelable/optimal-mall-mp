@@ -271,7 +271,7 @@
   show="{{couponPopupVisible}}"
   basePrice="{{goodsInfo.skuList.length ? goodsInfo.skuList[selectedSkuIndex].price : goodsInfo.price}}"
   couponList="{{goodsInfo.couponList}}" 
-  bind:showSpecPopup="showSpecPopup" 
+  bind:showSpecPopup="showCouponPopup" 
   bind:hide="hideCouponPopup"
 />
 <address-popup 
