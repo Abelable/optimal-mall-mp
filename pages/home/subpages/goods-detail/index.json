@@ -12,6 +12,7 @@
     "poster-modal": "./components/poster-modal/index",
     "empty-illus": "/components/empty-illus/index",
     "address-popup": "../../components/address-popup/index",
-    "coupon-popup": "./components/coupon-popup/index"
+    "coupon-popup": "./components/coupon-popup/index",
+    "service-popup": "./components/service-popup/index"
   }
 }

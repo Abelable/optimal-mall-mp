@@ -1,0 +1,44 @@
+.service-popup {
+  padding: 24rpx;
+}
+
+.popup-title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: 550;
+  text-align: center;
+}
+
+.service-list {
+  margin-top: 32rpx;
+  height: 800rpx;
+  overflow-y: scroll;
+}
+.service-item {
+  margin-bottom: 48rpx;
+}
+.service-title {
+  display: flex;
+  align-items: center;
+  color: #333;
+  font-size: 26rpx;
+}
+.title-icon {
+  margin-right: 8rpx;
+  width: 32rpx;
+  height: 32rpx;
+}
+.service-content {
+  margin-top: 8rpx;
+  margin-left: 40rpx;
+  color: #999;
+  font-size: 22rpx;
+}
+
+.confirm-btn {
+  height: 80rpx;
+  color: #fff;
+  font-size: 28rpx;
+  border-radius: 40rpx;
+  background: #F5701D;
+}

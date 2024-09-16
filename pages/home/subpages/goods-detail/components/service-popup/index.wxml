@@ -1,0 +1,31 @@
+<van-popup show="{{show}}" round position="bottom" bind:close="hide">
+  <view class="service-popup">
+    <view class="popup-title">服务说明</view>
+    <view class="service-list">
+      <view class="service-item">
+        <view class="service-title">
+          <image class="title-icon" src="./images/{{refundStatus ? 'seven' : 'warning'}}.png" />
+          <view>{{refundStatus ? '' : '不支持'}}7天无理由退货</view>
+        </view>
+        <view class="service-content">
+          {{refundStatus ? '根据国家7天无理由退货规范，为您办理退货退款，具体退货政策见商品详情页。' : '此商品不支持7天无理由退换货'}}
+        </view>
+      </view>
+      <view class="service-item">
+        <view class="service-title">
+          <image class="title-icon" src="./images/right.png" />
+          <view>品质保证</view>
+        </view>
+        <view class="service-content">商品售前、售中、售后对品质严格把控，全流程品质保障</view>
+      </view>
+      <view class="service-item">
+        <view class="service-title">
+          <image class="title-icon" src="./images/lighting.png" />
+          <view>极速退款</view>
+        </view>
+        <view class="service-content">下单成功30分钟内，等待卖家发货状态下，提交退款申请将立即退款</view>
+      </view>
+    </view>
+    <button class="confirm-btn" bindtap="hide">确定</button>
+  </view>
+</van-popup>

@@ -11,11 +11,9 @@ const navBarHeight = statusBarHeight + 44;
 Page({
   data: {
     statusBarHeight,
-    // 导航栏相关
-    showNavBar: false, // 导航栏显隐
+    showNavBar: false,
     commentActive: false,
     detailActive: false,
-    // 轮播图相关
     curDot: 1,
     muted: true,
     goodsInfo: null,
@@ -30,7 +28,7 @@ Page({
     finished: false,
     cartGoodsNumber: 0,
     couponPopupVisible: false,
-    // 规格相关
+    servicePopupVisible: false,
     selectedSpecDesc: "",
     specPopupVisible: false,
     actionMode: 0,
@@ -226,6 +224,14 @@ Page({
     this.setData({
       addressPopupVisible: true
     });
+  },
+
+  showServicePopup() {
+    this.setData({ servicePopupVisible: true });
+  },
+
+  hideServicePopup() {
+    this.setData({ servicePopupVisible: false });
   },
 
   confirmAddressSelect(e) {

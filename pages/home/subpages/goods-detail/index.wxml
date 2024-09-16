@@ -132,11 +132,14 @@
       </view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
-    <view class="option-item">
+    <view class="option-item" bindtap="showServicePopup">
       <view class="option-label">购物保障</view>
       <view class="option-content row">
         <image class="confidence-tag" src="./images/confidence-tag.png" />
-        <view>七天无理由退货·品质严保·极速退款</view>
+        <view>
+          <text wx:if="{{goodsInfo.refundStatus}}">七天无理由退货·</text>
+          <text>品质严保·极速退款</text>
+        </view>
       </view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
@@ -273,6 +276,11 @@
   couponList="{{goodsInfo.couponList}}" 
   bind:showSpecPopup="showCouponPopup" 
   bind:hide="hideCouponPopup"
+/>
+<service-popup 
+  show="{{servicePopupVisible}}"
+  refundStatus="{{goodsInfo.refundStatus}}"
+  bind:hide="hideServicePopup"
 />
 <address-popup 
   show="{{addressPopupVisible}}" 
