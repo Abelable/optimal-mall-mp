@@ -30,7 +30,7 @@
         </view>
         <view class="amount-item">
           <view class="amount">0.00</view>
-          <view class="amount-desc">带结算金额</view>
+          <view class="amount-desc">待结算金额</view>
         </view>
         <view class="amount-item">
           <view class="amount">0.00</view>
