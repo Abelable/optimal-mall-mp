@@ -397,8 +397,12 @@ Page({
     //   }
     // }
 
-    const commission =
-      Math.floor(price * commissionRate) / 100;
+    const { goodsInfo, selectedSkuIndex } = this.data;
+    const { skuList, commissionRate } = goodsInfo;
+    const price = skuList.length
+      ? skuList[selectedSkuIndex].price
+      : goodsInfo.price;
+    const commission = Math.floor(price * commissionRate) / 100;
     this.setData({ commission });
   },
 
