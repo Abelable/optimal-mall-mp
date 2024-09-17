@@ -19,6 +19,9 @@ Component({
     navBarBgVisible: false,
     dateList: ["今日", "昨日", "本月", "上月"],
     curDateIdx: 0,
+    commissionSumInfo: null,
+    commissionTimeData: null,
+    customerData: {},
     orderStatusList: [
       { en: "pay", zh: "待付款", total: 0 },
       { en: "pack", zh: "待发货", total: 0 },
@@ -33,6 +36,9 @@ Component({
     show() {
       checkLogin(() => {
         this.updateUserInfo();
+        this.setCommissionSumInfo();
+        this.setCommissionTimeData();
+        this.setCustomerData();
         this.setOrderListTotals();
       });
     }
@@ -41,6 +47,23 @@ Component({
   methods: {
     updateUserInfo() {
       mineService.getUserInfo();
+    },
+
+    async setCommissionSumInfo() {
+      const commissionSumInfo = await mineService.getCommissionSumInfo();
+      this.setData({ commissionSumInfo });
+    },
+
+    async setCommissionTimeData() {
+      const commissionTimeData = await mineService.getCommissionTimeData(
+        this.data.curDateIdx + 1
+      );
+      this.setData({ commissionTimeData });
+    },
+
+    async setCustomerData() {
+      const customerData = await mineService.getCustomerData();
+      this.setData({ customerData });
     },
 
     async setOrderListTotals() {
@@ -80,6 +103,7 @@ Component({
     selectDate(e) {
       const curDateIdx = e.currentTarget.dataset.index;
       this.setData({ curDateIdx });
+      this.setCommissionTimeData();
     },
 
     withdraw() {

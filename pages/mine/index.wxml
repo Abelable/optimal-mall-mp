@@ -25,15 +25,15 @@
       </view>
       <view class="amount-list">
         <view class="amount-item">
-          <view class="amount">0.00</view>
+          <view class="amount">{{commissionSumInfo ? NUM.toFixed(commissionSumInfo.cashAmount, 2) : '0.00'}}</view>
           <view class="amount-desc">可提现金额</view>
         </view>
         <view class="amount-item">
-          <view class="amount">0.00</view>
+          <view class="amount">{{commissionSumInfo ? NUM.toFixed(commissionSumInfo.pendingAmount, 2) : '0.00'}}</view>
           <view class="amount-desc">待结算金额</view>
         </view>
         <view class="amount-item">
-          <view class="amount">0.00</view>
+          <view class="amount">{{commissionSumInfo ? NUM.toFixed(commissionSumInfo.settledAmount, 2) : '0.00'}}</view>
           <view class="amount-desc">累积已结算金额</view>
         </view>
       </view>
@@ -53,19 +53,19 @@
       </view>
       <view class="daily-data-list">
         <view class="daily-data-item">
-          <view class="daily-data">0</view>
+          <view class="daily-data">{{commissionTimeData ? commissionTimeData.orderCount : 0}}</view>
           <view class="daily-data-desc">订单量</view>
         </view>
         <view class="daily-data-item">
-          <view class="daily-data">0.00</view>
+          <view class="daily-data">{{commissionTimeData ? NUM.toFixed(commissionTimeData.salesVolume, 2) : '0.00'}}</view>
           <view class="daily-data-desc">销售额</view>
         </view>
         <view class="daily-data-item">
-          <view class="daily-data">0.00</view>
+          <view class="daily-data">{{commissionTimeData ? NUM.toFixed(commissionTimeData.pendingAmount, 2) : '0.00'}}</view>
           <view class="daily-data-desc">待结算金额</view>
         </view>
         <view class="daily-data-item">
-          <view class="daily-data">0.00</view>
+          <view class="daily-data">{{commissionTimeData ? NUM.toFixed(commissionTimeData.settledAmount, 2) : '0.00'}}</view>
           <view class="daily-data-desc">已结算金额</view>
         </view>
       </view>
@@ -77,15 +77,15 @@
     <view class="customer-data-list">
       <view class="customer-data-item">
         <view class="customer-data-desc">今日新增客户数</view>
-        <view class="customer-data">-</view>
+        <view class="customer-data">{{customerData.todayNewCount || '-'}}</view>
       </view>
       <view class="customer-data-item">
         <view class="customer-data-desc">今日下单客户数</view>
-        <view class="customer-data">-</view>
+        <view class="customer-data">{{customerData.todayOrderingCount || '-'}}</view>
       </view>
       <view class="customer-data-item">
         <view class="customer-data-desc">累积客户总数</view>
-        <view class="customer-data">-</view>
+        <view class="customer-data">{{customerData.totalCount || '-'}}</view>
       </view>
     </view>
   </view>
