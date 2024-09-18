@@ -1,41 +1,70 @@
+import AccountService from "./utils/accountService";
+
+const accountService = new AccountService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    cashInfo: null,
     curMenuIdx: 0,
     dateList: ["今日", "昨日", "本月", "上月", "全部"],
     curDateIdx: 0,
-    // recordList: [
-    //   {
-    //     orderInfo: {
-    //       orderSn: "77667889900998777778",
-    //       status: "待结算",
-    //       time: "2024.07.09",
-    //       commission: "14.50"
-    //     },
-    //     goodsInfo: {
-    //       cover:
-    //         "https://static.youbozhenxuan.cn/img/20240802/1722591702333主图_1.jpg",
-    //       name: "黄花黄花黄花黄花黄花黄花",
-    //       spec: "商品规格商品规格商品规格商品规格",
-    //       commission: "14.50"
-    //     }
-    //   }
-    // ],
-    recordList: [],
+    timeData: 0,
+    orderList: [],
     finished: false
+  },
+
+  onLoad() {
+    this.setCashInfo();
+    this.setTimeData();
+    this.setOrderList(true);
+  },
+
+  async setCashInfo() {
+    const cashInfo = await accountService.getCommissionCashInfo();
+    this.setData({ cashInfo });
+  },
+
+  async setTimeData() {
+    const { curDateIdx, curMenuIdx } = this.data;
+    const timeData = await accountService.getCommissionTimeData(
+      curDateIdx + 1,
+      curMenuIdx + 1
+    );
+    this.setData({ timeData });
   },
 
   selectMenu(e) {
     const curMenuIdx = e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
+    this.setTimeData();
+    this.setOrderList(true);
   },
 
   selectDate(e) {
     const curDateIdx = e.currentTarget.dataset.index;
     this.setData({ curDateIdx });
+    this.setTimeData();
+    this.setOrderList(true);
+  },
+
+  async setOrderList(init = false) {
+    if (init) {
+      this.page = 0;
+      this.setData({ finished: false });
+    }
+    const { curMenuIdx, curDateIdx, orderList } = this.data;
+    const list = await accountService.getCommissionOrderList(
+      curMenuIdx + 1,
+      curDateIdx + 1,
+      ++this.page
+    );
+    this.setData({ orderList: init ? list : [...list, ...orderList] });
+    if (!list.length) {
+      this.setData({ finished: true });
+    }
   },
 
   checkOrderDetail(e) {
@@ -50,7 +79,12 @@ Page({
     });
   },
 
+  onReachBottom() {
+    this.setOrderList();
+  },
+
   onPullDownRefresh() {
+    this.setOrderList(true);
     wx.stopPullDownRefresh();
   },
 

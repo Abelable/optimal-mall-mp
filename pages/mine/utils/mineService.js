@@ -1,4 +1,5 @@
 import BaseService from "../../../services/baseService";
+import { cleanObject } from "../../../utils/index";
 
 class MineService extends BaseService {
   async getCommissionSumInfo() {
@@ -7,10 +8,10 @@ class MineService extends BaseService {
     });
   }
 
-  async getCommissionTimeData(timeType) {
+  async getCommissionTimeData(timeType, scene) {
     return await this.get({
       url: `${this.baseUrl}/commission/time_data`,
-      data: { timeType }
+      data: cleanObject({ timeType, scene })
     });
   }
 
