@@ -11,7 +11,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo", "promoterInfo"]
+    fields: ["userInfo"]
   },
 
   data: {
@@ -34,21 +34,19 @@ Component({
 
   pageLifetimes: {
     show() {
-      checkLogin(() => {
-        this.updateUserInfo();
-        this.setCommissionSumInfo();
-        this.setCommissionTimeData();
-        this.setCustomerData();
+      checkLogin(async () => {
+        await mineService.getUserInfo();
+        if (store.promoterInfo) {
+          this.setCommissionSumInfo();
+          this.setCommissionTimeData();
+          this.setCustomerData();
+        }
         this.setOrderListTotals();
       });
     }
   },
 
   methods: {
-    updateUserInfo() {
-      mineService.getUserInfo();
-    },
-
     async setCommissionSumInfo() {
       const commissionSumInfo = await mineService.getCommissionSumInfo();
       this.setData({ commissionSumInfo });
@@ -153,12 +151,14 @@ Component({
 
     // 分享
     onShareAppMessage() {
-      const { id, nickname, signature } = this.data.promoterInfo;
-      const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
-      const path = `/pages/home/index?superiorId=${id}`;
-      const imageUrl =
-        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
-      return { title, imageUrl, path };
+      if (store.promoterInfo) {
+        const { id, nickname, signature } = store.promoterInfo;
+        const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
+        const path = `/pages/home/index?superiorId=${id}`;
+        const imageUrl =
+          "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+        return { title, imageUrl, path };
+      }
     }
   }
 });
