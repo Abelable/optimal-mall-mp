@@ -80,7 +80,7 @@ Page({
 
   share() {
     checkLogin(async () => {
-      const scene = `${store.promoterInfo.id}`;
+      const scene = store.promoterInfo ? `${store.promoterInfo.id}` : "";
       const page = "pages/rural/subpages/gift/index";
       const qrcode = await giftService.getQRCode(scene, page);
 
@@ -99,17 +99,23 @@ Page({
 
   // 分享
   onShareAppMessage() {
-    const { id, nickname, signature } = store.promoterInfo;
-    const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
-    const path = `/pages/rural/subpages/gift/index?superiorId=${id}`;
+    const { id, nickname, signature } = store.promoterInfo || {};
+    const title = nickname
+      ? `${nickname} ${signature || "好物尽在诚信星球"}`
+      : "好物尽在诚信星球";
+    const path = id
+      ? `/pages/rural/subpages/gift/index?superiorId=${id}`
+      : "/pages/rural/subpages/gift/index";
     const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
     return { title, imageUrl, path };
   },
 
   onShareTimeline() {
-    const { id, nickname, signature } = store.promoterInfo;
-    const title = `${nickname} ${signature || "好物尽在诚信星球"}`;
-    const query = `superiorId=${id}`;
+    const { id, nickname, signature } = store.promoterInfo || {};
+    const title = nickname
+      ? `${nickname} ${signature || "好物尽在诚信星球"}`
+      : "好物尽在诚信星球";
+    const query = id ? `superiorId=${id}` : "";
     const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
     return { query, title, imageUrl };
   }
