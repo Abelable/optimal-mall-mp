@@ -38,28 +38,32 @@ Page({
     addressPopupVisible: false
   },
 
-  async onLoad({ id, superiorId, scene }) {
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ["shareAppMessage", "shareTimeline"]
+  async onLoad(options) {
+    const { id, superiorId = "", scene = "" } = options || {};
+    const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
+    this.goodsId = id || decodedSceneList[0];
+    this.superiorId = superiorId || decodedSceneList[1];
+
+    getApp().onLaunched(async () => {
+      if (this.superiorId && !store.promoterInfo) {
+        wx.setStorageSync("superiorId", this.superiorId);
+        const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
+        store.setPromoterInfo(superiorInfo);
+      }
     });
+
+    this.getBannerHeight();
+    this.init();
 
     this.storeBindings = createStoreBindings(this, {
       store,
       fields: ["promoterInfo", "userInfo"]
     });
 
-    const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
-    this.goodsId = id || decodedSceneList[0];
-    this.superiorId = superiorId || decodedSceneList[1];
-    if (this.superiorId && !store.promoterInfo) {
-      wx.setStorageSync("superiorId", this.superiorId);
-      const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
-      store.setPromoterInfo(superiorInfo);
-    }
-
-    this.getBannerHeight();
-    this.init();
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"]
+    });
   },
 
   onShow() {

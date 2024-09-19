@@ -6,7 +6,8 @@ const baseService = new BaseService();
 App({
   globalData: {
     systemInfo: null,
-    liveCustomMsg: null
+    liveCustomMsg: null,
+    launched: false
   },
 
   async onLaunch() {
@@ -33,6 +34,22 @@ App({
         store.setPromoterInfo(superiorInfo);
       }
     }
+
+    this.globalData.launched = true;
+  },
+
+  onLaunched(handler) {
+    Object.defineProperty(this.globalData, "launched", {
+      configurable: true,
+      enumerable: true,
+      set: value => {
+        this.value = value;
+        handler(value);
+      },
+      get: () => {
+        return this.value;
+      }
+    });
   },
 
   onShow() {

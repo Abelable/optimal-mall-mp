@@ -16,25 +16,29 @@ Page({
     posterModelVisible: false
   },
 
-  async onLoad({ type, superiorId = "", scene = "" }) {
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ["shareAppMessage", "shareTimeline"]
-    });
-
+  async onLoad(options) {
+    const { type, superiorId = "", scene = "" } = options || {};
     const decodedScene = scene ? decodeURIComponent(scene) : "";
     this.superiorId = superiorId || decodedScene.split("-")[0];
-    if (this.superiorId && !store.promoterInfo) {
-      wx.setStorageSync("superiorId", this.superiorId);
-      const superiorInfo = await giftService.getSuperiorInfo(this.superiorId);
-      store.setPromoterInfo(superiorInfo);
-    }
+
+    getApp().onLaunched(async () => {
+      if (this.superiorId && !store.promoterInfo) {
+        wx.setStorageSync("superiorId", this.superiorId);
+        const superiorInfo = await giftService.getSuperiorInfo(this.superiorId);
+        store.setPromoterInfo(superiorInfo);
+      }
+    });
 
     await this.setLiveStockList();
     await this.setGiftList();
     if (type === "2") {
       this.scrollToGift();
     }
+
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"]
+    });
   },
 
   setCurBgIdx(e) {

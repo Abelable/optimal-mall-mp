@@ -28,12 +28,16 @@ Component({
   },
 
   methods: {
-    async onLoad({ superiorId = "" }) {
-      if (superiorId && !store.promoterInfo) {
-        wx.setStorageSync("superiorId", superiorId);
-        const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
-        store.setPromoterInfo(superiorInfo);
-      }
+    onLoad(options) {
+      const { superiorId = "" } = options || {};
+      
+      getApp().onLaunched(async () => {
+        if (superiorId && !store.promoterInfo) {
+          wx.setStorageSync("superiorId", superiorId);
+          const superiorInfo = await homeService.getSuperiorInfo(superiorId);
+          store.setPromoterInfo(superiorInfo);
+        }
+      });
 
       this.init();
     },
