@@ -73,9 +73,6 @@
   color: #3C3F42;
   font-size: 24rpx;
 }
-.user-id {
-  margin-top: 8rpx;
-}
 .user-identity {
   margin-top: 2rpx;
 }
