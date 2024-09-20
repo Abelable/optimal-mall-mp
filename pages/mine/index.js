@@ -149,6 +149,12 @@ Component({
       });
     },
 
+    navToTeamData() {
+      wx.navigateTo({
+        url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team`
+      });
+    },
+
     // 分享
     onShareAppMessage() {
       if (store.promoterInfo) {

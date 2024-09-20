@@ -137,12 +137,20 @@
       <view class="tool-desc">在线客服</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
+  </view>
+
+   <view class="tool-list">
+    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToTeamData">
+      <image class="tool-icon" src="./images/member.png" />
+      <view class="tool-desc">乡村振兴</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
     <button class="tool-item" wx:if="{{promoterInfo}}" open-type="share" hover-class="none">
       <image class="tool-icon" src="./images/share.png" />
       <view class="tool-desc" style="text-align: left;">分享店铺</view>
       <image class="arrow" src="./images/arrow.png" />
     </button>
-  </view>
+   </view>
 </view>
 
 <auth-info-modal wx:if="{{authInfoModalVisible}}" bind:hide="hideAuthInfoModal" />
