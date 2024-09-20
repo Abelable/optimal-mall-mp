@@ -11,7 +11,7 @@ Page({
     curMenuIdx: 0,
     dateList: ["今日", "昨日", "本月", "上月", "全部"],
     curDateIdx: 0,
-    timeData: 0,
+    timeData: null,
     orderList: [],
     finished: false
   },

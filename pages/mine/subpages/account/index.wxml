@@ -73,19 +73,19 @@
     </view>
     <view class="daily-data-list">
       <view class="daily-data-item">
-        <view class="daily-data">0</view>
+        <view class="daily-data">{{timeData ? timeData.orderCount : 0}}</view>
         <view class="daily-data-desc">订单量</view>
       </view>
       <view class="daily-data-item">
-        <view class="daily-data">0.00</view>
+        <view class="daily-data">{{timeData ? NUM.toFixed(timeData.salesVolume, 2) : '0.00'}}</view>
         <view class="daily-data-desc">销售额</view>
       </view>
       <view class="daily-data-item">
-        <view class="daily-data">0.00</view>
+        <view class="daily-data">{{timeData ? NUM.toFixed(timeData.pendingAmount, 2) : '0.00'}}</view>
         <view class="daily-data-desc">待结算金额</view>
       </view>
       <view class="daily-data-item">
-        <view class="daily-data">0.00</view>
+        <view class="daily-data">{{timeData ? NUM.toFixed(timeData.settledAmount, 2) : '0.00'}}</view>
         <view class="daily-data-desc">已结算金额</view>
       </view>
     </view>
