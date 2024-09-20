@@ -106,7 +106,7 @@
         </view>
         <view class="order-commission-wrap">
           <view class="order-commission">+{{item.commission}}</view>
-          <view class="order-type {{item.scene === 1 ? 'buy' : 'share'}}">{{item.scene === 1 ? "自购" : "分享"}}</view>
+          <view class="order-type">{{item.scene === 1 ? "自购" : "分享"}}</view>
         </view>
       </view>
       <view class="goods-list">
