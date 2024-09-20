@@ -2,6 +2,7 @@ import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../store/index";
 import { checkLogin } from "../../utils/index";
 import MineService from "./utils/mineService";
+import { WEBVIEW_BASE_URL } from "../../config";
 
 const mineService = new MineService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
