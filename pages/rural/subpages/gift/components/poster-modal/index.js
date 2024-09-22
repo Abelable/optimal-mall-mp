@@ -58,7 +58,7 @@ Component({
 
       this.roundRect(64, 168, 150, 150, 75, "", null, "#fff");
 
-      await this.drawImage(qrcode, 74, 178, 130, 130);
+      await this.roundRect(74, 178, 130, 130, 65, qrcode);
       this.setText(16, "#633800", 137.5, 350, "扫二维码打开小程序", "center");
 
       wx.canvasToTempFilePath(
