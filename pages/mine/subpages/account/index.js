@@ -1,3 +1,4 @@
+import { WEBVIEW_BASE_URL } from "../../../../config";
 import AccountService from "./utils/accountService";
 
 const accountService = new AccountService();
@@ -105,5 +106,12 @@ Page({
     wx.navigateTo({
       url: "./subpages/withdraw-record/index"
     });
+  },
+
+  checkWithdrawRules() {
+    wx.navigateTo({
+      url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/agreements/withdraw_rules`
+    });
   }
+
 });

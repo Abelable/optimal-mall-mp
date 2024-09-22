@@ -39,7 +39,7 @@
     </view>
     <view class="withdraw-tips-wrap row">
       <view class="withdraw-time-tips">每月25～31号可提现上月的结算收益</view>
-      <view class="withdraw-rules-btn">
+      <view class="withdraw-rules-btn" bindtap="checkWithdrawRules">
         <view>提现规则</view>
         <image class="arrow" src="./images/more.png" />
       </view>
