@@ -5,13 +5,23 @@
   background: #fff;
 }
 
-.logo {
+.logo-wrap {
   position: absolute;
-  top: 300rpx;
+  top: 400rpx;
   left: 50%;
   transform: translateX(-50%);
-  width: 420rpx;
-  height: 400rpx;
+  width: 100vw;
+  text-align: center;
+}
+.logo {
+  margin-right: 40rpx;
+  width: 440rpx;
+  height: 174rpx;
+}
+.logo-desc {
+  margin-top: 8rpx;
+  color: #6A6F75;
+  font-size: 28rpx;
 }
 
 .login-btn, .cancel-btn {
