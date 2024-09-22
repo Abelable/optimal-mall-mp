@@ -40,6 +40,9 @@ Page({
   },
 
   withdraw() {
+    if (!this.data.btnActive) {
+      return;
+    }
     if (store.userInfo.authInfoId) {
       wx.navigateTo({
         url: "./subpages/withdraw-result/index"
