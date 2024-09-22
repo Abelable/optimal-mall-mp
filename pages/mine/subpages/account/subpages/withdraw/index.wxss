@@ -136,4 +136,8 @@
   background: #F5701D;
   border-radius: 47rpx;
   z-index: 100%;
+  opacity: 0.5;
 } 
+.withdraw-btn.active {
+  opacity: 1;
+}

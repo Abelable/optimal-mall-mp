@@ -6,8 +6,14 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
+    scene: 1,
     curOptionIdx: 0,
-    authModalVisible: false
+    authModalVisible: false,
+    btnActive: false
+  },
+
+  onLoad({ scene }) {
+    this.setData({ scene: +scene });
   },
 
   selectOption(e) {
@@ -39,11 +45,11 @@ Page({
         url: "./subpages/withdraw-result/index"
       });
     } else {
-      this.setData({ authModalVisible: true })
+      this.setData({ authModalVisible: true });
     }
   },
 
   hideAuthModal() {
-    this.setData({ authModalVisible: false })
+    this.setData({ authModalVisible: false });
   }
 });

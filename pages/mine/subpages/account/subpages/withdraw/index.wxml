@@ -8,12 +8,12 @@
 <view class="container" style="padding-top: {{statusBarHeight + 44}}px;">
   <view class="amount-label">提现金额</view>
 
-  <view class="amount">578.98</view>
+  <view class="amount">0.00</view>
 
   <view class="fee-card">
-    <view class="fee-item">
+    <view class="fee-item" wx:if="{{scene === 2}}">
       <view class="fee-label">税费（费率6%）</view>
-      <view class="fee-amount">¥34.74</view>
+      <view class="fee-amount">¥0.00</view>
     </view>
     <view class="fee-item">
       <view class="fee-label">提现手续费（每笔1元）</view>
@@ -21,7 +21,7 @@
     </view>
     <view class="fee-item">
       <view class="fee-label">实际到账</view>
-      <view class="fee-amount reality">¥547.12</view>
+      <view class="fee-amount reality">¥0.00</view>
     </view>
   </view>
 
@@ -41,9 +41,18 @@
     <textarea class="remark" style="font-size: 24rpx;" bindinput="setRemark" maxlength="32" placeholder="添加备注，最多32个字" />
   </view>
 
-  <view class="withdraw-tips">提现说明：</view>
+  <view class="withdraw-tips" wx:if="{{scene === 1}}">
+    <view>提现说明：</view>
+    <view>1. 提现金额必须大于1元，方可提现</view>
+    <view>2. 举例：提现100元，扣取提现手续费每笔1元，实际到账99元</view>
+  </view>
+  <view class="withdraw-tips" wx:if="{{scene === 2}}">
+    <view>提现说明：</view>
+    <view>1. 提现金额为税前收入，每笔提现按照第三方代扣代缴综合税费6%收取，实际到账为税后收入举例：提现100元，扣取提现手续费每笔1元与综合税费6%（6元），实际到账93元</view>
+    <view>2. 提现金额必须大于1元，单笔最高可提现3万。</view>
+  </view>
 </view>
 
-<view class="withdraw-btn" bindtap="withdraw">立即提现</view>
+<view class="withdraw-btn {{btnActive ? 'active' : ''}}" bindtap="withdraw">立即提现</view>
 
 <auth-modal wx:if="{{authModalVisible}}" bind:hide="hideAuthModal" />

@@ -73,9 +73,10 @@ Page({
     wx.navigateTo({ url });
   },
 
-  withdraw() {
+  withdraw(e) {
+    const { scene } = e.currentTarget.dataset
     wx.navigateTo({
-      url: "./subpages/withdraw/index"
+      url: `./subpages/withdraw/index?scene=${scene}`
     });
   },
 
