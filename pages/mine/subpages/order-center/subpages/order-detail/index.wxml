@@ -63,7 +63,7 @@
   </view>
 </view>
 
-<view class="bottom-bar">
+<view class="bottom-bar" wx:if="{{userInfo.id === orderInfo.userId}}">
   <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}" hover-class="none">
     查看物流
   </button>
@@ -85,6 +85,17 @@
   <button class="btn active" wx:if="{{orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}" bindtap="navToEvaluation" hover-class="none">
     评价
   </button>
-  <button class="btn active" bindtap="contact" hover-class="none">{{orderInfo.shopId ? '联系卖家' : '联系客服'}}</button>
+  <button 
+    class="btn active"
+    send-message-title="订单编号：{{orderInfo.orderSn}}"
+    send-message-img="{{orderInfo.goodsList[0].cover}}"
+    send-message-path="/pages/mine/subpages/order-center/subpages/order-detail/index?id={{orderInfo.id}}"
+    show-message-card="{{true}}"
+    open-type="contact" 
+    session-from="sessionFrom" 
+    hover-class="none"
+  >
+    联系客服
+  </button>
   <button class="btn active" wx:if="{{orderInfo.status === 101}}" bindtap="payOrder" hover-class="none">继续付款</button>
 </view>

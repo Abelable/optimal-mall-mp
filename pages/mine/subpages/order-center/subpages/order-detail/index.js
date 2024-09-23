@@ -1,6 +1,7 @@
 import dayjs from "dayjs";
 import { createStoreBindings } from "mobx-miniprogram-bindings";
 import { store } from "../../../../../../store/index";
+import { checkLogin } from "../../../../../../utils/index";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -18,7 +19,12 @@ Page({
     });
 
     this.orderId = id;
-    this.setOrderInfo();
+  },
+
+  onShow() {
+    checkLogin(() => {
+      this.setOrderInfo();
+    })
   },
 
   async setOrderInfo() {
@@ -128,8 +134,6 @@ Page({
     const url = `../evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
     wx.navigateTo({ url });
   },
-
-  contact() {},
 
   onUnload() {
     clearInterval(this.countdownInterval);
