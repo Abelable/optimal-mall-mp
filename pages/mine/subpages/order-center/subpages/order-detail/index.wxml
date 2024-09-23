@@ -67,7 +67,7 @@
   <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}">
     查看物流
   </button>
-  <button class="btn" wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 401 || orderInfo.status === 402}}" bindtap="deleteOrder">
+  <button class="btn" wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 401 || orderInfo.status === 402}}" bindtap="deleteOrder">
     删除订单
   </button>
   <button class="btn" wx:if="{{orderInfo.status === 101}}" bindtap="cancelOrder">取消订单</button>

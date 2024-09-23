@@ -33,7 +33,7 @@
       >查看物流</button>
       <button 
         class="btn" 
-        wx:if="{{item.status === 102 || item.status === 103 || item.status === 104 || item.status === 401 || item.status === 402}}" 
+        wx:if="{{item.status === 102 || item.status === 103 || item.status === 104 || item.status === 203 || item.status === 401 || item.status === 402}}" 
         catchtap="deleteOrder"
       >删除订单</button>
       <button 
