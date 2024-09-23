@@ -119,7 +119,7 @@ Page({
   },
 
   navToShipping() {
-    const url = `../shipping/index?id=${this.orderId}`;
+    const url = `../shipping/index?orderId=${this.orderId}`;
     wx.navigateTo({ url });
   },
 

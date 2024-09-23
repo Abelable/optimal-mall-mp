@@ -34,7 +34,7 @@ Component({
   
     navToShipping(e) {
       const id = e.currentTarget.dataset.id
-      const url = `/pages/mine/suppages/shop-management/subpages/shipping/index?id=${id}`
+      const url = `/pages/mine/suppages/shop-management/subpages/shipping/index?orderId=${id}`
       wx.navigateTo({ url })
     },
 

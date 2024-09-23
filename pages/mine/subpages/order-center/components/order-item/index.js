@@ -106,7 +106,7 @@ Component({
 
     navToShipping() {
       const { id } = this.properties.item;
-      const url = `/pages/mine/subpages/order-center/subpages/shipping/index?id=${id}`;
+      const url = `/pages/mine/subpages/order-center/subpages/shipping/index?orderId=${id}`;
       wx.navigateTo({ url });
     },
 
