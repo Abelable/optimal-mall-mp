@@ -51,8 +51,8 @@ class OrderService extends MineService {
     })
   }
 
-  async getShippingTracker(order_id) {
-    return await this.get({ url: `${this.baseUrl}/order/tracker-order-id`, data: { order_id } })
+  async getShippingInfo(orderId) {
+    return await this.get({ url: `${this.baseUrl}/order/shipping_info`, data: { orderId } })
   }
 
   async submitEvaluation(orderId, goodsIds, score, content, imageList, success) {

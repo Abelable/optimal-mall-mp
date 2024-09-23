@@ -1,1 +1,16 @@
-<text></text>
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
+<view class="info-wrap shipping-title">
+  <view>物流公司：{{shippingInfo.shipChannel}}</view>
+  <view>运单编号：{{shippingInfo.shipSn}}</view>
+</view>
+
+<view class="info-wrap" wx:if="{{shippingInfo.traces.length}}">
+  <view class="list" wx:for="{{shippingInfo.traces}}" wx:key="index">
+    <view class="line"></view>
+    <view class="desc">
+      <view class="desc-content">{{item.AcceptStation}}</view>
+      <view>{{TIME.transform(item.AcceptTime, 'MM.DD hh:mm')}}</view>
+    </view>
+  </view>
+</view>
