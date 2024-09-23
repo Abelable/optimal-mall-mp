@@ -253,10 +253,20 @@
       <image class="shortcut-icon" src="{{promoterInfo.avatar}}"/>
       <view>首页</view>
     </navigator>
-    <view class="shortcut" bindtap="CS">
-      <image class="shortcut-icon" src="./images/customer-icon.png"/>
-      <view>客服</view>
-    </view>
+    <button 
+      send-message-title="{{goodsInfo.name}}"
+      send-message-img="{{goodsInfo.cover}}"
+      send-message-path="/pages/home/subpages/goods-detail/index?id={{goodsInfo.id}}"
+      show-message-card="{{true}}"
+      open-type="contact" 
+      session-from="sessionFrom" 
+      hover-class="none"
+    >
+      <view class="shortcut">
+        <image class="shortcut-icon" src="./images/customer-icon.png"/>
+        <view>客服</view>
+      </view>
+    </button>
   </view>
   <view class="btns row" wx:if="{{!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
     <button class="add-cart-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>

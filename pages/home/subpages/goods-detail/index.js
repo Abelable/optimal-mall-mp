@@ -459,25 +459,6 @@ Page({
     wx.navigateTo({ url });
   },
 
-  CS() {
-    // todo 微信客服
-    const { cover, name } = this.data.goodsInfo;
-    wx.openCustomerServiceChat({
-      extInfo: {
-        url: ""
-      },
-      showMessageCard: true,
-      sendMessageTitle: name,
-      sendMessageImg: cover,
-      success: res => {
-        console.log(res);
-      },
-      fail: err => {
-        console.log(err);
-      }
-    });
-  },
-
   onUnload() {
     clearInterval(this.countdownInterval);
     this.storeBindings.destroyStoreBindings();
