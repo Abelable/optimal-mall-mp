@@ -132,11 +132,11 @@
       <view class="tool-desc">我的礼券</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row">
+    <button class="tool-item" open-type="contact" bindcontact="handleContact" session-from="sessionFrom" hover-class="none">
       <image class="tool-icon" src="./images/cs.png" />
-      <view class="tool-desc">在线客服</view>
+      <view class="tool-desc" style="text-align: left;">在线客服</view>
       <image class="arrow" src="./images/arrow.png" />
-    </view>
+    </button>
   </view>
 
    <view class="tool-list">

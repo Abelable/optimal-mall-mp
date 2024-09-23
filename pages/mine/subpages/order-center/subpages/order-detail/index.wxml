@@ -64,26 +64,27 @@
 </view>
 
 <view class="bottom-bar">
-  <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}">
+  <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}" hover-class="none">
     查看物流
   </button>
   <button 
     class="btn" 
     wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}"
     bindtap="deleteOrder"
+    hover-class="none"
   >
     删除订单
   </button>
-  <button class="btn" wx:if="{{orderInfo.status === 101}}" bindtap="cancelOrder">取消订单</button>
-  <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder">
+  <button class="btn" wx:if="{{orderInfo.status === 101}}" bindtap="cancelOrder" hover-class="none">取消订单</button>
+  <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder" hover-class="none">
     确认收货
   </button>
-  <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="refundOrder">
+  <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="refundOrder" hover-class="none">
     申请退款
   </button>
-  <button class="btn active" wx:if="{{orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}" bindtap="navToEvaluation">
+  <button class="btn active" wx:if="{{orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}" bindtap="navToEvaluation" hover-class="none">
     评价
   </button>
-  <button class="btn active" bindtap="contact">{{orderInfo.shopId ? '联系卖家' : '联系客服'}}</button>
-  <button class="btn active" wx:if="{{orderInfo.status === 101}}" bindtap="payOrder">继续付款</button>
+  <button class="btn active" bindtap="contact" hover-class="none">{{orderInfo.shopId ? '联系卖家' : '联系客服'}}</button>
+  <button class="btn active" wx:if="{{orderInfo.status === 101}}" bindtap="payOrder" hover-class="none">继续付款</button>
 </view>

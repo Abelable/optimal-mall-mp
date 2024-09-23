@@ -30,37 +30,44 @@
         class="btn" 
         wx:if="{{item.status === 301}}" 
         catchtap="navToShipping"
+        hover-class="none"
       >查看物流</button>
       <button 
         class="btn" 
         wx:if="{{item.status === 102 || item.status === 103 || item.status === 104 || item.status === 203 || item.status === 401 || item.status === 402 || item.status === 403}}" 
         catchtap="deleteOrder"
+        hover-class="none"
       >删除订单</button>
       <button 
         class="btn" 
         wx:if="{{item.status === 101}}" 
         catchtap="cancelOrder"
+        hover-class="none"
       >取消订单</button>
       <button class="btn" catchtap="navToDetail">查看详情</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 301}}" 
         catchtap="confirmOrder"
+        hover-class="none"
       >确认收货</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 101}}" 
         catchtap="payOrder"
+        hover-class="none"
       >继续付款</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 201}}"
         catchtap="refundOrder"
+        hover-class="none"
       >申请退款</button>
       <button 
         class="btn active" 
         wx:if="{{item.status === 401 || item.status === 402 || item.status === 403}}"
         catchtap="navToEvaluation"
+        hover-class="none"
       >评价</button>
     </view>
   </view>
