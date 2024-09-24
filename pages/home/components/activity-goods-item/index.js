@@ -69,6 +69,7 @@ Component({
       this.countdownInterval = setInterval(() => {
         if (this.data.countdown === 0) {
           clearInterval(this.countdownInterval);
+          this.triggerEvent("refresh");
           return;
         }
         this.setData({

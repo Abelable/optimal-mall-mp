@@ -61,7 +61,7 @@
     <activity-goods-item wx:for="{{todayGoodsList}}" wx:key="index" item="{{item}}" />
   </view>
   <view class="activity-goods-list" wx:if="{{curMenuIdx === 1}}">
-    <activity-goods-item wx:for="{{advanceGoodsList}}" wx:key="index" item="{{item}}" />
+    <activity-goods-item wx:for="{{advanceGoodsList}}" wx:key="index" item="{{item}}" bind:refresh="init" />
   </view>
   <view class="split-title row">
     <view>星球精选</view>
