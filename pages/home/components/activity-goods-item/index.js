@@ -1,4 +1,7 @@
 import dayjs from "dayjs";
+import HomeService from "../../utils/homeService";
+
+const homeService = new HomeService();
 
 Component({
   options: {
@@ -72,6 +75,15 @@ Component({
           countdown: this.data.countdown - 1
         });
       }, 1000);
+    },
+
+    subscribe() {
+      homeService.subscribeActivity(this.properties.item.id, () => {
+        wx.showToast({
+          title: "订阅成功",
+          icon: "none"
+        });
+      });
     },
 
     navToGoodsDetail() {

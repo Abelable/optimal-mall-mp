@@ -1,3 +1,4 @@
+import { ACTIVITY_TEMPLATE_ID } from "../config";
 import { store } from "../store/index";
 import { cleanObject } from "../utils/index";
 import Base from "./base/index";
@@ -82,6 +83,23 @@ class BaseService extends Base {
       data: { scene, page },
       loadingTitle: "加载中..."
     });
+  }
+
+  async subscribeActivity(activityId, success) {
+    const wxSubRes = await this.requestSubscribeMessage(ACTIVITY_TEMPLATE_ID);
+    if (wxSubRes[ACTIVITY_TEMPLATE_ID] === "accept") {
+      return await this.post({
+        url: `${this.baseUrl}/mall/activity_subscribe`,
+        data: { activityId },
+        success
+      });
+    } else {
+      wx.showToast({
+        title: "订阅失败，如未点击取消，请到小程序的设置中打开授权",
+        icon: "none",
+        duration: 3000
+      });
+    }
   }
 
   async getAddressList() {

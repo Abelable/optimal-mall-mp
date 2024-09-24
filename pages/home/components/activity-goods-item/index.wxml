@@ -36,7 +36,7 @@
         </view>
         <view class="buy-btn-content">购买</view>
       </view>
-      <view class="notice-btn" wx:if="{{item.activityInfo.status === 0}}">
+      <view class="notice-btn" wx:if="{{item.activityInfo.status === 0}}" bindtap="subscribe">
         <image class="notice-icon" src="./images/notice.png" />
         <view>提醒我</view>
       </view>

@@ -459,6 +459,15 @@ Page({
     wx.navigateTo({ url });
   },
 
+  subscribe() {
+    homeService.subscribeActivity(this.data.goodsInfo.activityInfo.id, () => {
+      wx.showToast({
+        title: "订阅成功",
+        icon: "none"
+      });
+    });
+  },
+
   onUnload() {
     clearInterval(this.countdownInterval);
     this.storeBindings.destroyStoreBindings();
