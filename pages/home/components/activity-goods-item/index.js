@@ -78,7 +78,7 @@ Component({
     },
 
     subscribe() {
-      homeService.subscribeActivity(this.properties.item.id, () => {
+      homeService.subscribeActivity(this.properties.item.activityInfo.id, () => {
         wx.showToast({
           title: "订阅成功",
           icon: "none"
