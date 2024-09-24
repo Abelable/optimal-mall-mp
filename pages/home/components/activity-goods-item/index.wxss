@@ -163,6 +163,9 @@
   border-radius: 33rpx;
   background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
 }
+.notice-btn.invalid {
+  opacity: 0.5;
+}
 .notice-icon {
   margin-right: 8rpx;
   width: 32rpx;

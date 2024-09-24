@@ -78,12 +78,18 @@ Component({
     },
 
     subscribe() {
-      homeService.subscribeActivity(this.properties.item.activityInfo.id, () => {
-        wx.showToast({
-          title: "订阅成功",
-          icon: "none"
+      const { id, isSubscribed } = this.properties.item.activityInfo;
+      if (!isSubscribed) {
+        homeService.subscribeActivity(id, () => {
+          this.setData({
+            ["item.activityInfo.isSubscribed"]: 1
+          });
+          wx.showToast({
+            title: "订阅成功",
+            icon: "none"
+          });
         });
-      });
+      }
     },
 
     navToGoodsDetail() {

@@ -460,12 +460,18 @@ Page({
   },
 
   subscribe() {
-    homeService.subscribeActivity(this.data.goodsInfo.activityInfo.id, () => {
-      wx.showToast({
-        title: "订阅成功",
-        icon: "none"
+    const { id, isSubscribed } = this.data.goodsInfo.activityInfo;
+    if (!isSubscribed) {
+      homeService.subscribeActivity(id, () => {
+        this.setData({
+          ["goodsInfo.activityInfo.isSubscribed"]: 1
+        });
+        wx.showToast({
+          title: "订阅成功",
+          icon: "none"
+        });
       });
-    });
+    }
   },
 
   onUnload() {

@@ -277,7 +277,13 @@
       </view>
     </button>
   </view>
-  <button wx:if="{{goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" class="notice-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="subscribe">开售提醒我</button>
+  <button 
+    wx:if="{{goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" 
+    class="notice-btn {{goodsInfo.activityInfo.isSubscribed ? 'invalid' : ''}}" 
+    bindtap="subscribe"
+  >
+    {{goodsInfo.activityInfo.isSubscribed ? '已成功订阅' : '开售提醒我'}}
+  </button>
 </view>
 
 <coupon-popup 
