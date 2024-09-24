@@ -44,8 +44,11 @@
     <view class="mute-icon-wrap row center" wx:if="{{goodsInfo.video && curDot === 1}}" catchtap="toggleMuted">
       <image class="mute-icon" src="./images/{{muted ? 'muted' : 'unmuted'}}.png" />
     </view>
-    <view class="banner-dots" wx:if="{{goodsInfo.imageList.length}}">
-      {{curDot}} / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}
+    <view class="banner-dots-wrap">
+      <view class="banner-dots" wx:if="{{goodsInfo.imageList.length}}">
+        {{curDot}} / {{goodsInfo.imageList.length + (goodsInfo.video ? 1 : 0)}}
+      </view>
+      <image class="promote-tag" wx:if="{{goodsInfo.isGift}}" src="https://static.youbozhenxuan.cn/mp/rural-promote-tag.png" />
     </view>
   </view>
 

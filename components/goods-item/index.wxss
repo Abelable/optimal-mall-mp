@@ -56,7 +56,8 @@
   font-size: 24rpx;
   font-weight: 550;
 }
-.notice-time, .activity-sales {
+.group-buying-notice-time,
+.group-buying-activity-sales {
   color: #fff;
   font-size: 22rpx;
 }
