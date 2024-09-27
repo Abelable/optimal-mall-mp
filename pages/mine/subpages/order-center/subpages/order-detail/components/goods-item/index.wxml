@@ -14,6 +14,6 @@
     </view>
   </view>
   <view class="btn-wrap">
-    <button class="btn" wx:if="{{refundBtnVisible}}" catchtap="applyRefund">申请售后</button>
+    <button class="btn" wx:if="{{refundBtnVisible}}" catchtap="applyRefund" hover-class="none">申请售后</button>
   </view>
 </view>
