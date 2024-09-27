@@ -1,26 +1,35 @@
 .evaluation-item {
-  margin-bottom: 24rpx;
+  margin: 24rpx 0;
   padding: 24rpx;
   background: #fff;
-  box-shadow: 0 0 12rpx 6rpx #f5f6f7;
   border-radius: 18rpx;
 }
+.evaluation-item.noPadding {
+  padding: 0;
+}
+
 .user-avatar {
-  width: 68rpx;
-  height: 68rpx;
+  width: 50rpx;
+  height: 50rpx;
   border-radius: 50%;
 }
-.user-info {
-  margin-left: 18rpx;
-  flex: 1;
-}
 .user-name {
-  color: #333;
+  margin-left: 16rpx;
+  flex: 1;
+  color: #3C3F42;
   font-size: 24rpx;
 }
 .comment-date {
-  color: #999;
+  color: #A1A9B3;
   font-size: 20rpx;
+}
+
+.comment-rate-wrap {
+  margin-top: 16rpx;
+  padding: 0 20rpx;
+  height: 72rpx;
+  background: #F8F8F8;
+  border-radius: 16rpx;
 }
 .comment-rate {
   margin-left: 8rpx;
@@ -31,18 +40,22 @@
 .comment-content {
   margin-top: 18rpx;
   color: #333;
-  font-size: 24rpx;
+  font-size: 26rpx;
 }
-.comment-images {
+.comment-images-wrap {
   position: relative;
   margin-top: 18rpx;
-  border-radius: 8rpx;
   overflow: hidden;
+  border-radius: 8rpx;
 }
 .comment-image {
-  width: 214rpx;
-  height: 214rpx;
-  border-radius: 8rpx;
+  margin-right: 18rpx;
+  width: 206rpx;
+  height: 206rpx;
+  border-radius: 16rpx;
+}
+.comment-image:last-child {
+  margin-right: 0;
 }
 .more-image-tips {
   position: absolute;

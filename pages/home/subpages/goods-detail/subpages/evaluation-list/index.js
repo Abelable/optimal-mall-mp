@@ -10,7 +10,7 @@ Page({
 
   onLoad({ goodsId, avgScore }) {
     wx.setNavigationBarTitle({
-      title: +avgScore ? `商品评分 ${avgScore}` : '商品评价',
+      title: +avgScore ? `商品评分 ${avgScore * 20}%` : '商品评价',
     });
     this.goodsId = goodsId;
 

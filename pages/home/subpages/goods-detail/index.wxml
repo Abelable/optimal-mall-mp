@@ -164,7 +164,7 @@
     <view wx:if="{{evaluationSummary.total}}" bindtap="checkEvaluationDetail">
       <view class="comment-rate-wrap row">
         <view class="comment-rate">{{evaluationSummary.avgScore * 20}}%</view>
-        <van-rate value="{{evaluationSummary.avgScore || 0}}" gutter="0" color="#ffd21e" void-icon="star" void-color="#eee" allow-half readonly />
+        <van-rate value="{{evaluationSummary.avgScore || 0}}" size="24" gutter="0" color="#ffd21e" void-icon="star" void-color="#eee" allow-half readonly />
       </view>
       <!-- <view class="comment-labels">
         <view class="comment-label row">价格实惠（56）</view>
@@ -173,7 +173,7 @@
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
       </view> -->
-      <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" />
+      <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" noPadding unablePrewiew />
       <view class="more-comment-btn row">
         <view>查看全部评价</view>
         <image class="more-comment-btn-arrow" src="./images/option-arrow.png" />

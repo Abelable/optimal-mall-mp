@@ -1,5 +1,5 @@
 .container {
-  padding: 24rpx;
+  padding: 0 24rpx;
 }
 .no-more-tips {
   padding: 16rpx 0 24rpx;
