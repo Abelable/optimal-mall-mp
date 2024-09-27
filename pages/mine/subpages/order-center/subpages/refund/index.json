@@ -1,3 +1,6 @@
 {
-  "navigationBarTitleText": "售后申请"
+  "navigationBarTitleText": "售后申请",
+  "usingComponents": {
+    "van-uploader": "@vant/weapp/uploader/index"
+  }
 }
