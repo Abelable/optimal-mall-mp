@@ -2,6 +2,6 @@
   "enablePullDownRefresh": true,
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
-    "evaluation-item": "./components/evaluation-item/index"
+    "evaluation-item": "../../components/evaluation-item/index"
   }
 }

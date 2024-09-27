@@ -335,14 +335,6 @@
   font-size: 44rpx;
   font-weight: 550;
 }
-.starts {
-  margin-left: 20rpx;
-}
-.start {
-  margin-right: 12rpx;
-  width: 48rpx;
-  height: 48rpx;
-}
 .comment-labels {
   display: flex;
   flex-wrap: wrap;
@@ -357,59 +349,6 @@
   font-size: 24rpx;
   background: #FFF2EB;
   border-radius: 8rpx;
-}
-
-.comment-item {
-  margin-top: 16rpx;
-}
-.comment-user-avatar {
-  width: 50rpx;
-  height: 50rpx;
-  border-radius: 25rpx;
-}
-.comment-user-name {
-  margin-left: 16rpx;
-  flex: 1;
-  color: #3C3F42;
-  font-size: 24rpx;
-}
-.comment-time {
-  color: #A1A9B3;
-  font-size: 20rpx;
-}
-.comment-item-rate-wrap {
-  margin-top: 16rpx;
-  padding: 20rpx;
-  background: #F8F8F8;
-  border-radius: 16rpx;
-}
-.comment-item-start {
-  margin-right: 12rpx;
-  width: 28rpx;
-  height: 28rpx;
-}
-.comment-item-rate-desc {
-  color: #292929;
-  font-size: 24rpx;
-}
-.comment-item-content {
-  margin-top: 16rpx;
-  color: #3C3F42;
-  font-size: 24rpx;
-}
-.comment-item-goods-spec {
-  margin-top: 16rpx;
-  color: #A1A9B3;
-  font-size: 24rpx;
-}
-.comment-item-images {
-  margin-top: 16rpx;
-}
-.comment-item-image {
-  margin-right: 16rpx;
-  width: 156rpx;
-  height: 156rpx;
-  border-radius: 16rpx;
 }
 
 .more-comment-btn {

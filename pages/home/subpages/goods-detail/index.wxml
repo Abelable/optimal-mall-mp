@@ -163,45 +163,17 @@
     </view>
     <view wx:if="{{evaluationSummary.total}}" bindtap="checkEvaluationDetail">
       <view class="comment-rate-wrap row">
-        <view class="comment-rate">96.1%</view>
-        <view class="starts row">
-          <image class="start" src="/images/star-full.png" />
-          <image class="start" src="/images/star-full.png" />
-          <image class="start" src="/images/star-full.png" />
-          <image class="start" src="/images/star-half.png" />
-          <image class="start" src="/images/star-empty.png" />
-        </view>
+        <view class="comment-rate">{{evaluationSummary.avgScore * 20}}%</view>
+        <van-rate value="{{evaluationSummary.avgScore || 0}}" gutter="0" color="#ffd21e" void-icon="star" void-color="#eee" allow-half readonly />
       </view>
-      <view class="comment-labels">
+      <!-- <view class="comment-labels">
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
-      </view>
-      <view class="comment-item">
-        <view class="comment-item-header row">
-          <image class="comment-user-avatar" src="https://static.youbozhenxuan.cn/img/20240816/wxfile://tmp_1e44986711f4246af78e53ccddd94c73.jpg" />
-          <view class="comment-user-name">昵称</view>
-          <view class="comment-time">5天前评论</view>
-        </view>
-        <view class="comment-item-rate-wrap row">
-          <view class="comment-item-starts row">
-            <image class="comment-item-start" src="/images/star-full.png" />
-            <image class="comment-item-start" src="/images/star-full.png" />
-            <image class="comment-item-start" src="/images/star-full.png" />
-            <image class="comment-item-start" src="/images/star-full.png" />
-            <image class="comment-item-start" src="/images/star-full.png" />
-          </view>
-          <view class="comment-item-rate-desc">价格实惠价格实惠价格实惠</view>
-        </view>
-        <view class="comment-item-content">商品评价商品评价商品评价商品评价商品评价商品评价商品</view>
-        <view class="comment-item-goods-spec">商品规格</view>
-        <view class="comment-item-images row">
-          <image class="comment-item-image" src="https://static.youbozhenxuan.cn/img/20240822/1724333915096微信图片_20240822213710.jpg" mode="aspectFill" />
-          <image class="comment-item-image" src="https://static.youbozhenxuan.cn/img/20240822/1724333915096微信图片_20240822213710.jpg" mode="aspectFill" />
-        </view>
-      </view>
+      </view> -->
+      <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" />
       <view class="more-comment-btn row">
         <view>查看全部评价</view>
         <image class="more-comment-btn-arrow" src="./images/option-arrow.png" />
