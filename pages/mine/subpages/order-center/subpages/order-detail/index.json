@@ -1,6 +1,6 @@
 {
   "usingComponents": {
     "price-unit": "/components/price-unit/index",
-    "goods-list": "./components/goods-list/index"
+    "goods-item": "./components/goods-item/index"
   }
 }

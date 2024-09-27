@@ -1,0 +1,19 @@
+<view class="goods-item">
+  <view class="row" bindtap="navToGoodsDetail" data-id="{{item.goodsId}}">
+    <image class="goods-img" src="{{item.cover}}" mode="aspectFill" lazy-load />
+    <view class="goods-content">
+      <view class="goods-name omit">{{item.name}}</view>
+      <view class="goods-sku omit single" wx:if="{{item.selectedSkuName}}">规格：{{item.selectedSkuName}}</view>
+      <view class="goods-price-wrap">
+        <price-unit price="{{item.price || 0}}" color="#333" />
+        <view class="count-wrap">
+          <text>x</text>
+          <text class="count">{{item.number}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view class="btn-wrap">
+    <button class="btn" wx:if="{{refundBtnVisible}}" catchtap="applyRefund">申请售后</button>
+  </view>
+</view>

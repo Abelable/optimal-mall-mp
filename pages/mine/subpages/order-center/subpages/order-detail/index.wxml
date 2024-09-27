@@ -15,7 +15,9 @@
         <view class="countdown">{{TIME.countdownFormat(countdown, 'hh:mm:ss')}}</view>
       </view>
     </view>
-    <goods-list list="{{orderInfo.goodsList}}" status="{{orderInfo.status}}" />
+    <view class="goods-list">
+      <goods-item wx:for="{{orderInfo.goodsList}}" wx:key="index" item="{{item}}" status="{{orderInfo.status}}" confirmTime="{{orderInfo.confirmTime}}" />
+    </view>
     <view class="list row between">
       <view class="title">商品总价</view>
       <price-unit price="{{orderInfo.goodsPrice}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
@@ -69,7 +71,7 @@
   </button>
   <button 
     class="btn" 
-    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}"
+    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403 || orderInfo.status === 501}}"
     bindtap="deleteOrder"
     hover-class="none"
   >
