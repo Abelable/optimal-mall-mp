@@ -16,7 +16,7 @@
       <view class="introduce omit single" wx:if="{{item.introduction}}">
         {{item.introduction}}
       </view>
-      <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore}}%</view>
+      <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore * 20}}%</view>
     </view>
     <view class="coupon-list" wx:if="{{item.couponList.length}}">
       <view class="coupon" wx:for="{{item.couponList}}" wx:key="index" wx:for-item="coupon">{{coupon.name}}</view>

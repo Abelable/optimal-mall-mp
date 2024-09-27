@@ -13,7 +13,7 @@
     <view class="goods-score row">
       <view class="score-title">商品评分</view>
       <van-rate value="{{score}}" bind:change="setScore" gutter="0" color="#ffd21e" void-icon="star" void-color="#eee" />
-      <view class="score">{{score}}分</view>
+      <view class="score">{{score * 20}}%</view>
     </view>
     <textarea class="evaluation-content" bindinput="setContent" placeholder="请输入您对商品的评价" />
     <view class="uploader-wrap">

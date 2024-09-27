@@ -84,5 +84,5 @@
   font-size: 30rpx;
   font-weight: 500;
   border-radius: 50rpx;
-  background: #0095fa;
+  background: #FF7925;
 }

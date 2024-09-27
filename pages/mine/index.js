@@ -71,7 +71,8 @@ Component({
       orderStatusList[0].total = orderTotals[0];
       orderStatusList[1].total = orderTotals[1];
       orderStatusList[2].total = orderTotals[2];
-      orderStatusList[4].total = orderTotals[3];
+      orderStatusList[3].total = orderTotals[3];
+      orderStatusList[4].total = orderTotals[4];
       this.setData({ orderStatusList });
     },
 
