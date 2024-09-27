@@ -80,7 +80,7 @@ Page({
       goodsIds,
       score,
       this.content,
-      imageList,
+      imageList.map(item => item.url),
       () => {
         wx.showToast({
           title: "提交成功",
