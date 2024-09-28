@@ -56,7 +56,9 @@ Page({
         refundAmount,
         refundType,
         refundReason,
-        imageList
+        imageList,
+        shipCode,
+        shipSn
       } = refundInfo;
       this.refundInfoId = id;
       this.setData({
@@ -68,8 +70,16 @@ Page({
         imageList: imageList.map(item => ({ url: item }))
       });
 
-      if (status === 1) {
+      if (status === 1 || status === 2) {
         this.setMerchantInfo();
+      }
+      if (status === 2) {
+        this.setData({
+          selectedExpressIdx: this.data.expressOptions.findIndex(
+            item => item.value === shipCode
+          ),
+          shipSn
+        });
       }
     } else {
       this.setRefundAmount();
