@@ -125,7 +125,8 @@ Page({
   },
 
   navToShipping() {
-    const url = `../shipping/index?orderId=${this.orderId}`;
+    const { shipCode, shipSn, mobile } = this.data.orderInfo
+    const url = `../shipping/index?shipCode=${shipCode}&shipSn=${shipSn}&mobile=${mobile}`;
     wx.navigateTo({ url });
   },
 

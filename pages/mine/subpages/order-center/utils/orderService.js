@@ -51,10 +51,10 @@ class OrderService extends MineService {
     });
   }
 
-  async getShippingInfo(orderId) {
+  async getShippingInfo(shipCode, shipSn, mobile) {
     return await this.get({
       url: `${this.baseUrl}/order/shipping_info`,
-      data: { orderId }
+      data: { shipCode, shipSn, mobile }
     });
   }
 

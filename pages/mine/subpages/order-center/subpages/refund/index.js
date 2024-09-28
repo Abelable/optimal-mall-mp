@@ -1,3 +1,4 @@
+import { expressOptions } from "../../../../../../utils/index";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -12,23 +13,7 @@ Page({
     refundReason: "",
     imageList: [],
     merchantInfo: null,
-    expressOptions: [
-      { name: "中通快递", value: "ZTO" },
-      { name: "圆通速递", value: "YTO" },
-      { name: "韵达速递", value: "YD" },
-      { name: "申通快递", value: "STO" },
-      { name: "顺丰速运", value: "SF" },
-      { name: "京东快递", value: "JD" },
-      { name: "邮政快递包裹", value: "YZPY" },
-      { name: "EMS", value: "EMS" },
-      { name: "极兔速递", value: "JTSD" },
-      { name: "德邦快递", value: "DBL" },
-      { name: "丰网速运", value: "FWX" },
-      { name: "百世快递", value: "HTKY" },
-      { name: "优速快递", value: "UC" },
-      { name: "众邮快递", value: "ZYE" },
-      { name: "宅急送", value: "ZJS" }
-    ],
+    expressOptions,
     selectedExpressIdx: undefined,
     shipSn: ""
   },
@@ -249,5 +234,12 @@ Page({
         );
       }
     }
+  },
+
+  navToShipping() {
+    const { expressOptions, selectedExpressIdx, shipSn, merchantInfo } =
+      this.data;
+    const url = `../shipping/index?shipCode=${expressOptions[selectedExpressIdx].value}&shipSn=${shipSn}&mobile=${merchantInfo.mobile}`;
+    wx.navigateTo({ url });
   }
 });
