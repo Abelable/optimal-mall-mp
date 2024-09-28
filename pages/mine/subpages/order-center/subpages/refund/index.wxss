@@ -70,6 +70,27 @@
   background: #f5f6f7;
 }
 
+.ship-btn {
+  margin-left: 24rpx;
+  padding: 0 20rpx;
+  height: 50rpx;
+  color: #fff;
+  font-size: 20rpx;
+  line-height: 50rpx;
+  background: #FF7925;
+  border-radius: 25rpx;
+}
+
+.relation-images {
+  display: flex;
+  margin-top: 24rpx;
+}
+.relation-image {
+  margin-right: 16rpx;
+  width: 160rpx;
+  height: 160rpx;
+}
+
 .van-uploader__wrapper {
   margin-top: 32rpx;
 }
@@ -87,6 +108,6 @@
   color: #fff;
   font-size: 30rpx;
   font-weight: 500;
-  border-radius: 50rpx;
   background: #FF7925;
+  border-radius: 50rpx;
 }
