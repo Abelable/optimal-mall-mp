@@ -1,3 +1,26 @@
+.status {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 0.88rem;
+  color: #fff;
+  font-size: 0.3rem;
+}
+.status.ing {
+  background: #ff7548;
+}
+.status.done {
+  background: #6ed29b;
+}
+.status.fail {
+  background: #fb6155;
+}
+.fail-reason {
+  padding: 0.24rem;
+  color: #fb6155;
+  font-size: 0.3rem;
+}
+
 .form-wrap {
   margin: 24rpx;
   padding: 0 32rpx;

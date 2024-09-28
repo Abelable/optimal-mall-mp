@@ -1,22 +1,30 @@
+<view class="status {{['ing', 'done', 'fail'][status]}}" wx:if="{{status !== undefined}}">
+  {{ ['退款审核中', '退款审核成功过', '退款失败'][status] }}
+</view>
+<view class="fail-reason" wx:if="{{status === 2}}">
+  <view>失败原因：</view>
+  <view>{{ failureReason }}</view>
+</view>
+
 <view class="form-wrap">
   <view class="form-item row">
-    <label class="form-label">退款金额 </label>
-    <view class="form-content">¥50.00</view>
+    <label class="form-label">可退金额 </label>
+    <view class="form-content">¥{{refundAmount}}</view>
   </view>
   <view class="form-item row">
     <label class="form-label requied">退款方式</label>
     <picker 
-      class="form-picker {{type === undefined ? 'placeholder' : ''}}" 
+      class="form-picker {{refundType === undefined ? 'placeholder' : ''}}" 
       range="{{typeList}}"
-      bindchange="selectType" 
+      bindchange="selectRefundType" 
     >
-      {{type === undefined ? '请选择退款方式' : typeList[type]}}
+      {{refundType === undefined ? '请选择退款方式' : typeList[refundType]}}
     </picker>
     <image class="arrow" src="/images/arrow.png" />
   </view>
   <view class="form-item">
     <label class="form-label requied">退款说明</label>
-    <textarea class="form-textarea" bindinput="setContent" placeholder="请输入退款理由" />
+    <textarea class="form-textarea" value="{{refundReason}}" bindinput="setRefundReason" placeholder="请输入退款理由" />
   </view>
   <view class="form-item">
     <label class="form-label">相关图片</label>
@@ -33,4 +41,4 @@
   </view>
 </view>
 
-<view class="submit-btn row center" bindtap="submit">提交</view>
+<view class="submit-btn row center" bindtap="submit">提交申请</view>
