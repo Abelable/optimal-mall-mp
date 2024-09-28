@@ -1,14 +1,17 @@
-<view class="status {{['ing', 'done', 'fail'][status]}}" wx:if="{{status !== undefined}}">
-  {{ ['退款审核中', '退款审核成功过', '退款失败'][status] }}
+<view class="status {{['ing', 'ing', 'ing', 'done', 'fail'][status]}}" wx:if="{{status !== undefined}}">
+  {{ ['信息审核中', '审核通过，请寄回商品', '请等待商家确认收货', '退款成功', '退款失败'][status] }}
 </view>
-<view class="fail-reason" wx:if="{{status === 2}}">
+<view class="fail-reason" wx:if="{{status === 4}}">
   <view>失败原因：</view>
   <view>{{ failureReason }}</view>
 </view>
 
-<view class="form-wrap">
+<view 
+  class="card" 
+  wx:if="{{status === undefined || status === 0 || status === 3 || status === 4}}"
+>
   <view class="form-item row">
-    <label class="form-label">可退金额 </label>
+    <label class="form-label">可退金额</label>
     <view class="form-content">¥{{refundAmount}}</view>
   </view>
   <view class="form-item row">
@@ -41,4 +44,43 @@
   </view>
 </view>
 
-<view class="submit-btn row center" bindtap="submit">提交申请</view>
+<view class="card" wx:if="{{status === 1 || status === 2}}">
+  <view class="form-item row">
+    <label class="form-label">收件人</label>
+    <view class="form-content">{{merchantInfo.consigneeName}}</view>
+  </view>
+  <view class="form-item row">
+    <label class="form-label">收件人手机号</label>
+    <view class="form-content">{{merchantInfo.mobile}}</view>
+  </view>
+  <view class="form-item row">
+    <label class="form-label">收件地址</label>
+    <view class="form-content">{{merchantInfo.addressDetail}}</view>
+  </view>
+</view>
+
+<view class="card" wx:if="{{status === 1 || status === 2}}">
+  <view class="form-item row">
+    <label class="form-label requied">物流公司</label>
+    <picker 
+      class="form-picker {{selectedExpressIdx === undefined ? 'placeholder' : ''}}" 
+      range="{{expressOptions}}"
+      bindchange="selectRefundType" 
+    >
+      {{selectedExpressIdx === undefined ? '请选择物流公司' : expressOptions[selectedExpressIdx].name}}
+    </picker>
+    <image class="arrow" src="/images/arrow.png" />
+  </view>
+  <view class="form-item row">
+    <label class="form-label">快递单号</label>
+    <input class="form-input" value="{{shipSn}}" bindinput="setShipSn" placeholder="请输入快递单号" />
+  </view>
+</view>
+
+<view 
+  class="submit-btn row center" 
+  wx:if="{{status === undefined || status === 1 || status === 4}}" 
+  bindtap="submit"
+>
+  提交
+</view>

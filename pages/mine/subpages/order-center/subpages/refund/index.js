@@ -10,16 +10,35 @@ Page({
     refundAmount: "",
     refundType: undefined,
     refundReason: "",
-    imageList: []
+    imageList: [],
+    merchantInfo: null,
+    expressOptions: [
+      { name: "中通快递", value: "ZTO" },
+      { name: "圆通速递", value: "YTO" },
+      { name: "韵达速递", value: "YD" },
+      { name: "申通快递", value: "STO" },
+      { name: "顺丰速运", value: "SF" },
+      { name: "京东快递", value: "JD" },
+      { name: "邮政快递包裹", value: "YZPY" },
+      { name: "EMS", value: "EMS" },
+      { name: "极兔速递", value: "JTSD" },
+      { name: "德邦快递", value: "DBL" },
+      { name: "丰网速运", value: "FWX" },
+      { name: "百世快递", value: "HTKY" },
+      { name: "优速快递", value: "UC" },
+      { name: "众邮快递", value: "ZYE" },
+      { name: "宅急送", value: "ZJS" },
+    ],
+    selectedExpressIdx: undefined,
   },
 
-  async onLoad({ orderId, goodsId, couponId }) {
-    this.orderId = orderId;
-    this.goodsId = goodsId;
-    this.couponId = couponId;
+  onLoad({ orderId, goodsId, couponId, merchantId }) {
+    this.orderId = +orderId;
+    this.goodsId = +goodsId;
+    this.couponId = +couponId;
+    this.merchantId = +merchantId;
 
     this.setRefundInfo();
-    this.setRefundAmount();
   },
 
   async setRefundInfo() {
@@ -46,6 +65,12 @@ Page({
         refundReason,
         imageList: imageList.map(item => ({ url: item }))
       });
+
+      if (status === 2) {
+        this.setMerchantInfo();
+      }
+    } else {
+      this.setRefundAmount();
     }
   },
 
@@ -56,6 +81,21 @@ Page({
       this.couponId
     );
     this.setData({ refundAmount: refundAmount.toFixed(2) });
+  },
+
+  async setMerchantInfo() {
+    if (this.merchantId === 0) {
+      this.setData({
+        merchantInfo: {
+          consigneeName: "令先生",
+          mobile: "13957118152",
+          addressDetail: "浙江省杭州市余杭区五常街道向往街368号2幢11层1143室"
+        }
+      });
+    } else {
+      const merchantInfo = await orderService.getMerchantInfo(this.merchantId);
+      this.setData({ merchantInfo });
+    }
   },
 
   selectRefundType(e) {

@@ -209,6 +209,13 @@ class BaseService extends Base {
       success
     });
   }
+
+  async getMerchantInfo(merchantId) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/merchant_info`,
+      data: { merchantId }
+    });
+  }
 }
 
 export default BaseService;

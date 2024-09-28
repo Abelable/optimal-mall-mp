@@ -10,6 +10,7 @@ Component({
     orderId: Number,
     status: Number,
     couponId: Number,
+    merchantId: Number,
     confirmTime: String
   },
 
@@ -39,7 +40,8 @@ Component({
 
     applyRefund() {
       const { orderId, couponId, item } = this.properties;
-      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}&couponId=${couponId}goodsId=${item.id}`;
+      const { id, merchantId } = item;
+      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}&couponId=${couponId}&goodsId=${id}&marchantId=${merchantId}`;
       wx.navigateTo({ url });
     }
   }
