@@ -16,7 +16,15 @@
       </view>
     </view>
     <view class="goods-list">
-      <goods-item wx:for="{{orderInfo.goodsList}}" wx:key="index" item="{{item}}" status="{{orderInfo.status}}" confirmTime="{{orderInfo.confirmTime}}" />
+      <goods-item 
+        wx:for="{{orderInfo.goodsList}}" 
+        wx:key="index" 
+        item="{{item}}" 
+        orderId="{{orderInfo.id}}" 
+        status="{{orderInfo.status}}" 
+        couponId="{{orderInfo.couponId}}" 
+        confirmTime="{{orderInfo.confirmTime}}"
+      />
     </view>
     <view class="list row between">
       <view class="title">商品总价</view>
