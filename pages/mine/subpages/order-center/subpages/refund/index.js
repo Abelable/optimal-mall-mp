@@ -29,7 +29,7 @@ Page({
   },
 
   async setRefundInfo() {
-    const refundInfo = await orderService.getRefundApplication(
+    const refundInfo = await orderService.getRefund(
       this.orderId,
       this.goodsId
     );
@@ -198,7 +198,7 @@ Page({
         return;
       }
       if (this.refundInfoId) {
-        orderService.editRefundApplication(
+        orderService.editRefund(
           this.refundInfoId,
           refundType,
           refundReason,
@@ -214,7 +214,7 @@ Page({
           }
         );
       } else {
-        orderService.addRefundApplication(
+        orderService.addRefund(
           this.orderId,
           this.orderSn,
           this.goodsId,

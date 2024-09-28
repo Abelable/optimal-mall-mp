@@ -75,19 +75,19 @@ class OrderService extends MineService {
 
   async getRefundAmount(orderId, goodsId, couponId) {
     return await this.get({
-      url: `${this.baseUrl}/refund_application/refund_amount`,
+      url: `${this.baseUrl}/refund/amount`,
       data: { orderId, goodsId, couponId }
     });
   }
 
-  async getRefundApplication(orderId, goodsId) {
+  async getRefund(orderId, goodsId) {
     return await this.get({
-      url: `${this.baseUrl}/refund_application/detail`,
+      url: `${this.baseUrl}/refund/detail`,
       data: { orderId, goodsId }
     });
   }
 
-  async addRefundApplication(
+  async addRefund(
     orderId,
     orderSn,
     goodsId,
@@ -98,15 +98,15 @@ class OrderService extends MineService {
     success
   ) {
     await this.post({
-      url: `${this.baseUrl}/refund_application/add`,
+      url: `${this.baseUrl}/refund/add`,
       data: { orderId, orderSn, goodsId, couponId, type, reason, imageList },
       success
     });
   }
 
-  async editRefundApplication(id, type, reason, imageList, success) {
+  async editRefund(id, type, reason, imageList, success) {
     await this.post({
-      url: `${this.baseUrl}/refund_application/edit`,
+      url: `${this.baseUrl}/refund/edit`,
       data: { id, type, reason, imageList },
       success
     });
@@ -114,7 +114,7 @@ class OrderService extends MineService {
 
   async submitShipInfo(id, shipCode, shipSn, success) {
     await this.post({
-      url: `${this.baseUrl}/refund_application/submit_shipping_info`,
+      url: `${this.baseUrl}/refund/submit_shipping_info`,
       data: { id, shipCode, shipSn },
       success
     });
