@@ -42,7 +42,7 @@ Component({
     applyRefund() {
       const { orderId, orderSn, couponId, item } = this.properties;
       const { goodsId, merchantId } = item;
-      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}orderSn=${orderSn}&couponId=${couponId}&goodsId=${goodsId}&marchantId=${merchantId}`;
+      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}&orderSn=${orderSn}&couponId=${couponId}&goodsId=${goodsId}&marchantId=${merchantId}`;
       wx.navigateTo({ url });
     }
   }
