@@ -87,10 +87,19 @@ class OrderService extends MineService {
     });
   }
 
-  async addRefundApplication(orderId, goodsId, couponId, type, reason, imageList, success) {
+  async addRefundApplication(
+    orderId,
+    orderSn,
+    goodsId,
+    couponId,
+    type,
+    reason,
+    imageList,
+    success
+  ) {
     await this.post({
       url: `${this.baseUrl}/refund_application/add`,
-      data: { orderId, goodsId, couponId, type, reason, imageList },
+      data: { orderId, orderSn, goodsId, couponId, type, reason, imageList },
       success
     });
   }
@@ -98,7 +107,7 @@ class OrderService extends MineService {
   async editRefundApplication(id, type, reason, imageList, success) {
     await this.post({
       url: `${this.baseUrl}/refund_application/edit`,
-      data: { id, type, reason, imageList, },
+      data: { id, type, reason, imageList },
       success
     });
   }

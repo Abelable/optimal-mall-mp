@@ -33,8 +33,9 @@ Page({
     shipSn: ""
   },
 
-  onLoad({ orderId, goodsId, couponId, merchantId }) {
+  onLoad({ orderId, orderSn, goodsId, couponId, merchantId }) {
     this.orderId = +orderId;
+    this.orderSn = orderSn;
     this.goodsId = +goodsId;
     this.couponId = +couponId;
     this.merchantId = +merchantId;
@@ -81,7 +82,7 @@ Page({
       this.goodsId,
       this.couponId
     );
-    this.setData({ refundAmount: refundAmount.toFixed(2) });
+    this.setData({ refundAmount });
   },
 
   async setMerchantInfo() {
@@ -201,6 +202,7 @@ Page({
       } else {
         orderService.addRefundApplication(
           this.orderId,
+          this.orderSn,
           this.goodsId,
           this.couponId,
           refundType,
