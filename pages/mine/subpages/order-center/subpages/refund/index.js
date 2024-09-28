@@ -27,9 +27,10 @@ Page({
       { name: "百世快递", value: "HTKY" },
       { name: "优速快递", value: "UC" },
       { name: "众邮快递", value: "ZYE" },
-      { name: "宅急送", value: "ZJS" },
+      { name: "宅急送", value: "ZJS" }
     ],
     selectedExpressIdx: undefined,
+    shipSn: ""
   },
 
   onLoad({ orderId, goodsId, couponId, merchantId }) {
@@ -143,28 +144,18 @@ Page({
     this.setData({ imageList });
   },
 
+  setShipSn(e) {
+    const shipSn = e.detail.value;
+    this.setData({ shipSn });
+  },
+
   submit() {
-    const { refundType, refundReason, imageList } = this.data;
-    if (!refundType) {
-      wx.showToast({
-        title: "请选择退款方式",
-        icon: "none"
-      });
-      return;
-    }
-    if (!refundReason) {
-      wx.showToast({
-        title: "请补充退款说明",
-        icon: "none"
-      });
-      return;
-    }
-    if (this.refundInfoId) {
-      orderService.editRefundApplication(
+    if (this.data.status === 1) {
+      const { expressOptions, selectedExpressIdx, shipSn } = this.data;
+      orderService.submitShipInfo(
         this.refundInfoId,
-        refundType,
-        refundReason,
-        imageList.map(item => item.url),
+        expressOptions[selectedExpressIdx].value,
+        shipSn,
         () => {
           wx.showToast({
             title: "提交成功",
@@ -176,23 +167,56 @@ Page({
         }
       );
     } else {
-      orderService.addRefundApplication(
-        this.orderId,
-        this.goodsId,
-        this.couponId,
-        refundType,
-        refundReason,
-        imageList.map(item => item.url),
-        () => {
-          wx.showToast({
-            title: "提交成功",
-            icon: "none"
-          });
-          setTimeout(() => {
-            wx.navigateBack();
-          }, 2000);
-        }
-      );
+      const { refundType, refundReason, imageList } = this.data;
+      if (!refundType) {
+        wx.showToast({
+          title: "请选择退款方式",
+          icon: "none"
+        });
+        return;
+      }
+      if (!refundReason) {
+        wx.showToast({
+          title: "请补充退款说明",
+          icon: "none"
+        });
+        return;
+      }
+      if (this.refundInfoId) {
+        orderService.editRefundApplication(
+          this.refundInfoId,
+          refundType,
+          refundReason,
+          imageList.map(item => item.url),
+          () => {
+            wx.showToast({
+              title: "提交成功",
+              icon: "none"
+            });
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 2000);
+          }
+        );
+      } else {
+        orderService.addRefundApplication(
+          this.orderId,
+          this.goodsId,
+          this.couponId,
+          refundType,
+          refundReason,
+          imageList.map(item => item.url),
+          () => {
+            wx.showToast({
+              title: "提交成功",
+              icon: "none"
+            });
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 2000);
+          }
+        );
+      }
     }
   }
 });

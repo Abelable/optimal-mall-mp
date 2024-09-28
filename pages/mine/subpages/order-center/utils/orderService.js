@@ -102,6 +102,14 @@ class OrderService extends MineService {
       success
     });
   }
+
+  async submitShipInfo(id, shipCode, shipSn, success) {
+    await this.post({
+      url: `${this.baseUrl}/refund_application/submit_shipping_info`,
+      data: { id, shipCode, shipSn },
+      success
+    });
+  }
 }
 
 export default OrderService;
