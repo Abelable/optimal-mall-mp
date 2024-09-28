@@ -68,7 +68,7 @@ Page({
         imageList: imageList.map(item => ({ url: item }))
       });
 
-      if (status === 2) {
+      if (status === 1) {
         this.setMerchantInfo();
       }
     } else {
@@ -145,6 +145,11 @@ Page({
     this.setData({ imageList });
   },
 
+  selectExpress(e) {
+    const selectedExpressIdx = Number(e.detail.value);
+    this.setData({ selectedExpressIdx });
+  },
+
   setShipSn(e) {
     const shipSn = e.detail.value;
     this.setData({ shipSn });
@@ -153,6 +158,20 @@ Page({
   submit() {
     if (this.data.status === 1) {
       const { expressOptions, selectedExpressIdx, shipSn } = this.data;
+      if (selectedExpressIdx === undefined) {
+        wx.showToast({
+          title: "请选择物流公司",
+          icon: "none"
+        });
+        return;
+      }
+      if (!shipSn) {
+        wx.showToast({
+          title: "请填写物流单号",
+          icon: "none"
+        });
+        return;
+      }
       orderService.submitShipInfo(
         this.refundInfoId,
         expressOptions[selectedExpressIdx].value,

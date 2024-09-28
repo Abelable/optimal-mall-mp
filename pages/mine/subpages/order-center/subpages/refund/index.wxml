@@ -1,5 +1,5 @@
 <view class="status {{['ing', 'ing', 'ing', 'done', 'fail'][status]}}" wx:if="{{status !== undefined}}">
-  {{ ['信息审核中', '审核通过，请寄回商品', '请等待商家确认收货', '退款成功', '退款失败'][status] }}
+  {{ ['信息审核中，请耐心等待', '审核通过，请寄回商品', '请等待商家确认收货', '退款成功', '退款失败'][status] }}
 </view>
 <view class="fail-reason" wx:if="{{status === 4}}">
   <view>失败原因：</view>
@@ -65,14 +65,15 @@
     <picker 
       class="form-picker {{selectedExpressIdx === undefined ? 'placeholder' : ''}}" 
       range="{{expressOptions}}"
-      bindchange="selectRefundType" 
+      range-key="name"
+      bindchange="selectExpress" 
     >
       {{selectedExpressIdx === undefined ? '请选择物流公司' : expressOptions[selectedExpressIdx].name}}
     </picker>
     <image class="arrow" src="/images/arrow.png" />
   </view>
   <view class="form-item row">
-    <label class="form-label">快递单号</label>
+    <label class="form-label requied">快递单号</label>
     <input class="form-input" value="{{shipSn}}" bindinput="setShipSn" placeholder="请输入快递单号" />
   </view>
 </view>

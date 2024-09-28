@@ -23,7 +23,7 @@ Component({
     attached() {
       const { status, confirmTime, item } = this.properties;
       if (
-        [401, 402, 403, 501].includes(status) &&
+        [202, 401, 402, 403, 501].includes(status) &&
         item.refundStatus === 1 &&
         dayjs(confirmTime).diff(dayjs().valueOf(), "day") <= 7
       ) {
@@ -42,7 +42,7 @@ Component({
     applyRefund() {
       const { orderId, orderSn, couponId, item } = this.properties;
       const { goodsId, merchantId } = item;
-      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}&orderSn=${orderSn}&couponId=${couponId}&goodsId=${goodsId}&marchantId=${merchantId}`;
+      const url = `/pages/mine/subpages/order-center/subpages/refund/index?orderId=${orderId}&orderSn=${orderSn}&couponId=${couponId}&goodsId=${goodsId}&merchantId=${merchantId}`;
       wx.navigateTo({ url });
     }
   }

@@ -2,9 +2,9 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  height: 0.88rem;
+  height: 88rpx;
   color: #fff;
-  font-size: 0.3rem;
+  font-size: 30rpx;
 }
 .status.ing {
   background: #ff7548;
@@ -16,9 +16,9 @@
   background: #fb6155;
 }
 .fail-reason {
-  padding: 0.24rem;
+  padding: 24rpx;
   color: #fb6155;
-  font-size: 0.3rem;
+  font-size: 30rpx;
 }
 
 .card {
