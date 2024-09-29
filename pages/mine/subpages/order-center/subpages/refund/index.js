@@ -50,7 +50,7 @@ Page({
         status,
         failureReason,
         refundAmount,
-        refundType,
+        refundType: refundType - 1,
         refundReason,
         imageList: imageList.map(item => ({ url: item }))
       });
@@ -200,7 +200,7 @@ Page({
       if (this.refundInfoId) {
         orderService.editRefund(
           this.refundInfoId,
-          refundType,
+          refundType + 1,
           refundReason,
           imageList.map(item => item.url),
           () => {

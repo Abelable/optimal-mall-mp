@@ -32,7 +32,7 @@
     <textarea class="form-textarea" wx:if="{{status === undefined || status === 4}}" value="{{refundReason}}" bindinput="setRefundReason" placeholder="请输入退款理由" />
     <view class="form-textarea" wx:if="{{status === 0}}">{{refundReason}}</view>
   </view>
-  <view class="form-item">
+  <view class="form-item" wx:if="{{status === undefined || status === 4 || (status === 0 && imageList.length)}}">
     <label class="form-label">相关图片</label>
     <view class="uploader-wrap" wx:if="{{status === undefined || status === 4}}">
       <van-uploader 
