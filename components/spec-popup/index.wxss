@@ -54,12 +54,10 @@
 .spec-tips {
   display: inline-block;
   margin: 24rpx 24rpx 0 0;
-  padding: 0 20rpx;
-  height: 64rpx;
+  padding: 10rpx 20rpx;
+  max-width: 100%;
   font-size: 24rpx;
   color: #333;
-  line-height: 62rpx;
-  white-space: nowrap;
   border-radius: 8rpx;
   border: 1px solid #F6F6F6;
   background-color: #F6F6F6;
