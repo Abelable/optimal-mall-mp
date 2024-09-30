@@ -35,6 +35,12 @@ Component({
 
   pageLifetimes: {
     show() {
+      this.init();
+    }
+  },
+
+  methods: {
+    init() {
       checkLogin(async () => {
         await mineService.getUserInfo();
         if (store.promoterInfo) {
@@ -44,10 +50,8 @@ Component({
         }
         this.setOrderListTotals();
       }, false);
-    }
-  },
+    },
 
-  methods: {
     async setCommissionSumInfo() {
       const commissionSumInfo = await mineService.getCommissionSumInfo();
       this.setData({ commissionSumInfo });
@@ -77,6 +81,7 @@ Component({
     },
 
     onPullDownRefresh() {
+      this.init();
       wx.stopPullDownRefresh();
     },
 
