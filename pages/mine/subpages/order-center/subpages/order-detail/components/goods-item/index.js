@@ -34,8 +34,8 @@ Component({
 
   methods: {
     navToGoodsDetail() {
-      const { id } = this.properties.item;
-      const url = `/pages/home/subpages/goods-detail/index?id=${id}`;
+      const { goodsId } = this.properties.item;
+      const url = `/pages/home/subpages/goods-detail/index?id=${goodsId}`;
       wx.navigateTo({ url });
     },
 
