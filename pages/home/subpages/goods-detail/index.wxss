@@ -124,10 +124,14 @@
   padding: 2rpx 10rpx;
   padding-right: 6rpx;
   width: fit-content;
-  color: #F5701D;
+  color: #fff;
   font-size: 20rpx;
-  background: #fff;
+  background: #F5701D;
   border-radius: 16rpx 16rpx 16rpx 0px;
+}
+.bottom-price.activity {
+  color: #F5701D;
+  background: #fff;
 }
 .more-icon {
   margin-left: 2rpx;

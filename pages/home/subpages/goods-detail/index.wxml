@@ -64,9 +64,9 @@
             integerFontSize="50rpx"
           />
           <view class="market-price" wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift}}">¥{{goodsInfo.marketPrice}}</view>
-          <view class="bottom-price row" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
+          <view class="bottom-price row {{goodsInfo.activityInfo ? 'activity' : ''}}" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
             <view>最低到手价¥{{bottomPrice}}</view>
-            <image class="more-icon" src="./images/more.png" />
+            <image class="more-icon" src="./images/more{{goodsInfo.activityInfo ? '-activity' : ''}}.png" />
           </view>
         </view>
         <view class="commission row {{(!goodsInfo.activityInfo && !goodsInfo.isGift) ? 'show-bg' : ''}}" wx:if="{{userInfo.level && goodsInfo.commissionRate}}" bindtap="toggleCommissionVisible">
