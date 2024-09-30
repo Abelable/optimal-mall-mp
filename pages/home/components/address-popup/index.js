@@ -1,3 +1,4 @@
+import { checkLogin } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
 const homeService = new HomeService();
@@ -31,17 +32,19 @@ Component({
   },
 
   methods: {
-    async setAddressList() {
-      const addressList = await homeService.getAddressList();
-      this.setData({ addressList });
-
-      const { addressId } = this.properties;
-      if (addressId) {
-        const selectedIndex = addressList.findIndex(
-          item => item.id === addressId
-        );
-        this.setData({ selectedIndex });
-      }
+    setAddressList() {
+      checkLogin(async () => {
+        const addressList = await homeService.getAddressList();
+        this.setData({ addressList });
+  
+        const { addressId } = this.properties;
+        if (addressId) {
+          const selectedIndex = addressList.findIndex(
+            item => item.id === addressId
+          );
+          this.setData({ selectedIndex });
+        }
+      }, false)
     },
 
     selectAddress(e) {
