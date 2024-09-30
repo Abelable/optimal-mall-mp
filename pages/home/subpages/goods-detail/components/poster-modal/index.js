@@ -41,7 +41,6 @@ Component({
     },
 
     async createPoster() {
-      const { avatar, nickname } = store.userInfo;
       const {
         cover,
         name,
@@ -78,9 +77,13 @@ Component({
         null,
         "rgba(255, 255, 255, 0.5)"
       );
-      await this.roundRect(165, 18, 24, 24, 12, avatar);
-      this.setText(10, "#000", 192, 29, nickname, 'left');
-      this.setText(7, "#6A6F75", 192, 40, "为您推荐优质好物");
+      
+      if (store.userInfo) {
+        const { avatar, nickname } = store.userInfo;
+        await this.roundRect(165, 18, 24, 24, 12, avatar);
+        this.setText(10, "#000", 192, 29, nickname, 'left');
+        this.setText(7, "#6A6F75", 192, 40, "为您推荐优质好物");
+      }
 
       this.roundRect(12, 55, 249, 411, 10, '', null, '#fff')
       await this.roundRect(24, 67, 225, 225, 5, cover);
