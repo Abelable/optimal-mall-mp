@@ -43,7 +43,7 @@ Component({
           this.setCustomerData();
         }
         this.setOrderListTotals();
-      });
+      }, false);
     }
   },
 
@@ -93,7 +93,9 @@ Component({
     },
 
     showAuthInfoModal() {
-      this.setData({ authInfoModalVisible: true });
+      checkLogin(() => {
+        this.setData({ authInfoModalVisible: true });
+      })
     },
 
     hideAuthInfoModal() {
@@ -112,43 +114,49 @@ Component({
       });
     },
 
-    navToIntegritySchool() {},
+    navToIntegritySchool() {
+      checkLogin(() => {})
+    },
 
     navToOrderCenter(e) {
-      const { status } = e.currentTarget.dataset;
-      wx.navigateTo({
-        url: `./subpages/order-center/index?status=${status}`
-      });
+      checkLogin(() => {
+        const { status } = e.currentTarget.dataset;
+        wx.navigateTo({
+          url: `./subpages/order-center/index?status=${status}`
+        });
+      })
     },
 
     navToAddress() {
-      wx.navigateTo({
-        url: "./subpages/address-list/index"
-      });
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "./subpages/address-list/index"
+        });
+      })
     },
 
     navToNotification() {
-      wx.navigateTo({
-        url: "./subpages/notification/index"
-      });
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "./subpages/notification/index"
+        });
+      })
     },
 
     navToCoupon() {
-      wx.navigateTo({
-        url: "./subpages/coupon-list/index"
-      });
-    },
-
-    navToWallet() {
-      wx.navigateTo({
-        url: "./subpages/wallet/index"
-      });
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "./subpages/coupon-list/index"
+        });
+      })
     },
 
     navToSetting() {
-      wx.navigateTo({
-        url: "./subpages/setting/index"
-      });
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "./subpages/setting/index"
+        });
+      })
     },
 
     navToTeamData() {

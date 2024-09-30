@@ -8,10 +8,11 @@
 </view>
 
 <view class="container level-{{userInfo.level}}" style="padding-top: {{statusBarHeight + 60}}px;">
-  <view class="user-info-wrap">
-    <image class="avatar" bindtap="showAuthInfoModal" src="{{userInfo.avatar}}" />
-    <view class="user-info">
-      <view class="user-name" bindtap="showAuthInfoModal">{{userInfo.nickname}}</view>
+  <view class="user-info-wrap" bindtap="showAuthInfoModal">
+    <image class="avatar" src="{{userInfo ? userInfo.avatar : 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
+    <view class="register-btn" wx:if="{{!userInfo}}">点击注册</view>
+    <view class="user-info" wx:if="{{userInfo}}">
+      <view class="user-name">{{userInfo.nickname}}</view>
       <view class="user-mobile">{{NUM.mobileFormat(userInfo.mobile)}}</view>
       <view class="user-identity" wx:if="{{userInfo.level}}">诚信星球第{{userInfo.promoterId}}号乡村振兴{{userInfo.level === 1 ? "推广员" : "服务商"}}</view>
     </view>

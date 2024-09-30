@@ -20,7 +20,6 @@
     "pages/mine/subpages/order-center/subpages/evaluation/index",
     "pages/mine/subpages/order-center/subpages/shipping/index",
     "pages/mine/subpages/order-center/subpages/refund/index",
-    "pages/mine/subpages/wallet/index",
     "pages/mine/subpages/account/index",
     "pages/mine/subpages/account/subpages/withdraw/index",
     "pages/mine/subpages/account/subpages/withdraw/subpages/bind-bank/index",
