@@ -273,10 +273,11 @@ page {
   padding: 0 24rpx;
   border-radius: 16rpx;
   background: #fff;
+  border: 1px solid #f5f6f8;
 }
 .tool-item {
   height: 108rpx;
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #f5f6f8;
 }
 .tool-item:last-child {
   border-bottom: none;
