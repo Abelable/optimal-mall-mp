@@ -82,16 +82,17 @@ Page({
     }
   },
 
-  share() {
-    checkLogin(async () => {
-      const scene = store.promoterInfo ? `${store.promoterInfo.id}` : "";
-      const page = "pages/rural/subpages/gift/index";
-      const qrcode = await giftService.getQRCode(scene, page);
+  async share() {
+    const scene =
+      wx.getStorageSync("token") && store.promoterInfo
+        ? `${store.promoterInfo.id}`
+        : "";
+    const page = "pages/rural/subpages/gift/index";
+    const qrcode = await giftService.getQRCode(scene, page);
 
-      this.setData({
-        posterModalVisible: true,
-        posterInfo: { qrcode }
-      });
+    this.setData({
+      posterModalVisible: true,
+      posterInfo: { qrcode }
     });
   },
 

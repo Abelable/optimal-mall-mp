@@ -414,30 +414,28 @@ Page({
     this.setData({ commissionVisible: !this.data.commissionVisible });
   },
 
-  share() {
-    checkLogin(async () => {
-      const { promoterInfo, goodsInfo } = this.data;
-      const { cover, name, introduction, couponList, price, isGift } =
-        goodsInfo;
+  async share() {
+    const { cover, name, introduction, couponList, price, isGift } =
+      this.data.goodsInfo;
 
-      const scene = promoterInfo.id
+    const scene =
+      wx.getStorageSync("token") && store.promoterInfo
         ? `${this.goodsId}-${promoterInfo.id}`
         : `${this.goodsId}`;
-      const page = "pages/home/subpages/goods-detail/index";
-      const qrcode = await homeService.getQRCode(scene, page);
+    const page = "pages/home/subpages/goods-detail/index";
+    const qrcode = await homeService.getQRCode(scene, page);
 
-      this.setData({
-        posterModalVisible: true,
-        posterInfo: {
-          cover,
-          name,
-          introduction,
-          couponList,
-          price,
-          isGift,
-          qrcode
-        }
-      });
+    this.setData({
+      posterModalVisible: true,
+      posterInfo: {
+        cover,
+        name,
+        introduction,
+        couponList,
+        price,
+        isGift,
+        qrcode
+      }
     });
   },
 
