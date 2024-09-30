@@ -1,4 +1,5 @@
 <wxs module="NUM" src="/utils/filters/num.wxs" />
+<wxs module="TIME" src="/utils/filters/time.wxs" />
 
 <view class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}}" style="padding-top: {{statusBarHeight}}px;">
   <view class="nav-bar-inner">
@@ -95,7 +96,7 @@
     <view class="sales-record-item" wx:for="{{orderList}}" wx:key="index">
       <view class="order-info">
         <view class="order-sn-wrap">
-          <view class="order-sn" bindtap="checkOrderDetail" data-order-sn="{{item.orderSn}}">
+          <view class="order-sn" bindtap="checkOrderDetail" data-id="{{item.id}}">
             <view>订单编号：{{item.orderSn}}</view>
             <image class="order-sn-arrow" src="./images/more-gray.png" />
           </view>

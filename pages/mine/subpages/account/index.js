@@ -69,8 +69,8 @@ Page({
   },
 
   checkOrderDetail(e) {
-    const { orderSn } = e.currentTarget.dataset;
-    const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?orderSn=${orderSn}`;
+    const { id } = e.currentTarget.dataset;
+    const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${id}`;
     wx.navigateTo({ url });
   },
 
