@@ -48,18 +48,18 @@ Component({
         275,
         451
       );
-      await this.drawImage(
-        "https://static.youbozhenxuan.cn/mp/gift_poster_logo.png",
-        96,
-        36,
-        82.5,
-        32.5
+
+      this.roundRect(64, 158, 150, 150, 75, "", null, "#fff");
+      await this.roundRect(74, 168, 130, 130, 65, qrcode);
+      this.setText(13, "#633800", 137.5, 335, "扫二维码加入", "center");
+      this.setText(
+        13,
+        "#633800",
+        137.5,
+        355,
+        "诚信星球乡村振兴推广员",
+        "center"
       );
-
-      this.roundRect(64, 168, 150, 150, 75, "", null, "#fff");
-
-      await this.roundRect(74, 178, 130, 130, 65, qrcode);
-      this.setText(16, "#633800", 137.5, 350, "扫二维码打开小程序", "center");
 
       wx.canvasToTempFilePath(
         {
