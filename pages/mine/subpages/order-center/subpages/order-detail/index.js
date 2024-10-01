@@ -24,7 +24,7 @@ Page({
   onShow() {
     checkLogin(() => {
       this.setOrderInfo();
-    })
+    });
   },
 
   async setOrderInfo() {
@@ -32,16 +32,14 @@ Page({
     this.setData({ orderInfo });
 
     const { status, createdAt } = orderInfo;
-      if (status === 101) {
-        const countdown = Math.floor(
-          (dayjs(createdAt).valueOf() +
-            24 * 60 * 60 * 1000 -
-            dayjs().valueOf()) /
-            1000
-        );
-        this.setData({ countdown });
-        this.setCountdown();
-      }
+    if (status === 101) {
+      const countdown = Math.floor(
+        (dayjs(createdAt).valueOf() + 24 * 60 * 60 * 1000 - dayjs().valueOf()) /
+          1000
+      );
+      this.setData({ countdown });
+      this.setCountdown();
+    }
 
     const titleEnums = {
       101: "等待买家付款",
@@ -54,10 +52,10 @@ Page({
       301: "待收货",
       401: "待评价",
       402: "待评价",
-      501: "交易完成",
+      501: "交易完成"
     };
     wx.setNavigationBarTitle({
-      title: titleEnums[orderInfo.status],
+      title: titleEnums[orderInfo.status]
     });
   },
 
@@ -78,7 +76,7 @@ Page({
       data: this.data.orderInfo.orderSn,
       success: () => {
         wx.showToast({ title: "复制成功", icon: "none" });
-      },
+      }
     });
   },
 
@@ -88,56 +86,79 @@ Page({
       ...params,
       success: () => {
         this.setData({
-          ["orderInfo.status"]: 201,
+          ["orderInfo.status"]: 201
         });
-      },
+      }
     });
   },
 
   refundOrder() {
-    orderService.refundOrder(this.orderId, () => {
-      this.setData({
-        ["orderInfo.status"]: 202,
-      });
+    wx.showModal({
+      title: "确定申请退款吗？",
+      success: result => {
+        if (result.confirm) {
+          orderService.refundOrder(this.orderId, () => {
+            this.setData({
+              ["orderInfo.status"]: 202
+            });
+          });
+        }
+      }
     });
   },
 
   confirmOrder() {
     orderService.confirmOrder(this.orderId, () => {
       this.setData({
-        ["orderInfo.status"]: 401,
+        ["orderInfo.status"]: 401
       });
     });
   },
 
   deleteOrder() {
-    orderService.deleteOrder([this.orderId], () => {
-      wx.navigateBack();
+    wx.showModal({
+      title: "确定删除订单吗？",
+      success: result => {
+        if (result.confirm) {
+          orderService.deleteOrder([this.orderId], () => {
+            wx.navigateBack();
+          });
+        }
+      }
     });
   },
 
   cancelOrder() {
-    orderService.cancelOrder(this.orderId, () => {
-      this.setData({
-        ["orderInfo.status"]: 102,
-      });
+    wx.showModal({
+      title: "确定取消订单吗？",
+      success: result => {
+        if (result.confirm) {
+          orderService.cancelOrder(this.orderId, () => {
+            this.setData({
+              ["orderInfo.status"]: 102
+            });
+          });
+        }
+      }
     });
   },
 
   navToShipping() {
-    const { shipCode, shipSn, mobile } = this.data.orderInfo
+    const { shipCode, shipSn, mobile } = this.data.orderInfo;
     const url = `../shipping/index?shipCode=${shipCode}&shipSn=${shipSn}&mobile=${mobile}`;
     wx.navigateTo({ url });
   },
 
   navToEvaluation() {
     const { id, goodsList } = this.data.orderInfo;
-    const url = `../evaluation/index?orderId=${id}&goodsList=${JSON.stringify(goodsList)}`;
+    const url = `../evaluation/index?orderId=${id}&goodsList=${JSON.stringify(
+      goodsList
+    )}`;
     wx.navigateTo({ url });
   },
 
   onUnload() {
     clearInterval(this.countdownInterval);
     this.storeBindings.destroyStoreBindings();
-  },
+  }
 });
