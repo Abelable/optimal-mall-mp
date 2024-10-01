@@ -420,7 +420,7 @@ Page({
 
     const scene =
       wx.getStorageSync("token") && store.promoterInfo
-        ? `${this.goodsId}-${promoterInfo.id}`
+        ? `${this.goodsId}-${store.promoterInfo.id}`
         : `${this.goodsId}`;
     const page = "pages/home/subpages/goods-detail/index";
     const qrcode = await homeService.getQRCode(scene, page);
