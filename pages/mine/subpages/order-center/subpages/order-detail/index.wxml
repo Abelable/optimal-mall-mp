@@ -90,7 +90,7 @@
   <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder" hover-class="none">
     确认收货
   </button>
-  <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="refundOrder" hover-class="none">
+  <button class="btn active" wx:if="{{refundBtnVisible}}" bindtap="refundOrder" hover-class="none">
     申请退款
   </button>
   <button class="btn active" wx:if="{{orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403}}" bindtap="navToEvaluation" hover-class="none">

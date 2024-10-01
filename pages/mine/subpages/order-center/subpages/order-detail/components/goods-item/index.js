@@ -25,7 +25,7 @@ Component({
       if (
         [202, 401, 402, 403, 501].includes(status) &&
         item.refundStatus === 1 &&
-        dayjs(confirmTime).diff(dayjs().valueOf(), "day") <= 7
+        dayjs().diff(dayjs(confirmTime), "day") <= 7
       ) {
         this.setData({ refundBtnVisible: true });
       }

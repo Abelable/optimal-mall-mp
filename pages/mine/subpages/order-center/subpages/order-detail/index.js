@@ -9,7 +9,8 @@ const orderService = new OrderService();
 Page({
   data: {
     orderInfo: null,
-    countdown: 0
+    countdown: 0,
+    refundBtnVisible: false
   },
 
   onLoad({ id }) {
@@ -31,7 +32,7 @@ Page({
     const orderInfo = await orderService.getOrderDetail(this.orderId);
     this.setData({ orderInfo });
 
-    const { status, createdAt } = orderInfo;
+    const { status, createdAt, payTime } = orderInfo;
     if (status === 101) {
       const countdown = Math.floor(
         (dayjs(createdAt).valueOf() + 24 * 60 * 60 * 1000 - dayjs().valueOf()) /
@@ -39,6 +40,10 @@ Page({
       );
       this.setData({ countdown });
       this.setCountdown();
+    }
+
+    if (status === 201 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
+      this.setData({ refundBtnVisible: true });
     }
 
     const titleEnums = {

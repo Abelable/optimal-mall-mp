@@ -59,7 +59,7 @@
       >继续付款</button>
       <button 
         class="btn active" 
-        wx:if="{{item.status === 201}}"
+        wx:if="{{refundBtnVisible}}"
         catchtap="refundOrder"
         hover-class="none"
       >申请退款</button>

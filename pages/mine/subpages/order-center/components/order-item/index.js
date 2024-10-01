@@ -23,12 +23,13 @@ Component({
   },
 
   data: {
-    countdown: 0
+    countdown: 0,
+    refundBtnVisible: false
   },
 
   lifetimes: {
     attached() {
-      const { status, createdAt } = this.properties.item;
+      const { status, createdAt, payTime } = this.properties.item;
       if (status === 101) {
         const countdown = Math.floor(
           (dayjs(createdAt).valueOf() +
@@ -38,6 +39,10 @@ Component({
         );
         this.setData({ countdown });
         this.setCountdown();
+      }
+
+      if (status === 201 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
+        this.setData({ refundBtnVisible: true });
       }
     },
 
