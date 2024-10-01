@@ -71,9 +71,16 @@ Component({
     },
 
     refundOrder() {
-      const { item, index } = this.properties;
-      orderService.refundOrder(item.id, () => {
-        this.triggerEvent("update", { type: "refund", index });
+      wx.showModal({
+        title: "确定申请退款吗？",
+        success: result => {
+          if (result.confirm) {
+            const { item, index } = this.properties;
+            orderService.refundOrder(item.id, () => {
+              this.triggerEvent("update", { type: "refund", index });
+            });
+          }
+        }
       });
     },
 
@@ -85,16 +92,30 @@ Component({
     },
 
     deleteOrder() {
-      const { item, index } = this.properties;
-      orderService.deleteOrder([item.id], () => {
-        this.triggerEvent("update", { type: "delete", index });
+      wx.showModal({
+        title: "确定删除该订单吗？",
+        success: result => {
+          if (result.confirm) {
+            const { item, index } = this.properties;
+            orderService.deleteOrder([item.id], () => {
+              this.triggerEvent("update", { type: "delete", index });
+            });
+          }
+        }
       });
     },
 
     cancelOrder() {
-      const { item, index } = this.properties;
-      orderService.cancelOrder(item.id, () => {
-        this.triggerEvent("update", { type: "cancel", index });
+      wx.showModal({
+        title: "确定取消该订单吗？",
+        success: result => {
+          if (result.confirm) {
+            const { item, index } = this.properties;
+            orderService.cancelOrder(item.id, () => {
+              this.triggerEvent("update", { type: "cancel", index });
+            });
+          }
+        }
       });
     },
 
