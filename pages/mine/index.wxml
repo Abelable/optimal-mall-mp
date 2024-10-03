@@ -140,7 +140,7 @@
     </button>
   </view>
 
-   <view class="tool-list">
+   <view class="tool-list" wx:if="{{promoterInfo || userInfo.level}}">
     <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToTeamData">
       <image class="tool-icon" src="./images/member.png" />
       <view class="tool-desc">乡村振兴</view>
