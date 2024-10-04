@@ -42,7 +42,12 @@ Component({
   methods: {
     init() {
       checkLogin(async () => {
-        await mineService.getUserInfo();
+        const userInfo = await mineService.getUserInfo();
+        if (userInfo.level) {
+          if (!store.promoterInfo || store.promoterInfo.id !== userInfo.id) {
+            store.setPromoterInfo(userInfo);
+          }
+        }
         if (store.promoterInfo) {
           this.setCommissionSumInfo();
           this.setCommissionTimeData();
@@ -100,7 +105,7 @@ Component({
     showAuthInfoModal() {
       checkLogin(() => {
         this.setData({ authInfoModalVisible: true });
-      })
+      });
     },
 
     hideAuthInfoModal() {
@@ -120,7 +125,7 @@ Component({
     },
 
     navToIntegritySchool() {
-      checkLogin(() => {})
+      checkLogin(() => {});
     },
 
     navToOrderCenter(e) {
@@ -129,7 +134,7 @@ Component({
         wx.navigateTo({
           url: `./subpages/order-center/index?status=${status}`
         });
-      })
+      });
     },
 
     navToAddress() {
@@ -137,7 +142,7 @@ Component({
         wx.navigateTo({
           url: "./subpages/address-list/index"
         });
-      })
+      });
     },
 
     navToNotification() {
@@ -145,7 +150,7 @@ Component({
         wx.navigateTo({
           url: "./subpages/notification/index"
         });
-      })
+      });
     },
 
     navToCoupon() {
@@ -153,7 +158,7 @@ Component({
         wx.navigateTo({
           url: "./subpages/coupon-list/index"
         });
-      })
+      });
     },
 
     navToSetting() {
@@ -161,7 +166,7 @@ Component({
         wx.navigateTo({
           url: "./subpages/setting/index"
         });
-      })
+      });
     },
 
     navToTeamData() {
