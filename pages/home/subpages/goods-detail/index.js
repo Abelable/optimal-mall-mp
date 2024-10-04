@@ -379,27 +379,7 @@ Page({
   },
 
   setCommisstion() {
-    // 商品价格
-    // 商品数量
-    // 运费
-    // 优惠券
-    // 佣金 = （商品价格 * 商品数量 + 运费 - 优惠券）* 商品佣金
-    // const { goodsInfo, goodsNumber, selectedSkuIndex, bottomPrice } = this.data;
-    // const { price: initialPrice, skuList, commissionRate, addressInfo, freightTemplateInfo } = goodsInfo;
-    // const price = skuList.length ? skuList[selectedSkuIndex].price : initialPrice;
-    // const totalPrice = Math.floor(price * goodsNumber * 100) / 100;
-
-    // let freightPrice = 0;
-    // if (freightTemplateInfo) {
-    //   const {freeQuota, areaList, computeMode} = freightTemplateInfo;
-    //   if (freeQuota === 0 || totalPrice > freeQuota) {
-    //     const cityCode = JSON.parse(addressInfo.regionCodeList)[1].slice(0, 4)
-    //     const area = JSON.parse(areaList).find(item => item.pickedCityCodes.split(',').includes(cityCode))
-    //     if (area) {
-    //       freightPrice = computeMode === 1 ? area.fee : Math.floor(area.fee * goodsNumber * 100) / 100
-    //     }
-    //   }
-    // }
+    // todo 佣金 =（商品价格 * 商品数量 - 优惠券）* 商品佣金
 
     const { goodsInfo, selectedSkuIndex } = this.data;
     const { skuList, commissionRate } = goodsInfo;
