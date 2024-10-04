@@ -62,7 +62,9 @@ Page({
     );
     if (token) {
       wx.setStorageSync("token", token);
-      wx.removeStorageSync("superiorId");
+      if (this.superiorId) {
+        wx.removeStorageSync("superiorId");
+      }
       wx.navigateBack();
     }
   },
