@@ -42,6 +42,7 @@
         accept="image" 
         max-count="10" 
         deletable 
+        multiple
       />
     </view>
     <view class="relation-images" wx:if="{{status === 0}}" >

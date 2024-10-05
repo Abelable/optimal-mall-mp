@@ -24,6 +24,7 @@
         accept="image" 
         max-count="10" 
         deletable 
+        multiple
       />
     </view>
   </view>

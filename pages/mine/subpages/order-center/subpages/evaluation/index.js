@@ -23,33 +23,35 @@ Page({
     this.content = e.detail.value;
   },
 
-  async uploadImage(e) {
+  uploadImage(e) {
     const { index, file } = e.detail;
-    this.setData({
-      imageList: [
-        ...this.data.imageList,
-        { status: "uploading", message: "上传中", deletable: true },
-      ],
-    });
-    const url = (await orderService.uploadFile(file.url)) || "";
-    if (url) {
+    file.forEach(async (item, _index) => {
       this.setData({
-        [`imageList[${index}]`]: {
-          ...this.data.imageList[index],
-          status: "done",
-          message: "上传成功",
-          url,
-        },
+        imageList: [
+          ...this.data.imageList,
+          { status: "uploading", message: "上传中", deletable: true },
+        ],
       });
-    } else {
-      this.setData({
-        [`imageList[${index}]`]: {
-          ...this.data.imageList[index],
-          status: "fail",
-          message: "上传失败",
-        },
-      });
-    }
+      const url = (await orderService.uploadFile(item.url)) || "";
+      if (url) {
+        this.setData({
+          [`imageList[${index + _index}]`]: {
+            ...this.data.imageList[index + _index],
+            status: "done",
+            message: "上传成功",
+            url,
+          },
+        });
+      } else {
+        this.setData({
+          [`imageList[${index + _index}]`]: {
+            ...this.data.imageList[index + _index],
+            status: "fail",
+            message: "上传失败",
+          },
+        });
+      }
+    })
   },
 
   deleteImage(e) {
