@@ -1,4 +1,7 @@
 import { store } from "../../../../../../store/index";
+import AccountService from "../../utils/accountService";
+
+const accountService = new AccountService();
 
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
@@ -8,6 +11,7 @@ Page({
     navBarBgVisible: false,
     scene: 1,
     curOptionIdx: 0,
+    bancCardInfo: null,
     authModalVisible: false,
     btnActive: false
   },
@@ -16,9 +20,26 @@ Page({
     this.setData({ scene: +scene });
   },
 
+  onShow() {
+    this.setBankCardInfo();
+  },
+
   selectOption(e) {
     const curOptionIdx = e.currentTarget.dataset.index;
     this.setData({ curOptionIdx });
+  },
+
+  async setBankCardInfo() {
+    const bancCardInfo = await accountService.getBankCardInfo();
+    if (bancCardInfo) {
+      const { code, ...rest } = bancCardInfo;
+      this.setData({
+        bancCardInfo: {
+          code: `${code.slice(0, 5)}****${code.slice(-5)}`,
+          ...rest
+        }
+      });
+    }
   },
 
   onPageScroll(e) {
