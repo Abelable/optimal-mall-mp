@@ -97,7 +97,7 @@ class Base {
   async uploadFile(filePath) {
     const ossConfig = await this.getOssConfig();
 
-    const fileName = `${filePath.replace("http://tmp/", "")}`;
+    const fileName = `${filePath.replace("http://tmp/", "").replace("wxfile://tmp_", "")}`;
     const formData = {
       key: `${ossConfig.dir}${fileName}`,
       success_action_status: "200",
