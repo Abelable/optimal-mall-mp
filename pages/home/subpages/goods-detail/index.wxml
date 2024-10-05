@@ -243,9 +243,9 @@
       </view>
     </button>
   </view>
-  <view class="btns row" wx:if="{{!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
-    <button class="add-cart-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>
-    <button class="buy-btn {{!goodsInfo.stock ? 'invalid' : ''}}" bindtap="showSpecPopup" data-mode="{{2}}">
+  <view class="btns row" wx:if="{{goodsInfo.status === 1 && goodsInfo.stock && !goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
+    <button class="add-cart-btn" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>
+    <button class="buy-btn" bindtap="showSpecPopup" data-mode="{{2}}">
       <view>
         <view>{{goodsInfo.couponList.length ? "领券购买" : "立即购买"}}</view>
         <view wx:if="{{goodsInfo.couponList.length}}" style="margin-top: 10rpx;">券后¥{{bottomPrice}}起</view>
@@ -253,12 +253,13 @@
     </button>
   </view>
   <button 
-    wx:if="{{goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" 
+    wx:if="{{goodsInfo.status === 1 && goodsInfo.stock && goodsInfo.activityInfo && goodsInfo.activityInfo.status === 0}}" 
     class="notice-btn {{goodsInfo.activityInfo.isSubscribed ? 'invalid' : ''}}" 
     bindtap="subscribe"
   >
     {{goodsInfo.activityInfo.isSubscribed ? '已成功订阅' : '开售提醒我'}}
   </button>
+  <button wx:if="{{goodsInfo.status === 2 || !goodsInfo.stock}}" class="invalid-notice-btn">{{goodsInfo.status === 2 ? '商品库存不足' : '商品库存不足'}}</button>
 </view>
 
 <coupon-popup 

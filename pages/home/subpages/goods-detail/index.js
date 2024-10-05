@@ -353,7 +353,8 @@ Page({
   },
 
   showSpecPopup(e) {
-    if (this.data.goodsInfo.stock) {
+    const { status, stock } = this.data.goodsInfo
+    if (status === 1 && stock) {
       const { mode = 0 } = e.currentTarget.dataset;
       this.setData({
         specPopupVisible: true,

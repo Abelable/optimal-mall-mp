@@ -462,14 +462,15 @@
   color: #fff;
   background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
 }
-.add-cart-btn.invalid {
-  color: #ddd;
-  border-color: #ddd;
-}
-.buy-btn.invalid {
-  color: #fff;
-  background: #ddd;
-}
 .notice-btn.invalid {
   opacity: 0.5;
+}
+
+.invalid-notice-btn {
+  width: 220rpx;
+  height: 80rpx;
+  color: #fff;
+  font-size: 24rpx;
+  border-radius: 40rpx;
+  background: #d1d1d1;
 }
