@@ -173,7 +173,7 @@
         <view class="comment-label row">价格实惠（56）</view>
         <view class="comment-label row">价格实惠（56）</view>
       </view> -->
-      <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" noPadding unablePrewiew />
+      <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" noPadding unablePreview />
       <view class="more-comment-btn row">
         <view>查看全部评价</view>
         <image class="more-comment-btn-arrow" src="./images/option-arrow.png" />
