@@ -86,7 +86,7 @@ Page({
     const scene =
       wx.getStorageSync("token") && store.promoterInfo
         ? `${store.promoterInfo.id}`
-        : "";
+        : "-";
     const page = "pages/rural/subpages/gift/index";
     const qrcode = await giftService.getQRCode(scene, page);
 
