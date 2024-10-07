@@ -35,6 +35,13 @@
       <view class="title">运费</view>
       <price-unit price="{{orderInfo.freightPrice}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
     </view>
+    <view class="list row between" wx:if="{{orderInfo.couponDenomination}}">
+      <view class="title">优惠券抵扣</view>
+      <view class="row">
+        <text>-</text>
+        <price-unit price="{{orderInfo.couponDenomination}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
+      </view>
+    </view>
     <view class="list row between">
       <view class="title">{{ORDER.paymentDesc(orderInfo.status)}}</view>
       <price-unit price="{{orderInfo.paymentAmount}}" />
