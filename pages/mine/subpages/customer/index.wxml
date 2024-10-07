@@ -1,0 +1,29 @@
+<view class="header">
+  <view class="search-bar">
+    <image class="search-icon" src="./images/search.png" />
+    <input
+      class="search-input"
+      value="{{keywords}}"
+      bindinput="setKeywords"
+      placeholder="请输入昵称或手机号"
+    />
+    <image
+      class="clear-icon"
+      wx:if="{{keywords}}"
+      bindtap="clearSearch"
+      src="./images/close.png"
+    />
+    <view class="search-btn" bindtap="search">搜索</view>
+  </view>
+  <view class="menu" wx:if="{{!searching}}">
+    <view
+      class="menu-item {{curMenuIdx === index ? 'selected' : ''}}"
+      wx:for="{{['今日新增', '今日下单', '累计所有']}}"
+      wx:key="index"
+      bindtao="selectMenu"
+      data-index="{{index}}"
+    >
+      {{ item }}
+    </view>
+  </view>
+</view>

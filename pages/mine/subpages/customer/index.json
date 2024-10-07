@@ -1,5 +1,6 @@
 {
   "navigationBarTitleText": "我的客户",
+  "enablePullDownRefresh": true,
   "usingComponents": {
     "customer-item": "./components/customer-item/index"
   }
