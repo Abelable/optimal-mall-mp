@@ -74,17 +74,23 @@
   </view>
 
   <view class="customer-data-center" wx:if="{{userInfo.level}}">
-    <view class="title">我的客户</view>
+    <view class="title-wrap row between">
+      <view class="title">我的客户</view>
+      <view class="check-more-btn row" bindtap="navToCustomer" data-type="0">
+        <text>查看全部</text>
+        <image class="more-icon" src="./images/arrow.png" />
+      </view>
+    </view>
     <view class="customer-data-list">
-      <view class="customer-data-item">
+      <view class="customer-data-item" catchtap="navToCustomer" data-type="1">
         <view class="customer-data-desc">今日新增客户数</view>
         <view class="customer-data">{{customerData.todayNewCount || '-'}}</view>
       </view>
-      <view class="customer-data-item">
+      <view class="customer-data-item" catchtap="navToCustomer" data-type="2">
         <view class="customer-data-desc">今日下单客户数</view>
         <view class="customer-data">{{customerData.todayOrderingCount || '-'}}</view>
       </view>
-      <view class="customer-data-item">
+      <view class="customer-data-item" catchtap="navToCustomer" data-type="3">
         <view class="customer-data-desc">累积客户总数</view>
         <view class="customer-data">{{customerData.totalCount || '-'}}</view>
       </view>

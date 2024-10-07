@@ -161,6 +161,14 @@ Component({
       });
     },
 
+    navToCustomer() {
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "./subpages/customer/index"
+        });
+      });
+    },
+
     navToSetting() {
       checkLogin(() => {
         wx.navigateTo({
