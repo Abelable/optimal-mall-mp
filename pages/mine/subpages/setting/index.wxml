@@ -20,7 +20,7 @@
   <view class="list row between">
     <view class="title">关于诚信星球</view>
     <view class="row">
-      <view class="content">v1.0.0</view>
+      <view class="content">v{{version}}</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
   </view>

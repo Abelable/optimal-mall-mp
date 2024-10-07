@@ -5,12 +5,16 @@ const mineService = new MineService();
 
 Page({
   data: {
+    version: "",
     wxQrcode: "",
     signature: "",
     level: 0
   },
 
   onLoad() {
+    const { version = "1.0.0" } = wx.getAccountInfoSync().miniProgram;
+    this.setData({ version });
+
     const { wxQrcode, signature, level } = store.userInfo;
     this.setData({ wxQrcode, signature, level });
   },
@@ -36,8 +40,11 @@ Page({
 
   onUnload() {
     const { wxQrcode, signature } = this.data;
-    mineService.updateUserInfo({ ...store.userInfo, wxQrcode, signature }, () => {
-      store.setUserInfo({ ...store.userInfo, avatar, nickname });
-    });
+    mineService.updateUserInfo(
+      { ...store.userInfo, wxQrcode, signature },
+      () => {
+        store.setUserInfo({ ...store.userInfo, avatar, nickname });
+      }
+    );
   }
 });
