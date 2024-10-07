@@ -69,7 +69,7 @@
         bindtap="selectDate"
         data-index="{{index}}"
       >
-        {{item}}
+        {{item.text}}
       </view>
     </view>
     <view class="daily-data-list">

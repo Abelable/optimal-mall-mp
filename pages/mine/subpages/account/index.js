@@ -10,7 +10,13 @@ Page({
     navBarBgVisible: false,
     cashInfo: null,
     curMenuIdx: 0,
-    dateList: ["今日", "昨日", "本月", "上月", "全部"],
+    dateList: [
+      { text: "今日", value: 1 },
+      { text: "昨日", value: 2 },
+      { text: "本月", value: 3 },
+      { text: "上月", value: 4 },
+      { text: "全部", value: 0 }
+    ],
     curDateIdx: 0,
     timeData: null,
     orderList: [],
@@ -29,9 +35,9 @@ Page({
   },
 
   async setTimeData() {
-    const { curDateIdx, curMenuIdx } = this.data;
+    const { dateList, curDateIdx, curMenuIdx } = this.data;
     const timeData = await accountService.getCommissionTimeData(
-      curDateIdx + 1,
+      dateList[curDateIdx].value,
       curMenuIdx + 1
     );
     this.setData({ timeData });
@@ -56,10 +62,10 @@ Page({
       this.page = 0;
       this.setData({ finished: false });
     }
-    const { curMenuIdx, curDateIdx, orderList } = this.data;
+    const { curMenuIdx, dateList, curDateIdx, orderList } = this.data;
     const list = await accountService.getCommissionOrderList(
       curMenuIdx + 1,
-      curDateIdx + 1,
+      dateList[curDateIdx].value,
       ++this.page
     );
     this.setData({ orderList: init ? list : [...list, ...orderList] });
@@ -75,7 +81,7 @@ Page({
   },
 
   withdraw(e) {
-    const { scene } = e.currentTarget.dataset
+    const { scene } = e.currentTarget.dataset;
     wx.navigateTo({
       url: `./subpages/withdraw/index?scene=${scene}`
     });
@@ -113,5 +119,4 @@ Page({
       url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/agreements/withdraw_rules`
     });
   }
-
 });
