@@ -1,0 +1,32 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
+<view class="customer-item">
+  <view class="info-wrap">
+    <image class="avatar" src="{{item.avatar}}" lazy-load />
+    <view class="info">
+      <view class="name">{{ item.nickname }}</view>
+      <view class="mobile" bindtap="toggleMobileVisible">
+        <text>{{ mobileVisible ? item.mobile : mobile }}</text>
+        <image
+          class="visible-icon"
+          src="{{mobileVisible ? './images/show.png' : './images/hide.png'}}"
+        />
+      </view>
+      <view class="num-desc">
+        诚信星球第{{ item.promoterId }}号乡村振兴推广员
+      </view>
+    </view>
+  </view>
+  <view class="data-wrap">
+    <view class="gmv">GMV: ¥{{ item.GMV }}</view>
+    <view class="time">
+      提交时间: {{ TIME.transform(item.createdAt, 'YYYY.MM.DD') }}
+    </view>
+  </view>
+  <view
+    class="identity-tag {{['promoter', 'c1', 'c2', 'c3'][item.level - 1]}}"
+    wx:if="{{item.level}}"
+  >
+    {{ ["推广员", "c1", "c2", "c3"][item.level - 1] }}
+  </view>
+</view>
