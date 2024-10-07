@@ -79,3 +79,18 @@
   border-radius: 3rpx;
   background: #f5701d;
 }
+
+.container {
+  margin-top: 200rpx;
+  padding: 1rpx 24rpx 24rpx;
+}
+.container.searching {
+  margin-top: 120rpx;
+}
+
+.no-more-tips {
+  margin-top: 36rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}

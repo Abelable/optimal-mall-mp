@@ -26,6 +26,28 @@ class MineService extends BaseService {
       url: `${this.baseUrl}/order/totals`
     });
   }
+
+  async getTodayNewCustomerList() {
+    return await this.get({
+      url: `${this.baseUrl}/user/today_new_customer_list`
+    });
+  }
+
+  async getTodayOrderingCustomerList() {
+    return await this.get({
+      url: `${this.baseUrl}/user/today_ordering_customer_list`
+    });
+  }
+
+  async getCustomerList({ keywords, page, limit = 10 }) {
+    const { list = [] } =
+      (await this.get({
+        url: `${this.baseUrl}/user/customer_list`,
+        data: cleanObject({ keywords, page, limit }),
+        loadingTitle: "加载中..."
+      })) || {};
+    return list;
+  }
 }
 
 export default MineService;
