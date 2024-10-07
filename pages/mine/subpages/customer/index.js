@@ -12,7 +12,10 @@ Page({
     }
   },
 
-  selectMenu(e) {},
+  selectMenu(e) {
+    const curMenuIdx = Number(e.currentTarget.dataset.index);
+    this.setData({ curMenuIdx });
+  },
 
   setKeywords(e) {
     this.setData({

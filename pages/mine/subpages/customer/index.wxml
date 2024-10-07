@@ -20,7 +20,7 @@
       class="menu-item {{curMenuIdx === index ? 'selected' : ''}}"
       wx:for="{{['今日新增', '今日下单', '累计所有']}}"
       wx:key="index"
-      bindtao="selectMenu"
+      bindtap="selectMenu"
       data-index="{{index}}"
     >
       {{ item }}

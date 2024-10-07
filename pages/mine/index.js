@@ -161,10 +161,10 @@ Component({
       });
     },
 
-    navToCustomer() {
+    navToCustomer(e) {
       checkLogin(() => {
         wx.navigateTo({
-          url: "./subpages/customer/index"
+          url: `./subpages/customer/index?type=${e.currentTarget.dataset.type}`
         });
       });
     },
