@@ -101,7 +101,7 @@
             <image class="order-sn-arrow" src="./images/more-gray.png" />
           </view>
           <view class="order-status-wrap">
-            <view class="order-status">{{['待结算', '待提现', '已结算'][item.status - 1]}}</view>
+            <view class="order-status">{{item.status === 1 ? '待结算' : '已结算'}}</view>
             <view class="order-time">下单时间：{{TIME.transform(item.createdAt, 'YYYY.MM.DD')}}</view>
           </view>
         </view>
