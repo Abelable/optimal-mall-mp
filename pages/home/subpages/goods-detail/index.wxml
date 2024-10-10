@@ -259,7 +259,7 @@
   >
     {{goodsInfo.activityInfo.isSubscribed ? '已成功订阅' : '开售提醒我'}}
   </button>
-  <button wx:if="{{goodsInfo.status === 2 || !goodsInfo.stock}}" class="invalid-notice-btn">{{goodsInfo.status === 2 ? '商品库存不足' : '商品库存不足'}}</button>
+  <button wx:if="{{goodsInfo.status === 2 || !goodsInfo.stock}}" class="invalid-notice-btn">{{goodsInfo.status === 2 ? '商品已下架' : '商品库存不足'}}</button>
 </view>
 
 <coupon-popup 
