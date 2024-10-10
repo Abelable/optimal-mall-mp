@@ -4,6 +4,7 @@ import { store } from "../../../../../../store/index";
 import { checkLogin } from "../../../../../../utils/index";
 import OrderService from "../../utils/orderService";
 
+const plugin = requirePlugin("logisticsPlugin");
 const orderService = new OrderService();
 
 Page({
@@ -148,10 +149,9 @@ Page({
     });
   },
 
-  navToShipping() {
-    const { shipCode, shipSn, mobile } = this.data.orderInfo;
-    const url = `../shipping/index?shipCode=${shipCode}&shipSn=${shipSn}&mobile=${mobile}`;
-    wx.navigateTo({ url });
+  async checkShippingInfo() {
+    const waybillToken = await orderService.getWaybillToken(this.orderId);
+    plugin.openWaybillTracking({ waybillToken });
   },
 
   navToEvaluation() {

@@ -82,7 +82,7 @@
 </view>
 
 <view class="bottom-bar" wx:if="{{userInfo.id === orderInfo.userId}}">
-  <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="navToShipping" data-id="{{orderInfo.id}}" hover-class="none">
+  <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="checkShippingInfo" hover-class="none">
     查看物流
   </button>
   <button 
