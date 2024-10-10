@@ -1,3 +1,4 @@
+import { cleanObject } from "../../../../../utils/index";
 import MineService from "../../../utils/mineService";
 
 class AccountService extends MineService {
@@ -7,10 +8,16 @@ class AccountService extends MineService {
     });
   }
 
-  async getCommissionOrderList(scene, timeType, page, limit = 10) {
-    const { list = [] } = await this.get({
+  async getCommissionOrderList({
+    scene,
+    timeType,
+    statusList,
+    page,
+    limit = 10
+  }) {
+    const { list = [] } = await this.post({
       url: `${this.baseUrl}/order/commission_list`,
-      data: { scene, timeType, page, limit },
+      data: cleanObject({ scene, timeType, statusList, page, limit }),
       loadingTitle: "加载中..."
     });
     return list;
@@ -27,7 +34,7 @@ class AccountService extends MineService {
       url: `${this.baseUrl}/bank_card/add`,
       data: { name, code, bankName },
       success
-    })
+    });
   }
 
   async editBankCard(name, code, bankName, success) {
@@ -35,7 +42,7 @@ class AccountService extends MineService {
       url: `${this.baseUrl}/bank_card/edit`,
       data: { name, code, bankName },
       success
-    })
+    });
   }
 }
 

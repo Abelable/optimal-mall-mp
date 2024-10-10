@@ -63,11 +63,12 @@ Page({
       this.setData({ finished: false });
     }
     const { curMenuIdx, dateList, curDateIdx, orderList } = this.data;
-    const list = await accountService.getCommissionOrderList(
-      curMenuIdx + 1,
-      dateList[curDateIdx].value,
-      ++this.page
-    );
+    const list = await accountService.getCommissionOrderList({
+      scene: curMenuIdx + 1,
+      timeType: dateList[curDateIdx].value,
+      statusList: [1, 2, 3],
+      paeg: ++this.page
+    });
     this.setData({ orderList: init ? list : [...list, ...orderList] });
     if (!list.length) {
       this.setData({ finished: true });
