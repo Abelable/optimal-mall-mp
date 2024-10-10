@@ -79,5 +79,11 @@
     "backgroundColor": "#f5f6f8"
   },
   "sitemapLocation": "sitemap.json",
-  "lazyCodeLoading": "requiredComponents"
+  "lazyCodeLoading": "requiredComponents",
+  "plugins": {
+    "logisticsPlugin": {
+      "version": "2.1.14",
+      "provider": "wx9ad912bf20548d92"
+    }
+  }
 }

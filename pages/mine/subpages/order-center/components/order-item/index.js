@@ -3,6 +3,7 @@ import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../../../../../store/index";
 import OrderService from "../../utils/orderService";
 
+const plugin = requirePlugin("logisticsPlugin");
 const orderService = new OrderService();
 
 Component({
@@ -130,10 +131,10 @@ Component({
       wx.navigateTo({ url });
     },
 
-    navToShipping() {
+    async checkShippingInfo() {
       const { id } = this.properties.item;
-      const url = `/pages/mine/subpages/order-center/subpages/shipping/index?orderId=${id}`;
-      wx.navigateTo({ url });
+      const waybillToken = await orderService.getWaybillToken(id);
+      plugin.openWaybillTracking({ waybillToken });
     },
 
     navToEvaluation() {

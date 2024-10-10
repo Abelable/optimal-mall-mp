@@ -29,7 +29,7 @@
       <button 
         class="btn" 
         wx:if="{{item.status === 301}}" 
-        catchtap="navToShipping"
+        catchtap="checkShippingInfo"
         hover-class="none"
       >查看物流</button>
       <button 

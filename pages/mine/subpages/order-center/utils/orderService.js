@@ -119,6 +119,13 @@ class OrderService extends MineService {
       success
     });
   }
+
+  async getWaybillToken(id) {
+    return await this.get({
+      url: `${this.baseUrl}/order/waybill_token`,
+      data: { id }
+    });
+  }
 }
 
 export default OrderService;
