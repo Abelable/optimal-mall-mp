@@ -35,15 +35,17 @@
 .delete-btn, .save-btn {
   flex: 1;
   height: 80rpx;
-  color: #fff;
   font-size: 28rpx;
   border-radius: 40rpx;
 }
 .delete-btn {
   margin-right: 12rpx;
-  background: #FD0B0A;
+  color: #FD0B0A;
+  border: 1px solid #FD0B0A;
 }
 .save-btn {
   margin-left: 12rpx;
+  color: #fff;
   background: #F5701D;
+  border: 1px solid #F5701D;
 }
