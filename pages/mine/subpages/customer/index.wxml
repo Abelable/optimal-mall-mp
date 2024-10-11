@@ -33,5 +33,5 @@
     <customer-item wx:for="{{customerList}}" wx:key="index" item="{{item}}" />
   </view>
   <empty-illus wx:if="{{finished && !customerList.length}}" desc="{{searching ? '未搜索到客户' : curMenuIdx === 0 ? '暂无新增客户' : curMenuIdx === 1 ? '暂无下单客户' : '暂无客户'}}" />
-  <view class="no-more-tips" wx:if="{{finished && customerList.length}}">～没有更多了～</view>
+  <view class="no-more-tips" wx:if="{{curMenuIdx === 2 && finished && customerList.length}}">～没有更多了～</view>
 </view>

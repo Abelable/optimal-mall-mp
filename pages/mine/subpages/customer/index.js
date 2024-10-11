@@ -54,7 +54,9 @@ Page({
   },
 
   onReachBottom() {
-    this.setCustomerList();
+    if (this.data.curMenuIdx === 2) {
+      this.setCustomerList();
+    }
   },
 
   async setCustomerList(init = false) {
