@@ -23,4 +23,10 @@
 
 <empty-illus wx:if="{{!addressList.length}}" desc="暂无地址列表" />
 
-<button class="add-btn" bindtap="addAddress">添加地址</button>
+<view class="btn-wrap">
+  <view class="add-btn" bindtap="addAddress">添加地址</view>
+  <view class="wx-btn" bindtap="getWxAddress">
+    <image class="wx-icon" src="/images/wx.png" />
+    <view>获取微信地址</view>
+  </view>
+</view>

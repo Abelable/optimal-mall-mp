@@ -85,5 +85,8 @@
       "version": "2.1.14",
       "provider": "wx9ad912bf20548d92"
     }
-  }
+  },
+  "requiredPrivateInfos": [
+    "chooseAddress"
+  ]
 }
