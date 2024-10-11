@@ -64,9 +64,11 @@ Component({
     },
 
     navToAddressListPage() {
-      wx.navigateTo({
-        url: "/pages/mine/subpages/address-list/index"
-      });
+      checkLogin(() => {
+        wx.navigateTo({
+          url: "/pages/mine/subpages/address-list/index"
+        });
+      })
     }
   }
 });
