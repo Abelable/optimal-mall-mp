@@ -15,27 +15,26 @@ Component({
         if (truthy && !this.data.specList.length) {
           const { goodsInfo, cartInfo } = this.properties;
           if (goodsInfo.specList.length) {
-            if (cartInfo) {
-              const { selectedSkuName, selectedSkuIndex, number } = cartInfo;
-              const { name, stock } = goodsInfo.skuList[selectedSkuIndex];
-              if (
-                selectedSkuName !== "" &&
-                selectedSkuIndex !== -1 &&
-                name === selectedSkuName
-              ) {
-                const specList = goodsInfo.specList.map(item => ({
-                  ...item,
-                  options: item.options.map(_item => ({
-                    name: _item,
-                    selected: selectedSkuName.includes(_item)
-                  }))
-                }));
-                this.setData({
-                  specList,
-                  count: number > stock ? stock : number
-                });
-                return;
-              }
+            const { selectedSkuName, selectedSkuIndex, number } =
+              cartInfo || {};
+            const { name, stock } = goodsInfo.skuList[selectedSkuIndex] || {};
+            if (
+              cartInfo &&
+              selectedSkuName !== "" &&
+              selectedSkuIndex !== -1 &&
+              name === selectedSkuName
+            ) {
+              const specList = goodsInfo.specList.map(item => ({
+                ...item,
+                options: item.options.map(_item => ({
+                  name: _item,
+                  selected: selectedSkuName.includes(_item)
+                }))
+              }));
+              this.setData({
+                specList,
+                count: number > stock ? stock : number
+              });
             } else {
               const specList = goodsInfo.specList.map(item => ({
                 ...item,

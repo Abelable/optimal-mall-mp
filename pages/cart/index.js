@@ -45,7 +45,7 @@ Page({
     const { cartList, recommendGoodsList } = this.data;
     const goodsIds = cartList.map(({ goodsId }) => goodsId);
     const categoryIds = Array.from(
-      new Set(cartList.reduce((a, c) => [...a, ...c.categoryIds], []))
+      new Set(cartList.reduce((a, c) => [...a, ...c.categoryIds || []], []))
     );
 
     const list = await cartService.getRecommedGoodsList(
