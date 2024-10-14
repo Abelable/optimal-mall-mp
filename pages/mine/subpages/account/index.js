@@ -67,7 +67,7 @@ Page({
       scene: curMenuIdx + 1,
       timeType: dateList[curDateIdx].value,
       statusList: [1, 2, 3],
-      paeg: ++this.page
+      page: ++this.page
     });
     this.setData({ orderList: init ? list : [...list, ...orderList] });
     if (!list.length) {
