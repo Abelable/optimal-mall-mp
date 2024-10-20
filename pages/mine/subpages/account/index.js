@@ -69,7 +69,7 @@ Page({
       statusList: [1, 2, 3],
       page: ++this.page
     });
-    this.setData({ orderList: init ? list : [...list, ...orderList] });
+    this.setData({ orderList: init ? list : [...orderList, ...list] });
     if (!list.length) {
       this.setData({ finished: true });
     }

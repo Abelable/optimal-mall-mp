@@ -115,7 +115,7 @@
           <image class="goods-cover" src="{{goods.cover}}" />
           <view class="goods-info">
             <view class="goods-name omit">{{goods.name}}</view>
-            <view class="goods-spec">{{goods.selectedSkuName}}</view>
+            <view class="goods-spec omit single-line">{{goods.selectedSkuName}}</view>
             <view class="goods-commission">返现¥{{goods.commission}}</view>
           </view>
         </view>
