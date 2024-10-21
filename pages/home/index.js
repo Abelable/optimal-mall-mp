@@ -1,6 +1,5 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../store/index";
-import { WEBVIEW_BASE_URL } from "../../config";
 import HomeService from "./utils/homeService";
 
 const homeService = new HomeService();
@@ -140,7 +139,7 @@ Component({
         switch (scene) {
           case "1":
             wx.navigateTo({
-              url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}${param}`
+              url: `/pages/common/webview/index?url=${param}`
             });
             break;
 

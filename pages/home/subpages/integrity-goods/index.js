@@ -32,13 +32,13 @@ Page({
   linkTo(e) {
     const { scene, param } = e.currentTarget.dataset;
     switch (scene) {
-      case 1:
+      case "1":
         wx.navigateTo({
-          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}${param}`
+          url: `/pages/common/webview/index?url=${param}`
         });
         break;
 
-      case 2:
+      case "2":
         wx.navigateTo({
           url: `/pages/home/subpages/goods-detail/index?id=${param}`
         });
