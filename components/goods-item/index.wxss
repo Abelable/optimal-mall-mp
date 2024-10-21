@@ -60,6 +60,7 @@
 .group-buying-activity-sales {
   color: #fff;
   font-size: 22rpx;
+  white-space: nowrap;
 }
 
 .content {
