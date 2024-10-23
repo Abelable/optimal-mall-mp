@@ -168,8 +168,8 @@ Component({
     onShareAppMessage() {
       const { id, nickname, signature } = store.promoterInfo || {};
       const title = nickname
-        ? `${nickname} ${signature || "好物尽在诚信星球"}`
-        : "好物尽在诚信星球";
+        ? `${nickname} ${signature || "让时间见证信任"}`
+        : "让时间见证信任";
       const path = id
         ? `/pages/home/index?superiorId=${id}`
         : "/pages/home/index";

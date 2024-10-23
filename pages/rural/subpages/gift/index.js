@@ -106,8 +106,8 @@ Page({
   onShareAppMessage() {
     const { id, nickname, signature } = store.promoterInfo || {};
     const title = nickname
-      ? `${nickname} ${signature || "好物尽在诚信星球"}`
-      : "好物尽在诚信星球";
+      ? `${nickname} ${signature || "让时间见证信任"}`
+      : "让时间见证信任";
     const path = id
       ? `/pages/rural/subpages/gift/index?superiorId=${id}`
       : "/pages/rural/subpages/gift/index";
@@ -118,8 +118,8 @@ Page({
   onShareTimeline() {
     const { id, nickname, signature } = store.promoterInfo || {};
     const title = nickname
-      ? `${nickname} ${signature || "好物尽在诚信星球"}`
-      : "好物尽在诚信星球";
+      ? `${nickname} ${signature || "让时间见证信任"}`
+      : "让时间见证信任";
     const query = id ? `superiorId=${id}` : "";
     const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
     return { query, title, imageUrl };
