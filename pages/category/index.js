@@ -18,7 +18,9 @@ Component({
     bannerList: [],
     categoryOptions: [],
     curCategoryIdx: 0,
-    goodsLists: []
+    goodsLists: [],
+    posterInfo: null,
+    posterModelVisible: false
   },
 
   methods: {
@@ -140,6 +142,40 @@ Component({
           });
           break;
       }
+    },
+
+    async share() {
+      const scene =
+        wx.getStorageSync("token") && store.promoterInfo
+          ? `${store.promoterInfo.id}`
+          : "-";
+      const page = "pages/home/index";
+      const qrcode = await categoryService.getQRCode(scene, page);
+  
+      this.setData({
+        posterModalVisible: true,
+        posterInfo: { qrcode }
+      });
+    },
+  
+    hidePosterModal() {
+      this.setData({
+        posterModalVisible: false
+      });
+    },
+
+    // 分享
+    onShareAppMessage() {
+      const { id, nickname, signature } = store.promoterInfo || {};
+      const title = nickname
+        ? `${nickname} ${signature || "让时间见证信任"}`
+        : "让时间见证信任";
+      const path = id
+        ? `/pages/home/index?superiorId=${id}`
+        : "/pages/home/index";
+      const imageUrl =
+        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+      return { title, imageUrl, path };
     },
 
     // 分享

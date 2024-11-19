@@ -14,9 +14,9 @@
     <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
       <image class="search-icon" src="/images/search.png" />
     </view>
-    <button class="share-btn" open-type="share" hover-class="none">
+    <view class="share-btn" bindtap="share">
       <image class="share-icon" src="/images/share.png" />
-    </button>
+    </view>
   </view>
 </view>
 
@@ -46,3 +46,5 @@
     </scroll-view>
   </view>
 </view>
+
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />

@@ -5,6 +5,7 @@
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
     "fall-flow": "/components/fall-flow/index",
-    "auth-info-modal": "./components/auth-info-modal/index"
+    "auth-info-modal": "./components/auth-info-modal/index",
+    "poster-modal": "/components/poster-modal/index"
   }
 }

@@ -30,7 +30,9 @@ Component({
       { en: "done", zh: "待评价", total: 0 },
       { en: "refund", zh: "售后", total: 0 }
     ],
-    authInfoModalVisible: false
+    authInfoModalVisible: false,
+    posterInfo: null,
+    posterModelVisible: false
   },
 
   pageLifetimes: {
@@ -181,6 +183,40 @@ Component({
       wx.navigateTo({
         url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team`
       });
+    },
+
+    async share() {
+      const scene =
+        wx.getStorageSync("token") && store.promoterInfo
+          ? `${store.promoterInfo.id}`
+          : "-";
+      const page = "pages/home/index";
+      const qrcode = await mineService.getQRCode(scene, page);
+  
+      this.setData({
+        posterModalVisible: true,
+        posterInfo: { qrcode }
+      });
+    },
+  
+    hidePosterModal() {
+      this.setData({
+        posterModalVisible: false
+      });
+    },
+
+    // 分享
+    onShareAppMessage() {
+      const { id, nickname, signature } = store.promoterInfo || {};
+      const title = nickname
+        ? `${nickname} ${signature || "让时间见证信任"}`
+        : "让时间见证信任";
+      const path = id
+        ? `/pages/home/index?superiorId=${id}`
+        : "/pages/home/index";
+      const imageUrl =
+        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+      return { title, imageUrl, path };
     },
 
     // 分享
