@@ -93,8 +93,8 @@ Component({
       if (isGift) {
         await this.drawImage(
           "https://static.youbozhenxuan.cn/mp/rural-promote-tag.png",
-          152,
-          257,
+          177,
+          282,
           97,
           36
         );
