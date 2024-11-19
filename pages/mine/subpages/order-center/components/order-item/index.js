@@ -30,7 +30,7 @@ Component({
 
   lifetimes: {
     attached() {
-      const { status, createdAt, payTime } = this.properties.item;
+      const { status, createdAt, payTime, goodsList } = this.properties.item;
       if (status === 101) {
         const countdown = Math.floor(
           (dayjs(createdAt).valueOf() +
@@ -42,8 +42,11 @@ Component({
         this.setCountdown();
       }
 
-      if (status === 201 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
-        this.setData({ refundBtnVisible: true });
+      if (status === 201) {
+        const giftGoodsIdx = goodsList.findIndex(item => item.isGift)
+        if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
+          this.setData({ refundBtnVisible: true });
+        }
       }
     },
 

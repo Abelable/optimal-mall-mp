@@ -33,7 +33,7 @@ Page({
     const orderInfo = await orderService.getOrderDetail(this.orderId);
     this.setData({ orderInfo });
 
-    const { status, createdAt, payTime } = orderInfo;
+    const { status, createdAt, payTime, goodsList } = orderInfo;
     if (status === 101) {
       const countdown = Math.floor(
         (dayjs(createdAt).valueOf() + 24 * 60 * 60 * 1000 - dayjs().valueOf()) /
@@ -43,8 +43,11 @@ Page({
       this.setCountdown();
     }
 
-    if (status === 201 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
-      this.setData({ refundBtnVisible: true });
+    if (status === 201) {
+      const giftGoodsIdx = goodsList.findIndex(item => item.isGift)
+      if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
+        this.setData({ refundBtnVisible: true });
+      }
     }
 
     const titleEnums = {
