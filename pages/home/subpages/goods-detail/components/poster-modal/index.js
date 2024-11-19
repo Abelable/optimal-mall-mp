@@ -55,8 +55,8 @@ Component({
         "https://static.youbozhenxuan.cn/mp/poster_bg.png",
         0,
         0,
-        275,
-        525
+        300,
+        533
       );
       await this.drawImage(
         "https://static.youbozhenxuan.cn/mp/poster_logo.png",
@@ -65,10 +65,10 @@ Component({
         96,
         32
       );
-      this.setText(14, "#fff", 137.5, 500, "让  时  间  见  证  信  任", 'center');
+      this.setText(14, "#fff", 150, 510, "让  时  间  见  证  信  任", 'center');
       
       this.roundRect(
-        162,
+        187,
         15,
         100,
         30,
@@ -79,16 +79,16 @@ Component({
       );
       if (store.userInfo) {
         const { avatar, nickname } = store.userInfo;
-        await this.roundRect(165, 18, 24, 24, 12, avatar);
-        this.setText(10, "#000", 192, 29, nickname, 'left');
+        await this.roundRect(190, 18, 24, 24, 12, avatar);
+        this.setText(10, "#000", 217, 29, nickname, 'left');
       } else {
-        await this.roundRect(165, 18, 24, 24, 12, "https://static.youbozhenxuan.cn/mp/logo.png");
-        this.setText(10, "#000", 192, 29, '诚信星球', 'left');
+        await this.roundRect(190, 18, 24, 24, 12, "https://static.youbozhenxuan.cn/mp/logo.png");
+        this.setText(10, "#000", 217, 29, '诚信星球', 'left');
       }
-      this.setText(7, "#6A6F75", 192, 40, "为您推荐优质好物");
+      this.setText(7, "#6A6F75", 217, 40, "为您推荐优质好物");
 
-      this.roundRect(12, 55, 249, 411, 10, '', null, '#fff')
-      await this.roundRect(24, 67, 225, 225, 5, cover);
+      this.roundRect(12, 55, 274, 421, 10, '', null, '#fff')
+      await this.roundRect(24, 67, 250, 250, 5, cover);
 
       if (isGift) {
         await this.drawImage(
@@ -104,10 +104,10 @@ Component({
         16,
         "#333",
         24,
-        318,
+        338,
         name,
         22,
-        225,
+        250,
         false,
         2
       );
@@ -115,18 +115,18 @@ Component({
         13,
         "#F5701D",
         24,
-        363,
+        383,
         introduction,
         12,
-        225,
+        250,
         false,
         1
       );
-      this.setCouponList(couponList, 24, 390)
-      this.setPrice(price, 24, 435);
+      this.setCouponList(couponList, 24, 410)
+      this.setPrice(price, 24, 460);
 
-      await this.drawImage(qrcode, 185, 384, 56, 56);
-      this.setText(8, "#F5701D", 213, 452, "微信长按识别商品", "center");
+      await this.drawImage(qrcode, 210, 395, 56, 56);
+      this.setText(8, "#F5701D", 238, 463, "微信长按识别商品", "center");
 
       wx.canvasToTempFilePath(
         {
