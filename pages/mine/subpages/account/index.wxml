@@ -96,9 +96,9 @@
     <view class="sales-record-item" wx:for="{{orderList}}" wx:key="index">
       <view class="order-info">
         <view class="order-sn-wrap">
-          <view class="order-sn" bindtap="checkOrderDetail" data-id="{{item.id}}">
+          <view class="order-sn" bindtap="checkOrderDetail" data-id="{{item.id}}" data-scene="{{item.scene}}">
             <view>订单编号：{{item.orderSn}}</view>
-            <image class="order-sn-arrow" src="./images/more-gray.png" />
+            <image class="order-sn-arrow" wx:if="{{item.scene === 1}}" src="./images/more-gray.png" />
           </view>
           <view class="order-status-wrap">
             <view class="order-status">{{item.status === 1 ? '待结算' : '已结算'}}</view>

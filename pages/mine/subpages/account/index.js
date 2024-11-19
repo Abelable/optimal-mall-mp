@@ -76,9 +76,11 @@ Page({
   },
 
   checkOrderDetail(e) {
-    const { id } = e.currentTarget.dataset;
-    const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${id}`;
-    wx.navigateTo({ url });
+    const { id, scene } = e.currentTarget.dataset;
+    if (scene === 1) {
+      const url = `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${id}`;
+      wx.navigateTo({ url });
+    }
   },
 
   withdraw(e) {
