@@ -1,6 +1,9 @@
 <view class="goods-list">
   <view class="goods-item row" wx:for="{{list}}" wx:key="index" >
-    <image class="goods-img" src="{{item.cover}}" mode="aspectFill" lazy-load />
+    <view class="goods-cover-wrap {{item.isGift ? 'is-gift' : ''}}">
+      <image class="goods-cover {{item.isGift ? 'is-gift' : ''}}" src="{{item.cover}}" mode="aspectFill" lazy-load />
+      <image class="promote-tag" wx:if="{{item.isGift}}" src="https://static.youbozhenxuan.cn/mp/rural-promote-tag.png" />
+    </view>
     <view class="goods-content">
       <view class="goods-name omit">{{item.name}}</view>
       <view class="goods-sku omit single" wx:if="{{item.selectedSkuName}}">规格：{{item.selectedSkuName}}</view>

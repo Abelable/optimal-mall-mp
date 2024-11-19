@@ -1,13 +1,36 @@
 .goods-item {
   margin-top: 24rpx;
 }
-.goods-img {
-  margin-left: 8rpx;
+
+.goods-cover-wrap {
   margin-right: 18rpx;
   width: 184rpx;
   height: 184rpx;
   border-radius: 16rpx;
 }
+.goods-cover-wrap.is-gift {
+  position: relative;
+  padding: 6rpx;
+  border-radius: 18rpx;
+  background: linear-gradient(139deg, rgba(249, 250, 216), rgba(211, 225, 155));
+}
+.goods-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 16rpx;
+}
+.goods-cover.is-gift {
+  border-radius: 14rpx;
+}
+
+.promote-tag {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  width: 110rpx;
+  height: 40rpx;
+}
+
 .goods-content {
   display: flex;
   flex-direction: column;
