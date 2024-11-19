@@ -14,9 +14,9 @@
     <view class="search-btn" wx:if="{{promoterInfo}}" bindtap="search">
       <image class="search-icon" src="/images/search.png" />
     </view>
-    <button class="share-btn" open-type="share" hover-class="none">
+    <view class="share-btn" bindtap="share">
       <image class="share-icon" src="/images/share.png" />
-    </button>
+    </view>
   </view>
 </view>
 
@@ -71,3 +71,5 @@
   <empty-illus wx:if="{{finished && !goodsList.length}}" desc="暂无商品" />
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
 </view>
+
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />
