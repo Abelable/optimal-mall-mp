@@ -87,7 +87,7 @@ Component({
       }
       this.setText(7, "#6A6F75", 217, 40, "为您推荐优质好物");
 
-      this.roundRect(12, 55, 274, 421, 10, '', null, '#fff')
+      this.roundRect(12, 55, 274, 426, 10, '', null, '#fff')
       await this.roundRect(24, 67, 250, 250, 5, cover);
 
       if (isGift) {
@@ -104,7 +104,7 @@ Component({
         16,
         "#333",
         24,
-        338,
+        343,
         name,
         22,
         250,
@@ -115,18 +115,18 @@ Component({
         13,
         "#F5701D",
         24,
-        383,
+        388,
         introduction,
         12,
         250,
         false,
         1
       );
-      this.setCouponList(couponList, 24, 410)
-      this.setPrice(price, 24, 460);
+      this.setCouponList(couponList, 24, 415)
+      this.setPrice(price, 24, 465);
 
-      await this.drawImage(qrcode, 210, 395, 56, 56);
-      this.setText(8, "#F5701D", 238, 463, "微信长按识别商品", "center");
+      await this.drawImage(qrcode, 210, 400, 56, 56);
+      this.setText(8, "#F5701D", 238, 468, "微信长按识别商品", "center");
 
       wx.canvasToTempFilePath(
         {
