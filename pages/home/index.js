@@ -30,12 +30,14 @@ Component({
 
   methods: {
     onLoad(options) {
-      const { superiorId = "" } = options || {};
+      const { superiorId = "", scene = "" } = options || {};
+      const decodedScene = scene ? decodeURIComponent(scene) : "";
+      this.superiorId = superiorId || decodedScene.split("-")[0];
       
       getApp().onLaunched(async () => {
-        if (superiorId && !store.promoterInfo) {
-          wx.setStorageSync("superiorId", superiorId);
-          const superiorInfo = await homeService.getSuperiorInfo(superiorId);
+        if (this.superiorId && !store.promoterInfo) {
+          wx.setStorageSync("superiorId", this.superiorId);
+          const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
           store.setPromoterInfo(superiorInfo);
         }
       });
