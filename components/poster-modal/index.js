@@ -41,10 +41,16 @@ Component({
     async createPoster() {
       const { qrcode } = this.properties.info || {};
 
-      await this.roundRect(0, 0, 275, 489, 8, "https://static.youbozhenxuan.cn/mp/home_poster_bg.png");
+      await this.roundRect(
+        0,
+        0,
+        275,
+        489,
+        8,
+        "https://static.youbozhenxuan.cn/mp/home_poster_bg.png"
+      );
 
-      await this.roundRect(210, 410, 56, 56, 28, qrcode);
-      this.setText(8, "#F5701D", 238, 478, "扫二维码加入", "center");
+      await this.roundRect(84, 260, 110, 110, 55, qrcode);
 
       wx.canvasToTempFilePath(
         {
@@ -316,6 +322,26 @@ Component({
         success: () => {
           this.triggerEvent("hide");
           wx.showToast({ title: "成功保存", icon: "none" });
+        }
+      });
+    },
+
+    saveQrcode() {
+      const imgSrc = this.properties.info.qrcode.split(",")[1];
+      const save = wx.getFileSystemManager();
+      const number = Math.random();
+      save.writeFile({
+        filePath: wx.env.USER_DATA_PATH + "/pic" + number + ".png",
+        data: imgSrc,
+        encoding: "base64",
+        success: () => {
+          wx.saveImageToPhotosAlbum({
+            filePath: wx.env.USER_DATA_PATH + "/pic" + number + ".png",
+            success: () => {
+              this.triggerEvent("hide");
+              wx.showToast({ title: "保存成功", icon: "none" });
+            }
+          });
         }
       });
     },
