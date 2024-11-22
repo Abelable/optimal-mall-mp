@@ -1,3 +1,41 @@
+.card-title {
+  color: #333;
+  font-size: 28rpx;
+}
+.filling-area {
+  margin-top: 24rpx;
+  padding: 12rpx;
+  width: 100%;
+  height: 240rpx;
+  font-size: 26rpx;
+  box-sizing: border-box;
+  border-radius: 12rpx;
+  border: 1rpx solid #dbdbdb;
+}
+.btns-wrap {
+  display: flex; 
+  justify-content: flex-end; 
+  align-items: center;
+  margin-top: 24rpx;
+}
+.text-btns {
+  display: flex;
+  align-items: center;
+  font-size: 26rpx;
+}
+.clear-btn, .submit-btn {
+  padding: 3px 10px;
+}
+.clear-btn {
+  margin-right: 10rpx;
+  color: #333;
+}
+.submit-btn {
+  color: #fff;
+  background: #F5701D;
+  border-radius: 5px;
+}
+
 .card {
   margin: 24rpx;
   padding: 0 24rpx;

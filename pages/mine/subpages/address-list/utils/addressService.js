@@ -32,6 +32,14 @@ class AddressService extends BaseService {
       success
     })
   }
+
+  async analyzeAddress(text) {
+    return await this.post({
+      url: `${this.baseUrl}/address/analyze`,
+      data: { text },
+      loadingTitle: '识别中...'
+    })
+  }
 }
 
 export default AddressService

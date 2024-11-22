@@ -1,11 +1,22 @@
+<view class="card" style="padding: 24rpx;">
+  <view class="card-title">智能地址填写</view>
+  <textarea class="filling-area" bindinput="textInput" value="{{text}}" rows="5" cols="40" placeholder="粘贴整段地址自动识别姓名、电话和地址" />
+  <view class="btns-wrap">
+    <view class="text-btns">
+      <view class="clear-btn" bindtap="clearText">清空</view>
+      <view class="submit-btn" bindtap="recognizeText">识别</view>
+    </view>
+  </view>
+</view>
+
 <view class="card">
   <view class="info-list row">
     <label class="title">收货人: </label>
-    <input class="content" bindinput="setName" placeholder="收货人姓名" placeholder-style="color: #999;"/>
+    <input class="content" value="{{name}}" bindinput="setName" placeholder="收货人姓名" placeholder-style="color: #999;"/>
   </view>
   <view class="info-list row">
     <label class="title">手机号: </label>
-    <input class="content" bindinput="setMobile" type="number" placeholder="请输入手机号" placeholder-style="color: #999;"/>
+    <input class="content" value="{{mobile}}" bindinput="setMobile" type="number" placeholder="请输入手机号" placeholder-style="color: #999;"/>
   </view>
   <view class="info-list row">
     <label class="title">省市区: </label>
@@ -19,7 +30,7 @@
   </view>
   <view class="info-list row">
     <label class="title">详细地址: </label>
-    <input class="content" bindinput="setAddressDetail" placeholder='如街道，楼层、门牌号' placeholder-style="color: #999;"/>
+    <input class="content" value="{{addressDetail}}" bindinput="setAddressDetail" placeholder='如街道，楼层、门牌号' placeholder-style="color: #999;"/>
   </view>
 </view>
 
