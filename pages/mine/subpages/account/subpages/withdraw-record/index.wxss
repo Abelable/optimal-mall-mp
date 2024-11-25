@@ -45,10 +45,19 @@
   font-size: 32rpx;
   text-align: right;
 }
+.amount-type {
+  margin-left: 8rpx;
+  padding: 0 6rpx;
+  color: #f9635d;
+  font-size: 20rpx;
+  border: 1px solid #f9635d;
+  border-radius: 8rpx;
+}
 .record-commission {
   margin-top: 7rpx;
   color: #6A6F75;
-  font-size: 24rpx;
+  font-size: 20rpx;
+  text-align: right;
 }
 
 .no-more-tips {
