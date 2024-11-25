@@ -15,15 +15,16 @@ Page({
     actualAmount: 0,
     curOptionIdx: 0,
     bancCardInfo: null,
+    remark: "",
     authModalVisible: false,
     btnActive: false
   },
 
   onLoad(options) {
-    const scene = Number(options.scene)
-    const amount = Number(options.amount)
-    const taxFee = scene === 2 ? amount * 0.06 : 0
-    const actualAmount = amount - taxFee - 1
+    const scene = Number(options.scene);
+    const amount = Number(options.amount);
+    const taxFee = scene === 2 ? amount * 0.06 : 0;
+    const actualAmount = amount - taxFee - 1;
     this.setData({ scene, amount, taxFee, actualAmount });
 
     const date = new Date().getDate();
@@ -72,14 +73,27 @@ Page({
     });
   },
 
+  setRemark(e) {
+    this.setData({
+      remark: e.detail.value
+    });
+  },
+
   withdraw() {
     if (!this.data.btnActive) {
       return;
     }
     if (store.userInfo.authInfoId) {
-      wx.navigateTo({
-        url: "./subpages/withdraw-result/index"
-      });
+      const { scene, amount: withdrawAmount, curOptionIdx, remark } = this.data;
+      const path = curOptionIdx + 1;
+      accountService.applyWithdraw(
+        { scene, withdrawAmount, path, remark },
+        () => {
+          wx.navigateTo({
+            url: "./subpages/withdraw-result/index"
+          });
+        }
+      );
     } else {
       this.setData({ authModalVisible: true });
     }

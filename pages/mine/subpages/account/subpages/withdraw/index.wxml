@@ -40,7 +40,7 @@
       <view>{{bancCardInfo ? bancCardInfo.bankName + '（' + bancCardInfo.code + '） 更换'  : '尚未绑定银行卡账号 去绑定'}}</view>
       <image class="arrow" src="./images/more.png" />
     </view>
-    <textarea class="remark" style="font-size: 24rpx;" bindinput="setRemark" maxlength="32" placeholder="添加备注，最多32个字" />
+    <textarea class="remark" style="font-size: 24rpx;" value="{{remark}}" bindinput="setRemark" maxlength="32" placeholder="添加备注，最多32个字" />
   </view>
 
   <view class="withdraw-tips" wx:if="{{scene === 1}}">

@@ -32,6 +32,14 @@ class AccountService extends MineService {
     return list;
   }
 
+  async applyWithdraw({ scene, withdrawAmount, path, remark }, success) {
+    await this.post({
+      url: `${this.baseUrl}/withdraw/submit`,
+      data: cleanObject({ scene, withdrawAmount, path, remark }),
+      success
+    })
+  }
+
   async getBankCardInfo() {
     return await this.get({
       url: `${this.baseUrl}/bank_card/detail`
