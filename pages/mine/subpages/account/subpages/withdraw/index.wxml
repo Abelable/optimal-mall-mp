@@ -15,7 +15,7 @@
   <view class="fee-card">
     <view class="fee-item" wx:if="{{scene === 2}}">
       <view class="fee-label">税费（费率6%）</view>
-      <view class="fee-amount">¥{{NUM.toFixed(amount * 0.06, 2)}}</view>
+      <view class="fee-amount">¥{{NUM.toFixed(taxFee, 2)}}</view>
     </view>
     <view class="fee-item">
       <view class="fee-label">提现手续费（每笔1元）</view>
@@ -23,7 +23,7 @@
     </view>
     <view class="fee-item">
       <view class="fee-label">实际到账</view>
-      <view class="fee-amount reality">¥{{NUM.toFixed(amount - 1, 2)}}</view>
+      <view class="fee-amount reality">¥{{NUM.toFixed(actualAmount, 2)}}</view>
     </view>
   </view>
 
