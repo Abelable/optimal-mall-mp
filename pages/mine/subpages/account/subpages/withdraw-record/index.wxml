@@ -1,25 +1,23 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 <wxs module="NUM" src="/utils/filters/num.wxs" />
 
-<view class="container">
-  <view class="withdraw-record-list" wx:if="{{recordList.length}}">
-    <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
-      <view class="record-content">
-        <view class="record-status-wrap">
-          <view class="record-path">提现至{{['微信', '银行卡'][item.path - 1]}}</view>
-          <image class="record-status {{['waiting', 'success', 'fail'][item.status]}}" src="./images/status_{{['waiting', 'success', 'fail'][item.status]}}.png" />
-        </view>
-        <view class="record-time">{{TIME.transform(item.createdAt, 'YYYY-MM-DD hh:mm:ss')}}</view>
+<view class="withdraw-record-list" wx:if="{{recordList.length}}">
+  <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
+    <view class="record-content">
+      <view class="record-status-wrap">
+        <view class="record-path">提现至{{['微信', '银行卡'][item.path - 1]}}</view>
+        <image class="record-status {{['waiting', 'success', 'fail'][item.status]}}" src="./images/status_{{['waiting', 'success', 'fail'][item.status]}}.png" />
       </view>
-      <view class="record-amount-wrap">
-        <view class="record-amount">
-          <text style="font-size: 24rpx">¥</text>
-          <text>{{item.withdrawAmount}}</text>
-        </view>
-        <view class="record-commission">手续费¥{{NUM.toFixed(item.handlingFee, 2)}}</view>
+      <view class="record-time">{{TIME.transform(item.createdAt, 'YYYY-MM-DD hh:mm:ss')}}</view>
+    </view>
+    <view class="record-amount-wrap">
+      <view class="record-amount">
+        <text style="font-size: 24rpx">¥</text>
+        <text>{{item.withdrawAmount}}</text>
       </view>
+      <view class="record-commission">手续费¥{{NUM.toFixed(item.handlingFee, 2)}}</view>
     </view>
   </view>
-  <view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
-  <empty-illus wx:if="{{!recordList.length}}" desc="暂无提现记录" />
 </view>
+<view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
+<empty-illus wx:if="{{!recordList.length}}" desc="暂无提现记录" />
