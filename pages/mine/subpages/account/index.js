@@ -85,8 +85,17 @@ Page({
 
   withdraw(e) {
     const { scene } = e.currentTarget.dataset;
+    const { selfPurchase, share } = this.data.cashInfo;
+    const amount = scene === 1 ? selfPurchase : share;
+    if (amount <= 1) {
+      wx.showToast({
+        title: '金额大于1元才可提现',
+        icon: 'none'
+      });
+      return;
+    }
     wx.navigateTo({
-      url: `./subpages/withdraw/index?scene=${scene}`
+      url: `./subpages/withdraw/index?scene=${scene}&amount=${amount}`
     });
   },
 

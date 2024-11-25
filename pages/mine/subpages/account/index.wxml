@@ -27,7 +27,7 @@
           <text style="font-size: 28rpx;">¥</text>
           <text>{{cashInfo ? NUM.toFixed(cashInfo.selfPurchase, 2) : '0.00'}}</text>
         </view>
-        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="1">提现</view>
+        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="{{1}}">提现</view>
       </view>
       <view class="amount-type-item">
         <view class="amount-type-name">分享奖励</view>
@@ -35,7 +35,7 @@
           <text style="font-size: 28rpx;">¥</text>
           <text>{{cashInfo ? NUM.toFixed(cashInfo.share, 2) : '0.00'}}</text>
         </view>
-        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="2">提现</view>
+        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="{{2}}">提现</view>
       </view>
     </view>
     <view class="withdraw-tips-wrap row">

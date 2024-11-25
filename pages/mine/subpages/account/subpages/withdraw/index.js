@@ -10,14 +10,20 @@ Page({
     statusBarHeight,
     navBarBgVisible: false,
     scene: 1,
+    amount: 0,
     curOptionIdx: 0,
     bancCardInfo: null,
     authModalVisible: false,
     btnActive: false
   },
 
-  onLoad({ scene }) {
-    this.setData({ scene: +scene });
+  onLoad({ scene, amount }) {
+    this.setData({ scene: +scene, amount: +amount });
+
+    const date = new Date().getDate();
+    if (date >= 25) {
+      this.setData({ btnActive: true });
+    }
   },
 
   onShow() {
