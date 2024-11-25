@@ -23,6 +23,15 @@ class AccountService extends MineService {
     return list;
   }
 
+  async getWithdrawRecordList(page, limit = 10) {
+    const { list } = await this.get({
+      url: `${this.baseUrl}/withdraw/record_list`,
+      data: { page, limit },
+      loadingTitle: "加载中..."
+    });
+    return list;
+  }
+
   async getBankCardInfo() {
     return await this.get({
       url: `${this.baseUrl}/bank_card/detail`

@@ -1,3 +1,5 @@
+<wxs module="NUM" src="/utils/filters/num.wxs" />
+
 <view class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}}" style="padding-top: {{statusBarHeight}}px;">
   <view class="nav-bar-inner">
     <back-icon />
