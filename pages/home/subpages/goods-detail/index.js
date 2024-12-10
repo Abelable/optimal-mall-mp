@@ -353,7 +353,7 @@ Page({
   },
 
   showSpecPopup(e) {
-    const { status, stock } = this.data.goodsInfo
+    const { status, stock } = this.data.goodsInfo;
     if (status === 1 && stock) {
       const { mode = 0 } = e.currentTarget.dataset;
       this.setData({
@@ -383,10 +383,15 @@ Page({
     // todo 佣金 =（商品价格 * 商品数量 - 优惠券）* 商品佣金
 
     const { goodsInfo, selectedSkuIndex } = this.data;
-    const { skuList, commissionRate } = goodsInfo;
-    const price = skuList.length
-      ? skuList[selectedSkuIndex].price
-      : goodsInfo.price;
+    const {
+      skuList = [],
+      price: basePrice,
+      commissionRate: baseCommissionRate
+    } = goodsInfo;
+    const { price: skuPrice = 0, commissionRate: skuCommissionRate = 0 } =
+      skuList[selectedSkuIndex] || {};
+    const price = skuPrice || basePrice;
+    const commissionRate = skuCommissionRate || baseCommissionRate;
     const commission = Math.floor(price * commissionRate) / 100;
     this.setData({ commission });
   },
