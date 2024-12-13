@@ -12,23 +12,3 @@
     <text style="color: #F5701D;" bindtap="serviceAgreement">《诚信星球用户服务协议》</text>
   </view>
 </view>
-
-<view class="auth-modal" wx:if="{{authModalVisible}}">
-  <view class="modal-main">
-    <view class="modal-title">获取您的头像、昵称</view>
-    <view class="modal-tips">获取用户头像、昵称，主要用于向用户提供具有辨识度的用户中心界面</view>
-    <view class="modal-form">
-      <view class="form-item">
-        <view class="label">头像</view>
-        <button class="avatar-wrap" bind:chooseavatar="chooseAvatar" open-type="chooseAvatar" hover-class="none">
-          <image class="avatar" src="{{avatarUrl || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
-        </button> 
-      </view>
-      <view class="form-item">
-        <view class="label">昵称</view>
-        <input class="nickname-input" bindinput="setNickname" type="nickname" placeholder="请输入昵称"/>
-      </view>
-    </view>
-    <view class="save-btn" bindtap="saveAuthInfo">保存</view>
-  </view>
-</view>

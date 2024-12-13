@@ -1,6 +1,6 @@
 import { ACTIVITY_TEMPLATE_ID } from "../config";
 import { store } from "../store/index";
-import { cleanObject } from "../utils/index";
+import { cleanObject, randomNickname } from "../utils/index";
 import Base from "./base/index";
 
 class BaseService extends Base {
@@ -11,10 +11,17 @@ class BaseService extends Base {
     });
   }
 
-  async register(code, avatar, nickname, mobile, superiorId, gender = 0) {
+  async register(code, mobile, superiorId) {
     return await this.post({
       url: `${this.baseUrl}/auth/wx_mp/register`,
-      data: cleanObject({ code, avatar, nickname, mobile, superiorId, gender })
+      data: cleanObject({
+        code,
+        avatar: "https://static.youbozhenxuan.cn/mp/default_avatar.png",
+        nickname: `用户${randomNickname()}`,
+        mobile,
+        superiorId,
+        gender: 0
+      })
     });
   }
 

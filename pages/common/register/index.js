@@ -7,9 +7,7 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 Page({
   data: {
     statusBarHeight,
-    agree: false,
-    authModalVisible: false,
-    avatarUrl: ""
+    agree: false
   },
 
   onLoad() {
@@ -20,43 +18,14 @@ Page({
     const mobile = await baseService.getUserMobile(e.detail.code);
     if (mobile) {
       this.mobile = mobile;
-      this.setData({ authModalVisible: true });
+      this.register();
     }
-  },
-
-  async chooseAvatar(e) {
-    const avatarUrl = (await baseService.uploadFile(e.detail.avatarUrl)) || "";
-    this.setData({ avatarUrl });
-  },
-
-  setNickname(e) {
-    this.nickname = e.detail.value;
-  },
-
-  saveAuthInfo() {
-    if (!this.data.avatarUrl) {
-      wx.showToast({
-        title: "请上传用户头像",
-        icon: "none"
-      });
-      return;
-    }
-    if (!this.nickname) {
-      wx.showToast({
-        title: "请输入用户昵称",
-        icon: "none"
-      });
-      return;
-    }
-    this.register();
   },
 
   async register() {
     const { code } = await baseService.wxLogin();
     const token = await baseService.register(
       code,
-      this.data.avatarUrl,
-      this.nickname,
       this.mobile,
       this.superiorId
     );

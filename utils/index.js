@@ -57,7 +57,7 @@ export const customBack = (needInitPrePageData = false) => {
   const curPage = curPages[curPages.length - 1];
   const curPageRoute = curPage.route;
   const prePage = curPages[curPages.length - 2];
-  const prePageRoute = prePage ? prePage.route : ''
+  const prePageRoute = prePage ? prePage.route : "";
 
   if (needInitPrePageData && typeof prePage.initData === "function") {
     prePage.initData();
@@ -134,3 +134,10 @@ export const expressOptions = [
   { name: "众邮快递", value: "ZYE" },
   { name: "宅急送", value: "ZJS" }
 ];
+
+export const randomNickname = () => {
+  const now = Date.now();
+  const random = Math.floor(Math.random() * 1000);
+  const timestamp = (now % 1000000) + random;
+  return timestamp.toString().slice(-6);
+};
