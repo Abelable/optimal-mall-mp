@@ -63,7 +63,7 @@
             fontSize="32rpx" 
             integerFontSize="50rpx"
           />
-          <view class="market-price" wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift}}">¥{{goodsInfo.marketPrice}}</view>
+          <view class="market-price" wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift}}">¥{{(goodsInfo && goodsInfo.skuList.length) ? goodsInfo.skuList[selectedSkuIndex].originalPrice : (goodsInfo.marketPrice || 0)}}</view>
           <view class="bottom-price row {{goodsInfo.activityInfo ? 'activity' : ''}}" wx:if="{{bottomPrice}}" bindtap="showCouponPopup">
             <view>最低到手价¥{{bottomPrice}}</view>
             <image class="more-icon" src="./images/more{{goodsInfo.activityInfo ? '-activity' : ''}}.png" />
