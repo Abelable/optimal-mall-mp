@@ -14,15 +14,6 @@ Component({
   },
 
   data: {
-    mobile: "",
-    mobileVisible: false
-  },
-
-  methods: {
-    toggleMobileVisible() {
-      this.setData({
-        mobileVisible: !this.data.mobileVisible
-      })
-    }
+    mobile: ""
   }
 });
