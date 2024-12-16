@@ -4,7 +4,7 @@
   <view class="info-wrap">
     <image class="avatar" src="{{item.avatar}}" lazy-load />
     <view class="info">
-      <view class="name">{{ item.nickname }}</view>
+      <view class="name">{{ mobile }}</view>
       <!-- <view class="mobile" bindtap="toggleMobileVisible">
         <text>{{ mobileVisible ? item.mobile : mobile }}</text>
         <image
