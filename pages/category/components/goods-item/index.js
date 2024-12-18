@@ -21,16 +21,16 @@ Component({
           ({ type, numLimit, priceLimit, denomination }) => {
             switch (type) {
               case 1:
-                return Math.floor((price - denomination) * 100) / 100;
+                return Math.round((price - denomination) * 100) / 100;
               case 2:
                 return (
-                  Math.floor(
+                  Math.round(
                     ((price * numLimit - denomination) / numLimit) * 100
                   ) / 100
                 );
               case 3:
                 return priceLimit <= price
-                  ? Math.floor((price - denomination) * 100) / 100
+                  ? Math.round((price - denomination) * 100) / 100
                   : 0;
             }
           }

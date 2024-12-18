@@ -17,20 +17,20 @@ Component({
             case 1:
               discountTitle = "无门槛券，您可享受以下优惠";
               discountPrice =
-                Math.floor((basePrice - denomination) * 100) / 100;
+                Math.round((basePrice - denomination) * 100) / 100;
               break;
             case 2:
               discountTitle = `购买${numLimit}件，享受以下优惠`;
               discountPrice =
-                Math.floor(
+                Math.round(
                   ((basePrice * numLimit - denomination) / numLimit) * 100
                 ) / 100;
               totalPrice =
-                Math.floor(basePrice * numLimit * 100) / 100;
+                Math.round(basePrice * numLimit * 100) / 100;
               break;
             case 3:
               discountTitle = `满${priceLimit}元，享受以下优惠`;
-              discountPrice = Math.floor((priceLimit - denomination) * 100) / 100;
+              discountPrice = Math.round((priceLimit - denomination) * 100) / 100;
               break;
           }
           this.setData({ discountTitle, discountPrice, totalPrice });

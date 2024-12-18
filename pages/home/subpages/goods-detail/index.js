@@ -108,16 +108,16 @@ Page({
         ({ type, numLimit, priceLimit, denomination }) => {
           switch (type) {
             case 1:
-              return Math.floor((basePrice - denomination) * 100) / 100;
+              return Math.round((basePrice - denomination) * 100) / 100;
             case 2:
               return (
-                Math.floor(
+                Math.round(
                   ((basePrice * numLimit - denomination) / numLimit) * 100
                 ) / 100
               );
             case 3:
               return priceLimit <= basePrice
-                ? Math.floor((basePrice - denomination) * 100) / 100
+                ? Math.round((basePrice - denomination) * 100) / 100
                 : 0;
           }
         }
