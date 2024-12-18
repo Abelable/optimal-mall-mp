@@ -392,7 +392,7 @@ Page({
       skuList[selectedSkuIndex] || {};
     const price = skuPrice || basePrice;
     const commissionRate = skuCommissionRate || baseCommissionRate;
-    const commission = Math.floor(price * commissionRate) / 100;
+    const commission = Math.round(price * commissionRate) / 100;
     this.setData({ commission });
   },
 
