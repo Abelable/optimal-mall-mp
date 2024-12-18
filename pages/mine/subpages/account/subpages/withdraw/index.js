@@ -25,10 +25,15 @@ Page({
     const amount = Number(options.amount);
     const taxFee = scene === 2 ? amount * 0.06 : 0;
     const actualAmount = amount - taxFee - 1;
-    this.setData({ scene, amount, taxFee, actualAmount });
+    this.setData({
+      scene,
+      amount,
+      taxFee,
+      actualAmount: actualAmount < 0 ? 0 : actualAmount
+    });
 
     const date = new Date().getDate();
-    if (date >= 25) {
+    if (date >= 25 && amount > 1) {
       this.setData({ btnActive: true });
     }
   },
