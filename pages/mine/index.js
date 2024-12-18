@@ -56,7 +56,7 @@ Component({
           this.setCustomerData();
         }
         this.setOrderListTotals();
-      }, false);
+      });
     },
 
     async setCommissionSumInfo() {

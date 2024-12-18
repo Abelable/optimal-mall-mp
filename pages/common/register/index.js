@@ -62,6 +62,16 @@ Page({
   },
 
   back() {
-    wx.navigateBack();
+    const pagesLength = getCurrentPages().length;
+    const prePage = getCurrentPages()[pagesLength - 2];
+    const prePageRoute = prePage ? prePage.route : "";
+    if (
+      prePageRoute === "pages/mine/index" ||
+      prePageRoute === "pages/cart/index"
+    ) {
+      wx.switchTab({ url: "/pages/home/index" });
+    } else {
+      wx.navigateBack();
+    }
   }
 });
