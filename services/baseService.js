@@ -223,6 +223,14 @@ class BaseService extends Base {
       data: { merchantId }
     });
   }
+
+  async getGoodsInfo(id, addressId) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/detail`,
+      data: cleanObject({ id, addressId }),
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default BaseService;

@@ -30,14 +30,6 @@ class CartService extends BaseService {
       success
     });
   }
-
-  async getGoodsInfo(id) {
-    return await this.get({
-      url: `${this.baseUrl}/goods/detail`,
-      data: { id },
-      loadingTitle: "加载中..."
-    });
-  }
 }
 
 export default CartService;

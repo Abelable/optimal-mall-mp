@@ -46,6 +46,11 @@ Component({
               this.setData({ specList });
             }
           }
+
+          // 限购
+          // goodsInfo.isGift ? 1 : (selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].stock : goodsInfo.stock
+          // const userPurchasedList = goodsInfo.userPurchasedList || cartInfo.userPurchasedList
+
         }
       }
     },
@@ -65,7 +70,8 @@ Component({
     selectedSkuIndex: -1,
     count: 1,
     couponDiscount: 0,
-    btnActive: false
+    btnActive: false,
+    maxLimit: 0
   },
 
   observers: {

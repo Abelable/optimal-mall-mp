@@ -8,14 +8,6 @@ class CategoryService extends BaseService {
     });
   }
 
-  async getGoodsInfo(id) {
-    return await this.get({
-      url: `${this.baseUrl}/goods/detail`,
-      data: { id },
-      loadingTitle: "加载中..."
-    });
-  }
-
   async getBannerList() {
     return await this.get({
       url: `${this.baseUrl}/mall/banner_list`,
