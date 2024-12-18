@@ -271,7 +271,8 @@
   show="{{couponPopupVisible}}"
   basePrice="{{goodsInfo.skuList.length ? goodsInfo.skuList[selectedSkuIndex].price : goodsInfo.price}}"
   couponList="{{goodsInfo.couponList}}" 
-  bind:showSpecPopup="showCouponPopup" 
+  bind:showSpecPopup="showSpecPopup" 
+  bind:share="share"
   bind:hide="hideCouponPopup"
 />
 <service-popup 

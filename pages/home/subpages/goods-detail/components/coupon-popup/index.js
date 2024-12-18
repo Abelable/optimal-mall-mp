@@ -49,7 +49,13 @@ Component({
 
   methods: {
     showSpecPopup() {
+      this.hide()
       this.triggerEvent("showSpecPopup");
+    },
+
+    share() {
+      this.hide()
+      this.triggerEvent("share");
     },
 
     hide() {

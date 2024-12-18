@@ -3,7 +3,7 @@
     <view class="popup-header row between">
       <view class="title">优惠</view>
       <view class="share-btn-wrap row">
-        <view class="share-btn row">邀请好友领券</view>
+        <view class="share-btn row" bindtap="share">邀请好友领券</view>
         <image class="close-icon" bindtap="hide" src="./images/close.png" />
       </view>
     </view>

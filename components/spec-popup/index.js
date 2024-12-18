@@ -49,7 +49,9 @@ Component({
 
           // 限购
           // goodsInfo.isGift ? 1 : (selectedSkuIndex !== -1 ? goodsInfo.skuList[selectedSkuIndex].stock : goodsInfo.stock
-          // const userPurchasedList = goodsInfo.userPurchasedList || cartInfo.userPurchasedList
+          // userPurchasedList
+
+          
 
         }
       }
