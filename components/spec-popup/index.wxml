@@ -31,7 +31,12 @@
       <view class="spec-list row between">
         <view class="spec-title">数量</view>
         <view class="count-control-wrap">
-          <van-stepper value="{{ count }}" bind:change="countChange" max="{{maxLimit}}" integer/>
+          <van-stepper 
+            value="{{ count }}" 
+            bind:change="countChange" 
+            max="{{goodsInfo.isGift ? 1 : maxCount}}" 
+            integer
+          />
         </view>
       </view>
       <view class="spec-list" wx:for="{{specList}}" wx:key="index">

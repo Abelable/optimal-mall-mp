@@ -231,6 +231,13 @@ class BaseService extends Base {
       loadingTitle: "加载中..."
     });
   }
+
+  async getPurchasedGoodsList(goodsId, scene = 1) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/purchased_list`,
+      data: { goodsId, scene }
+    });
+  }
 }
 
 export default BaseService;
