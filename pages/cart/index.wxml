@@ -25,7 +25,15 @@
                   <price-unit price="{{item.price}}" />
                   <view class="price-market" wx:if="{{item.marketPrice}}">¥{{item.marketPrice}}</view>
                 </view>
-                <van-stepper value="{{ item.number }}" async-change bind:change="countChange" data-cart-index="{{index}}" integer max="{{item.stock}}" catchtap="catchtap" />
+                <van-stepper 
+                  value="{{ item.number }}" 
+                  async-change 
+                  bind:change="countChange" 
+                  data-cart-index="{{index}}" 
+                  integer 
+                  max="{{item.isGift ? 1 : item.numberLimit}}" 
+                  catchtap="catchtap" 
+                />
               </view>
             </block>
             <view class="invalid-tips-wrap" wx:if="{{item.status !== 1 }}">
