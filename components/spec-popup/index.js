@@ -176,11 +176,12 @@ Component({
         const _limit = limit || numberLimit;
         const _stock = stock || totalStock;
         if (_limit) {
-          const purchasedNum =
-            this.purchasedList.find(
-              ({ skuName, skuIndex }) =>
-                skuName === selectedSkuName && skuIndex === selectedSkuIndex
-            ).number || 0;
+          const purchasedItem = this.purchasedList.find(
+            ({ skuName, skuIndex }) =>
+              skuName === selectedSkuName && skuIndex === selectedSkuIndex
+          );
+          const purchasedNum = purchasedItem ? purchasedItem.number : 0;
+
           this.setData({
             maxCount: Math.min(_limit, _stock) - purchasedNum
           });
