@@ -57,30 +57,30 @@
     </scroll-view>
     <view class="btns-wrap row">
       <button 
-        class="add-cart-btn {{mode === 0 ? 'border' :  ''}} {{btnActive ? 'active' : '' }} " 
+        class="cart-btn {{mode === 0 ? 'border' :  ''}} {{btnActive && maxCount > 0 ? 'active' : '' }} " 
         style="margin-right: {{mode === 0 ? '12rpx' :  '0'}};"
         wx:if="{{mode === 0 || mode === 1}}" 
         bindtap="addCart"
         hover-class="none"
       >
-        {{btnActive ? '加入购物车' : '库存不足'}}
+        {{maxCount === 0 ? '限购商品，已达上限' : (btnActive ? '加入购物车' : '库存不足')}}
       </button>
       <button 
-        class="buy-btn {{btnActive ? 'active' : '' }}" 
+        class="buy-btn {{btnActive && maxCount > 0 ? 'active' : '' }}" 
         style="margin-left: {{mode === 0 ? '12rpx' :  '0'}};"
         wx:if="{{mode === 0 || mode === 2}}" 
         bindtap="buyNow"
         hover-class="none"
       >
-        {{btnActive ? '立即购买' : '库存不足'}}
+        {{maxCount === 0 ? '限购商品，已达上限' : (btnActive ? '加入购物车' : '库存不足')}}
       </button>
       <button 
-        class="edit-btn {{btnActive ? 'active' : '' }}" 
+        class="edit-btn {{btnActive && maxCount > 0 ? 'active' : '' }}" 
         wx:if="{{mode === 3}}" 
         bindtap="editSpec"
         hover-class="none"
       >
-        {{btnActive ? '完成' : '库存不足'}}
+        {{maxCount === 0 ? '限购商品，已达上限' : (btnActive ? '完成' : '库存不足')}}
       </button>
     </view>
   </view>

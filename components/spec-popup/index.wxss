@@ -76,7 +76,7 @@
 .btns-wrap {
   margin-top: 24rpx;
 }
-.add-cart-btn, .buy-btn, .edit-btn {
+.cart-btn, .buy-btn, .edit-btn {
   flex: 1;
   height: 80rpx;
   color: #fff;
@@ -84,15 +84,15 @@
   border-radius: 40rpx;
   background: #e6e6e6;
 }
-.add-cart-btn.active {
+.cart-btn.active {
   background: #FF3636;
 }
-.add-cart-btn.border {
+.cart-btn.border {
   color: #ccc;
   border: 1px solid #ccc;
   background: none !important;
 }
-.add-cart-btn.border.active {
+.cart-btn.border.active {
   color: #FF3636;
   border: 1px solid #FF3636;
   background: none !important;
