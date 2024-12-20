@@ -202,7 +202,8 @@ Component({
 
     // 加入购物车
     addCart() {
-      if (this.data.btnActive) {
+      const { btnActive, maxCount } = this.data
+      if (btnActive && maxCount > 0) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data;
           const cartGoodsNumber = await baseService.addCart(
@@ -218,7 +219,8 @@ Component({
 
     // 立即购买
     buyNow() {
-      if (this.data.btnActive) {
+      const { btnActive, maxCount } = this.data
+      if (btnActive && maxCount > 0) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data;
           const cartGoodsId = await baseService.fastAddCart(
@@ -234,7 +236,8 @@ Component({
     },
 
     editSpec() {
-      if (this.data.btnActive) {
+      const { btnActive, maxCount } = this.data
+      if (btnActive && maxCount > 0) {
         const { cartInfo, selectedSkuIndex, count } = this.data;
         baseService.editCart(
           cartInfo.id,
