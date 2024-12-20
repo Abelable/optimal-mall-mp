@@ -23,7 +23,7 @@
       <view class="spec-list row between" wx:if="{{goodsInfo.couponList.length}}">
         <view class="spec-title">优惠</view>
         <view class="spec-content">
-          <text wx:if="{{!couponDiscount}}">未达优惠使用门槛</text>
+          <text wx:if="{{!couponDiscount}}">{{receivedCouponList.length ? '未达优惠使用门槛' : '请领取优惠券'}}</text>
           <text wx:if="{{couponDiscount}}">优惠券</text>
           <text wx:if="{{couponDiscount}}" style="color: #FF3636">-{{couponDiscount}}元</text>
         </view>

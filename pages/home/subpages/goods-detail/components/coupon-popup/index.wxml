@@ -95,7 +95,7 @@
       </view>
   
       <view class="coupon-list">
-        <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" bind:showSpecPopup="showSpecPopup" />
+        <coupon-item wx:for="{{couponList}}" wx:key="index" item="{{item}}" bind:receive="receive" data-index="{{index}}" bind:showSpecPopup="showSpecPopup" />
       </view>
     </scroll-view>
   </view>

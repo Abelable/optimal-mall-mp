@@ -1,7 +1,4 @@
 import dayjs from "dayjs";
-import HomeService from "../../../../utils/homeService";
-
-const homeService = new HomeService();
 
 Component({
   options: {
@@ -45,16 +42,11 @@ Component({
     },
 
     receive() {
-      const { id, isReceived, receivedNum } = this.properties.item;
+      const { isReceived } = this.properties.item;
       if (isReceived) {
         this.triggerEvent("showSpecPopup");
       } else {
-        homeService.receiveCoupon(id, () => {
-          this.setData({
-            ["item.isReceived"]: 1,
-            ["item.receivedNum"]: receivedNum + 1
-          });
-        });
+        this.triggerEvent("receive");
       }
     }
   }

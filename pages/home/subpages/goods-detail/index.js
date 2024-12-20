@@ -224,6 +224,18 @@ Page({
     this.setData({ couponPopupVisible: false });
   },
 
+  receiveCoupon(e) {
+    const { index } = e.detail;
+    const { couponList } = this.data.goodsInfo;
+    const { id, receivedNum } = couponList[index];
+    homeService.receiveCoupon(id, () => {
+      this.setData({
+        [`goodsInfo.couponList[${index}].isReceived`]: 1,
+        [`goodsInfo.couponList[${index}].receivedNum`]: receivedNum + 1
+      });
+    });
+  },
+
   showAddressPopup() {
     this.setData({
       addressPopupVisible: true

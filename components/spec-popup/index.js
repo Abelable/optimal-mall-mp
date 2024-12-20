@@ -17,6 +17,12 @@ Component({
     goodsInfo: {
       type: Object,
       observer: async function (newInfo, oldInfo) {
+        // 优惠券领取
+        if (newInfo && newInfo.couponList) {
+          this.setReceivedCouponList();
+          this.setCouponDiscount();
+        }
+
         if ((newInfo && !this.purchasedList) || newInfo.id !== oldInfo.id) {
           await this.setPurchasedList();
           this.setSpecList();
@@ -34,6 +40,7 @@ Component({
     selectedSkuIndex: -1,
     count: 1,
     maxCount: 10000,
+    receivedCouponList: [],
     couponDiscount: 0,
     btnActive: false
   },
@@ -122,15 +129,19 @@ Component({
       }
     },
 
+    setReceivedCouponList() {
+      const { couponList } = this.properties.goodsInfo;
+      const receivedCouponList = couponList.filter(item => item.isReceived);
+      this.setData({ receivedCouponList });
+    },
+
     setCouponDiscount() {
-      const { couponList, skuList } = this.properties.goodsInfo;
-      if (couponList.length) {
-        if (!this.couponList) {
-          this.couponList = couponList.filter(item => item.isReceived);
-        }
+      const { skuList } = this.properties.goodsInfo;
+      const { receivedCouponList } = this.data;
+      if (receivedCouponList.length) {
         const { selectedSkuIndex, count } = this.data;
         const couponDiscount =
-          this.couponList
+          receivedCouponList
             .filter(({ type, numLimit, priceLimit }) => {
               if (type === 1) {
                 return true;

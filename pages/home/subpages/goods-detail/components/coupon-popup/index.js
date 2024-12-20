@@ -25,12 +25,12 @@ Component({
                 Math.round(
                   ((basePrice * numLimit - denomination) / numLimit) * 100
                 ) / 100;
-              totalPrice =
-                Math.round(basePrice * numLimit * 100) / 100;
+              totalPrice = Math.round(basePrice * numLimit * 100) / 100;
               break;
             case 3:
               discountTitle = `满${priceLimit}元，享受以下优惠`;
-              discountPrice = Math.round((priceLimit - denomination) * 100) / 100;
+              discountPrice =
+                Math.round((priceLimit - denomination) * 100) / 100;
               break;
           }
           this.setData({ discountTitle, discountPrice, totalPrice });
@@ -49,12 +49,17 @@ Component({
 
   methods: {
     showSpecPopup() {
-      this.hide()
+      this.hide();
       this.triggerEvent("showSpecPopup");
     },
 
+    receive(e) {
+      const { index } = e.currentTarget.dataset;
+      this.triggerEvent("receive", { index });
+    },
+
     share() {
-      this.hide()
+      this.hide();
       this.triggerEvent("share");
     },
 
