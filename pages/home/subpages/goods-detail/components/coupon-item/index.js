@@ -16,15 +16,19 @@ Component({
   lifetimes: {
     attached() {
       const { expirationTime } = this.properties.item;
-      const countdown = Math.floor(
-        (dayjs(expirationTime).valueOf() - dayjs().valueOf()) / 1000
-      );
-      this.setData({ countdown });
-      this.setCountdown();
+      if (expirationTime) {
+        const countdown = Math.floor(
+          (dayjs(expirationTime).valueOf() - dayjs().valueOf()) / 1000
+        );
+        this.setData({ countdown });
+        this.setCountdown();
+      }
     },
 
     detached() {
-      clearInterval(this.countdownInterval);
+      if (this.countdownInterval) {
+        clearInterval(this.countdownInterval);
+      }
     }
   },
 

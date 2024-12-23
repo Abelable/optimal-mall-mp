@@ -21,7 +21,7 @@
             <view class="coupon-goods-name omit single">{{item.goodsName}}</view>
             <view>可用</view>
           </view>
-          <view class="coupon-countdown" wx:if="{{item.status === 1}}">
+          <view class="coupon-countdown" wx:if="{{item.status === 1 && countdown}}">
             仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}
           </view>
           <view class="coupon-time" wx:if="{{item.status !== 1}}">
@@ -30,7 +30,6 @@
         </view>
         <view class="receive-btn-wrap">
           <view class="use-btn" bindtap="use">{{['去使用', '已使用', '已过期'][item.status - 1]}}</view>
-          <view class="received-num" wx:if="{{item.status === 1}}">已发放{{item.receivedNum}}张</view>
         </view>
       </view>
     </view>

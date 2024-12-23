@@ -21,7 +21,7 @@
             <view class="coupon-goods-name omit single">{{item.goodsName}}</view>
             <view>可用</view>
           </view>
-          <view class="coupon-countdown">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
+          <view class="coupon-countdown" wx:if="{{countdown}}">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
         </view>
         <view class="receive-btn-wrap">
           <view class="coupon-receive-btn" bindtap="receive">{{item.isReceived ? '去使用' : '领取'}}</view>

@@ -16,7 +16,7 @@ Component({
   lifetimes: {
     attached() {
       const { status, expirationTime } = this.properties.item;
-      if (status === 1) {
+      if (status === 1 && expirationTime) {
         const countdown = Math.floor(
           (dayjs(expirationTime).valueOf() - dayjs().valueOf()) / 1000
         );
@@ -26,7 +26,9 @@ Component({
     },
 
     detached() {
-      clearInterval(this.countdownInterval);
+      if (this.countdownInterval) {
+        clearInterval(this.countdownInterval);
+      }
     }
   },
 
