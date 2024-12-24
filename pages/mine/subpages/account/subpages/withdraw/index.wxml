@@ -30,9 +30,9 @@
   <view class="withdraw-card">
     <view class="withdraw-title">提现至：</view>
     <view class="withdraw-options">
-      <view class="withdraw-option row" wx:for="{{['微信', '银行卡']}}" wx:key="index" bindtap="selectOption" data-index="{{index}}">
-        <image class="option-icon" src="./images/{{['wx', 'card'][index]}}.png" />
-        <view class="option-name">{{item}}</view>
+      <view class="withdraw-option row" wx:for="{{pathOptions}}" wx:key="index" bindtap="selectOption" data-index="{{index}}">
+        <image class="option-icon" src="./images/{{item.en}}.png" />
+        <view class="option-name">{{item.cn}}</view>
         <image class="selected-icon" src="./images/{{curOptionIdx === index ? 'selected' : 'unselected'}}.png" />
       </view>
     </view>

@@ -13,6 +13,7 @@ Page({
     amount: 0,
     taxFee: 0,
     actualAmount: 0,
+    pathOptions: [],
     curOptionIdx: 0,
     bancCardInfo: null,
     remark: "",
@@ -29,7 +30,14 @@ Page({
       scene,
       amount,
       taxFee,
-      actualAmount: actualAmount < 0 ? 0 : actualAmount
+      actualAmount: actualAmount < 0 ? 0 : actualAmount,
+      pathOptions:
+        actualAmount >= 500
+          ? [{ cn: "银行卡", en: "card", value: 2 }]
+          : [
+              { cn: "微信", en: "wx", value: 1 },
+              { cn: "银行卡", en: "card", value: 2 }
+            ]
     });
 
     const date = new Date().getDate();
@@ -89,8 +97,14 @@ Page({
       return;
     }
     if (store.userInfo.authInfoId) {
-      const { scene, amount: withdrawAmount, curOptionIdx, remark } = this.data;
-      const path = curOptionIdx + 1;
+      const {
+        scene,
+        amount: withdrawAmount,
+        pathOptions,
+        curOptionIdx,
+        remark
+      } = this.data;
+      const path = pathOptions[curOptionIdx].value;
       accountService.applyWithdraw(
         { scene, withdrawAmount, path, remark },
         () => {
