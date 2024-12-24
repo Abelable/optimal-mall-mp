@@ -72,7 +72,7 @@
         bindtap="buyNow"
         hover-class="none"
       >
-        {{maxCount === 0 ? '限购商品，已达上限' : (btnActive ? '加入购物车' : '库存不足')}}
+        {{maxCount === 0 ? '限购商品，已达上限' : (btnActive ? '立即购买' : '库存不足')}}
       </button>
       <button 
         class="edit-btn {{btnActive && maxCount > 0 ? 'active' : '' }}" 
