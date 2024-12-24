@@ -2,6 +2,10 @@
   margin-bottom: 32rpx;
   background: #fff;
 }
+.coupon-item.invalid {
+  filter: grayscale(100%);
+}
+
 .coupon-main-wrap {
   overflow: hidden;
 }

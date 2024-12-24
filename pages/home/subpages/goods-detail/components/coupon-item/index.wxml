@@ -1,9 +1,10 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 
-<view class="coupon-item">
+<view class="coupon-item {{item.isUsed ? 'invalid' : ''}}">
   <view class="coupon-main-wrap">
     <view class="coupon-main row">
       <image class="chapter" wx:if="{{item.isReceived}}" src="./images/chapter_received.png" />
+      <image class="chapter" wx:if="{{item.isUsed}}" src="./images/chapter_used.png" />
       <view class="coupon-denomination-wrap">
         <view class="coupon-denomination">
           <text style="font-size: 32rpx;">¥</text>
@@ -24,11 +25,14 @@
           <view class="coupon-countdown" wx:if="{{countdown}}">仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}</view>
         </view>
         <view class="receive-btn-wrap">
-          <view class="coupon-receive-btn" bindtap="receive">{{item.isReceived ? '去使用' : '领取'}}</view>
+          <view class="coupon-receive-btn" bindtap="receive">{{item.isUsed ? '已使用' : item.isReceived ? '去使用' : '领取'}}</view>
           <view class="received-num">已发放{{item.receivedNum}}张</view>
         </view>
       </view>
     </view>
   </view>
-  <view class="coupon-desc">{{item.description}}</view>
+  <view class="coupon-desc">
+    <text>{{item.description}}</text>
+    <text wx:if="{{item.receiveNumLimit}}">，每人限领{{item.receiveNumLimit}}张</text>
+  </view>
 </view>

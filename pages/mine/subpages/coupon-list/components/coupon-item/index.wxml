@@ -25,7 +25,7 @@
             仅剩{{TIME.countdownFormat(countdown, 'd天hh时mm分ss秒')}}
           </view>
           <view class="coupon-time" wx:if="{{item.status !== 1}}">
-            {{TIME.transform(item.createdTime, 'YYYY.MM.DD hh:mm')}}-{{TIME.transform(item.expirationTime, 'YYYY.MM.DD hh:mm')}}
+            {{TIME.transform(item.createdAt, 'YYYY.MM.DD')}}-{{TIME.transform(item.expirationTime, 'YYYY.MM.DD')}}
           </view>
         </view>
         <view class="receive-btn-wrap">
@@ -34,5 +34,8 @@
       </view>
     </view>
   </view>
-  <view class="coupon-desc">{{item.description}}</view>
+  <view class="coupon-desc">
+    <text>{{item.description}}</text>
+    <text wx:if="{{item.receiveNumLimit}}">，每人限领{{item.receiveNumLimit}}张</text>
+  </view>
 </view>

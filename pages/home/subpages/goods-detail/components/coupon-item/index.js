@@ -46,7 +46,10 @@ Component({
     },
 
     receive() {
-      const { isReceived } = this.properties.item;
+      const { isUsed, isReceived } = this.properties.item;
+      if (isUsed) {
+        return;
+      }
       if (isReceived) {
         this.triggerEvent("showSpecPopup");
       } else {
