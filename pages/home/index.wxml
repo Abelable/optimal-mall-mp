@@ -39,10 +39,17 @@
 </view>
 
 <view class="container">
-  <view class="activity-wrap">
-    <image class="activity" bindtap="navToRuralPage" src="./images/integrity-village.png" />
-    <image class="activity" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
+  <view class="village-part">
+    <image class="village-illus" bindtap="navToRuralPage" src="./images/village-grain.png" />
+    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-fresh.png" />
+    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-snack.png" />
+    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-gift.png" />
   </view>
+  <view class="integrity-part">
+    <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
+    <image class="integrity-illus" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
+  </view>
+  <image class="limited-time-promotion" mode="widthFix" src="./images/limited-time-promotion.png" />
 
   <view class="menu">
     <view 
