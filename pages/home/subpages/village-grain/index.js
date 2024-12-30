@@ -7,17 +7,20 @@ Page({
   data: {
     statusBarHeight,
     bannerList: [],
+    topGoodsList: [],
     goodsList: []
   },
 
   async onLoad() {
     this.setGoodsList();
   },
-  
+
   async setGoodsList() {
-    const goodsList =
-      (await integrityService.getGoodsList()) || [];
-    this.setData({ goodsList });
+    const goodsList = (await integrityService.getGoodsList()) || [];
+    this.setData({
+      topGoodsList: goodsList.slice(0, 2),
+      goodsList: goodsList.slice(2)
+    });
   },
 
   onPullDownRefresh() {

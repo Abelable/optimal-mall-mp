@@ -3,8 +3,8 @@
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap">
     <image class="cover" src="{{item.activityCover || item.cover }}" mode="aspectFill" lazy-load />
-    <view class="goods-tag {{item.activityInfo.goodsTag === 1 ? 'green' : 'hot'}}">{{item.activityInfo.goodsTag === 1 ? "农产品" : "爆品"}}</view>
-    <view class="group-buying-data">
+    <view class="goods-tag {{item.activityInfo.goodsTag === 1 ? 'green' : 'hot'}}" wx:if="{{item.activityInfo}}">{{item.activityInfo.goodsTag === 1 ? "农产品" : "爆品"}}</view>
+    <view class="group-buying-data" wx:if="{{item.activityInfo}}">
       <view class="group-buying-title">{{item.activityInfo.name}}</view>
       <view class="countdown">
         <block wx:if="{{countdown}}">

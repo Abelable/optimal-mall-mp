@@ -20,7 +20,6 @@ Component({
   lifetimes: {
     attached() {
       const { price, couponList, activityInfo } = this.properties.item;
-      const { status, startTime, endTime } = activityInfo;
 
       if (couponList.length) {
         const bottomPrice = couponList.map(
@@ -44,18 +43,22 @@ Component({
         this.setData({ bottomPrice });
       }
 
-      if (status === 0) {
-        const countdown = Math.floor(
-          (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000
-        );
-        this.setData({ countdown });
-        this.setCountdown();
-      } else if (status === 1 && endTime) {
-        const countdown = Math.floor(
-          (dayjs(endTime).valueOf() - dayjs().valueOf()) / 1000
-        );
-        this.setData({ countdown });
-        this.setCountdown();
+      if (activityInfo) {
+        const { status, startTime, endTime } = activityInfo;
+  
+        if (status === 0) {
+          const countdown = Math.floor(
+            (dayjs(startTime).valueOf() - dayjs().valueOf()) / 1000
+          );
+          this.setData({ countdown });
+          this.setCountdown();
+        } else if (status === 1 && endTime) {
+          const countdown = Math.floor(
+            (dayjs(endTime).valueOf() - dayjs().valueOf()) / 1000
+          );
+          this.setData({ countdown });
+          this.setCountdown();
+        }
       }
     },
 

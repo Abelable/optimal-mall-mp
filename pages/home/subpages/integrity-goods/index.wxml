@@ -1,15 +1,4 @@
-<swiper class="banner" style="height: 460rpx;" autoplay circular indicator-dots	indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
-  <swiper-item 
-    class="banner-item"
-    wx:for="{{bannerList}}"
-    wx:key="index"
-    bindtap="linkTo"
-    data-scene="{{item.scene}}"
-    data-param="{{item.param}}"
-  >
-    <image class="banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
-  </swiper-item>
-</swiper>
+<image class="bg" mode="widthFix" src="https://static.youbozhenxuan.cn/mp/integrity_bg.jpg" />
 
 <view class="goods-list">
   <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
