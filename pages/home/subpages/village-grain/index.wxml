@@ -1,0 +1,11 @@
+<image class="bg" src="https://static-ybzx.oss-cn-hangzhou.aliyuncs.com/mp/village_grain_bg.png" mode="widthFix" />
+  
+<view class="back-icon-wrap" style="top: {{statusBarHeight + 5}}px">
+  <back-icon />
+</view>
+
+<view class="goods-list">
+  <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
+  <empty-illus wx:if="{{!goodsList.length}}" desc="暂无商品" />
+  <view class="no-more-tips" wx:if="{{goodsList.length}}">～没有更多了～</view>
+</view>

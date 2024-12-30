@@ -156,6 +156,12 @@ Component({
       }
     },
 
+    navToVillageGrain() {
+      wx.navigateTo({
+        url: './subpages/village-grain/index'
+      });
+    },
+
     navToRuralPage() {
       wx.switchTab({
         url: "/pages/rural/index"
