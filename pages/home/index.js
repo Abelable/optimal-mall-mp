@@ -162,6 +162,24 @@ Component({
       });
     },
 
+    navToVillageFresh() {
+      wx.navigateTo({
+        url: './subpages/village-fresh/index'
+      });
+    },
+
+    navToVillageSnack() {
+      wx.navigateTo({
+        url: './subpages/village-snack/index'
+      });
+    },
+
+    navToVillageGift() {
+      wx.navigateTo({
+        url: './subpages/village-gift/index'
+      });
+    },
+
     navToRuralPage() {
       wx.switchTab({
         url: "/pages/rural/index"

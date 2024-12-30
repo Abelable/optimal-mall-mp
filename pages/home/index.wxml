@@ -41,9 +41,9 @@
 <view class="container">
   <view class="village-part">
     <image class="village-illus" bindtap="navToVillageGrain" src="./images/village-grain.png" />
-    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-fresh.png" />
-    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-snack.png" />
-    <image class="village-illus" bindtap="navToIntegrityGoods" src="./images/village-gift.png" />
+    <image class="village-illus" bindtap="navToVillageFresh" src="./images/village-fresh.png" />
+    <image class="village-illus" bindtap="navToVillageSnack" src="./images/village-snack.png" />
+    <image class="village-illus" bindtap="navToVillageGift" src="./images/village-gift.png" />
   </view>
   <view class="integrity-part">
     <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
