@@ -30,7 +30,7 @@
         <view class="market-price" wx:if="{{!bottomPrice}}">¥{{item.marketPrice}}</view>
         <view class="bottom-price" wx:if="{{bottomPrice}}">最低到手价¥{{bottomPrice}}</view>
       </view>
-      <view class="buy-btn" wx:if="{{item.activityInfo.status === 1}}">
+      <view class="buy-btn" wx:if="{{!item.activityInfo || item.activityInfo.status === 1}}">
         <view class="buy-btn-icon">
           <image class="cart-icon" src="./images/cart.png" />
         </view>
