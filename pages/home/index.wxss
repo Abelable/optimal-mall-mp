@@ -68,11 +68,12 @@ page {
 .placeholder {
   flex: 1;
   margin-left: 12rpx;
-  color: #A1A9B3;
+  color: #a1a9b3;
   font-size: 26rpx;
 }
 
-.search-btn, .share-btn {
+.search-btn,
+.share-btn {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -83,7 +84,8 @@ page {
   background: #fff;
   border: 0.5px solid #e1e1e1;
 }
-.search-icon, .share-icon {
+.search-icon,
+.share-icon {
   width: 16px;
   height: 16px;
 }
@@ -131,7 +133,7 @@ page {
   width: 164rpx;
   height: 116rpx;
   border-radius: 12rpx;
-  box-shadow: 0 0 4rpx 4rpx rgba(0,0,0,0.02);
+  box-shadow: 0 0 4rpx 4rpx rgba(0, 0, 0, 0.01);
 }
 .integrity-part {
   display: flex;
@@ -142,7 +144,7 @@ page {
   width: 347rpx;
   height: 160rpx;
   border-radius: 12rpx;
-  box-shadow: 0 0 4rpx 4rpx rgba(0,0,0,0.02);
+  box-shadow: 0 0 4rpx 4rpx rgba(0, 0, 0, 0.01);
 }
 .limited-time-promotion {
   display: block;
@@ -159,12 +161,12 @@ page {
   justify-content: center;
   flex: 1;
   height: 126rpx;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 28rpx;
 }
 .menu-item.active {
   position: relative;
-  color: #14191F;
+  color: #14191f;
   font-size: 32rpx;
   font-weight: 550;
 }
@@ -179,7 +181,7 @@ page {
 
 .split-title {
   margin-bottom: 14rpx;
-  color: #14191F;
+  color: #14191f;
   font-size: 32rpx;
   font-weight: 550;
 }
