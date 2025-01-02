@@ -23,7 +23,7 @@
   <view class="list-footer">
     <view class="total-info row baseline">
       <view>{{ORDER.paymentDesc(item.status)}}：</view>
-      <price-unit price="{{item.paymentAmount || 0}}" color="#333" fontSize="26rpx" integerFontSize="36rpx" />
+      <price-unit price="{{item.refundAmount || 0}}" color="#333" fontSize="26rpx" integerFontSize="36rpx" />
     </view>
     <view class="btn-wrap">
       <button 
