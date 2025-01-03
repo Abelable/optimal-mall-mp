@@ -74,7 +74,7 @@
             <image class="more-icon" src="./images/more{{goodsInfo.activityInfo ? '-activity' : ''}}.png" />
           </view>
         </view>
-        <view class="commission row {{(!goodsInfo.activityInfo && !goodsInfo.isGift) ? 'show-bg' : ''}}" wx:if="{{userInfo.level && goodsInfo.commissionRate}}" bindtap="toggleCommissionVisible">
+        <view class="commission row {{(!goodsInfo.activityInfo && !goodsInfo.isGift) ? 'show-bg' : ''}}" wx:if="{{userInfo.level && commission}}" bindtap="toggleCommissionVisible">
           <view>{{commissionVisible ? '利润：¥' + commission : '******'}}</view>
           <image class="commission-visible-icon" src="./images/commission_{{commissionVisible ? 'show' : 'hide'}}.png" />
         </view>
