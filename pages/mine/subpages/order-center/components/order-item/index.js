@@ -86,6 +86,7 @@ Component({
           if (result.confirm) {
             const { item, index } = this.properties;
             orderService.refundOrder(item.id, () => {
+              this.setData({ refundBtnVisible: false });
               this.triggerEvent("update", { type: "refund", index });
             });
           }
