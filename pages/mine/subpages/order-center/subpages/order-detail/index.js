@@ -109,6 +109,7 @@ Page({
         if (result.confirm) {
           orderService.refundOrder(this.orderId, () => {
             this.setData({
+              refundBtnVisible: true,
               ["orderInfo.status"]: 203
             });
           });
