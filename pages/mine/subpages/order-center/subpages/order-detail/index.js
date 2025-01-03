@@ -109,7 +109,7 @@ Page({
         if (result.confirm) {
           orderService.refundOrder(this.orderId, () => {
             this.setData({
-              ["orderInfo.status"]: 202
+              ["orderInfo.status"]: 203
             });
           });
         }
