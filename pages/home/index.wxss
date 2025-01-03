@@ -133,7 +133,6 @@ page {
   width: 164rpx;
   height: 116rpx;
   border-radius: 12rpx;
-  box-shadow: 0 0 4rpx 4rpx rgba(0, 0, 0, 0.01);
 }
 .integrity-part {
   display: flex;
@@ -144,7 +143,6 @@ page {
   width: 347rpx;
   height: 160rpx;
   border-radius: 12rpx;
-  box-shadow: 0 0 4rpx 4rpx rgba(0, 0, 0, 0.01);
 }
 .limited-time-promotion {
   display: block;
