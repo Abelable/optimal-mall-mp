@@ -1,7 +1,7 @@
-import { checkLogin } from "../../utils/index";
-import BaseService from "../../services/baseService";
+import { checkLogin } from "../../../../utils/index";
+import HomeService from "../../utils/homeService";
 
-const baseService = new BaseService();
+const homeService = new HomeService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
@@ -29,7 +29,7 @@ Page({
   },
 
   async setCartList() {
-    const list = (await baseService.getCartList()) || [];
+    const list = (await homeService.getCartList()) || [];
     const cartList = list.map(item => ({
       ...item,
       checked: false
@@ -48,7 +48,7 @@ Page({
       new Set(cartList.reduce((a, c) => [...a, ...c.categoryIds || []], []))
     );
 
-    const list = await baseService.getRecommedGoodsList(
+    const list = await homeService.getRecommedGoodsList(
       goodsIds,
       categoryIds,
       ++this.page
@@ -104,7 +104,7 @@ Page({
   async countChange(e) {
     const { cartIndex } = e.currentTarget.dataset;
     const { id, goodsId, selectedSkuIndex } = this.data.cartList[cartIndex];
-    baseService.editCart(id, goodsId, selectedSkuIndex, e.detail, () => {
+    homeService.editCart(id, goodsId, selectedSkuIndex, e.detail, () => {
       this.setData(
         {
           [`cartList[${cartIndex}].number`]: e.detail
@@ -124,7 +124,7 @@ Page({
         showCancel: true,
         success: res => {
           if (res.confirm) {
-            baseService.deleteCartList(this.selectedCartIdArr, () => {
+            homeService.deleteCartList(this.selectedCartIdArr, () => {
               this.init();
             });
           }
@@ -142,7 +142,7 @@ Page({
         showCancel: true,
         success: res => {
           if (res.confirm) {
-            baseService.deleteCartList([id], () => {
+            homeService.deleteCartList([id], () => {
               const cartList = this.data.cartList;
               cartList.splice(index, 1);
               this.setData({ cartList });
@@ -160,7 +160,7 @@ Page({
 
   async showSpecPopup(e) {
     const { info: cartInfo, cartIndex, goodsIndex } = e.currentTarget.dataset;
-    const goodsInfo = await baseService.getGoodsInfo(cartInfo.goodsId);
+    const goodsInfo = await homeService.getGoodsInfo(cartInfo.goodsId);
     this.setData({
       cartInfo,
       goodsInfo,

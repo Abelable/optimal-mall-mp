@@ -1,0 +1,82 @@
+<view class="navigation-bar row" style="padding-top: {{statusBarHeight}}px;">
+  <view style="flex: 1;">
+    <view class="edit-btn row center" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
+  </view>
+  <view class="navigation-title">购物车</view>
+  <view style="flex: 1;"></view>
+</view>
+
+<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? '100rpx' : 0}};">
+  <view class="goods-list-wrap" wx:if="{{cartList.length}}">
+    <view wx:for="{{cartList}}" wx:key="id">
+      <van-swipe-cell bind:close="deleteGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
+        <view class="goods-list row" bindtap="showGoodsDetail" data-id="{{item.goodsId}}">
+          <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" disabled="{{item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleGoodsChecked" data-index="{{index}}" />
+          <image class="goods-img {{item.status === 3 ? 'invalid' : ''}}" src="{{item.cover}}" mode="aspectFill" lazy-load />
+          <view class="goods-content">
+            <view class="goods-name omit {{item.status === 3 ? 'invalid' : ''}}">{{item.name}}</view>
+            <block wx:if="{{item.status === 1}}">
+              <view class="goods-sku-wrap" wx:if="{{item.selectedSkuName}}" catchtap="showSpecPopup" data-info="{{item}}" data-cart-index="{{index}}" data-goods-index="{{index}}">
+                <text class="goods-sku omit single">已选：{{item.selectedSkuName}}</text>
+                <image class="sku-edit-icon" src="https://img.ubo.vip/mp/to-icon.png" />
+              </view>
+              <view class="goods-price-wrap">
+                <view class="goods-price row baseline">
+                  <price-unit price="{{item.price}}" />
+                  <view class="price-market" wx:if="{{item.marketPrice}}">¥{{item.marketPrice}}</view>
+                </view>
+                <van-stepper 
+                  value="{{ item.number }}" 
+                  async-change 
+                  bind:change="countChange" 
+                  data-cart-index="{{index}}" 
+                  integer 
+                  max="{{item.isGift ? 1 : item.numberLimit}}" 
+                  catchtap="catchtap" 
+                />
+              </view>
+            </block>
+            <view class="invalid-tips-wrap" wx:if="{{item.status !== 1 }}">
+              <view class="invalid-tips">{{item.statusDesc}}</view>
+              <view class="reset-spec-btn" wx:if="{{item.status === 2}}" catchtap="showSpecPopup" data-info="{{item}}" data-cart-index="{{index}}" data-goods-index="{{index}}">重选</view>
+            </view>
+          </view>
+        </view>
+        <button class="swipe-cell-delete-btn" slot="right" hover-class="none">删除</button>
+      </van-swipe-cell>
+    </view>
+  </view>
+
+  <view class="empty-illus" wx:if="{{!cartList.length}}">
+    <image class="illus" src="./images/empty.png" />
+    <view class="empty-desc">您的购物车是空的，去挑选喜欢的好物吧～</view>
+    <navigator class="visit-btn" url="/pages/home/index" open-type="switchTab" hover-class="none">去挑选</navigator>
+  </view>
+
+  <view class="recommend-goods-wrap" wx:if="{{recommendGoodsList.length}}">
+    <split-line desc="猜您喜欢" />
+    <fall-flow list="{{recommendGoodsList}}" generic:item="goods-item" />
+  </view>
+
+  <view class="nomore-tip" wx:if="{{recommendGoodsList.length && finished}}">～没有更多了～</view>
+</view>
+
+<view class="bottom-bar" wx:if="{{cartList.length}}">
+  <view class="select-all" bindtap="toggleAllChecked">
+    <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{isSelectAll}}" />
+    <view>全选</view>
+  </view>
+  <view class="bar-main" wx:if="{{!deleteBtnVisible}}">
+    <view class="total-price row baseline">
+      <text>合计：</text>
+      <price-unit price="{{totalPrice}}" fontSize="26rpx" integerFontSize="36rpx" />
+    </view>
+    <button class="submit {{selectedCount ? 'active' : ''}}" bindtap="submit" hover-class="none">
+      <text>结算</text>
+      <text wx:if="{{selectedCount}}">({{selectedCount}})</text>
+    </button>
+  </view>
+  <button class="delete-btn {{selectedCount ? 'active' : ''}}" wx:if="{{deleteBtnVisible}}" bindtap="deleteGoodsList" hover-class="none">删除</button>
+</view>
+
+<spec-popup show="{{specPopupVisible}}" mode="{{3}}" goodsInfo="{{goodsInfo}}" cartInfo="{{cartInfo}}" bind:editSpecSuccess="editSpecSuccess" bind:hide="hideSpecPopup" />
