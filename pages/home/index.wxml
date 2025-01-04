@@ -49,7 +49,28 @@
     <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
     <image class="integrity-illus" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
   </view>
-  <image class="limited-time-promotion" bindtap="checkLimitedTimeActivity" mode="widthFix" src="./images/limited-time-promotion.png" />
+
+  <swiper 
+    class="middle-banner" 
+    wx:if="{{middleBannerList.length}}" 
+    style="height: 160rpx;" 
+    autoplay 
+    circular 
+    indicator-dots
+    indicator-color="rgba(66, 121, 112, 0.3)" 
+    indicator-active-color="#427970"
+  >
+    <swiper-item 
+      class="middle-banner-item"
+      wx:for="{{middleBannerList}}"
+      wx:key="index"
+      bindtap="linkTo"
+      data-scene="{{item.scene}}"
+      data-param="{{item.param}}"
+    >
+      <image class="middle-banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
+    </swiper-item>
+  </swiper>
 
   <view class="menu">
     <view 

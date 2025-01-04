@@ -24,6 +24,7 @@ Component({
     ],
     curMenuIdx: 0,
     bannerList: [],
+    middleBannerList: [],
     curDot: 1,
     activityGoodsLists: [[], [], []],
     goodsList: [],
@@ -57,6 +58,7 @@ Component({
       wx.showLoading({ title: "加载中..." });
       this.setAdInfo();
       await this.setBannerList();
+      await this.setMiddleBannerList();
       await this.setActivityGoodsList();
       this.setGoodsList(true);
     },
@@ -111,6 +113,11 @@ Component({
     async setBannerList() {
       const bannerList = await homeService.getBannerList();
       this.setData({ bannerList });
+    },
+
+    async setMiddleBannerList() {
+      const middleBannerList = await homeService.getBannerList(2);
+      this.setData({ middleBannerList });
     },
 
     bannerChange(event) {
