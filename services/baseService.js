@@ -202,10 +202,10 @@ class BaseService extends Base {
     });
   }
 
-  async addCart(goodsId, selectedSkuIndex, number) {
+  async addCart(goodsId, selectedSkuIndex = 0, number = 1) {
     return await this.post({
       url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number }
+      data: { goodsId, selectedSkuIndex, number },
     });
   }
 
