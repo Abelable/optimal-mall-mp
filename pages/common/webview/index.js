@@ -1,10 +1,24 @@
+import { store } from "../../../store/index";
+import BaseService from '../../../services/baseService'
+
+const baseService = new BaseService()
+
 Page({
   data: {
     url: ""
   },
 
   async onLoad(options) {
-    let { url, ...rest } = options;
+    let { url, superiorId = "", ...rest } = options;
+
+    getApp().onLaunched(async () => {
+      if (superiorId && !store.promoterInfo) {
+        wx.setStorageSync("superiorId", superiorId);
+        const superiorInfo = await baseService.getSuperiorInfo(superiorId);
+        store.setPromoterInfo(superiorInfo);
+      }
+    });
+
     for (let key in rest) {
       if (rest.hasOwnProperty(key) && rest[key])
         url += `${url.indexOf("?") === -1 ? "?" : "&"}${key}=${rest[key]}`;
@@ -30,10 +44,12 @@ Page({
   },
 
   onShareAppMessage() {
-    const path = `/pages/common/webview/index?url=${this.webviewUrl.replace(
+    const { id } = store.promoterInfo || {};
+    const originalPath = `/pages/common/webview/index?url=${this.webviewUrl.replace(
       "?",
       "&"
     )}`;
+    const path = id ? `${originalPath}&superiorId=${id}` : originalPath;
     return { path };
   }
 });
