@@ -2,6 +2,7 @@
   "navigationStyle": "custom",
   "enablePullDownRefresh": true,
   "usingComponents": {
+    "back-icon": "/components/back-icon/index",
     "van-swipe-cell": "@vant/weapp/swipe-cell/index",
     "van-stepper": "@vant/weapp/stepper/index",
     "spec-popup": "/components/spec-popup/index",

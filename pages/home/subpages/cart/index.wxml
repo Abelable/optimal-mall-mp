@@ -1,5 +1,6 @@
 <view class="navigation-bar row" style="padding-top: {{statusBarHeight}}px;">
-  <view style="flex: 1;">
+  <view class="row" style="flex: 1;">
+    <back-icon style="margin-left: 8px;" />
     <view class="edit-btn row center" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
   </view>
   <view class="navigation-title">购物车</view>
