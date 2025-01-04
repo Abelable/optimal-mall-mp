@@ -17,12 +17,15 @@ Component({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    menuList: ["今日主推", "活动预告"],
+    menuList: [
+      { name: "诚试一下", value: 3 },
+      { name: "诚食一口", value: 4 },
+      { name: "诚意一看", value: 5 }
+    ],
     curMenuIdx: 0,
     bannerList: [],
     curDot: 1,
-    todayGoodsList: [],
-    advanceGoodsList: [],
+    activityGoodsLists: [[], [], []],
     goodsList: [],
     finished: false,
     posterInfo: null,
@@ -34,11 +37,13 @@ Component({
       const { superiorId = "", scene = "" } = options || {};
       const decodedScene = scene ? decodeURIComponent(scene) : "";
       this.superiorId = superiorId || decodedScene.split("-")[0];
-      
+
       getApp().onLaunched(async () => {
         if (this.superiorId && !store.promoterInfo) {
           wx.setStorageSync("superiorId", this.superiorId);
-          const superiorInfo = await homeService.getSuperiorInfo(this.superiorId);
+          const superiorInfo = await homeService.getSuperiorInfo(
+            this.superiorId
+          );
           store.setPromoterInfo(superiorInfo);
         }
       });
@@ -49,24 +54,23 @@ Component({
     async init() {
       wx.showLoading({ title: "加载中..." });
       await this.setBannerList();
-      await this.setTodayGoodsList();
-      await this.setAdvanceGoodsList();
+      await this.setActivityGoodsList();
       this.setGoodsList(true);
     },
 
     selectMenu(e) {
       const curMenuIdx = e.currentTarget.dataset.index;
       this.setData({ curMenuIdx });
+      if (!this.data.activityGoodsLists[curMenuIdx].length) {
+        this.setActivityGoodsList();
+      }
     },
 
-    async setTodayGoodsList() {
-      const todayGoodsList = (await homeService.getActivityList(1)) || [];
-      this.setData({ todayGoodsList });
-    },
-
-    async setAdvanceGoodsList() {
-      const advanceGoodsList = (await homeService.getActivityList(2)) || [];
-      this.setData({ advanceGoodsList });
+    async setActivityGoodsList() {
+      const { menuList, curMenuIdx } = this.data;
+      const goodsList =
+        (await homeService.getActivityList(menuList[curMenuIdx].value)) || [];
+      this.setData({ [`activityGoodsLists[${curMenuIdx}]`]: goodsList });
     },
 
     async setGoodsList(init = false) {
@@ -159,25 +163,25 @@ Component({
 
     navToVillageGrain() {
       wx.navigateTo({
-        url: './subpages/village-grain/index'
+        url: "./subpages/village-grain/index"
       });
     },
 
     navToVillageFresh() {
       wx.navigateTo({
-        url: './subpages/village-fresh/index'
+        url: "./subpages/village-fresh/index"
       });
     },
 
     navToVillageSnack() {
       wx.navigateTo({
-        url: './subpages/village-snack/index'
+        url: "./subpages/village-snack/index"
       });
     },
 
     navToVillageGift() {
       wx.navigateTo({
-        url: './subpages/village-gift/index'
+        url: "./subpages/village-gift/index"
       });
     },
 
@@ -206,13 +210,13 @@ Component({
           : "-";
       const page = "pages/home/index";
       const qrcode = await homeService.getQRCode(scene, page);
-  
+
       this.setData({
         posterModalVisible: true,
         posterInfo: { qrcode }
       });
     },
-  
+
     hidePosterModal() {
       this.setData({
         posterModalVisible: false
@@ -239,7 +243,8 @@ Component({
         ? `${nickname} ${signature || "让时间见证信任"}`
         : "让时间见证信任";
       const query = id ? `superiorId=${id}` : "";
-      const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+      const imageUrl =
+        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
       return { query, title, imageUrl };
     }
   }
