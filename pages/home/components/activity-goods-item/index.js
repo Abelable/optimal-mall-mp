@@ -96,6 +96,19 @@ Component({
       }
     },
 
+    async addCart() {
+      const cartGoodsNumber = await homeService.addCart(
+        this.properties.item.id
+      );
+      if (cartGoodsNumber) {
+        wx.showToast({
+          title: "成功添加购物车",
+          icon: "none"
+        });
+        this.triggerEvent("addCartSuccess");
+      }
+    },
+
     navToGoodsDetail() {
       wx.navigateTo({
         url: `/pages/home/subpages/goods-detail/index?id=${this.properties.item.id}`

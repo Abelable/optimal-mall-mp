@@ -31,7 +31,7 @@
         <view class="bottom-price" wx:if="{{bottomPrice}}">最低到手价¥{{bottomPrice}}</view>
       </view>
       <view class="buy-btn" wx:if="{{!item.activityInfo || item.activityInfo.status === 1}}">
-        <view class="buy-btn-icon">
+        <view class="buy-btn-icon" catchtap="addCart">
           <image class="cart-icon" src="./images/cart.png" />
         </view>
         <view class="buy-btn-content">购买</view>
