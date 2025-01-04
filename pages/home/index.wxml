@@ -49,7 +49,7 @@
     <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
     <image class="integrity-illus" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
   </view>
-  <image class="limited-time-promotion" mode="widthFix" src="./images/limited-time-promotion.png" />
+  <image class="limited-time-promotion" bindtap="checkLimitedTimeActivity" mode="widthFix" src="./images/limited-time-promotion.png" />
 
   <view class="menu">
     <view 

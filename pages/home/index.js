@@ -1,6 +1,7 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
 import { store } from "../../store/index";
 import HomeService from "./utils/homeService";
+import { WEBVIEW_BASE_URL } from "../../config";
 
 const homeService = new HomeService();
 const { statusBarHeight } = getApp().globalData.systemInfo;
@@ -189,6 +190,12 @@ Component({
     navToIntegrityGoods() {
       wx.navigateTo({
         url: "./subpages/integrity-goods/index"
+      });
+    },
+
+    checkLimitedTimeActivity() {
+      wx.navigateTo({
+        url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
       });
     },
 

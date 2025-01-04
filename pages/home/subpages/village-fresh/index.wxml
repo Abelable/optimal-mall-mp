@@ -2,7 +2,7 @@
   <back-icon />
 </view>
 
-<image class="bg" src="https://static.youbozhenxuan.cn/mp/village_grain_bg.png" mode="widthFix" />
+<image class="bg" src="https://static.youbozhenxuan.cn/mp/village_fresh_bg.png" mode="widthFix" />
 
 <view class="goods-list">
   <top-goods-item wx:for="{{topGoodsList}}" wx:key="index" item="{{item}}" />
