@@ -1,8 +1,7 @@
 {
-  "navigationStyle": "custom",
+  "navigationBarTitleText": "乡镇百谷",
   "enablePullDownRefresh": true,
   "usingComponents": {
-    "back-icon": "/components/back-icon/index",
     "top-goods-item": "../../components/activity-goods-item/index",
     "goods-item": "../../components/goods-item/index",
     "empty-illus": "/components/empty-illus/index"

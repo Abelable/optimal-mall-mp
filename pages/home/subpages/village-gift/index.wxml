@@ -1,7 +1,3 @@
-<view class="back-icon-wrap" style="top: {{statusBarHeight + 5}}px">
-  <back-icon />
-</view>
-
 <image class="bg" src="https://static.youbozhenxuan.cn/mp/village_gift_bg.png" mode="widthFix" />
 
 <view class="goods-list">

@@ -1,12 +1,9 @@
 import HomeService from "../../utils/homeService";
 
 const homeService = new HomeService();
-const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Page({
   data: {
-    statusBarHeight,
-    bannerList: [],
     topGoodsList: [],
     goodsList: []
   },
