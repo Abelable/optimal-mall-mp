@@ -1,12 +1,12 @@
 <view class="navigation-bar row" style="padding-top: {{statusBarHeight}}px;">
   <view style="flex: 1;">
-    <view class="edit-btn row center" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
+    <view class="edit-btn row center" wx:if="{{cartList.length || newYearCartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
   </view>
   <view class="navigation-title">购物车</view>
   <view style="flex: 1;"></view>
 </view>
 
-<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? '100rpx' : 0}};">
+<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{(cartList.length || newYearCartList.length) ? '100rpx' : 0}};">
   <view class="new-year-goods-list-wrap" wx:if="{{newYearCartList.length}}">
     <view class="new-year-bar">
       <image class="new-year-bar-bg" mode="widthFix" src="https://static.youbozhenxuan.cn/mp/new_year_top_bg.png" />
@@ -107,7 +107,7 @@
   <view class="nomore-tip" wx:if="{{recommendGoodsList.length && finished}}">～没有更多了～</view>
 </view>
 
-<view class="bottom-bar" wx:if="{{cartList.length}}">
+<view class="bottom-bar" wx:if="{{cartList.length || newYearCartList.length}}">
   <view class="select-all" bindtap="toggleAllChecked">
     <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{isSelectAll}}" />
     <view>全选</view>

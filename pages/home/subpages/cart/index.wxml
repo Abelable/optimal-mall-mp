@@ -1,13 +1,13 @@
 <view class="navigation-bar row" style="padding-top: {{statusBarHeight}}px;">
   <view class="row" style="flex: 1;">
     <back-icon style="margin-left: 8px;" />
-    <view class="edit-btn row center" wx:if="{{cartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
+    <view class="edit-btn row center" wx:if="{{cartList.length || newYearCartList.length}}" bindtap="toggleDeleteBtnVisible">{{deleteBtnVisible ? '完成' : '管理'}}</view>
   </view>
   <view class="navigation-title">购物车</view>
   <view style="flex: 1;"></view>
 </view>
 
-<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? 'calc(100rpx + env(safe-area-inset-bottom))' : 0}};">
+<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{(cartList.length || newYearCartList.length) ? 'calc(100rpx + env(safe-area-inset-bottom))' : 0}};">
   <view class="new-year-goods-list-wrap" wx:if="{{newYearCartList.length}}">
     <view class="new-year-bar">
       <image class="new-year-bar-bg" mode="widthFix" src="https://static.youbozhenxuan.cn/mp/new_year_top_bg.png" />
@@ -94,7 +94,7 @@
     </view>
   </view>
 
-  <view class="empty-illus" wx:if="{{!cartList.length}}">
+  <view class="empty-illus" wx:if="{{!cartList.length && !newYearCartList.length}}">
     <image class="illus" src="./images/empty.png" />
     <view class="empty-desc">您的购物车是空的，去挑选喜欢的好物吧～</view>
     <navigator class="visit-btn" url="/pages/home/index" open-type="switchTab" hover-class="none">去挑选</navigator>
@@ -108,7 +108,7 @@
   <view class="nomore-tip" wx:if="{{recommendGoodsList.length && finished}}">～没有更多了～</view>
 </view>
 
-<view class="bottom-bar" wx:if="{{cartList.length}}">
+<view class="bottom-bar" wx:if="{{cartList.length || newYearCartList.length}}">
   <view class="select-all" bindtap="toggleAllChecked">
     <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{isSelectAll}}" />
     <view>全选</view>
