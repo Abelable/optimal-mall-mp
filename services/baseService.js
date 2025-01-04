@@ -183,15 +183,15 @@ class BaseService extends Base {
     return list;
   }
 
-  async getCartGoodsNumber() {
-    return await this.get({
-      url: `${this.baseUrl}/cart/goods_number`
-    });
-  }
-
   async getDefaultAddress() {
     return await this.get({
       url: `${this.baseUrl}/address/default`
+    });
+  }
+
+  async getCartGoodsNumber() {
+    return await this.get({
+      url: `${this.baseUrl}/cart/goods_number`
     });
   }
 

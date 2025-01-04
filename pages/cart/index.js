@@ -8,6 +8,7 @@ Page({
   data: {
     statusBarHeight,
     cartList: [],
+    newYearCartList: [],
     recommendGoodsList: [],
     finished: false,
     isSelectAll: false,
@@ -30,11 +31,22 @@ Page({
 
   async setCartList() {
     const list = (await baseService.getCartList()) || [];
-    const cartList = list.map(item => ({
-      ...item,
-      checked: false
-    }));
-    this.setData({ cartList });
+    const cartList = [];
+    const newYearCartList = [];
+    list.forEach(item => {
+      if (item.isNewYearGift) {
+        newYearCartList.push({
+          ...item,
+          checked: false
+        })
+      } else {
+        cartList.push({
+          ...item,
+          checked: false
+        })
+      }
+    });
+    this.setData({ cartList, newYearCartList });
   },
 
   async setRecommendGoodsList(init = false) {

@@ -81,6 +81,36 @@
   background: #F5701D;
 }
 
+.new-year-goods-list-wrap {
+  position: relative;
+  margin: 24rpx;
+  padding-top: 100rpx;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 12rpx;
+}
+.new-year-bar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+}
+.new-year-bar-bg {
+  width: 100%;
+}
+.new-year-bar-title {
+  position: absolute;
+  top: 20rpx;
+  left: 50%;
+  transform: translateX(-50%);
+  color: #BC3723;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.new-year-goods-list {
+  padding-right: 24rpx;
+}
+
 .goods-list-wrap {
   margin: 24rpx;
   padding-top: 24rpx;
