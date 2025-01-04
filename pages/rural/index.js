@@ -40,7 +40,7 @@ Page({
   },
 
   async setBannerList() {
-    const bannerList = await ruralService.getBannerList();
+    const bannerList = await ruralService.getBannerList(4);
     this.setData({ bannerList });
   },
 
@@ -76,13 +76,13 @@ Page({
   linkTo(e) {
     const { scene, param } = e.currentTarget.dataset;
     switch (scene) {
-      case "1":
+      case 1:
         wx.navigateTo({
           url: `/pages/common/webview/index?url=${param}`
         });
         break;
 
-      case "2":
+      case 2:
         wx.navigateTo({
           url: `/pages/home/subpages/goods-detail/index?id=${param}`
         });
