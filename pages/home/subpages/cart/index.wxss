@@ -201,6 +201,7 @@
   position: fixed;
   left: 0;
   bottom: 0;
+  padding-bottom: env(safe-area-inset-bottom);
   display: flex;
   align-items: center;
   justify-content: space-between;

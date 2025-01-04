@@ -7,7 +7,7 @@
   <view style="flex: 1;"></view>
 </view>
 
-<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? '100rpx' : 0}};">
+<view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{cartList.length ? 'calc(100rpx + env(safe-area-inset-bottom))' : 0}};">
   <view class="goods-list-wrap" wx:if="{{cartList.length}}">
     <view wx:for="{{cartList}}" wx:key="id">
       <van-swipe-cell bind:close="deleteGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
