@@ -102,7 +102,7 @@
 
   <view class="recommend-goods-wrap" wx:if="{{recommendGoodsList.length}}">
     <split-line desc="猜您喜欢" />
-    <fall-flow list="{{recommendGoodsList}}" generic:item="goods-item" />
+    <fall-flow list="{{recommendGoodsList}}" generic:item="goods-item" bind:addCartSuccess="init" />
   </view>
 
   <view class="nomore-tip" wx:if="{{recommendGoodsList.length && finished}}">～没有更多了～</view>
