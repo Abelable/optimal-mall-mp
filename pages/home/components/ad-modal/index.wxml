@@ -1,0 +1,6 @@
+<view class="modal-mask" bindtap="hide">
+  <view class="ad-poster" catchtap="catchtap">
+    <image class="ad-poster-img" src="{{info.cover}}" bindtap="linkTo" mode="widthFix" />
+    <image class="close-icon" bindtap="hide" src="https://img.ubo.vip/mp/index/close-icon.png" />
+  </view>
+</view>

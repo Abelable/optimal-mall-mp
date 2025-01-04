@@ -92,6 +92,14 @@ class BaseService extends Base {
     });
   }
 
+  async getAdInfo() {
+    return await this.get({ url: `${this.baseUrl}/banner/pop` });
+  }
+
+  async getBannerList(position = 1) {
+    return await this.get({ url: `${this.baseUrl}/banner/list`, data: { position } });
+  }
+
   async subscribeActivity(activityId, success) {
     const wxSubRes = await this.requestSubscribeMessage(ACTIVITY_TEMPLATE_ID);
     if (wxSubRes[ACTIVITY_TEMPLATE_ID] === "accept") {

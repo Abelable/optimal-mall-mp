@@ -76,4 +76,5 @@
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
 </view>
 
+<ad-modal wx:if="{{adModalVisible}}" info="{{adInfo}}" bind:hide="hideAdModal" />
 <poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />

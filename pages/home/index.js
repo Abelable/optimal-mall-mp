@@ -28,6 +28,8 @@ Component({
     activityGoodsLists: [[], [], []],
     goodsList: [],
     finished: false,
+    adInfo: null,
+    adModalVisible: false,
     posterInfo: null,
     posterModelVisible: false
   },
@@ -53,6 +55,7 @@ Component({
 
     async init() {
       wx.showLoading({ title: "加载中..." });
+      this.setAdInfo();
       await this.setBannerList();
       await this.setActivityGoodsList();
       this.setGoodsList(true);
@@ -95,6 +98,13 @@ Component({
         this.setData({
           finished: true
         });
+      }
+    },
+
+    async setAdInfo() {
+      const adInfo = await homeService.getAdInfo();
+      if (adInfo) {
+        this.setData({ adInfo, adModalVisible: true });
       }
     },
 
@@ -200,6 +210,12 @@ Component({
     checkLimitedTimeActivity() {
       wx.navigateTo({
         url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
+      });
+    },
+
+    hideAdModal() {
+      this.setData({
+        adModalVisible: false
       });
     },
 
