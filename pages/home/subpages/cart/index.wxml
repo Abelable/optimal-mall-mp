@@ -15,9 +15,9 @@
     </view>
     <view class="new-year-goods-list">
       <view wx:for="{{newYearCartList}}" wx:key="id">
-        <van-swipe-cell bind:close="deleteGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
+        <van-swipe-cell bind:close="deleteNewYearGoods" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
           <view class="goods-list row" bindtap="showGoodsDetail" data-id="{{item.goodsId}}">
-            <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" disabled="{{item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleGoodsChecked" data-index="{{index}}" />
+            <checkbox class="checkbox {{deleteBtnVisible ? 'danger' : ''}}" checked="{{item.checked}}" disabled="{{item.status !== 1 && !deleteBtnVisible}}" catchtap="toggleNewYearGoodsChecked" data-index="{{index}}" />
             <image class="goods-img {{item.status === 3 ? 'invalid' : ''}}" src="{{item.cover}}" mode="aspectFill" lazy-load />
             <view class="goods-content">
               <view class="goods-name omit {{item.status === 3 ? 'invalid' : ''}}">{{item.name}}</view>
@@ -34,7 +34,7 @@
                   <van-stepper 
                     value="{{ item.number }}" 
                     async-change 
-                    bind:change="countChange" 
+                    bind:change="newYearCountChange" 
                     data-cart-index="{{index}}" 
                     integer 
                     max="{{item.isGift ? 1 : item.numberLimit}}" 
