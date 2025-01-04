@@ -6,7 +6,7 @@ Page({
   data: {
     goodsList: [],
     score: 0,
-    imageList: [],
+    imageList: []
   },
 
   onLoad({ goodsList, orderId }) {
@@ -29,8 +29,8 @@ Page({
       this.setData({
         imageList: [
           ...this.data.imageList,
-          { status: "uploading", message: "上传中", deletable: true },
-        ],
+          { status: "uploading", message: "上传中", deletable: true }
+        ]
       });
       const url = (await orderService.uploadFile(item.url)) || "";
       if (url) {
@@ -39,19 +39,19 @@ Page({
             ...this.data.imageList[index + _index],
             status: "done",
             message: "上传成功",
-            url,
-          },
+            url
+          }
         });
       } else {
         this.setData({
           [`imageList[${index + _index}]`]: {
             ...this.data.imageList[index + _index],
             status: "fail",
-            message: "上传失败",
-          },
+            message: "上传失败"
+          }
         });
       }
-    })
+    });
   },
 
   deleteImage(e) {
@@ -61,22 +61,41 @@ Page({
   },
 
   submit() {
-    const { score, goodsList, imageList } = this.data;
+    const { score } = this.data;
     if (!score) {
       wx.showToast({
         title: "给商品评个分吧！",
-        icon: "none",
+        icon: "none"
       });
       return;
     }
     if (!this.content) {
       wx.showToast({
         title: "商品评价不能为空哦！",
-        icon: "none",
+        icon: "none"
       });
       return;
     }
-    const goodsIds = goodsList.map((item) => item.goodsId);
+    if (score <= 2) {
+      wx.showModal({
+        title: "评分较低哦",
+        content: "确定要给出低分评价吗？",
+        showCancel: true,
+        cancelText: "再想想",
+        success: result => {
+          if (result.confirm) {
+            this.evaluate();
+          }
+        }
+      });
+    } else {
+      this.evaluate();
+    }
+  },
+
+  evaluate() {
+    const { score, goodsList, imageList } = this.data;
+    const goodsIds = goodsList.map(item => item.goodsId);
     orderService.submitEvaluation(
       this.orderId,
       goodsIds,
@@ -86,12 +105,12 @@ Page({
       () => {
         wx.showToast({
           title: "提交成功",
-          icon: "none",
+          icon: "none"
         });
         setTimeout(() => {
           wx.navigateBack();
         }, 2000);
       }
     );
-  },
+  }
 });

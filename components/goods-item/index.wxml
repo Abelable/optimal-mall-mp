@@ -27,7 +27,7 @@
         <view class="market-price" wx:if="{{!item.isGift && !bottomPrice}}">¥{{item.marketPrice}}</view>
         <view class="bottom-price" wx:if="{{bottomPrice}}">到手价¥{{bottomPrice}}</view>
       </view>
-      <image class="add-icon" src="/images/add.png" />
+      <image class="add-icon" catchtap="addCart" src="/images/add.png" />
     </view>
   </view>
 </view>

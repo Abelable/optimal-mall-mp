@@ -2,16 +2,38 @@ import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
-  async getBannerList() {
-    return await this.get({
-      url: `${this.baseUrl}/mall/banner_list`
-    });
-  }
-
   async getActivityList(tag) {
     return await this.get({
       url: `${this.baseUrl}/mall/activity_list`,
       data: { tag }
+    });
+  }
+
+  async getGrainGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/grain_goods_list`,
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async getFreshGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/fresh_goods_list`,
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async getSnackGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/snack_goods_list`,
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async getGiftGoodsList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/gift_goods_list`,
+      loadingTitle: "加载中..."
     });
   }
 

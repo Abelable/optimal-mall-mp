@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "乡村零嘴",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "top-goods-item": "../../components/activity-goods-item/index",
+    "goods-item": "../../components/goods-item/index",
+    "empty-illus": "/components/empty-illus/index"
+  }
+}

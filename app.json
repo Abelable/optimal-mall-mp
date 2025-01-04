@@ -1,7 +1,12 @@
 {
   "pages": [
     "pages/home/index",
+    "pages/home/subpages/village-grain/index",
+    "pages/home/subpages/village-fresh/index",
+    "pages/home/subpages/village-snack/index",
+    "pages/home/subpages/village-gift/index",
     "pages/home/subpages/integrity-goods/index",
+    "pages/home/subpages/cart/index",
     "pages/home/subpages/goods-detail/index",
     "pages/home/subpages/goods-detail/subpages/license/index",
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",

@@ -1,10 +1,14 @@
+import BaseService from "../../services/baseService";
+
+const baseService = new BaseService();
+
 Component({
   options: {
     addGlobalClass: true
   },
 
   properties: {
-    item: Object,
+    item: Object
   },
 
   data: {
@@ -49,6 +53,19 @@ Component({
       wx.navigateTo({
         url: `/pages/home/subpages/goods-detail/index?id=${this.properties.item.id}`
       });
+    },
+
+    async addCart() {
+      const cartGoodsNumber = await baseService.addCart(
+        this.properties.item.id
+      );
+      if (cartGoodsNumber) {
+        wx.showToast({
+          title: "成功添加购物车",
+          icon: "none"
+        });
+        this.triggerEvent("addCartSuccess");
+      }
     }
   }
 });

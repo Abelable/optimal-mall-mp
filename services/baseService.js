@@ -92,6 +92,14 @@ class BaseService extends Base {
     });
   }
 
+  async getAdInfo() {
+    return await this.get({ url: `${this.baseUrl}/banner/pop` });
+  }
+
+  async getBannerList(position = 1) {
+    return await this.get({ url: `${this.baseUrl}/banner/list`, data: { position } });
+  }
+
   async subscribeActivity(activityId, success) {
     const wxSubRes = await this.requestSubscribeMessage(ACTIVITY_TEMPLATE_ID);
     if (wxSubRes[ACTIVITY_TEMPLATE_ID] === "accept") {
@@ -183,15 +191,15 @@ class BaseService extends Base {
     return list;
   }
 
-  async getCartGoodsNumber() {
-    return await this.get({
-      url: `${this.baseUrl}/cart/goods_number`
-    });
-  }
-
   async getDefaultAddress() {
     return await this.get({
       url: `${this.baseUrl}/address/default`
+    });
+  }
+
+  async getCartGoodsNumber() {
+    return await this.get({
+      url: `${this.baseUrl}/cart/goods_number`
     });
   }
 
@@ -202,10 +210,10 @@ class BaseService extends Base {
     });
   }
 
-  async addCart(goodsId, selectedSkuIndex, number) {
+  async addCart(goodsId, selectedSkuIndex = 0, number = 1) {
     return await this.post({
       url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number }
+      data: { goodsId, selectedSkuIndex, number },
     });
   }
 
@@ -236,6 +244,36 @@ class BaseService extends Base {
     return await this.get({
       url: `${this.baseUrl}/goods/purchased_list`,
       data: { goodsId, scene }
+    });
+  }
+
+  async getCartList() {
+    return await this.get({
+      url: `${this.baseUrl}/cart/list`,
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async fastAddCart(goodsId, selectedSkuIndex, number) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/fast_add`,
+      data: { goodsId, selectedSkuIndex, number }
+    });
+  }
+
+  async editCart(id, goodsId, selectedSkuIndex, number, success) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/edit`,
+      data: { id, goodsId, selectedSkuIndex, number },
+      success
+    });
+  }
+
+  async deleteCartList(ids, success) {
+    return await this.post({
+      url: `${this.baseUrl}/cart/delete`,
+      data: { ids },
+      success
     });
   }
 }

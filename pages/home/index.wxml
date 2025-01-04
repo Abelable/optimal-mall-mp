@@ -39,10 +39,38 @@
 </view>
 
 <view class="container">
-  <view class="activity-wrap">
-    <image class="activity" bindtap="navToRuralPage" src="./images/integrity-village.png" />
-    <image class="activity" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
+  <view class="village-part">
+    <image class="village-illus" bindtap="navToVillageGrain" src="./images/village-grain.png" />
+    <image class="village-illus" bindtap="navToVillageFresh" src="./images/village-fresh.png" />
+    <image class="village-illus" bindtap="navToVillageSnack" src="./images/village-snack.png" />
+    <image class="village-illus" bindtap="navToVillageGift" src="./images/village-gift.png" />
   </view>
+  <view class="integrity-part">
+    <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
+    <image class="integrity-illus" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
+  </view>
+
+  <swiper 
+    class="middle-banner" 
+    wx:if="{{middleBannerList.length}}" 
+    style="height: 160rpx;" 
+    autoplay 
+    circular 
+    indicator-dots
+    indicator-color="rgba(66, 121, 112, 0.3)" 
+    indicator-active-color="#427970"
+  >
+    <swiper-item 
+      class="middle-banner-item"
+      wx:for="{{middleBannerList}}"
+      wx:key="index"
+      bindtap="linkTo"
+      data-scene="{{item.scene}}"
+      data-param="{{item.param}}"
+    >
+      <image class="middle-banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
+    </swiper-item>
+  </swiper>
 
   <view class="menu">
     <view 
@@ -52,16 +80,13 @@
       bindtap="selectMenu" 
       data-index="{{index}}"
     >
-      <view class="menu-item-content">{{item}}</view>
+      <view class="menu-item-content">{{item.name}}</view>
       <image class="menu-active-tag" wx:if="{{curMenuIdx === index}}" src="./images/menu-active.png" />
     </view>
   </view>
 
-  <view class="activity-goods-list" wx:if="{{curMenuIdx === 0}}">
-    <activity-goods-item wx:for="{{todayGoodsList}}" wx:key="id" item="{{item}}" bind:refresh="init" />
-  </view>
-  <view class="activity-goods-list" wx:if="{{curMenuIdx === 1}}">
-    <activity-goods-item wx:for="{{advanceGoodsList}}" wx:key="id" item="{{item}}" bind:refresh="init" />
+  <view class="activity-goods-list">
+    <activity-goods-item wx:for="{{activityGoodsLists[curMenuIdx]}}" wx:key="id" item="{{item}}" bind:refresh="init" />
   </view>
   <view class="split-title row">
     <view>星球精选</view>
@@ -72,4 +97,5 @@
   <view class="no-more-tips" wx:if="{{finished && goodsList.length}}">～没有更多了～</view>
 </view>
 
+<ad-modal wx:if="{{adModalVisible}}" info="{{adInfo}}" bind:hide="hideAdModal" />
 <poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />

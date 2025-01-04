@@ -27,4 +27,10 @@ Component({
     leftList: [],
     rightList: [],
   },
+
+  methods: {
+    addCartSuccess() {
+      this.triggerEvent("addCartSuccess");
+    }
+  }
 });
