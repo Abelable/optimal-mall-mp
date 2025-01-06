@@ -18,8 +18,8 @@ Component({
     statusBarHeight,
     navBarBgVisible: false,
     menuList: [
-      { name: "诚试一下", value: 3 },
       { name: "诚食一口", value: 4 },
+      { name: "诚试一下", value: 3 },
       { name: "诚意一看", value: 5 }
     ],
     curMenuIdx: 0,
@@ -51,12 +51,12 @@ Component({
         }
       });
 
+      this.setAdInfo();
       this.init();
     },
 
     async init() {
       wx.showLoading({ title: "加载中..." });
-      this.setAdInfo();
       await this.setBannerList();
       await this.setMiddleBannerList();
       await this.setActivityGoodsList();
