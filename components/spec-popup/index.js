@@ -24,7 +24,9 @@ Component({
         }
 
         if ((newInfo && !this.purchasedList) || newInfo.id !== oldInfo.id) {
-          await this.setPurchasedList();
+          if (wx.getStorageSync("token")) {
+            await this.setPurchasedList();
+          }
           this.setSpecList();
         }
       }
