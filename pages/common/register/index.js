@@ -65,11 +65,14 @@ Page({
     const pagesLength = getCurrentPages().length;
     const prePage = getCurrentPages()[pagesLength - 2];
     const prePageRoute = prePage ? prePage.route : "";
+    console.log("prePageRoute", prePageRoute);
     if (
       prePageRoute === "pages/mine/index" ||
       prePageRoute === "pages/cart/index"
     ) {
       wx.switchTab({ url: "/pages/home/index" });
+    } else if (prePageRoute === "pages/home/subpages/cart/index") {
+      wx.navigateBack({ delta: 2 });
     } else {
       wx.navigateBack();
     }
