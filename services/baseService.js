@@ -31,7 +31,7 @@ class BaseService extends Base {
       url: `${this.baseUrl}/auth/wx_mp/login`,
       data: { code }
     });
-    wx.setStorageSync("token", token || "");
+    token && wx.setStorageSync("token", token);
   }
 
   async refreshToken() {
@@ -97,7 +97,10 @@ class BaseService extends Base {
   }
 
   async getBannerList(position = 1) {
-    return await this.get({ url: `${this.baseUrl}/banner/list`, data: { position } });
+    return await this.get({
+      url: `${this.baseUrl}/banner/list`,
+      data: { position }
+    });
   }
 
   async subscribeActivity(activityId, success) {
@@ -213,7 +216,7 @@ class BaseService extends Base {
   async addCart(goodsId, selectedSkuIndex = 0, number = 1) {
     return await this.post({
       url: `${this.baseUrl}/cart/add`,
-      data: { goodsId, selectedSkuIndex, number },
+      data: { goodsId, selectedSkuIndex, number }
     });
   }
 

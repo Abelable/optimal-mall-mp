@@ -28,7 +28,7 @@ Page({
 
   onShow() {
     setTimeout(() => {
-      const token = wx.getStorageSync("token");
+      const token = wx.getStorageSync("token") || "";
       if (token) {
         this.setData({
           url: `${this.webviewUrl}${
