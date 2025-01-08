@@ -41,7 +41,14 @@ class Base {
     const [res, err] = (await client()) || [];
 
     if (err) {
-      wx.showToast({ title: err.errMsg, icon: "none" });
+      if (err.errMsg.includes("network change")) {
+        return await this.handleResult(url, client, success, fail);
+      } else {
+        wx.showToast({
+          title: err.errMsg.includes("request:fail") ? "网络异常" : err.errMsg,
+          icon: "none"
+        });
+      }
       return;
     }
 
@@ -97,7 +104,9 @@ class Base {
   async uploadFile(filePath) {
     const ossConfig = await this.getOssConfig();
 
-    const fileName = `${filePath.replace("http://tmp/", "").replace("wxfile://tmp_", "")}`;
+    const fileName = `${filePath
+      .replace("http://tmp/", "")
+      .replace("wxfile://tmp_", "")}`;
     const formData = {
       key: `${ossConfig.dir}${fileName}`,
       success_action_status: "200",
