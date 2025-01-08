@@ -65,7 +65,6 @@ Page({
     const pagesLength = getCurrentPages().length;
     const prePage = getCurrentPages()[pagesLength - 2];
     const prePageRoute = prePage ? prePage.route : "";
-    console.log("prePageRoute", prePageRoute);
     if (
       prePageRoute === "pages/mine/index" ||
       prePageRoute === "pages/cart/index"
