@@ -248,7 +248,7 @@
       </view>
     </button>
   </view>
-  <view class="btns row" wx:if="{{goodsInfo.status === 1 && goodsInfo.stock && !goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1}}">
+  <view class="btns row" wx:if="{{goodsInfo.status === 1 && goodsInfo.stock && (!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1)}}">
     <button class="add-cart-btn" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>
     <button class="buy-btn" bindtap="showSpecPopup" data-mode="{{2}}">
       <view>
