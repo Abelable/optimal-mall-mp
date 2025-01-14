@@ -127,11 +127,10 @@ class OrderService extends MineService {
     });
   }
 
-  async modifyOrderAddressInfo(orderId, addressId, success) {
-    await this.post({
+  async modifyOrderAddressInfo(orderId, addressId) {
+    return await this.post({
       url: `${this.baseUrl}/order/modify_address_info`,
       data: { orderId, addressId },
-      success
     });
   }
 }
