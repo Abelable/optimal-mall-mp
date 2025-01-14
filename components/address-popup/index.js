@@ -1,7 +1,7 @@
-import { checkLogin } from "../../../../utils/index";
-import HomeService from "../../utils/homeService";
+import { checkLogin } from "../../utils/index";
+import BaseService from "../../services/baseService";
 
-const homeService = new HomeService();
+const baseService = new BaseService();
 
 Component({
   options: {
@@ -34,7 +34,7 @@ Component({
   methods: {
     setAddressList() {
       checkLogin(async () => {
-        const addressList = await homeService.getAddressList();
+        const addressList = await baseService.getAddressList();
         this.setData({ addressList });
   
         const { addressId } = this.properties;

@@ -1,5 +1,6 @@
 {
   "usingComponents": {
+    "address-popup": "/components/address-popup/index",
     "price-unit": "/components/price-unit/index",
     "goods-item": "./components/goods-item/index"
   }
