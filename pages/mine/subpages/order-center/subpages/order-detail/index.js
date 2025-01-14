@@ -11,7 +11,8 @@ Page({
   data: {
     orderInfo: null,
     countdown: 0,
-    refundBtnVisible: false
+    refundBtnVisible: false,
+    addressPopupVisible: false
   },
 
   onLoad({ id }) {
@@ -44,7 +45,7 @@ Page({
     }
 
     if (status === 201) {
-      const giftGoodsIdx = goodsList.findIndex(item => item.isGift)
+      const giftGoodsIdx = goodsList.findIndex(item => item.isGift);
       if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
         this.setData({ refundBtnVisible: true });
       }
@@ -165,6 +166,38 @@ Page({
       goodsList
     )}`;
     wx.navigateTo({ url });
+  },
+
+  showAddressPopup() {
+    this.setData({
+      addressPopupVisible: true
+    });
+  },
+
+  confirmAddressSelect(e) {
+    this.addressId = e.detail.id;
+    this.modifyAddressInfo();
+    this.hideAddressPopup();
+  },
+
+  hideAddressPopup() {
+    this.setData({
+      addressPopupVisible: false
+    });
+  },
+
+  async modifyAddressInfo() {
+    const { consignee, mobile, address } =
+      (await orderService.modifyOrderAddressInfo(
+        this.data.orderInfo.id,
+        this.addressId
+      )) || {};
+    if (consignee)
+      this.setData({
+        ["orderInfo.consignee"]: consignee,
+        ["orderInfo.mobile"]: mobile,
+        ["orderInfo.address"]: address
+      });
   },
 
   onUnload() {
