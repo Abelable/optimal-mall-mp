@@ -13,6 +13,7 @@ Page({
     statusBarHeight,
     showNavBar: false,
     commentActive: false,
+    realImagesActive: false,
     detailActive: false,
     curDot: 1,
     muted: true,
@@ -75,6 +76,8 @@ Page({
   async init() {
     await this.setGoodsInfo();
     await this.setEvaluationSummary();
+    this.getCommentTop();
+    this.getRealImagesTop();
     this.getDetailTop();
     this.setBottomPrice();
     this.setCommisstion();
@@ -95,9 +98,6 @@ Page({
       this.goodsId
     );
     this.setData({ evaluationSummary });
-    if (evaluationSummary.total) {
-      this.getCommentTop();
-    }
   },
 
   setBottomPrice() {
@@ -198,13 +198,27 @@ Page({
 
   // 获取详情部分离窗口顶部的距离
   getCommentTop() {
-    const query = wx.createSelectorQuery();
-    query.select(".ref-comment").boundingClientRect();
-    query.exec(res => {
-      if (res[0] !== null) {
-        this.commentTop = res[0].top - 8;
-      }
-    });
+    if (this.data.evaluationSummary.total) {
+      const query = wx.createSelectorQuery();
+      query.select(".ref-comment").boundingClientRect();
+      query.exec(res => {
+        if (res[0] !== null) {
+          this.commentTop = res[0].top - 8;
+        }
+      });
+    }
+  },
+
+  getRealImagesTop() {
+    if (this.data.goodsInfo.detailImageList.length) {
+      const query = wx.createSelectorQuery();
+      query.select(".ref-real-images").boundingClientRect();
+      query.exec(res => {
+        if (res[0] !== null) {
+          this.realImagesTop = res[0].top - 8;
+        }
+      });
+    }
   },
 
   // 获取详情部分离窗口顶部的距离
@@ -276,7 +290,8 @@ Page({
 
   // 监听滚动
   onPageScroll(e) {
-    const { showNavBar, commentActive, detailActive } = this.data;
+    const { showNavBar, commentActive, realImagesActive, detailActive } =
+      this.data;
 
     // 控制导航栏显隐
     if (e.scrollTop >= this.bannerHeight - navBarHeight) {
@@ -290,7 +305,33 @@ Page({
     }
 
     // 控制导航栏tab的状态切换
-    if (this.commentTop) {
+    if (this.commentTop && this.realImagesTop) {
+      if (e.scrollTop < this.commentTop - navBarHeight) {
+        if (commentActive) this.setData({ commentActive: false });
+        if (realImagesActive) this.setData({ realImagesActive: false });
+        if (detailActive) this.setData({ detailActive: false });
+      } else if (
+        e.scrollTop >= this.commentTop - navBarHeight &&
+        e.scrollTop < this.realImagesTop - navBarHeight
+      ) {
+        if (!commentActive) this.setData({ commentActive: true });
+        if (realImagesActive) this.setData({ realImagesActive: false });
+        if (detailActive) this.setData({ detailActive: false });
+      } else if (
+        e.scrollTop >= this.realImagesTop - navBarHeight &&
+        e.scrollTop < this.detailTop - navBarHeight
+      ) {
+        if (commentActive) this.setData({ commentActive: false });
+        if (!realImagesActive) this.setData({ realImagesActive: true });
+        if (detailActive) this.setData({ detailActive: false });
+      } else {
+        if (commentActive) this.setData({ commentActive: false });
+        if (realImagesActive) this.setData({ realImagesActive: false });
+        if (!detailActive) this.setData({ detailActive: true });
+      }
+    }
+
+    if (this.commentTop && !this.realImagesTop) {
       if (e.scrollTop < this.commentTop - navBarHeight) {
         if (commentActive) this.setData({ commentActive: false });
         if (detailActive) this.setData({ detailActive: false });
@@ -306,15 +347,29 @@ Page({
       }
     }
 
-    if (!this.commentTop) {
+    if (!this.commentTop && this.realImagesTop) {
+      if (e.scrollTop < this.realImagesTop - navBarHeight) {
+        if (realImagesActive) this.setData({ realImagesActive: false });
+        if (detailActive) this.setData({ detailActive: false });
+      } else if (
+        e.scrollTop >= this.realImagesTop - navBarHeight &&
+        e.scrollTop < this.detailTop - navBarHeight
+      ) {
+        if (!realImagesActive) this.setData({ realImagesActive: true });
+        if (detailActive) this.setData({ detailActive: false });
+      } else {
+        if (realImagesActive) this.setData({ realImagesActive: false });
+        if (!detailActive) this.setData({ detailActive: true });
+      }
+    }
+
+    if (!this.commentTop && !this.realImagesTop) {
       if (e.scrollTop < this.detailTop - navBarHeight) {
         if (detailActive) this.setData({ detailActive: false });
       } else {
         if (!detailActive) this.setData({ detailActive: true });
       }
     }
-
-    
   },
 
   // 滚动到顶部

@@ -6,9 +6,10 @@
 <!-- 顶部导航 -->
 <view class="nav-bar {{showNavBar ? 'show' : ''}}" style="padding-top: {{statusBarHeight}}px">
   <back-icon style="margin-left: 8px;" />
-  <view class="menu-wrap" wx:if="{{showNavBar}}">
-    <view class="menu-tips {{!commentActive && !detailActive ? 'show' : ''}}" bindtap="scrollToTop">商品</view>
+  <view class="menu-wrap" wx:if="{{showNavBar}}"> 
+    <view class="menu-tips {{!realImagesActive && !commentActive && !detailActive ? 'show' : ''}}" bindtap="scrollToTop">商品</view>
     <view class="menu-tips {{commentActive ? 'show' : ''}}" wx:if="{{evaluationSummary.total}}" bindtap="scrollToComment">评价</view>
+    <view class="menu-tips {{realImagesActive ? 'show' : ''}}" wx:if="{{goodsInfo.realImageList.length}}" bindtap="scrollToRealImages">实拍</view>
     <view class="menu-tips {{detailActive ? 'show' : ''}}" bindtap="scrollToDetail">详情</view>
   </view>
 </view>
@@ -161,16 +162,6 @@
     </view>
   </view>
 
-  <view class="card">
-    <view class="card-title-wrap">
-      <view class="card-title">
-        <text>商品实拍</text>
-        <text wx:if="{{goodsInfo.realImageList.length}}">（{{goodsInfo.realImageList.length}}）</text>
-      </view>
-    </view>
-    <empty-illus wx:if="{{!goodsInfo.realImageList.length}}" height="500rpx" desc="暂无实拍" />
-  </view>
-
   <view class="card ref-comment" wx:if="{{evaluationSummary.total}}">
     <view class="card-title">用户评价（{{evaluationSummary.total}}）</view>
     <view bindtap="checkEvaluationDetail">
@@ -185,6 +176,16 @@
       </view>
     </view>
     <empty-illus wx:if="{{!evaluationSummary.total}}" height="500rpx" desc="暂无评价" />
+  </view>
+
+  <view class="card ref-real-images" wx:if="{{goodsInfo.realImageList.length}}">
+    <view class="card-title-wrap">
+      <view class="card-title">商品实拍（{{goodsInfo.realImageList.length}}）</view>
+      <view class="more-btn">
+        <text>查看全部</text>
+        <image class="more-btn-arrow" src="./images/option-arrow.png" />
+      </view>
+    </view>
   </view>
 
   <!-- 商品详情 -->
