@@ -8,7 +8,7 @@ Component({
       type: Array,
       observer(list) {
         this.setData({
-          imageList: list.slice(0, 3)
+          imageList: list.slice(0, 3).map(item => `${item}?x-oss-process=image/resize,w_600`)
         });
       }
     }
@@ -21,7 +21,7 @@ Component({
   methods: {
     previewImage(e) {
       const { current } = e.currentTarget.dataset;
-      const urls = this.data.imageList;
+      const urls = this.properties.images;
       wx.previewImage({ current, urls });
     }
   }

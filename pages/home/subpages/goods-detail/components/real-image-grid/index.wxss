@@ -2,6 +2,23 @@
   margin-top: 24rpx;
 }
 
+.one {
+  display: block;
+  width: 100%;
+  height: 400rpx;
+  border-radius: 16rpx;
+}
+
+.two-wrap {
+  display: flex;
+  justify-content: space-between;
+}
+.two {
+  width: 324rpx;
+  height: 324rpx;
+  border-radius: 16rpx;
+}
+
 .three-wrap {
   position: relative;
   display: flex;
