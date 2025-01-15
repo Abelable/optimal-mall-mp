@@ -10,6 +10,7 @@
     "pages/home/subpages/goods-detail/index",
     "pages/home/subpages/goods-detail/subpages/license/index",
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
+    "pages/home/subpages/goods-detail/subpages/real-images/index",
     "pages/home/subpages/order-check/index",
     "pages/category/index",
     "pages/rural/index",

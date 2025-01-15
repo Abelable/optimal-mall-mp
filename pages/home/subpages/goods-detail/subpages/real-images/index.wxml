@@ -1,0 +1,13 @@
+<view class="real-images">
+  <image 
+    class="real-image"
+    wx:for="{{imageList}}" 
+    wx:key="index" 
+    src="{{item}}" 
+    mode="widthFix" 
+    lazy-load 
+    bindtap="previewImage"
+    data-current="{{item}}" 
+    data-urls="{{imageList}}" 
+  />
+</view>

@@ -515,6 +515,12 @@ Page({
     wx.navigateTo({ url });
   },
 
+  checkRealImages() {
+    const { realImageList } = this.data.goodsInfo;
+    const url = `./subpages/real-images/index?images=${JSON.stringify(realImageList)}`;
+    wx.navigateTo({ url });
+  },
+
   checkEvaluationDetail() {
     const { avgScore } = this.data.evaluationSummary;
     const url = `./subpages/evaluation-list/index?goodsId=${this.goodsId}&avgScore=${avgScore}`;

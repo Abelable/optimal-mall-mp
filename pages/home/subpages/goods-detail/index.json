@@ -7,6 +7,7 @@
     "back-icon": "/components/back-icon/index",
     "price-unit": "/components/price-unit/index",
     "evaluation-item": "./components/evaluation-item/index",
+    "real-image-grid": "./components/real-image-grid/index",
     "split-line": "/components/split-line/index",
     "fall-flow": "/components/fall-flow/index",
     "goods-item": "/components/goods-item/index",

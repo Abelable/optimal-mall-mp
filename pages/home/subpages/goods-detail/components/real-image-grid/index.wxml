@@ -1,0 +1,15 @@
+<view class="grid">
+  <image class="one" wx:if="{{images.length === 1}}" src="{{images[0]}}" bindtap="previewImage" data-current="{{images[0]}}" mode="aspectFill" />
+  <view class="two-wrap" wx:if="{{images.length === 2}}">
+    <image class="two" src="{{images[0]}}" bindtap="previewImage" data-current="{{images[0]}}" mode="aspectFill" />
+    <image class="two" src="{{images[1]}}" bindtap="previewImage" data-current="{{images[1]}}" mode="aspectFill" />
+  </view>
+  <view class="three-wrap" wx:if="{{images.length >= 3}}">
+    <image class="three-big" src="{{images[0]}}" bindtap="previewImage" data-current="{{images[0]}}" mode="aspectFill" />
+    <view class="three-small-wrap">
+      <image class="three-small" src="{{images[1]}}" bindtap="previewImage" data-current="{{images[1]}}" mode="aspectFill" />
+      <image class="three-small" src="{{images[2]}}" bindtap="previewImage" data-current="{{images[2]}}" mode="aspectFill" />
+    </view>
+    <view class="total-count" wx:if="{{images.length > 3}}">+{{images.length - 3}}</view>
+  </view>
+</view>

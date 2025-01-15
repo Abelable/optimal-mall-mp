@@ -1,0 +1,12 @@
+page {
+  background: #fff;
+}
+.real-images {
+  padding: 24rpx;
+  font-size: 0;
+}
+.real-image {
+  margin-bottom: 24rpx;
+  width: 100%;
+  border-radius: 24rpx;
+}

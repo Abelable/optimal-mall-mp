@@ -181,11 +181,12 @@
   <view class="card ref-real-images" wx:if="{{goodsInfo.realImageList.length}}">
     <view class="card-title-wrap">
       <view class="card-title">商品实拍（{{goodsInfo.realImageList.length}}）</view>
-      <view class="more-btn">
+      <view class="more-btn" wx:if="{{goodsInfo.realImageList.length > 3}}" bindtap="checkRealImages">
         <text>查看全部</text>
         <image class="more-btn-arrow" src="./images/option-arrow.png" />
       </view>
     </view>
+    <real-image-grid images="{{goodsInfo.realImageList}}" />
   </view>
 
   <!-- 商品详情 -->
