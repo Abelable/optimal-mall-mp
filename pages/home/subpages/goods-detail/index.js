@@ -76,13 +76,13 @@ Page({
   async init() {
     await this.setGoodsInfo();
     await this.setEvaluationSummary();
-    this.getCommentTop();
-    this.getRealImagesTop();
-    this.getDetailTop();
     this.setBottomPrice();
     this.setCommisstion();
     this.setCountdown();
     this.setRecommendGoodsList(true);
+    this.getCommentTop();
+    this.getRealImagesTop();
+    this.getDetailTop();
   },
 
   async setGoodsInfo() {
@@ -383,6 +383,12 @@ Page({
   scrollToComment() {
     wx.pageScrollTo({
       scrollTop: this.commentTop - navBarHeight
+    });
+  },
+
+  scrollToRealImages() {
+    wx.pageScrollTo({
+      scrollTop: this.realImagesTop - navBarHeight
     });
   },
 

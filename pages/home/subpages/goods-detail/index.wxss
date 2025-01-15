@@ -20,7 +20,6 @@
   transform: translateX(-50%);
   display: flex;
   justify-content: space-between;
-  padding: 0 17px;
   height: 32px;
   color: #666;
   border-radius: 17px;
