@@ -7,8 +7,8 @@
 <view class="nav-bar {{showNavBar ? 'show' : ''}}" style="padding-top: {{statusBarHeight}}px">
   <back-icon style="margin-left: 8px;" />
   <view class="menu-wrap" wx:if="{{showNavBar}}">
-    <view class="menu-tips {{!commentActive && !detailActive ? 'show' : ''}}" bindtap="scrollToTop">商品信息</view>
-    <view class="menu-tips {{commentActive ? 'show' : ''}}" bindtap="scrollToComment">评价</view>
+    <view class="menu-tips {{!commentActive && !detailActive ? 'show' : ''}}" bindtap="scrollToTop">商品</view>
+    <view class="menu-tips {{commentActive ? 'show' : ''}}" wx:if="{{evaluationSummary.total}}" bindtap="scrollToComment">评价</view>
     <view class="menu-tips {{detailActive ? 'show' : ''}}" bindtap="scrollToDetail">详情</view>
   </view>
 </view>
@@ -161,23 +161,23 @@
     </view>
   </view>
 
-  <view class="comment-summary-wrap">
-    <view class="comment-title">
-      <text>用户评价</text>
-      <text wx:if="{{evaluationSummary.total}}">（{{evaluationSummary.total}}）</text>
+  <view class="card">
+    <view class="card-title-wrap">
+      <view class="card-title">
+        <text>商品实拍</text>
+        <text wx:if="{{goodsInfo.realImageList.length}}">（{{goodsInfo.realImageList.length}}）</text>
+      </view>
     </view>
-    <view wx:if="{{evaluationSummary.total}}" bindtap="checkEvaluationDetail">
+    <empty-illus wx:if="{{!goodsInfo.realImageList.length}}" height="500rpx" desc="暂无实拍" />
+  </view>
+
+  <view class="card ref-comment" wx:if="{{evaluationSummary.total}}">
+    <view class="card-title">用户评价（{{evaluationSummary.total}}）</view>
+    <view bindtap="checkEvaluationDetail">
       <view class="comment-rate-wrap row">
         <view class="comment-rate">{{evaluationSummary.avgScore * 20}}%</view>
         <van-rate value="{{evaluationSummary.avgScore || 0}}" size="24" gutter="0" color="#ffd21e" void-icon="star" void-color="#eee" allow-half readonly />
       </view>
-      <!-- <view class="comment-labels">
-        <view class="comment-label row">价格实惠（56）</view>
-        <view class="comment-label row">价格实惠（56）</view>
-        <view class="comment-label row">价格实惠（56）</view>
-        <view class="comment-label row">价格实惠（56）</view>
-        <view class="comment-label row">价格实惠（56）</view>
-      </view> -->
       <evaluation-item wx:for="{{evaluationSummary.list}}" wx:key="index" item="{{item}}" noPadding unablePreview />
       <view class="more-comment-btn row">
         <view>查看全部评价</view>

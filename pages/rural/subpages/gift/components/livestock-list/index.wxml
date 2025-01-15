@@ -8,7 +8,11 @@
     <view class="content">
       <view class="goods-title omit single">{{item.name}}</view>
       <view class="introduce-wrap">
-        <view class="goods-data">已售{{item.salesVolume}} | 好评{{item.avgScore * 20}}%</view>
+        <view class="goods-data" wx:if="{{item.salesVolume}}">
+          <text>已售{{item.salesVolume}}</text>
+          <text wx:if="{{item.avgScore}}"> | </text>
+          <text wx:if="{{item.avgScore}}">好评{{item.avgScore * 20}}%</text>
+        </view>
       </view>
       <view class="info-wrap row between">
         <price-unit price="{{item.price || 0}}" />

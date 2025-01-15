@@ -75,7 +75,6 @@ Page({
   async init() {
     await this.setGoodsInfo();
     await this.setEvaluationSummary();
-    this.getCommentTop();
     this.getDetailTop();
     this.setBottomPrice();
     this.setCommisstion();
@@ -96,6 +95,9 @@ Page({
       this.goodsId
     );
     this.setData({ evaluationSummary });
+    if (evaluationSummary.total) {
+      this.getCommentTop();
+    }
   },
 
   setBottomPrice() {
@@ -197,7 +199,7 @@ Page({
   // 获取详情部分离窗口顶部的距离
   getCommentTop() {
     const query = wx.createSelectorQuery();
-    query.select(".comment-summary-wrap").boundingClientRect();
+    query.select(".ref-comment").boundingClientRect();
     query.exec(res => {
       if (res[0] !== null) {
         this.commentTop = res[0].top - 8;
@@ -288,19 +290,31 @@ Page({
     }
 
     // 控制导航栏tab的状态切换
-    if (e.scrollTop < this.commentTop - navBarHeight) {
-      if (commentActive) this.setData({ commentActive: false });
-      if (detailActive) this.setData({ detailActive: false });
-    } else if (
-      e.scrollTop >= this.commentTop - navBarHeight &&
-      e.scrollTop < this.detailTop - navBarHeight
-    ) {
-      if (!commentActive) this.setData({ commentActive: true });
-      if (detailActive) this.setData({ detailActive: false });
-    } else {
-      if (commentActive) this.setData({ commentActive: false });
-      if (!detailActive) this.setData({ detailActive: true });
+    if (this.commentTop) {
+      if (e.scrollTop < this.commentTop - navBarHeight) {
+        if (commentActive) this.setData({ commentActive: false });
+        if (detailActive) this.setData({ detailActive: false });
+      } else if (
+        e.scrollTop >= this.commentTop - navBarHeight &&
+        e.scrollTop < this.detailTop - navBarHeight
+      ) {
+        if (!commentActive) this.setData({ commentActive: true });
+        if (detailActive) this.setData({ detailActive: false });
+      } else {
+        if (commentActive) this.setData({ commentActive: false });
+        if (!detailActive) this.setData({ detailActive: true });
+      }
     }
+
+    if (!this.commentTop) {
+      if (e.scrollTop < this.detailTop - navBarHeight) {
+        if (detailActive) this.setData({ detailActive: false });
+      } else {
+        if (!detailActive) this.setData({ detailActive: true });
+      }
+    }
+
+    
   },
 
   // 滚动到顶部
@@ -346,15 +360,6 @@ Page({
   previewImage(e) {
     const { current, urls } = e.currentTarget.dataset;
     wx.previewImage({ current, urls });
-  },
-
-  // 客服
-  contact() {
-    if (this.data.goodsInfo.shopInfo) {
-      const { id, name, avatar } = this.data.goodsInfo.shopInfo.keeperInfo;
-      const url = `/pages/subpages/news/chat/index?userId=${id}&name=${name}&avatar=${avatar}&goodsId=${this.goodsId}`;
-      wx.navigateTo({ url });
-    }
   },
 
   // 通过遮罩关闭弹窗

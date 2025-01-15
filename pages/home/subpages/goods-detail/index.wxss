@@ -356,6 +356,23 @@
   border-radius: 8rpx;
 }
 
+.card {
+  margin: 18rpx 20rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 16rpx;
+}
+.card-title-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.card-title {
+  color: #14191F;
+  font-size: 30rpx;
+  font-weight: 550;
+}
+
 .more-comment-btn {
   margin: 24rpx auto 0;
   width: fit-content;
