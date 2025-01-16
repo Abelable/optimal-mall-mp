@@ -239,39 +239,13 @@ page {
   font-size: 20rpx;
 }
 
-.customer-data-center-wrap {
-  position: relative;
+.share-banner {
   margin-top: 24rpx;
+  width: 100%;
 }
-.shop-share-bar {
-  border-radius: 16rpx 16rpx 0 0;
-  padding: 16rpx 34rpx 36rpx 16rpx;
-  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
-  z-index: 99;
-}
-.share-icon {
-  width: 44rpx;
-  height: 44rpx;
-}
-.share-content {
-  margin-left: 10rpx;
-  flex: 1;
-  color: #fff;
-  font-size: 24rpx;
-  font-weight: bold;
-}
-.share-btn {
-  width: 116rpx;
-  height: 48rpx;
-  color: #fff;
-  font-size: 24rpx;
-  border-radius: 24rpx;
-  font-weight: bold;
-  background: linear-gradient( 180deg, #FFEDAA 0%, #FFC084 49%, #FF6B36 100%);
-  box-shadow: 0px 2px 4px 0px rgba(141,0,0,0.5);
-}
+
 .customer-data-center {
-  margin-top: -20rpx;
+  margin-top: 24rpx;
   padding: 24rpx;
   border-radius: 16rpx;
   background: #fff;
