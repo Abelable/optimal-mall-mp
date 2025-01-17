@@ -14,7 +14,7 @@
           </view>
           <view class="address-detail">{{item.regionDesc + ' ' + item.addressDetail}}</view>
         </view>
-        <van-icon name="edit"/>
+        <image class="copy-icon" catchtap="copy" data-info="{{item}}" src="./images/copy.png" />
       </view>
       <button class="swipe-cell-delete-btn" slot="right">删除</button>
     </van-swipe-cell>
