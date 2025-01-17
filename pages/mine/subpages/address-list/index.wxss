@@ -35,14 +35,15 @@
   border-radius: 8rpx;
   border: 2rpx solid #F5701D;
 }
+.copy-icon {
+  margin-left: 18rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
 .address-detail {
   margin-top: 16rpx;
   color: #333;
   font-size: 26rpx;
-}
-.copy-icon {
-  width: 42rpx;
-  height: 42rpx;
 }
 
 .swipe-cell-delete-btn {

@@ -11,10 +11,12 @@
             <text class="user-name">{{item.name}}</text>
             <text>{{item.mobile}}</text>
             <text class="default-icon" wx:if="{{item.isDefault}}">默认</text>
+            <image class="copy-icon" catchtap="copy" data-info="{{item}}" src="./images/copy.png" />
           </view>
           <view class="address-detail">{{item.regionDesc + ' ' + item.addressDetail}}</view>
         </view>
-        <image class="copy-icon" catchtap="copy" data-info="{{item}}" src="./images/copy.png" />
+        <van-icon name="edit" />
+        
       </view>
       <button class="swipe-cell-delete-btn" slot="right">删除</button>
     </van-swipe-cell>
