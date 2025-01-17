@@ -110,7 +110,8 @@ Page({
   },
 
   copy(e) {
-    const { name, mobile, regionDesc, addressDetail } = e.currentTarget.dataset.info
+    const { name, mobile, regionDesc, addressDetail } =
+      e.currentTarget.dataset.info;
     wx.setClipboardData({
       data: `收件人: ${name}\n手机号码: ${mobile}\n所在地区: ${regionDesc}\n详细地址: ${addressDetail}`,
       success: () => {
