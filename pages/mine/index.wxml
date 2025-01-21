@@ -97,7 +97,7 @@
     </view>
   </view>
 
-  <image class="share-banner" bindtap="share" src="./images/shop_share_banner.png" mode="widthFix" />
+  <image class="share-banner" wx:if="{{userInfo.level}}" bindtap="share" src="./images/shop_share_banner.png" mode="widthFix" />
 
   <view class="order-center">
     <view class="title-wrap row between">
