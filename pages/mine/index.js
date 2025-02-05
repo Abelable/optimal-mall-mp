@@ -44,12 +44,14 @@ Component({
 
   methods: {
     onLoad() {
-      checkLogin(() => {
-        const { avatar = "" } = store.userInfo || {};
-        if (!avatar || avatar.includes("default_avatar")) {
-          this.setData({ authInfoPopupVisible: true });
-        }
-      }, false);
+      setTimeout(() => {
+        checkLogin(() => {
+          const { avatar = "" } = store.userInfo || {};
+          if (!avatar || avatar.includes("default_avatar")) {
+            this.setData({ authInfoPopupVisible: true });
+          }
+        }, false);
+      }, 1000);
     },
 
     init() {
