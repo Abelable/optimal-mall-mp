@@ -8,7 +8,7 @@
 </view>
 
 <view class="container level-{{userInfo.level}}" style="padding-top: {{statusBarHeight + 60}}px;">
-  <view class="user-info-wrap" bindtap="showAuthInfoModal">
+  <view class="user-info-wrap" bindtap="updateUserInfo">
     <image class="avatar" src="{{userInfo ? userInfo.avatar : 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
     <view class="register-btn" wx:if="{{!userInfo}}">点击注册</view>
     <view class="user-info" wx:if="{{userInfo}}">
@@ -155,4 +155,5 @@
 </view>
 
 <auth-info-modal wx:if="{{authInfoModalVisible}}" bind:hide="hideAuthInfoModal" />
+<auth-info-popup show="{{authInfoPopupVisible}}" bind:hide="hideAuthInfoPopup" />
 <poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />

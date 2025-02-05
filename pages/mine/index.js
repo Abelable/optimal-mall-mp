@@ -30,6 +30,7 @@ Component({
       { en: "done", zh: "待评价", total: 0 },
       { en: "refund", zh: "售后", total: 0 }
     ],
+    authInfoPopupVisible: false,
     authInfoModalVisible: false,
     posterInfo: null,
     posterModelVisible: false
@@ -42,19 +43,31 @@ Component({
   },
 
   methods: {
+    onLoad() {
+      checkLogin(() => {
+        const { avatar = "" } = store.userInfo || {};
+        if (!avatar || avatar.includes("default_avatar")) {
+          this.setData({ authInfoPopupVisible: true });
+        }
+      }, false);
+    },
+
     init() {
       checkLogin(async () => {
         const userInfo = await mineService.getUserInfo();
+
         if (userInfo.level) {
           if (!store.promoterInfo || store.promoterInfo.id !== userInfo.id) {
             store.setPromoterInfo(userInfo);
           }
         }
+
         if (store.promoterInfo) {
           this.setCommissionSumInfo();
           this.setCommissionTimeData();
           this.setCustomerData();
         }
+
         this.setOrderListTotals();
       });
     },
@@ -104,10 +117,17 @@ Component({
       }
     },
 
-    showAuthInfoModal() {
-      checkLogin(() => {
+    updateUserInfo() {
+      const { avatar = "" } = store.userInfo || {};
+      if (!avatar || avatar.includes("default_avatar")) {
+        this.setData({ authInfoPopupVisible: true });
+      } else {
         this.setData({ authInfoModalVisible: true });
-      });
+      }
+    },
+
+    hideAuthInfoPopup() {
+      this.setData({ authInfoPopupVisible: false });
     },
 
     hideAuthInfoModal() {
@@ -192,13 +212,13 @@ Component({
           : "-";
       const page = "pages/home/index";
       const qrcode = await mineService.getQRCode(scene, page);
-  
+
       this.setData({
         posterModalVisible: true,
         posterInfo: { qrcode }
       });
     },
-  
+
     hidePosterModal() {
       this.setData({
         posterModalVisible: false

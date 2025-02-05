@@ -43,7 +43,7 @@ Page({
     mineService.updateUserInfo(
       { ...store.userInfo, wxQrcode, signature },
       () => {
-        store.setUserInfo({ ...store.userInfo, avatar, nickname });
+        store.setUserInfo({ ...store.userInfo, wxQrcode, signature });
       }
     );
   }
