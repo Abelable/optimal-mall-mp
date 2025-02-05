@@ -1,17 +1,16 @@
 .user-info-popup {
   padding: 32rpx;
-  padding-bottom: 0;
   background-color: #fff;
   border-radius: 16rpx 16rpx 0 0;
 }
 
 .logo {
-  margin-left: -12rpx;
   width: 68rpx;
   height: 68rpx;
   border-radius: 50%;
 }
 .app-name {
+  margin-left: 12rpx;
   color: #333;
   font-size: 32rpx;
   font-weight: 500;

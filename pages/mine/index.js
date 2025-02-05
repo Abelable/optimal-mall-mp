@@ -51,7 +51,7 @@ Component({
             this.setData({ authInfoPopupVisible: true });
           }
         }, false);
-      }, 1000);
+      }, 500);
     },
 
     init() {
