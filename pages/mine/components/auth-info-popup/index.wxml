@@ -5,7 +5,7 @@
       <view class="app-name">诚信星球</view>
       <view class="apply-tips">申请</view>
     </view>
-    <view class="apply-info-title">获取您的昵称、头像</view>
+    <view class="apply-info-title">获取您的头像、昵称</view>
     <view class="apply-info-desc">选择使用微信头像和昵称，以便为您提供更好的服务和体验</view>
     <view class="auth-modal-list-wrap">
       <view class="auth-modal-list">
