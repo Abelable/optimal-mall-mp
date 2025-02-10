@@ -57,8 +57,9 @@ Component({
   methods: {
     setCountdown() {
       this.countdownInterval = setInterval(() => {
-        if (this.data.countdown === 0) {
+        if (this.data.countdown <= 0) {
           clearInterval(this.countdownInterval);
+          this.cancelOrder()
           return;
         }
         this.setData({
@@ -114,17 +115,21 @@ Component({
       });
     },
 
-    cancelOrder() {
+    confirmOrderCancel() {
       wx.showModal({
         title: "确定取消该订单吗？",
         success: result => {
           if (result.confirm) {
-            const { item, index } = this.properties;
-            orderService.cancelOrder(item.id, () => {
-              this.triggerEvent("update", { type: "cancel", index });
-            });
+            this.cancelOrder()
           }
         }
+      });
+    },
+
+    cancelOrder() {
+      const { item, index } = this.properties;
+      orderService.cancelOrder(item.id, () => {
+        this.triggerEvent("update", { type: "cancel", index });
       });
     },
 

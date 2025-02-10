@@ -35,7 +35,7 @@
       <button 
         class="btn" 
         wx:if="{{item.status === 101}}" 
-        catchtap="cancelOrder"
+        catchtap="confirmOrderCancel"
         hover-class="none"
       >取消订单</button>
       <button class="btn" catchtap="navToDetail">查看详情</button>
