@@ -90,12 +90,6 @@
       <price-unit price="{{orderInfo.refundAmount}}" />
     </view>
     <view class="more-info-wrap">
-      <!-- <view class="list row top">
-        <view class="title">收货信息：</view>
-        <view class="content">
-          {{orderInfo.consignee}}，{{orderInfo.mobile}}，{{orderInfo.address}}
-        </view>
-      </view> -->
       <view class="list row between">
         <view class="title">订单编号：</view>
         <view>
@@ -125,9 +119,6 @@
 </view>
 
 <view class="bottom-bar" wx:if="{{userInfo.id === orderInfo.userId}}">
-  <button class="btn" wx:if="{{orderInfo.status === 301}}" bindtap="checkShippingInfo" hover-class="none">
-    查看物流
-  </button>
   <button 
     class="btn" 
     wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 403 || orderInfo.status === 501}}"
