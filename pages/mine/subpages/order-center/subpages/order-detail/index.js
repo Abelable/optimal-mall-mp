@@ -10,6 +10,8 @@ const orderService = new OrderService();
 Page({
   data: {
     orderInfo: null,
+    packageList: [],
+    selectedPackageIdx: 0,
     countdown: 0,
     refundBtnVisible: false,
     addressPopupVisible: false
@@ -34,7 +36,16 @@ Page({
     const orderInfo = await orderService.getOrderDetail(this.orderId);
     this.setData({ orderInfo });
 
-    const { status, createdAt, payTime, goodsList } = orderInfo;
+    const {
+      id,
+      status,
+      createdAt,
+      payTime,
+      goodsList,
+      packageList = [],
+      shipChannel,
+      shipSn
+    } = orderInfo;
     if (status === 101) {
       const countdown = Math.floor(
         (dayjs(createdAt).valueOf() + 24 * 60 * 60 * 1000 - dayjs().valueOf()) /
@@ -48,6 +59,14 @@ Page({
       const giftGoodsIdx = goodsList.findIndex(item => item.isGift);
       if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
         this.setData({ refundBtnVisible: true });
+      }
+    }
+
+    if ([204, 301, 401, 402, 501].includes(status)) {
+      if (packageList.length) {
+        this.setData({ packageList });
+      } else {
+        this.setData({ packageList: [{ id, shipChannel, shipSn }] });
       }
     }
 
@@ -68,6 +87,11 @@ Page({
     wx.setNavigationBarTitle({
       title: titleEnums[orderInfo.status]
     });
+  },
+
+  selectPackage(e) {
+    const selectedPackageIdx = e.currentTarget.dataset.index;
+    this.setData({ selectedPackageIdx });
   },
 
   setCountdown() {
@@ -156,7 +180,8 @@ Page({
   },
 
   async checkShippingInfo() {
-    const waybillToken = await orderService.getWaybillToken(this.orderId);
+    const { packageList, selectedPackageIdx } = this.data
+    const waybillToken = await orderService.getWaybillToken(packageList[selectedPackageIdx].id);
     plugin.openWaybillTracking({ waybillToken });
   },
 

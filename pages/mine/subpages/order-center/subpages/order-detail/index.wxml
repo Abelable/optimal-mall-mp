@@ -1,7 +1,50 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
 <wxs module="ORDER" src="/utils/filters/order.wxs" />
+<wxs module="NUM" src="/utils/filters/num.wxs" />
 
 <view class="container">
+  <view class="card">
+    <view class="ship-info-wrap" wx:if="{{packageList.length}}">
+      <view class="package-info row" wx:if="{{packageList.length > 1}}">
+        <scroll-view class="package-list-wrap" scroll-x>
+          <view class="package-list">
+            <view 
+              class="package {{index === selectedPackageIdx ? 'selected' : ''}}" 
+              wx:for="{{packageList}}" 
+              wx:key="id" 
+              wx:for-item="package"
+              bindtap="selectPackage"
+              data-index="{{index}}"
+            >
+              <view class="package-goods" wx:for="{{package.goodsList}}" wx:key="id" wx:for-item="goods">
+                <image class="package-goods-cover" src="{{goods.goodsCover}}" />
+                <view class="package-goods-num">x{{goods.goodsNumber}}</view>
+              </view>
+            </view>
+          </view>
+        </scroll-view>
+        <view class="package-num">共{{packageList.length}}件包裹</view>
+      </view>
+      <view class="row" bindtap="checkShippingInfo">
+        <image class="ship-icon" src="./images/ship.png" />
+        <view class="ship-code omit single">
+          {{packageList[selectedPackageIdx].shipChannel}}｜{{packageList[selectedPackageIdx].shipSn}}
+        </view>
+        <image class="more-icon" src="/images/arrow.png" />
+      </view>
+    </view>
+    <view class="consignee-info-wrap row">
+      <image class="address-icon" src="./images/address.png" />
+      <view class="consignee-info">
+        <view class="row">
+          <text class="consignee-name">{{orderInfo.consignee}}</text>
+          <text class="consignee-mobile">{{NUM.mobileFormat(orderInfo.mobile)}}</text>
+        </view>
+        <view class="address-detail">{{orderInfo.address}}</view>
+      </view>
+    </view>
+  </view>
+
   <view class="card">
     <view class="card-header row between">
       <view class="shop-info row" wx:if="{{userInfo.level}}">
@@ -47,12 +90,12 @@
       <price-unit price="{{orderInfo.refundAmount}}" />
     </view>
     <view class="more-info-wrap">
-      <view class="list row top">
+      <!-- <view class="list row top">
         <view class="title">收货信息：</view>
         <view class="content">
           {{orderInfo.consignee}}，{{orderInfo.mobile}}，{{orderInfo.address}}
         </view>
-      </view>
+      </view> -->
       <view class="list row between">
         <view class="title">订单编号：</view>
         <view>
@@ -87,7 +130,7 @@
   </button>
   <button 
     class="btn" 
-    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 401 || orderInfo.status === 402 || orderInfo.status === 403 || orderInfo.status === 501}}"
+    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 403 || orderInfo.status === 501}}"
     bindtap="deleteOrder"
     hover-class="none"
   >

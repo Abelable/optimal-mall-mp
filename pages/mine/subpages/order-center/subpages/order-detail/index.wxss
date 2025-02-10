@@ -3,9 +3,110 @@
 }
 
 .card {
+  margin-bottom: 24rpx;
   padding: 24rpx;
   background: #fff;
   border-radius: 20rpx;
+}
+
+.ship-info-wrap {
+  margin-bottom: 24rpx;
+  padding-bottom: 24rpx;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.package-info {
+  margin-bottom: 24rpx;
+}
+.package-list-wrap {
+  flex: 1;
+  overflow-x: scroll;
+}
+.package-list {
+  display: flex;
+  align-items: center;
+}
+.package {
+  display: flex;
+  margin-right: 12rpx;
+  padding: 12rpx;
+  border: 1px solid #aaa;
+  border-radius: 22rpx;
+}
+.package.selected {
+  padding: 8rpx;
+  border: 3px solid #F5701D;
+}
+.package-goods {
+  position: relative;
+  margin-right: 12rpx;
+  font-size: 0;
+}
+.package-goods:last-child {
+  margin-right: 0;
+}
+.package-goods-cover {
+  width: 68rpx;
+  height: 68rpx;
+  border-radius: 8rpx;
+}
+.package-goods-num {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  padding: 2rpx 6rpx;
+  color: #fff;
+  font-size: 18rpx;
+  background: rgba(0, 0, 0, 0.68);
+  border-radius: 8rpx 0 8rpx 0;
+}
+.package-num {
+  padding-left: 24rpx;
+  color: #333;
+  font-size: 24rpx;
+  font-weight: bold;
+}
+
+.ship-icon {
+  width: 42rpx; 
+  height: 42rpx;
+}
+.ship-code {
+  margin: 0 24rpx;
+  flex: 1;
+  color: #333;
+  font-size: 26rpx;
+  font-weight: bold;
+}
+.more-icon {
+  width: 24rpx; 
+  height: 24rpx;
+}
+
+.address-icon {
+  width: 42rpx; 
+  height: 42rpx;
+}
+.consignee-info {
+  margin-left: 24rpx;
+  flex: 1;
+  color: #999;
+  font-size: 26rpx;
+}
+.consignee-name {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.consignee-mobile {
+  margin-left: 20rpx; 
+  color: #333;
+  font-size: 26rpx;
+}
+.address-detail {
+  margin-top: 6rpx;
+  color: #333;
+  font-size: 26rpx;
 }
 
 .card-header {
