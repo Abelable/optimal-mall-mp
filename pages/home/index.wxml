@@ -88,6 +88,7 @@
   <view class="activity-goods-list">
     <activity-goods-item wx:for="{{activityGoodsLists[curMenuIdx]}}" wx:key="id" item="{{item}}" bind:refresh="init" />
   </view>
+  <empty-illus wx:if="{{!activityGoodsLists[curMenuIdx].length}}" desc="暂无活动商品" height="400rpx" />
   <view class="split-title row">
     <view>星球精选</view>
     <image class="praise-icon" src="./images/praise-icon.png" />
