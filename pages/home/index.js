@@ -17,11 +17,7 @@ Component({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    menuList: [
-      { name: "诚食一口", value: 4 },
-      { name: "诚试一下", value: 3 },
-      { name: "诚意一看", value: 5 }
-    ],
+    menuList: [],
     curMenuIdx: 0,
     bannerList: [],
     middleBannerList: [],
@@ -59,6 +55,7 @@ Component({
       wx.showLoading({ title: "加载中..." });
       await this.setBannerList();
       await this.setMiddleBannerList();
+      await this.setMenuList();
       await this.setActivityGoodsList();
       this.setGoodsList(true);
     },
@@ -71,10 +68,15 @@ Component({
       }
     },
 
+    async setMenuList() {
+      const menuList = (await homeService.getActivityTagOptions()) || [];
+      this.setData({ menuList });
+    },
+
     async setActivityGoodsList() {
       const { menuList, curMenuIdx } = this.data;
       const goodsList =
-        (await homeService.getActivityList(menuList[curMenuIdx].value)) || [];
+        (await homeService.getActivityList(menuList[curMenuIdx].id)) || [];
       this.setData({ [`activityGoodsLists[${curMenuIdx}]`]: goodsList });
     },
 

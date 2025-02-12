@@ -2,6 +2,12 @@ import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
+  async getActivityTagOptions() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/activity_tag_options`
+    });
+  }
+
   async getActivityList(tag) {
     return await this.get({
       url: `${this.baseUrl}/mall/activity_list`,
