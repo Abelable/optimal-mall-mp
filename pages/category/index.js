@@ -103,11 +103,6 @@ Component({
       }
     },
 
-    async setBannerList() {
-      const bannerList = await categoryService.getBannerList();
-      this.setData({ bannerList });
-    },
-
     onReachBottom() {
       const { curCategoryIdx, goodsLists } = this.data;
       if (!goodsLists[curCategoryIdx].finished) {
