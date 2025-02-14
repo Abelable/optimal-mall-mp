@@ -3,6 +3,15 @@
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap">
     <image class="cover" src="{{item.activityCover || item.cover }}" mode="aspectFill" lazy-load />
+    <swiper class="customer-banner" vertical autoplay>
+      <swiper-item class="customer-info-wrap" wx:for="{{item.customerList}}" wx:key="index" wx:for-item="customer">
+        <view class="customer-info">
+          <image class="customer-avatar" src="{{customer.avatar}}" />
+          <view class="customer-name omit single">{{customer.nickname}}</view>
+          <view class="customer-content">{{TIME.timeDiff(customer.createdAt)}}抢购了该商品</view>
+        </view>
+      </swiper-item>
+    </swiper>
     <view class="goods-tag {{item.activityInfo.goodsTag === 1 ? 'green' : 'hot'}}" wx:if="{{item.activityInfo}}">{{item.activityInfo.goodsTag === 1 ? "农产品" : "爆品"}}</view>
     <view class="group-buying-data" wx:if="{{item.activityInfo}}">
       <view class="group-buying-title">{{item.activityInfo.name}}</view>
