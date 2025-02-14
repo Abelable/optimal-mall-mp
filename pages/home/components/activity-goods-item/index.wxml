@@ -2,8 +2,8 @@
 
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap">
-    <image class="cover" src="{{item.activityCover || item.cover }}" mode="aspectFill" lazy-load />
-    <swiper class="customer-banner" vertical autoplay>
+    <image class="cover" src="{{item.activityCover || item.cover}}" mode="aspectFill" lazy-load />
+    <swiper class="customer-banner" vertical autoplay circular>
       <swiper-item class="customer-info-wrap" wx:for="{{item.customerList}}" wx:key="index" wx:for-item="customer">
         <view class="customer-info">
           <image class="customer-avatar" src="{{customer.avatar}}" />

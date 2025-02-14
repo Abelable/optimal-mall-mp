@@ -42,7 +42,7 @@
         <image style="width:100%; height:100%;" src="{{item}}" mode='aspectFill' lazy-load />
       </swiper-item>
     </swiper>
-    <swiper class="customer-banner" vertical autoplay>
+    <swiper class="customer-banner" vertical autoplay circular>
       <swiper-item class="customer-info-wrap" wx:for="{{goodsInfo.customerList}}" wx:key="index">
         <view class="customer-info">
           <image class="customer-avatar" src="{{item.avatar}}" />
