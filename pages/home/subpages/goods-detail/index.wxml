@@ -42,6 +42,15 @@
         <image style="width:100%; height:100%;" src="{{item}}" mode='aspectFill' lazy-load />
       </swiper-item>
     </swiper>
+    <swiper class="customer-banner" vertical autoplay>
+      <swiper-item class="customer-info-wrap" wx:for="{{goodsInfo.customerList}}" wx:key="index">
+        <view class="customer-info">
+          <image class="customer-avatar" src="{{item.avatar}}" />
+          <view class="customer-name omit single">{{item.nickname}}</view>
+          <view class="customer-content">{{TIME.timeDiff(item.createdAt)}}购买了该商品</view>
+        </view>
+      </swiper-item>
+    </swiper>
     <view class="mute-icon-wrap row center" wx:if="{{goodsInfo.video && curDot === 1}}" catchtap="toggleMuted">
       <image class="mute-icon" src="./images/{{muted ? 'muted' : 'unmuted'}}.png" />
     </view>
