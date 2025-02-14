@@ -8,7 +8,7 @@
   <view class="group-buying-data" wx:if="{{item.activityInfo}}">
     <view class="group-buying-title omit single">{{item.activityInfo.name}}</view>
     <view class="group-buying-notice-time" wx:if="{{item.activityInfo.status === 0}}">{{TIME.transform(item.activityInfo.startTime, 'MM.DD hh:mm 开抢')}}</view>
-    <view class="group-buying-activity-sales" wx:if="{{item.activityInfo.status === 1}}">已抢{{ item.activityInfo.sales }}件</view>
+    <view class="group-buying-activity-sales" wx:if="{{item.activityInfo.status === 1 && item.activityInfo.sales}}">已抢{{item.activityInfo.sales}}件</view>
   </view>
   <view class="content">
     <view class="goods-title omit">{{item.name}}</view>

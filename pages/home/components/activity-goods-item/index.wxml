@@ -20,7 +20,7 @@
           {{item.activityInfo.status === 0 ? '距开始' : '距结束'}} {{TIME.countdownFormat(countdown, 'd天hh:mm:ss')}}
         </block>
       </view>
-      <view class="activity-sales" wx:if="{{item.activityInfo.status === 1}}">已抢{{ item.activityInfo.sales }}件</view>
+      <view class="activity-sales" wx:if="{{item.activityInfo.status === 1 && item.activityInfo.sales}}">已抢{{item.activityInfo.sales}}件</view>
       <view class="followers" wx:if="{{item.activityInfo.status === 0}}">已有{{ item.activityInfo.followers }}人关注</view>
     </view>
   </view>
