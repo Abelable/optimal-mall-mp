@@ -19,7 +19,7 @@
 
 .poster {
   width: 275px;
-  height: 489px;
+  height: 555px;
 }
 
 .btns {

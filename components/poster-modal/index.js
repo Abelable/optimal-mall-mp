@@ -47,33 +47,44 @@ Component({
         0,
         0,
         275,
-        489,
+        555,
         8,
-        "https://static.youbozhenxuan.cn/mp/home_poster_bg.png"
+        `https://static.youbozhenxuan.cn/mp/home_poster_bg_${
+          Math.floor(Math.random() * 3) + 1
+        }.png`
       );
       await this.roundRect(
         0,
         4,
-        112,
-        44,
+        100,
+        38,
         0,
         "https://static.youbozhenxuan.cn/mp/home_poster_logo.png"
       );
 
-      this.roundRect(
-        165,
-        12,
-        100,
-        30,
-        15,
-        "",
-        null,
-        "rgba(255, 255, 255, 0.5)"
-      );
-      const { avatar, nickname, signature } = store.promoterInfo;
-      await this.roundRect(168, 15, 24, 24, 12, avatar);
-      this.setText(10, "#000", 195, 26, nickname, 'left');
-      this.setText(7, "#6A6F75", 195, 37, signature || "让时间见证信任");
+      if (store.promoterInfo) {
+        this.roundRect(
+          165,
+          12,
+          100,
+          30,
+          15,
+          "",
+          null,
+          "rgba(255, 255, 255, 0.5)"
+        );
+        const { avatar, nickname, signature } = store.promoterInfo || {};
+        await this.roundRect(
+          168,
+          15,
+          24,
+          24,
+          12,
+          avatar || "https://static.youbozhenxuan.cn/mp/logo.png"
+        );
+        this.setText(10, "#000", 195, 26, nickname || "诚信星球", "left");
+        this.setText(7, "#6A6F75", 195, 37, signature || "让时间见证信任");
+      }
 
       await this.roundRect(84, 260, 110, 110, 55, qrcode);
 
