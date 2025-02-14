@@ -86,7 +86,7 @@ Component({
         this.setText(7, "#6A6F75", 195, 37, signature || "让时间见证信任");
       }
 
-      await this.roundRect(84, 260, 110, 110, 55, qrcode);
+      await this.roundRect(86.5, 345, 100, 100, 50, qrcode);
 
       wx.canvasToTempFilePath(
         {
