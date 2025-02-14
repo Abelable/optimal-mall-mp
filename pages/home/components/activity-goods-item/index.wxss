@@ -20,8 +20,9 @@
   position: absolute;
   top: 24rpx;
   left: 24rpx;
-  width: 100%;
+  width: 550rpx;
   height: 60rpx;
+  font-size: 0;
 }
 .customer-info-wrap {
   height: 60rpx;
