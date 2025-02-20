@@ -204,7 +204,7 @@ Component({
 
     // 加入购物车
     addCart() {
-      const { btnActive, maxCount } = this.data
+      const { btnActive, maxCount } = this.data;
       if (btnActive && maxCount > 0) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data;
@@ -221,7 +221,7 @@ Component({
 
     // 立即购买
     buyNow() {
-      const { btnActive, maxCount } = this.data
+      const { btnActive, maxCount } = this.data;
       if (btnActive && maxCount > 0) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data;
@@ -238,7 +238,7 @@ Component({
     },
 
     editSpec() {
-      const { btnActive, maxCount } = this.data
+      const { btnActive, maxCount } = this.data;
       if (btnActive && maxCount > 0) {
         const { cartInfo, selectedSkuIndex, count } = this.data;
         baseService.editCart(
@@ -267,6 +267,10 @@ Component({
         goodsInfo.id,
         cartInfo ? 2 : 1
       );
+    },
+
+    showCouponPopup() {
+      this.triggerEvent("showCouponPopup");
     },
 
     hide() {

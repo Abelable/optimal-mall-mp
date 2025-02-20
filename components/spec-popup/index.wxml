@@ -22,10 +22,14 @@
     <scroll-view class="selection-mian" scroll-y>
       <view class="spec-list row between" wx:if="{{goodsInfo.couponList.length}}">
         <view class="spec-title">优惠</view>
-        <view class="spec-content">
-          <text wx:if="{{!couponDiscount}}">{{receivedCouponList.length ? '未达优惠使用门槛' : '请领取优惠券'}}</text>
-          <text wx:if="{{couponDiscount}}">优惠券</text>
-          <text wx:if="{{couponDiscount}}" style="color: #FF3636">-{{couponDiscount}}元</text>
+        <view class="spec-content" wx:if="{{couponDiscount}}">
+          <text>优惠券</text>
+          <text style="color: #FF3636">-{{couponDiscount}}元</text>
+        </view>
+        <view class="spec-content row" wx:if="{{!couponDiscount}}">
+          <text wx:if="{{receivedCouponList.length}}">未达优惠使用门槛</text>
+          <text wx:if="{{!receivedCouponList.length}}" catchtap="showCouponPopup">领取优惠券</text>
+          <image class="spec-content-arrow" wx:if="{{!receivedCouponList.length}}" catchtap="showCouponPopup" src="/images/arrow.png" />
         </view>
       </view>
       <view class="spec-list row between">

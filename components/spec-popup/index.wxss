@@ -51,6 +51,10 @@
   color: #666;
   font-size: 26rpx;
 }
+.spec-content-arrow {
+  width: 24rpx;
+  height: 24rpx;
+} 
 .spec-tips {
   display: inline-block;
   margin: 24rpx 24rpx 0 0;

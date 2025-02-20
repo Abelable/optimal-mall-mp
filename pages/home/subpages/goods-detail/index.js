@@ -435,6 +435,7 @@ Page({
     if (status === 1 && stock) {
       const { mode = 0 } = e.currentTarget.dataset;
       this.setData({
+        couponPopupVisible: false,
         specPopupVisible: true,
         actionMode: mode
       });

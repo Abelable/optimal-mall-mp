@@ -278,15 +278,6 @@
   <button wx:if="{{goodsInfo.status === 2 || goodsInfo.stock === 0}}" class="invalid-notice-btn">{{goodsInfo.status === 2 ? '商品已下架' : '商品库存不足'}}</button>
 </view>
 
-<coupon-popup 
-  show="{{couponPopupVisible}}"
-  basePrice="{{goodsInfo.skuList.length ? goodsInfo.skuList[selectedSkuIndex].price : goodsInfo.price}}"
-  couponList="{{goodsInfo.couponList}}" 
-  bind:receive="receiveCoupon"
-  bind:showSpecPopup="showSpecPopup" 
-  bind:share="share"
-  bind:hide="hideCouponPopup"
-/>
 <service-popup 
   show="{{servicePopupVisible}}"
   refundStatus="{{goodsInfo.refundStatus}}"
@@ -304,9 +295,19 @@
   goodsInfo="{{goodsInfo}}"
   commission="{{commission}}"
   commissionVisible="{{commissionVisible}}"
+  bind:showCouponPopup="showCouponPopup" 
   bind:selectSpec="selectSpec"
   bind:addCartSuccess="addCartSuccess"
   bind:hide="hideSpecPopup"
+/>
+<coupon-popup 
+  show="{{couponPopupVisible}}"
+  basePrice="{{goodsInfo.skuList.length ? goodsInfo.skuList[selectedSkuIndex].price : goodsInfo.price}}"
+  couponList="{{goodsInfo.couponList}}" 
+  bind:receive="receiveCoupon"
+  bind:showSpecPopup="showSpecPopup" 
+  bind:share="share"
+  bind:hide="hideCouponPopup"
 />
 <poster-modal 
   wx:if="{{posterModalVisible}}"
