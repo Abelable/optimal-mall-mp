@@ -1,0 +1,92 @@
+.header {
+  padding-bottom: 100rpx;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+}
+.nav-bar {
+  padding-left: 8px;
+  padding-right: 40px;
+  height: 44px;
+}
+.nav-bar-title {
+  flex: 1;
+  color: #fff;
+  font-size: 18px;
+  font-weight: 550;
+  text-align: center;
+}
+.balance-wrap {
+  text-align: center;
+}
+.balance-tips {
+  margin-top: 60rpx;
+  color: #fff;
+  font-size: 32rpx;
+}
+.balance {
+  color: #fff;
+  font-size: 50rpx;
+}
+.integer {
+  font-size: 100rpx;
+  font-weight: bold;
+}
+
+.change-logs-wrap {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 32rpx;
+  background: #f5f6f8;
+  border-radius: 48rpx 48rpx 0 0;
+}
+.change-log-title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.change-logs {
+  margin-top: 32rpx;
+  flex: 1;
+  overflow-y: scroll;
+}
+.change-log {
+  margin-bottom: 24rpx;
+  padding: 24rpx;
+  background: #fff;
+  border-radius: 24rpx;
+}
+.log-info {
+  flex: 1;
+}
+.log-title {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.log-content {
+  margin-top: 4rpx;
+  color: #37588B;
+  font-size: 26rpx;
+}
+.log-time {
+  margin-top: 24rpx;
+  color: #999;
+  font-size: 24rpx;
+}
+.change-amount {
+  color: #3ABD85;
+  font-size: 36rpx;
+  font-weight: bold;
+}
+.change-amount.income {
+  color: #E82A20;
+}
+
+.no-more-tips {
+  padding: 12rpx 0 24rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}
