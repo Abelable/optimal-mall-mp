@@ -23,7 +23,7 @@ Page({
     finished: false
   },
 
-  onLoad() {
+  onShow() {
     this.setCashInfo();
     this.setTimeData();
     this.setOrderList(true);

@@ -13,7 +13,10 @@ Page({
     amount: 0,
     taxFee: 0,
     actualAmount: 0,
-    pathOptions: [{ cn: "银行卡", en: "card", value: 2 }],
+    pathOptions: [
+      { cn: "余额", en: "balance", value: 3 },
+      { cn: "银行卡", en: "card", value: 2 }
+    ],
     curOptionIdx: 0,
     bancCardInfo: null,
     remark: "",
@@ -24,7 +27,7 @@ Page({
   onLoad(options) {
     const scene = Number(options.scene);
     const amount = Number(options.amount);
-    const taxFee = scene === 2 ? Math.floor(amount * 0.06 * 100) / 100  : 0;
+    const taxFee = scene === 2 ? Math.floor(amount * 0.06 * 100) / 100 : 0;
     const actualAmount = amount - taxFee - 1;
     this.setData({
       scene,
@@ -99,24 +102,36 @@ Page({
   },
 
   withdraw() {
-    if (!this.data.btnActive) {
+    const {
+      btnActive,
+      scene,
+      amount: withdrawAmount,
+      pathOptions,
+      curOptionIdx,
+      remark
+    } = this.data;
+    if (curOptionIdx !== 0 && !btnActive) {
       return;
     }
     if (store.userInfo.authInfoId) {
-      const {
-        scene,
-        amount: withdrawAmount,
-        pathOptions,
-        curOptionIdx,
-        remark
-      } = this.data;
       const path = pathOptions[curOptionIdx].value;
       accountService.applyWithdraw(
         { scene, withdrawAmount, path, remark },
         () => {
-          wx.navigateTo({
-            url: "./subpages/withdraw-result/index"
-          });
+          if (curOptionIdx === 0) {
+            this.setData({ amount: 0 });
+            wx.showToast({
+              title: "提现成功",
+              icon: "none"
+            });
+            setTimeout(() => {
+              wx.navigateBack();
+            }, 2000);
+          } else {
+            wx.navigateTo({
+              url: "./subpages/withdraw-result/index"
+            });
+          }
         }
       );
     } else {

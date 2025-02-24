@@ -77,15 +77,18 @@
   color: #3C3F42;
   font-size: 28rpx;
 }
-.withdraw-option:first-child {
+.withdraw-option {
   margin-top: 32rpx;
 }
-.withdraw-option:last-child {
+/* .withdraw-option:first-child {
+  margin-top: 32rpx;
+} */
+/* .withdraw-option:last-child {
   margin-top: 48rpx;
-}
+} */
 .option-icon {
-  width: 56rpx;
-  height: 56rpx;
+  width: 42rpx;
+  height: 42rpx;
 }
 .option-name {
   margin-left: 16rpx;
