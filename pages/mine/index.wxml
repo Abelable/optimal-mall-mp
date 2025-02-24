@@ -151,7 +151,7 @@
       <view class="tool-desc">乡村振兴</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToTeamData">
+    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToBalance">
       <image class="tool-icon" src="./images/balance.png" />
       <view class="tool-desc">我的余额</view>
       <image class="arrow" src="./images/arrow.png" />

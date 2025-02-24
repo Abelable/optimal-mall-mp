@@ -207,6 +207,12 @@ Component({
       });
     },
 
+    navToBalance() {
+      wx.navigateTo({
+        url: "./subpages/balance/index"
+      });
+    },
+
     async share() {
       const scene =
         wx.getStorageSync("token") && store.promoterInfo

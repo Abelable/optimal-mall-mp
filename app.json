@@ -34,6 +34,7 @@
     "pages/mine/subpages/coupon-list/index",
     "pages/mine/subpages/notification/index",
     "pages/mine/subpages/customer/index",
+    "pages/mine/subpages/balance/index",
     "pages/common/register/index",
     "pages/common/webview/index",
     "pages/common/pay/index",
