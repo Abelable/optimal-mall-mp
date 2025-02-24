@@ -8,16 +8,16 @@
     <view class="balance-tips">账户余额</view>
     <view class="balance">
       <text>¥ </text>
-      <text class="integer">999</text>
-      <text>.99</text>
+      <text class="integer">{{integerPart}}</text>
+      <text>.{{floatPart}}</text>
     </view>
   </view>
 </view>
 
 <view class="change-logs-wrap" style="top: {{statusBarHeight + 180}}px;height: calc(100vh - {{statusBarHeight + 180}}px);">
   <view class="change-log-title">余额变更记录</view>
-  <view class="change-logs">
-    <view class="change-log row" wx:for="{{logList}}" wx:key="index">
+  <scroll-view class="change-logs" bindscrolltolower="onReachBottom" scroll-y>
+    <view class="change-log row" wx:for="{{recordList}}" wx:key="index">
       <view class="log-info">
         <view class="log-title">{{['佣金提现', '消费抵扣', '订单退款'][item.type - 1]}}</view>
         <view class="log-content" wx:if="{{item.referenceId}}">订单号：{{item.referenceId}}</view>
@@ -25,7 +25,7 @@
       </view>
       <view class="change-amount {{item.amount > 0 ? 'income' : ''}}">{{item.amount > 0 ? '+' + item.amount : item.amount}}</view>
     </view>
-    <empty-illus wx:if="{{finished && !logList.length}}" desc="暂无记录" />
-    <view class="no-more-tips" wx:if="{{finished && logList.length}}">～没有更多了～</view>
-  </view>
+    <empty-illus wx:if="{{finished && !recordList.length}}" desc="暂无记录" />
+    <view class="no-more-tips" wx:if="{{finished && recordList.length}}">～没有更多了～</view>
+  </scroll-view>
 </view>
