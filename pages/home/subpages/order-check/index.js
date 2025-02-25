@@ -81,7 +81,8 @@ Page({
     const orderIds = await homeService.submitOrder(
       this.cartGoodsIds,
       addressId,
-      this.couponId
+      this.couponId,
+      this.useBalance ? 1 : 0,
     );
     if (orderIds) {
       this.pay(orderIds);
@@ -103,6 +104,10 @@ Page({
             url: "/pages/mine/subpages/order-center/index?status=1"
           });
         }
+      });
+    } else if (this.useBalance) {
+      wx.navigateTo({
+        url: "/pages/mine/subpages/order-center/index?status=2"
       });
     }
   }

@@ -85,6 +85,13 @@
         <price-unit price="{{orderInfo.couponDenomination}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
       </view>
     </view>
+    <view class="list row between" wx:if="{{orderInfo.deductionBalance}}">
+      <view class="title">余额抵扣</view>
+      <view class="row">
+        <text>-</text>
+        <price-unit price="{{orderInfo.deductionBalance}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
+      </view>
+    </view>
     <view class="list row between">
       <view class="title">{{ORDER.paymentDesc(orderInfo.status)}}</view>
       <price-unit price="{{orderInfo.refundAmount}}" />
