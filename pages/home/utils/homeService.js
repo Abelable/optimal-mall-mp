@@ -51,10 +51,10 @@ class HomeService extends BaseService {
     });
   }
 
-  async getPreOrderInfo(cartGoodsIds, addressId, couponId) {
+  async getPreOrderInfo(cartGoodsIds, addressId, couponId, useBalance = false) {
     return await this.post({
       url: `${this.baseUrl}/order/pre_order_info`,
-      data: cleanObject({ cartGoodsIds, addressId, couponId })
+      data: cleanObject({ cartGoodsIds, addressId, couponId, useBalance })
     });
   }
 

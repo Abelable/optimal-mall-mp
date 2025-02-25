@@ -165,16 +165,10 @@
   height: 24rpx;
 }
 
-.balance-wrap {
-  display: flex;
-  align-items: center;
-  font-size: 28rpx;
+.balance {
   color: #333;
+  font-size: 28rpx;
   font-weight: 500;
-}
-.balance-wrap switch {
-  margin-left: 50rpx;
-  zoom: .5;
 }
 
 .bottom-bar {

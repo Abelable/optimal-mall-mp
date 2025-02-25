@@ -37,6 +37,14 @@
     </view>
   </view>
 
+  <view class="card row between" wx:if="{{preOrderInfo.accountBalance}}">
+    <view class="row baseline">
+      <view class="balance">可用余额：</view>
+      <price-unit price="{{preOrderInfo.accountBalance || 0}}" color="#333" />
+    </view>
+    <switch style="transform: scale(0.8)" bindchange="toggleUseBalance" color="#F5701D" />
+  </view>
+
   <view class="card">
     <view class="card-title">价格明细</view>
     <view class="list row between">
@@ -60,6 +68,15 @@
         <text style="color: #ff5040">-</text>
         <price-unit price="{{preOrderInfo.couponDenomination || 0}}" />
         <image class="arrow" src="./images/arrow.png" />
+      </view>
+    </view>
+    <view class="list row between" wx:if="{{preOrderInfo.deductionBalance}}">
+      <view class="list-title">
+        <text>余额抵扣</text>
+      </view>
+      <view class="row">
+        <text style="color: #ff5040">-</text>
+        <price-unit price="{{preOrderInfo.deductionBalance || 0}}" />
       </view>
     </view>
     <view class="list row between">

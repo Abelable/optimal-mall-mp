@@ -18,7 +18,8 @@ Page({
     const preOrderInfo = await homeService.getPreOrderInfo(
       this.cartGoodsIds,
       this.addressId,
-      this.couponId
+      this.couponId,
+      this.useBalance
     );
     this.setData({ preOrderInfo });
   },
@@ -39,6 +40,11 @@ Page({
     this.setData({
       addressPopupVisible: false
     });
+  },
+
+  toggleUseBalance(e) {
+    this.useBalance = e.detail.value
+    this.setPreOrderInfo();
   },
 
   showCouponPopup() {
