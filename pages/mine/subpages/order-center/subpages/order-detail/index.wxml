@@ -128,7 +128,7 @@
 <view class="bottom-bar" wx:if="{{userInfo.id === orderInfo.userId}}">
   <button 
     class="btn" 
-    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203 || orderInfo.status === 403 || orderInfo.status === 501}}"
+    wx:if="{{orderInfo.status === 102 || orderInfo.status === 103 || orderInfo.status === 104 || orderInfo.status === 203}}"
     bindtap="deleteOrder"
     hover-class="none"
   >

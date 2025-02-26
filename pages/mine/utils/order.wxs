@@ -12,7 +12,7 @@ function statusDesc(status) {
     desc = "退款成功";
   } else if (status === 301) {
     desc = "待收货";
-  } else if (status === 401 || status === 402 || status === 501) {
+  } else if (status === 401 || status === 402 || status === 403 || status === 501) {
     desc = "交易成功";
   }
   return desc;
@@ -27,7 +27,8 @@ function paymentDesc(status) {
     status === 204 ||
     status === 301 ||
     status === 401 ||
-    status === 402
+    status === 402 ||
+    status === 403
   ) {
     desc = "实付款";
   }
