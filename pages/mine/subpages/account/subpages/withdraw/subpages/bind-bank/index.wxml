@@ -9,7 +9,7 @@
   </view>
   <view class="form-item">
     <view class="form-label">开户行：</view>
-    <input class="form-input" value="{{bankName}}" bind:input="setBankName" placeholder="请输入开户行" />
+    <input class="form-input" value="{{bankName}}" bind:input="setBankName" placeholder="请输入具体支行" />
   </view>
 </view>
 
