@@ -1,3 +1,4 @@
+import { WEBVIEW_BASE_URL } from "../../../../config";
 import { store } from "../../../../store/index";
 import MineService from "../../utils/mineService";
 
@@ -36,6 +37,11 @@ Page({
   setSignature(e) {
     const signature = e.detail.value;
     this.setData({ signature });
+  },
+
+  checkAuthInfo() {
+    const url = `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
+    wx.navigateTo({ url });
   },
 
   onUnload() {
