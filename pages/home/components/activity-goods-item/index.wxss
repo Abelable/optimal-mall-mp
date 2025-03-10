@@ -164,6 +164,8 @@
 
 .buy-btn {
   display: flex;
+  border-radius: 33rpx;
+  overflow: hidden;
 }
 .buy-btn-icon {
   display: flex;
@@ -172,7 +174,6 @@
   width: 96rpx;
   height: 66rpx;
   background: #FFAC40;
-  border-radius: 33rpx 0 0 33rpx;
 }
 .cart-icon {
   margin-left: 12rpx;
@@ -188,7 +189,6 @@
   color: #fff;
   font-size: 28rpx;
   background: #FF3636;
-  border-radius: 0 33rpx 33rpx 0;
 }
 
 .notice-btn {

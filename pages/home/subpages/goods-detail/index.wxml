@@ -75,7 +75,7 @@
           />
           <view 
             class="market-price" 
-            wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift}}"
+            wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift && goodsInfo.marketPrice}}"
           >
             ¥{{(goodsInfo && goodsInfo.skuList.length) ? goodsInfo.skuList[selectedSkuIndex].originalPrice : (goodsInfo.marketPrice || 0)}}
           </view>
@@ -127,7 +127,7 @@
     <view class="goods-name">{{goodsInfo.name}}</view>
     <view class="introduction-wrap">
       <view class="introduction">{{goodsInfo.introduction}}</view>
-      <view class="sale-volume">销量{{goodsInfo.salesVolume}}</view>
+      <view class="sale-volume" wx:if="{{goodsInfo.salesVolume}}">销量{{goodsInfo.salesVolume}}</view>
     </view>
   </view>
 
@@ -137,7 +137,7 @@
       <view class="option-content" bindtap="showSpecPopup">{{goodsInfo.skuList[selectedSkuIndex].name}}</view>
       <image class="option-arrow" src="./images/option-arrow.png" />
     </view>
-    <view class="option-item" bindtap="showAddressPopup">
+    <view class="option-item" bindtap="showAddressPopup" wx:if="{{goodsInfo.deliveryMethod === 1}}">
       <view class="option-label">配送</view>
       <view class="option-content">
         <view class="address-info row">
@@ -228,7 +228,7 @@
   <view class="hover-btn" wx:if="{{topBtnVisible}}" bindtap="scrollToTop">
     <image class="hover-btn-icon" src="./images/top.png" />
   </view>
-  <navigator class="hover-btn" url="/pages/home/subpages/cart/index" hover-class="none">
+  <navigator class="hover-btn" wx:if="{{goodsInfo.deliveryMethod === 1}}" url="/pages/home/subpages/cart/index" hover-class="none">
     <image class="hover-btn-icon" src="./images/cart-icon.png" />
     <view class="cart-count" wx:if="{{cartGoodsNumber}}">{{cartGoodsNumber}}</view>
   </navigator>
@@ -260,7 +260,7 @@
     </button>
   </view>
   <view class="btns row" wx:if="{{goodsInfo.status === 1 && goodsInfo.stock && (!goodsInfo.activityInfo || goodsInfo.activityInfo.status === 1)}}">
-    <button class="add-cart-btn" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>
+    <button class="add-cart-btn" wx:if="{{goodsInfo.deliveryMethod === 1}}" bindtap="showSpecPopup" data-mode="{{1}}">加入购物车</button>
     <button class="buy-btn" bindtap="showSpecPopup" data-mode="{{2}}">
       <view>
         <view>{{goodsInfo.couponList.length ? "领券购买" : "立即购买"}}</view>

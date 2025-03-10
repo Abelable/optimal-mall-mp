@@ -161,6 +161,7 @@
   padding: 2rpx 10rpx;
   padding-right: 6rpx;
   width: fit-content;
+  white-space: nowrap;
   color: #fff;
   font-size: 20rpx;
   background: #F5701D;

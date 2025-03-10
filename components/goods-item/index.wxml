@@ -28,10 +28,10 @@
     <view class="price-wrap row between">
       <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
         <price-unit price="{{item.price || 0}}" />
-        <view class="market-price" wx:if="{{!item.isGift && !bottomPrice}}">¥{{item.marketPrice}}</view>
+        <view class="market-price" wx:if="{{!item.isGift && !bottomPrice && item.marketPrice}}">¥{{item.marketPrice}}</view>
         <view class="bottom-price" wx:if="{{bottomPrice}}">到手价¥{{bottomPrice}}</view>
       </view>
-      <image class="add-icon" catchtap="addCart" src="/images/add.png" />
+      <image class="add-icon" wx:if="{{item.deliveryMethod === 1}}" catchtap="addCart" src="/images/add.png" />
     </view>
   </view>
 </view>
