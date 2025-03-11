@@ -225,13 +225,14 @@ Component({
       if (btnActive && maxCount > 0) {
         checkLogin(async () => {
           const { goodsInfo, selectedSkuIndex, count } = this.data;
+          const { id, deliveryMethod } = goodsInfo;
           const cartGoodsId = await baseService.fastAddCart(
-            goodsInfo.id,
+            id,
             selectedSkuIndex,
             count
           );
           const cartGoodsIds = JSON.stringify([cartGoodsId]);
-          const url = `/pages/home/subpages/order-check/index?cartGoodsIds=${cartGoodsIds}`;
+          const url = `/pages/home/subpages/order-check/index?cartGoodsIds=${cartGoodsIds}&deliveryMethod=${deliveryMethod}`;
           wx.navigateTo({ url });
         });
       }

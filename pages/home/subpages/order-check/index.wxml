@@ -4,17 +4,66 @@
     <view class="err-msg">{{preOrderInfo.errMsg}}</view>
   </view>
 
-  <view class="card row" bindtap="showAddressPopup">
-    <image class="address-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/address-icon.png" />
-    <view class="consignee">
-      <view class="person-info" wx:if="{{preOrderInfo.addressInfo}}">
-        <text class="consignee-name">{{preOrderInfo.addressInfo.name}}</text>
-        <text>{{preOrderInfo.addressInfo.mobile}}</text>
+  <view class="delivery-method-wrap">
+    <view class="menu" wx:if="{{goodsDeliveryMethod === 3}}">
+      <view 
+        class="menu-item {{curMenuIdx === index ? 'active' : ''}}"
+        wx:for="{{['物流配送', '到店自取/消费']}}" 
+        wx:key="index" 
+        bindtap="selectMenu" 
+        data-index="{{index}}"
+      >
+        <view class="menu-item-inner">{{item}}</view>
       </view>
-      <view class="address-info" wx:if="{{preOrderInfo.addressInfo}}">{{preOrderInfo.addressInfo.regionDesc + ' ' + preOrderInfo.addressInfo.addressDetail}}</view>
-      <view wx:if="{{!preOrderInfo.addressInfo}}">请选择合适的寄件地址</view>
     </view>
-    <image class="select-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/to-icon.png" />
+    <view class="address-wrap row" style="border-top-right-radius: 16rpx" wx:if="{{(goodsDeliveryMethod === 3 && curMenuIdx === 0) || goodsDeliveryMethod === 1}}" bindtap="showAddressPopup">
+      <image class="address-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/address-icon.png" />
+      <view class="consignee">
+        <view class="person-info" wx:if="{{preOrderInfo.addressInfo}}">
+          <text class="consignee-name">{{preOrderInfo.addressInfo.name}}</text>
+          <text>{{preOrderInfo.addressInfo.mobile}}</text>
+        </view>
+        <view class="address-info" wx:if="{{preOrderInfo.addressInfo}}">{{preOrderInfo.addressInfo.regionDesc + ' ' + preOrderInfo.addressInfo.addressDetail}}</view>
+        <view wx:if="{{!preOrderInfo.addressInfo}}">请选择合适的寄件地址</view>
+      </view>
+      <image class="select-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/to-icon.png" />
+    </view>
+    <view class="address-wrap" style="border-top-left-radius: 16rpx" wx:if="{{(goodsDeliveryMethod === 3 && curMenuIdx === 1) || goodsDeliveryMethod === 2}}" bindtap="showAddressPopup">
+      <view class="pickup-address-wrap">
+        <view class="pickup-address">
+          <view class="pickup-address-name omit">嘉创路站</view>
+          <view class="pickup-address-detail omit single">通州区嘉创二路57号103</view>
+          <view class="distance-info">
+            <image class="distance-icon" src="./images/distance.png" />
+            <view class="distance">距您23.21km</view>
+            <view class="check-map-btn">
+              <view>查看地图</view>
+              <image class="address-arrow" src="/images/arrow.png" />
+            </view>
+          </view>
+        </view>
+        <view class="change-btn">
+          <view>切换</view>
+          <image class="change-btn-arrow" src="/images/arrow.png" />
+        </view>
+      </view>
+      <view class="pickup-info-wrap">
+        <view class="pickup-info">
+          <view class="pickup-info-title">自取时间</view>
+          <view class="pickup-info-detail">
+            <view>10:48</view>
+            <image class="pickup-info-arrow" src="/images/arrow.png" />
+          </view>
+        </view>
+        <view class="pickup-info">
+          <view class="pickup-info-title">预留电话</view>
+          <view class="pickup-info-detail">
+            <view class="pickup-phone">15869035014</view>
+            <image class="pickup-info-arrow" src="/images/arrow.png" />
+          </view>
+        </view>
+      </view>
+    </view>
   </view>
 
   <view class="card">

@@ -4,13 +4,19 @@ const homeService = new HomeService();
 
 Page({
   data: {
+    goodsDeliveryMethod: 1,
+    curMenuIdx: 0,
     preOrderInfo: null,
     addressPopupVisible: false,
     couponPopupVisible: false
   },
 
-  onLoad({ cartGoodsIds }) {
+  onLoad({ cartGoodsIds, deliveryMethod }) {
     this.cartGoodsIds = JSON.parse(cartGoodsIds);
+
+    const goodsDeliveryMethod = +deliveryMethod;
+    this.setData({ goodsDeliveryMethod });
+
     this.setPreOrderInfo();
   },
 
@@ -22,6 +28,11 @@ Page({
       this.useBalance
     );
     this.setData({ preOrderInfo });
+  },
+
+  selectMenu(e) {
+    const curMenuIdx = +e.currentTarget.dataset.index
+    this.setData({ curMenuIdx })
   },
 
   showAddressPopup() {
@@ -43,7 +54,7 @@ Page({
   },
 
   toggleUseBalance(e) {
-    this.useBalance = e.detail.value
+    this.useBalance = e.detail.value;
     this.setPreOrderInfo();
   },
 
@@ -82,7 +93,7 @@ Page({
       this.cartGoodsIds,
       addressId,
       this.couponId,
-      this.useBalance ? 1 : 0,
+      this.useBalance ? 1 : 0
     );
     if (orderIds) {
       this.pay(orderIds);
