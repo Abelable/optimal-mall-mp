@@ -1,13 +1,28 @@
 function slice(target, length, replaceString) {
-  replaceString = replaceString || '...';
-  return target.length > length ? target.slice(0, length) + replaceString : target;
+  replaceString = replaceString || "...";
+  return target.length > length
+    ? target.slice(0, length) + replaceString
+    : target;
 }
 
 function trim(string) {
-  return string.split(' ').join('');
+  return string.split(" ").join("");
+}
+
+function nicknameFilter(string) {
+  if (string.length === 1) {
+    return '*'
+  } else if (string.length === 2) {
+    return string.slice(0, 1) + "*";
+  } else if (string.length === 3) {
+    return string.slice(0, 1) + "*" + string.slice(-1);
+  } else {
+    return string.slice(0, 1) + "**" + string.slice(-1);
+  }
 }
 
 module.exports = {
   slice: slice,
-  trim: trim
+  trim: trim,
+  nicknameFilter: nicknameFilter
 };

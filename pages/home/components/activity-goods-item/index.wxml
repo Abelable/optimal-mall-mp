@@ -1,4 +1,5 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
+<wxs module="STRING" src="/utils/filters/string.wxs" />
 
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap">
@@ -7,7 +8,7 @@
       <swiper-item class="customer-info-wrap" wx:for="{{item.customerList}}" wx:key="index" wx:for-item="customer">
         <view class="customer-info">
           <image class="customer-avatar" src="{{customer.avatar}}" />
-          <view class="customer-name omit single">{{customer.nickname}}</view>
+          <view class="customer-name">{{STRING.nicknameFilter(customer.nickname || '')}}</view>
           <view class="customer-content">{{TIME.timeDiff(customer.createdAt)}}抢购了该商品</view>
         </view>
       </swiper-item>
