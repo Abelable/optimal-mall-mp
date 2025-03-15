@@ -7,11 +7,15 @@
   <view class="nav-bar-title">我的</view>
 </view>
 
-<view class="container level-{{userInfo.level}}" style="padding-top: {{statusBarHeight + 60}}px;">
-  <view class="user-info-wrap" bindtap="updateUserInfo">
-    <image class="avatar" src="{{userInfo ? userInfo.avatar : 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
-    <view class="register-btn" wx:if="{{!userInfo}}">点击注册</view>
-    <view class="user-info" wx:if="{{userInfo}}">
+<view class="container level-{{userInfo.level || 0}}" style="padding-top: {{statusBarHeight + 60}}px;">
+  <view class="user-info-wrap" wx:if="{{!userInfo}}" bindtap="register">
+    <image class="avatar" src="https://static.youbozhenxuan.cn/mp/default_avatar.png" />
+    <view class="register-btn">点击登录</view>
+  </view>
+
+  <view class="user-info-wrap" wx:if="{{userInfo}}" bindtap="updateUserInfo">
+    <image class="avatar" src="{{userInfo.avatar || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
+    <view class="user-info">
       <view class="user-name">{{userInfo.nickname}}</view>
       <view class="user-mobile">{{NUM.mobileFormat(userInfo.mobile)}}</view>
       <view class="user-identity" wx:if="{{userInfo.level}}">诚信星球第{{userInfo.promoterId}}号乡村振兴{{userInfo.level === 1 ? "推广员" : "服务商"}}</view>

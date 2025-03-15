@@ -71,7 +71,7 @@ Component({
         }
 
         this.setOrderListTotals();
-      });
+      }, false);
     },
 
     async setCommissionSumInfo() {
@@ -211,6 +211,10 @@ Component({
       wx.navigateTo({
         url: "./subpages/balance/index"
       });
+    },
+
+    register() {
+      wx.navigateTo({ url: "/pages/common/register/index" });
     },
 
     async share() {
