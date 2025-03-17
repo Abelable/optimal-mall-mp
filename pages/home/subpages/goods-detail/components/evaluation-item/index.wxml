@@ -1,9 +1,10 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
+<wxs module="STRING" src="/utils/filters/string.wxs" />
 
 <view class="evaluation-item {{noPadding ? 'noPadding' : ''}}">
   <view class="user-info row">
     <image class="user-avatar" src="{{item.userInfo.avatar}}" />
-    <view class="user-name">{{item.userInfo.nickname}}</view>
+    <view class="user-name">{{STRING.nicknameFilter(item.userInfo.nickname || '')}}</view>
     <view class="comment-date">{{TIME.timeDiff(item.createdAt)}}</view>
   </view>
   <view class="comment-rate-wrap row">
