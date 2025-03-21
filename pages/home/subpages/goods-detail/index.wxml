@@ -64,18 +64,18 @@
 
   <!-- 商品基本信息 -->
   <view class="goods-info-wrap">
-    <view class="{{(goodsInfo.activityInfo && !goodsInfo.isGift) ? 'activity-info-wrap' : ''}} row between ">
+    <view class="{{goodsInfo.activityInfo ? 'activity-info-wrap' : ''}} row between ">
       <view class="price-wrap">
         <view class="price-unit row {{!bottomPrice ? 'baseline' : ''}}">
           <price-unit 
             price="{{(goodsInfo && goodsInfo.skuList.length) ? goodsInfo.skuList[selectedSkuIndex].price : (goodsInfo.price || 0)}}" 
-            color="{{(goodsInfo.activityInfo && !goodsInfo.isGift) ? '#fff' : '#ff5040'}}" 
+            color="{{goodsInfo.activityInfo ? '#fff' : '#ff5040'}}" 
             fontSize="32rpx" 
             integerFontSize="50rpx"
           />
           <view 
             class="market-price" 
-            wx:if="{{!goodsInfo.activityInfo && !goodsInfo.isGift && goodsInfo.marketPrice}}"
+            wx:if="{{!goodsInfo.activityInfo && goodsInfo.marketPrice}}"
           >
             ¥{{(goodsInfo && goodsInfo.skuList.length) ? goodsInfo.skuList[selectedSkuIndex].originalPrice : (goodsInfo.marketPrice || 0)}}
           </view>
@@ -84,12 +84,12 @@
             <image class="more-icon" src="./images/more{{goodsInfo.activityInfo ? '-activity' : ''}}.png" />
           </view>
         </view>
-        <view class="commission row {{(!goodsInfo.activityInfo && !goodsInfo.isGift) ? 'show-bg' : ''}}" wx:if="{{userInfo.level && commission}}" bindtap="toggleCommissionVisible">
+        <view class="commission row {{!goodsInfo.activityInfo ? 'show-bg' : ''}}" wx:if="{{userInfo.level && commission}}" bindtap="toggleCommissionVisible">
           <view>{{commissionVisible ? '利润：¥' + commission : '******'}}</view>
           <image class="commission-visible-icon" src="./images/commission_{{commissionVisible ? 'show' : 'hide'}}.png" />
         </view>
       </view>
-      <view class="activity-info" wx:if="{{goodsInfo.activityInfo && !goodsInfo.isGift}}">
+      <view class="activity-info" wx:if="{{goodsInfo.activityInfo}}">
         <view class="activity-name">{{goodsInfo.activityInfo.name}}</view>
         <view class="activity-followers row" wx:if="{{goodsInfo.activityInfo.status === 0}}">
           已有{{goodsInfo.activityInfo.followers}}人关注
