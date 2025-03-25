@@ -13,6 +13,8 @@ Page({
     pickupAddressPopupVisible: false,
     pickupTime: "",
     pickupTimePopupVisible: false,
+    mobile: "",
+    mobileModalVisible: false,
     couponPopupVisible: false
   },
 
@@ -115,6 +117,18 @@ Page({
     this.setData({
       pickupTimePopupVisible: false
     });
+  },
+
+  showMobileModal() {
+    this.setData({
+      mobileModalVisible: true
+    })
+  },
+
+  hideMobileModal() {
+    this.setData({
+      mobileModalVisible: false
+    })
   },
 
   toggleUseBalance(e) {

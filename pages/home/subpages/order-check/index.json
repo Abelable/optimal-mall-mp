@@ -5,6 +5,7 @@
     "address-popup": "/components/address-popup/index",
     "pickup-address-popup": "./components/pickup-address-popup/index",
     "pickup-time-popup": "./components/pickup-time-popup/index",
+    "mobile-modal": "./components/mobile-modal/index",
     "coupon-popup": "./components/coupon-popup/index"
   }
 }

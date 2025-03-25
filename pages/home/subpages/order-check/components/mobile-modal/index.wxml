@@ -1,0 +1,10 @@
+<view class="modal-mask" bindtap="hide">
+  <view class="mobile-modal" catchtap="catchtap">
+    <view class="modal-title">预留电话</view>
+    <input class="mobile-input" bindinput="setMobile" placeholder="请输入正确手机号" type="number" />
+    <view class="modal-btns">
+      <view class="cancel-btn" bindtap="hide">取消</view>
+      <view class="confirm-btn" bindtap="confirm">确定</view>
+    </view>
+  </view>
+</view>

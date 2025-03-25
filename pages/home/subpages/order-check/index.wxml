@@ -55,7 +55,7 @@
             <image class="pickup-info-arrow" src="/images/arrow.png" />
           </view>
         </view>
-        <view class="pickup-info">
+        <view class="pickup-info" bindtap="showMobileModal">
           <view class="pickup-info-title">预留电话</view>
           <view class="pickup-info-detail">
             <view class="pickup-phone">15869035014</view>
@@ -161,6 +161,11 @@
   show="{{pickupTimePopupVisible}}" 
    bind:confirm="confirmPickupTimeSelect" 
   bind:hide="hidePickupTimePopup"
+/>
+<mobile-modal
+  wx:if="{{mobileModalVisible}}"
+  bind:confirm="confirmMobileSet" 
+  bind:hide="hideMobileModal" 
 />
 <coupon-popup 
   show="{{couponPopupVisible}}"

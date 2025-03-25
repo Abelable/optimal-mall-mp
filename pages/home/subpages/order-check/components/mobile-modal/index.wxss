@@ -1,0 +1,62 @@
+.modal-mask {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.3);
+}
+.mobile-modal {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding-bottom: 39px;
+  width: 300px;
+  min-height: 180px;
+  background: #fff;
+  border-radius: 15px;
+  z-index: 100;
+}
+
+.modal-title {
+  margin-top: 15px;
+  color: #333;
+  font-size: 16px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.mobile-input {
+  margin: 32rpx;
+  padding: 0 24rpx;
+  height: 90rpx;
+  font-size: 26rpx;
+  border: 1px solid #eee;
+  border-radius: 16rpx;
+}
+
+.modal-btns {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  border-top: 1px solid #EAECEF;
+}
+.cancel-btn, .confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 43px;
+  font-size: 14px;
+  font-weight: 500;
+}
+.cancel-btn {
+  border-right: 1px solid #EAECEF;
+  color: #B2B6C2;
+}
+.confirm-btn {
+  color: #1A2040;
+}
