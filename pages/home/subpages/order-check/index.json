@@ -3,6 +3,7 @@
   "usingComponents": {
     "price-unit": "/components/price-unit/index",
     "address-popup": "/components/address-popup/index",
+    "pickup-address-popup": "./components/pickup-address-popup/index",
     "coupon-popup": "./components/coupon-popup/index"
   }
 }

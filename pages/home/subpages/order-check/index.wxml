@@ -42,7 +42,7 @@
             </view>
           </view>
         </view>
-        <view class="change-btn">
+        <view class="change-btn" bindtap="showPickupAddressPopup">
           <view>切换</view>
           <image class="change-btn-arrow" src="/images/arrow.png" />
         </view>
@@ -151,6 +151,11 @@
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
   bind:hide="hideAddressPopup"
+/>
+<pickup-address-popup 
+  show="{{pickupAddressPopupVisible}}" 
+  bind:confirm="confirmPickupAddressSelect" 
+  bind:hide="hidePickupAddressPopup"
 />
 <coupon-popup 
   show="{{couponPopupVisible}}"

@@ -1,0 +1,22 @@
+<van-popup show="{{show}}" round position="bottom" bind:close="hide">
+  <view class="address-popup">
+    <view class="title">选择提货地点</view>
+    <scroll-view class="address-list" scroll-y>
+      <radio-group bindchange="selectAddress">
+        <view class="address-item row" wx:for="{{addressList}}" wx:key="index">
+          <image class="address-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/address-icon.png" />
+          <view class="content">
+            <view class="row">
+              <text class="user-name">{{item.name}}</text>
+              <text>{{item.mobile}}</text>
+              <text class="default-icon" wx:if="{{item.isDefault}}">默认</text>
+            </view>
+            <view class="address-detail">{{item.regionDesc + ' ' + item.addressDetail}}</view>
+          </view>
+          <radio class="radio" value="{{index}}" checked="{{ selectedIndex === index }}" color="#F5701D" />
+        </view>
+      </radio-group>
+    </scroll-view>
+    <button class="confirm-btn" bindtap="confirm">确定</button>
+  </view>
+</van-popup>

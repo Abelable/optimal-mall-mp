@@ -8,6 +8,7 @@ Page({
     curMenuIdx: 0,
     preOrderInfo: null,
     addressPopupVisible: false,
+    pickupAddressPopupVisible: false,
     couponPopupVisible: false
   },
 
@@ -50,6 +51,24 @@ Page({
   hideAddressPopup() {
     this.setData({
       addressPopupVisible: false
+    });
+  },
+
+  showPickupAddressPopup() {
+    this.setData({
+      pickupAddressPopupVisible: true
+    });
+  },
+
+  confirmPickupAddressSelect(e) {
+    this.pickupAddressId = e.detail.id;
+    // this.setPreOrderInfo();
+    // this.hideAddressPopup();
+  },
+
+  hidePickupAddressPopup() {
+    this.setData({
+      pickupAddressPopupVisible: false
     });
   },
 
