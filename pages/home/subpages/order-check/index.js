@@ -26,18 +26,24 @@ Page({
     const goodsDeliveryMethod = +deliveryMethod;
     this.setData({ goodsDeliveryMethod });
     if (goodsDeliveryMethod !== 1) {
-      await this.setPickupAddressList(this.cartGoodsIds[0]);
       await this.setLocationInfo();
-      this.setDistance();
+      this.setPickupAddressList(this.cartGoodsIds[0]);
     }
 
     this.setPreOrderInfo();
   },
 
   async setPickupAddressList(cartGoodsId) {
-    const pickupAddressList = await homeService.getPickupAddressList(
+    const list = await homeService.getPickupAddressList(
       cartGoodsId
     );
+    const pickupAddressList = list.map(item => {
+      const { longitude, latitude } = item
+      const la2 = +latitude;
+      const lo2 = +longitude;
+      const distance = calcDistance(this.la1, this.lo1, la2, lo2);
+      return { ...item, distance }
+    })
     this.setData({ pickupAddressList });
   },
 
@@ -55,15 +61,6 @@ Page({
     const { longitude, latitude } = await homeService.getLocationInfo();
     this.lo1 = longitude;
     this.la1 = latitude;
-  },
-
-  setDistance() {
-    const { pickupAddressList, curPickupAddressIdx } = this.data;
-    const { longitude, latitude } = pickupAddressList[curPickupAddressIdx];
-    const la2 = +latitude;
-    const lo2 = +longitude;
-    const distance = calcDistance(this.la1, this.lo1, la2, lo2);
-    this.setData({ distance });
   },
 
   navigation() {

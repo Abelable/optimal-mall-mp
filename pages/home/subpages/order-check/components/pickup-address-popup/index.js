@@ -19,6 +19,18 @@ Component({
       });
     },
 
+    navigation(e) {
+      const { index } = e.currentTarget.dataset;
+      const { name, addressDetail, longitude, latitude } =
+        this.properties.addressList[index];
+      wx.openLocation({
+        latitude: +latitude,
+        longitude: +longitude,
+        name: name || addressDetail,
+        address: addressDetail
+      });
+    },
+
     confirm() {
       this.triggerEvent("confirm", { index: this.data.selectedIndex });
     },
