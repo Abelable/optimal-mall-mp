@@ -1,3 +1,4 @@
+import { calcDistance } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
 const homeService = new HomeService();
@@ -8,6 +9,7 @@ Page({
     curMenuIdx: 0,
     preOrderInfo: null,
     addressPopupVisible: false,
+    distance: 0,
     pickupAddressPopupVisible: false,
     couponPopupVisible: false
   },
@@ -17,6 +19,9 @@ Page({
 
     const goodsDeliveryMethod = +deliveryMethod;
     this.setData({ goodsDeliveryMethod });
+    if (goodsDeliveryMethod !== 1) {
+      this.setLocationInfo();
+    }
 
     this.setPreOrderInfo();
   },
@@ -31,9 +36,30 @@ Page({
     this.setData({ preOrderInfo });
   },
 
+  async setLocationInfo() {
+    const { longitude, latitude } = await homeService.getLocationInfo();
+    this.lo1 = longitude;
+    this.la1 = latitude;
+  },
+
+  setDistance() {
+    const distance = calcDistance(this.la1, this.lo1, la2, lo2);
+    this.setData({ distance })
+  },
+
+  navigation() {
+    const { name, address, latitude, longitude } = this.data.hotelInfo;
+    wx.openLocation({
+      latitude,
+      longitude,
+      name,
+      address
+    });
+  },
+
   selectMenu(e) {
-    const curMenuIdx = +e.currentTarget.dataset.index
-    this.setData({ curMenuIdx })
+    const curMenuIdx = +e.currentTarget.dataset.index;
+    this.setData({ curMenuIdx });
   },
 
   showAddressPopup() {

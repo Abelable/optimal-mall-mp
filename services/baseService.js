@@ -4,6 +4,14 @@ import { cleanObject, randomNickname } from "../utils/index";
 import Base from "./base/index";
 
 class BaseService extends Base {
+  async getLocationInfo() {
+    const { authSetting } = await this.getSetting();
+    if (authSetting["scope.userLocation"] !== false) {
+      const { longitude, latitude } = await this.getLocation();
+      return { longitude, latitude };
+    }
+  }
+
   async getUserMobile(code) {
     return await this.post({
       url: `${this.baseUrl}/auth/wx_mp/mobile`,

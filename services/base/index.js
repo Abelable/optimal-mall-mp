@@ -153,6 +153,10 @@ class Base {
       });
   }
 
+  async getLocation() {
+    return api.getLocation();
+  }
+
   async getUserProfile() {
     return api.getUserProfile({ desc: "用于完善会员资料" });
   }

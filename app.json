@@ -93,7 +93,13 @@
       "provider": "wx9ad912bf20548d92"
     }
   },
+  "permission": {
+    "scope.userLocation": {
+      "desc": "你的位置信息将用于定位距离展示"
+    }
+  },
   "requiredPrivateInfos": [
-    "chooseAddress"
+    "chooseAddress",
+    "getLocation"
   ]
 }

@@ -35,8 +35,8 @@
           <view class="pickup-address-detail omit single">通州区嘉创二路57号103</view>
           <view class="distance-info">
             <image class="distance-icon" src="./images/distance.png" />
-            <view class="distance">距您23.21km</view>
-            <view class="check-map-btn">
+            <view class="distance">距您{{distance}}km</view>
+            <view class="check-map-btn" bindtap="navigation">
               <view>查看地图</view>
               <image class="address-arrow" src="/images/arrow.png" />
             </view>
