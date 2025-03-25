@@ -10,6 +10,8 @@ Page({
     preOrderInfo: null,
     addressPopupVisible: false,
     distance: 0,
+    pickupAddressList: [],
+    curPickupAddressIdx: 0,
     pickupAddressPopupVisible: false,
     pickupTime: "",
     pickupTimePopupVisible: false,
@@ -18,16 +20,25 @@ Page({
     couponPopupVisible: false
   },
 
-  onLoad({ cartGoodsIds, deliveryMethod }) {
+  async onLoad({ cartGoodsIds, deliveryMethod }) {
     this.cartGoodsIds = JSON.parse(cartGoodsIds);
 
     const goodsDeliveryMethod = +deliveryMethod;
     this.setData({ goodsDeliveryMethod });
     if (goodsDeliveryMethod !== 1) {
-      this.setLocationInfo();
+      await this.setPickupAddressList(this.cartGoodsIds[0]);
+      await this.setLocationInfo();
+      this.setDistance();
     }
 
     this.setPreOrderInfo();
+  },
+
+  async setPickupAddressList(cartGoodsId) {
+    const pickupAddressList = await homeService.getPickupAddressList(
+      cartGoodsId
+    );
+    this.setData({ pickupAddressList });
   },
 
   async setPreOrderInfo() {
@@ -47,17 +58,23 @@ Page({
   },
 
   setDistance() {
+    const { pickupAddressList, curPickupAddressIdx } = this.data;
+    const { longitude, latitude } = pickupAddressList[curPickupAddressIdx];
+    const la2 = +latitude;
+    const lo2 = +longitude;
     const distance = calcDistance(this.la1, this.lo1, la2, lo2);
-    this.setData({ distance })
+    this.setData({ distance });
   },
 
   navigation() {
-    const { name, address, latitude, longitude } = this.data.hotelInfo;
+    const { pickupAddressList, curPickupAddressIdx } = this.data;
+    const { name, addressDetail, longitude, latitude } =
+      pickupAddressList[curPickupAddressIdx];
     wx.openLocation({
-      latitude,
-      longitude,
-      name,
-      address
+      latitude: +latitude,
+      longitude: +longitude,
+      name: name || addressDetail,
+      address: addressDetail
     });
   },
 
@@ -91,8 +108,11 @@ Page({
   },
 
   confirmPickupAddressSelect(e) {
-    this.pickupAddressId = e.detail.id;
-    // this.setPreOrderInfo();
+    const curPickupAddressIdx = e.detail.index;
+    if (curPickupAddressIdx !== this.data.curPickupAddressIdx) {
+      this.setData({ curPickupAddressIdx });
+      this.setDistance();
+    }
     this.hidePickupAddressPopup();
   },
 
@@ -109,8 +129,11 @@ Page({
   },
 
   confirmPickupTimeSelect(e) {
-    // this.setPreOrderInfo();
-    this.hidePickupTimePopup();
+    const pickupTime = e.detail.time;
+    this.setData({
+      pickupTime,
+      pickupTimePopupVisible: false
+    });
   },
 
   hidePickupTimePopup() {
@@ -122,13 +145,21 @@ Page({
   showMobileModal() {
     this.setData({
       mobileModalVisible: true
-    })
+    });
+  },
+
+  confirmMobileSet(e) {
+    const { mobile } = e.detail;
+    this.setData({
+      mobile,
+      mobileModalVisible: false
+    });
   },
 
   hideMobileModal() {
     this.setData({
       mobileModalVisible: false
-    })
+    });
   },
 
   toggleUseBalance(e) {

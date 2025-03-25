@@ -26,37 +26,21 @@
   border-radius: 24rpx;
   overflow: hidden;
 }
-.address-icon {
-  width: 36rpx; 
-  height: 36rpx;
-}
 .content {
-  margin: 0 24rpx;
   flex: 1;
+}
+.address-name {
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.address-detail {
+  margin-top: 8rpx;
   color: #999;
   font-size: 26rpx;
 }
-.user-name {
-  margin-right: 20rpx; 
-  color: #333;
-  font-size: 30rpx;
-  font-weight: bold;
-}
-.default-icon {
-  margin-left: 24rpx;
-  padding: 6rpx 8rpx;
-  color: #F5701D;
-  font-size: 20rpx;
-  line-height: 1;
-  border-radius: 8rpx;
-  border: 2rpx solid #F5701D;
-}
-.address-detail {
-  margin-top: 16rpx;
-  color: #333;
-  font-size: 26rpx;
-}
 .radio {
+  margin-left: 24rpx;
   transform: scale(0.8);
 }
 

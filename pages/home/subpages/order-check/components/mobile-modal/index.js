@@ -12,7 +12,7 @@ Component({
         });
         return;
       }
-      this.triggerEvent("confirm", this.data.pickedIdx);
+      this.triggerEvent("confirm", { mobile: this.mobile });
     },
 
     hide() {

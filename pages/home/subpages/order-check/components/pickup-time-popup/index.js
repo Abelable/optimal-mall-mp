@@ -13,8 +13,8 @@ Component({
 
   methods: {
     confirm(e) {
-      console.log('time_pick', e)
-      this.triggerEvent("confirm", { id });
+      const time = e.detail
+      this.triggerEvent("confirm", { time });
     },
 
     hide() {

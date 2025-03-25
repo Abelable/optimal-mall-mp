@@ -81,6 +81,14 @@ class HomeService extends BaseService {
       success
     });
   }
+
+  async getPickupAddressList(cartGoodsId) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/pickup_address_list`,
+      data: { cartGoodsId },
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default HomeService;
