@@ -30,7 +30,10 @@
         <view class="ship-code omit single">
           {{packageList[selectedPackageIdx].shipChannel}}｜{{packageList[selectedPackageIdx].shipSn}}
         </view>
-        <image class="more-icon" src="/images/arrow.png" />
+        <view class="more-btn row center">
+          <view>查看物流</view>
+          <image class="more-icon" src="./images/arrow.png" />
+        </view>
       </view>
     </view>
     <view class="consignee-info-wrap row">
