@@ -28,7 +28,7 @@
       </view>
       <image class="select-icon" src="https://img.ubo.vip/mp/selection/goods-detail/order-check/to-icon.png" />
     </view>
-    <view class="address-wrap" style="border-top-left-radius: 16rpx" wx:if="{{(goodsDeliveryMethod === 3 && curMenuIdx === 1) || goodsDeliveryMethod === 2}}" bindtap="showAddressPopup">
+    <view class="address-wrap" style="border-top-left-radius: 16rpx" wx:if="{{(goodsDeliveryMethod === 3 && curMenuIdx === 1) || goodsDeliveryMethod === 2}}">
       <view class="pickup-address-wrap">
         <view class="pickup-address">
           <view class="pickup-address-name omit">嘉创路站</view>
@@ -48,7 +48,7 @@
         </view>
       </view>
       <view class="pickup-info-wrap">
-        <view class="pickup-info">
+        <view class="pickup-info" bindtap="showPickupTimePopup">
           <view class="pickup-info-title">自取时间</view>
           <view class="pickup-info-detail">
             <view>10:48</view>
@@ -156,6 +156,11 @@
   show="{{pickupAddressPopupVisible}}" 
   bind:confirm="confirmPickupAddressSelect" 
   bind:hide="hidePickupAddressPopup"
+/>
+<pickup-time-popup 
+  show="{{pickupTimePopupVisible}}" 
+   bind:confirm="confirmPickupTimeSelect" 
+  bind:hide="hidePickupTimePopup"
 />
 <coupon-popup 
   show="{{couponPopupVisible}}"

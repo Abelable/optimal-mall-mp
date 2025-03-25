@@ -1,0 +1,11 @@
+<van-popup show="{{show}}" round position="bottom" bind:close="hide">
+  <van-datetime-picker 
+    title="选择自取时间" 
+    type="datetime" 
+    min-date="{{minDate}}"
+    min-hour="{{9}}"
+    max-hour="{{18}}"
+    bind:confirm="confirm" 
+    bind:cancel="hide"
+  />
+</van-popup>

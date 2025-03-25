@@ -11,6 +11,8 @@ Page({
     addressPopupVisible: false,
     distance: 0,
     pickupAddressPopupVisible: false,
+    pickupTime: "",
+    pickupTimePopupVisible: false,
     couponPopupVisible: false
   },
 
@@ -89,12 +91,29 @@ Page({
   confirmPickupAddressSelect(e) {
     this.pickupAddressId = e.detail.id;
     // this.setPreOrderInfo();
-    // this.hideAddressPopup();
+    this.hidePickupAddressPopup();
   },
 
   hidePickupAddressPopup() {
     this.setData({
       pickupAddressPopupVisible: false
+    });
+  },
+
+  showPickupTimePopup() {
+    this.setData({
+      pickupTimePopupVisible: true
+    });
+  },
+
+  confirmPickupTimeSelect(e) {
+    // this.setPreOrderInfo();
+    this.hidePickupTimePopup();
+  },
+
+  hidePickupTimePopup() {
+    this.setData({
+      pickupTimePopupVisible: false
     });
   },
 
