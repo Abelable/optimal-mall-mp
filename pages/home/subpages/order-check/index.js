@@ -187,12 +187,30 @@ Page({
 
   // 提交订单
   async submit() {
-    const { errMsg, addressInfo, couponList } = this.data.preOrderInfo;
+    const {
+      preOrderInfo,
+      goodsDeliveryMethod,
+      curMenuIdx,
+      pickupTime,
+      mobile
+    } = this.data;
+    const { errMsg, addressInfo, couponList } = preOrderInfo;
     const addressId = addressInfo.id;
-    if (!addressId) {
+    if (errMsg) {
       return;
     }
-    if (errMsg) {
+    if (
+      (goodsDeliveryMethod === 1 ||
+        (goodsDeliveryMethod === 3 && curMenuIdx === 0)) &&
+      !addressId
+    ) {
+      return;
+    }
+    if (
+      (goodsDeliveryMethod === 2 ||
+        (goodsDeliveryMethod === 3 && curMenuIdx === 1)) &&
+      (!pickupTime || !mobile)
+    ) {
       return;
     }
     if (this.couponId === undefined && couponList.length) {
