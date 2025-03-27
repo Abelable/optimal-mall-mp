@@ -144,10 +144,17 @@ Page({
   },
 
   confirmOrder() {
-    orderService.confirmOrder(this.orderId, () => {
-      this.setData({
-        ["orderInfo.status"]: 401
-      });
+    wx.showModal({
+      title: "确认收到货了吗？",
+      success: result => {
+        if (result.confirm) {
+          orderService.confirmOrder(this.orderId, () => {
+            this.setData({
+              ["orderInfo.status"]: 401
+            });
+          });
+        }
+      }
     });
   },
 

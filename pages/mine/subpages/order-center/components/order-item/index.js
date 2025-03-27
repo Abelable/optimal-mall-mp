@@ -42,8 +42,11 @@ Component({
       }
 
       if (status === 201) {
-        const giftGoodsIdx = goodsList.findIndex(item => item.isGift)
-        if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
+        const giftGoodsIdx = goodsList.findIndex(item => item.isGift);
+        if (
+          giftGoodsIdx === -1 &&
+          dayjs().diff(dayjs(payTime), "minute") <= 30
+        ) {
           this.setData({ refundBtnVisible: true });
         }
       }
@@ -59,7 +62,7 @@ Component({
       this.countdownInterval = setInterval(() => {
         if (this.data.countdown <= 0) {
           clearInterval(this.countdownInterval);
-          this.cancelOrder()
+          this.cancelOrder();
           return;
         }
         this.setData({
@@ -95,9 +98,16 @@ Component({
     },
 
     confirmOrder() {
-      const { item, index } = this.properties;
-      orderService.confirmOrder(item.id, () => {
-        this.triggerEvent("update", { type: "confirm", index });
+      wx.showModal({
+        title: "确认收到货了吗？",
+        success: result => {
+          if (result.confirm) {
+            const { item, index } = this.properties;
+            orderService.confirmOrder(item.id, () => {
+              this.triggerEvent("update", { type: "confirm", index });
+            });
+          }
+        }
       });
     },
 
@@ -120,7 +130,7 @@ Component({
         title: "确定取消该订单吗？",
         success: result => {
           if (result.confirm) {
-            this.cancelOrder()
+            this.cancelOrder();
           }
         }
       });
