@@ -115,7 +115,7 @@
       <view class="order-btn" wx:for="{{orderStatusList}}" wx:key="index" bindtap="navToOrderCenter" data-status="{{index + 1}}">
         <image class="order-icon" src="./images/{{item.en}}.png" />
         <view class="order-desc">{{item.zh}}</view>
-        <view class="count-stamp" wx:if="{{item.total}}">
+        <view class="count-stamp {{index === 2 ? 'nearby' : ''}}" wx:if="{{item.total}}">
           {{item.total > 99 ? '99+' : item.total}}
         </view>
       </view>

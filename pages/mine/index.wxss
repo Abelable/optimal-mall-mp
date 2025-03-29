@@ -239,6 +239,9 @@ page {
   color: #fff;
   font-size: 20rpx;
 }
+.count-stamp.nearby {
+  right: 20rpx;
+}
 
 .share-banner {
   margin-top: 24rpx;
