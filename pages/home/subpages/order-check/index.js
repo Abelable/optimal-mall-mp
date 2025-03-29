@@ -234,14 +234,14 @@ Page({
   },
 
   async pay(orderIds) {
+    const { curMenuIdx } = this.data
+    const url = `/pages/mine/subpages/order-center/index?status=${curMenuIdx === 0 ? 2 : 3}`
     const payParams = await homeService.getPayParams(orderIds);
     if (payParams) {
       wx.requestPayment({
         ...payParams,
         success: () => {
-          wx.navigateTo({
-            url: "/pages/mine/subpages/order-center/index?status=2"
-          });
+          wx.navigateTo({ url });
         },
         fail: () => {
           wx.navigateTo({
@@ -250,9 +250,7 @@ Page({
         }
       });
     } else if (this.useBalance) {
-      wx.navigateTo({
-        url: "/pages/mine/subpages/order-center/index?status=2"
-      });
+      wx.navigateTo({ url });
     }
   }
 });
