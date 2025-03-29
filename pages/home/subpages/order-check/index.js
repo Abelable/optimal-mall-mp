@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import { calcDistance } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
@@ -15,7 +16,7 @@ Page({
     pickupAddressPopupVisible: false,
     pickupTime: "",
     pickupTimePopupVisible: false,
-    mobile: "",
+    pickupMobile: "",
     mobileModalVisible: false,
     couponPopupVisible: false
   },
@@ -34,21 +35,20 @@ Page({
   },
 
   async setPickupAddressList(cartGoodsId) {
-    const list = await homeService.getPickupAddressList(
-      cartGoodsId
-    );
+    const list = await homeService.getPickupAddressList(cartGoodsId);
     const pickupAddressList = list.map(item => {
-      const { longitude, latitude } = item
+      const { longitude, latitude } = item;
       const la2 = +latitude;
       const lo2 = +longitude;
       const distance = calcDistance(this.la1, this.lo1, la2, lo2);
-      return { ...item, distance }
-    })
+      return { ...item, distance };
+    });
     this.setData({ pickupAddressList });
   },
 
   async setPreOrderInfo() {
     const preOrderInfo = await homeService.getPreOrderInfo(
+      this.data.curMenuIdx + 1,
       this.cartGoodsIds,
       this.addressId,
       this.couponId,
@@ -78,6 +78,7 @@ Page({
   selectMenu(e) {
     const curMenuIdx = +e.currentTarget.dataset.index;
     this.setData({ curMenuIdx });
+    this.setPreOrderInfo();
   },
 
   showAddressPopup() {
@@ -148,7 +149,7 @@ Page({
   confirmMobileSet(e) {
     const { mobile } = e.detail;
     this.setData({
-      mobile,
+      pickupMobile: mobile,
       mobileModalVisible: false
     });
   },
@@ -188,11 +189,13 @@ Page({
       preOrderInfo,
       goodsDeliveryMethod,
       curMenuIdx,
+      pickupAddressList,
+      curPickupAddressIdx,
       pickupTime,
-      mobile
+      pickupMobile
     } = this.data;
-    const { errMsg, addressInfo, couponList } = preOrderInfo;
-    const addressId = addressInfo.id;
+    const { errMsg, addressInfo = {}, couponList } = preOrderInfo;
+    const addressId = addressInfo.id || "";
     if (errMsg) {
       return;
     }
@@ -206,19 +209,25 @@ Page({
     if (
       (goodsDeliveryMethod === 2 ||
         (goodsDeliveryMethod === 3 && curMenuIdx === 1)) &&
-      (!pickupTime || !mobile)
+      (!pickupTime || !pickupMobile)
     ) {
       return;
     }
     if (this.couponId === undefined && couponList.length) {
       this.couponId = couponList[0].id;
     }
-    const orderIds = await homeService.submitOrder(
-      this.cartGoodsIds,
-      addressId,
-      this.couponId,
-      this.useBalance ? 1 : 0
-    );
+    const orderIds = await homeService.submitOrder({
+      deliveryMode: curMenuIdx + 1,
+      addressId: curMenuIdx === 0 ? addressId : "",
+      pickupAddressId:
+        curMenuIdx === 1 ? pickupAddressList[curPickupAddressIdx].id : "",
+      pickupTime:
+        curMenuIdx === 1 ? dayjs(pickupTime).format("YYYY-MM-DD HH:mm:ss") : "",
+      pickupMobile: curMenuIdx === 1 ? pickupMobile : "",
+      cartGoodsIds: this.cartGoodsIds,
+      couponId: this.couponId,
+      useBalance: this.useBalance ? 1 : 0
+    });
     if (orderIds) {
       this.pay(orderIds);
     }

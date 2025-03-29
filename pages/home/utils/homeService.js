@@ -51,17 +51,48 @@ class HomeService extends BaseService {
     });
   }
 
-  async getPreOrderInfo(cartGoodsIds, addressId, couponId, useBalance = false) {
+  async getPreOrderInfo(
+    deliveryMode,
+    cartGoodsIds,
+    addressId,
+    couponId,
+    useBalance = false
+  ) {
     return await this.post({
       url: `${this.baseUrl}/order/pre_order_info`,
-      data: cleanObject({ cartGoodsIds, addressId, couponId, useBalance })
+      data: cleanObject({
+        deliveryMode,
+        cartGoodsIds,
+        addressId,
+        couponId,
+        useBalance
+      })
     });
   }
 
-  async submitOrder(cartGoodsIds, addressId, couponId, useBalance) {
+  async submitOrder({
+    deliveryMode,
+    addressId = "",
+    pickupAddressId = "",
+    pickupTime = "",
+    pickupMobile = "",
+    cartGoodsIds,
+    couponId,
+    useBalance
+  }) {
+    debugger
     return await this.post({
       url: `${this.baseUrl}/order/submit`,
-      data: cleanObject({ addressId, cartGoodsIds, couponId, useBalance }),
+      data: cleanObject({
+        deliveryMode,
+        addressId,
+        pickupAddressId,
+        pickupTime,
+        pickupMobile,
+        cartGoodsIds,
+        couponId,
+        useBalance
+      }),
       loadingTitle: "订单提交中..."
     });
   }

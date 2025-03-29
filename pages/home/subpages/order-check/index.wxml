@@ -64,7 +64,7 @@
         <view class="pickup-info" bindtap="showMobileModal">
           <view class="pickup-info-title">预留电话</view>
           <view class="pickup-info-detail">
-            <view class="pickup-phone">{{mobile || '未设置'}}</view>
+            <view class="pickup-phone">{{pickupMobile || '未设置'}}</view>
             <image class="pickup-info-arrow" src="/images/arrow.png" />
           </view>
         </view>
@@ -150,7 +150,7 @@
     <price-unit price="{{preOrderInfo.paymentAmount || 0}}" fontSize="28rpx" integerFontSize="42rpx" />
   </view>
   <button 
-    class="submit-btn {{!preOrderInfo.errMsg && (((goodsDeliveryMethod === 1 || (goodsDeliveryMethod === 3 && curMenuIdx === 0)) && preOrderInfo.addressInfo) || ((goodsDeliveryMethod === 2 || (goodsDeliveryMethod === 3 && curMenuIdx === 1)) && pickupTime && mobile)) ? 'active' : ''}}"
+    class="submit-btn {{!preOrderInfo.errMsg && (((goodsDeliveryMethod === 1 || (goodsDeliveryMethod === 3 && curMenuIdx === 0)) && preOrderInfo.addressInfo) || ((goodsDeliveryMethod === 2 || (goodsDeliveryMethod === 3 && curMenuIdx === 1)) && pickupTime && pickupMobile)) ? 'active' : ''}}"
     bindtap="submit"
   >
     提交订单
