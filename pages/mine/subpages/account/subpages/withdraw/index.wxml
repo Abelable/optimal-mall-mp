@@ -43,6 +43,10 @@
     <textarea class="remark" style="font-size: 24rpx;" value="{{remark}}" bindinput="setRemark" maxlength="32" placeholder="添加备注，最多32个字" />
   </view>
 
+  <view class="withdraw-tips" wx:if="{{curOptionIdx === 0}}">
+    <view>提现说明：</view>
+    <view>每月25～31号可提现上月的结算收益</view>
+  </view>
   <view class="withdraw-tips" wx:if="{{curOptionIdx !== 0 && scene === 1}}">
     <view>提现说明：</view>
     <view>1. 提现金额必须大于1元，方可提现</view>
@@ -57,6 +61,6 @@
   </view>
 </view>
 
-<view class="withdraw-btn {{(curOptionIdx === 0 || btnActive) ? 'active' : ''}}" bindtap="withdraw">立即提现</view>
+<view class="withdraw-btn {{btnActive ? 'active' : ''}}" bindtap="withdraw">立即提现</view>
 
 <auth-modal wx:if="{{authModalVisible}}" bind:hide="hideAuthModal" />

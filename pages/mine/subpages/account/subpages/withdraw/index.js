@@ -110,7 +110,7 @@ Page({
       curOptionIdx,
       remark
     } = this.data;
-    if (curOptionIdx !== 0 && !btnActive) {
+    if (!btnActive) {
       return;
     }
     if (store.userInfo.authInfoId) {
