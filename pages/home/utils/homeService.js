@@ -80,7 +80,6 @@ class HomeService extends BaseService {
     couponId,
     useBalance
   }) {
-    debugger
     return await this.post({
       url: `${this.baseUrl}/order/submit`,
       data: cleanObject({
