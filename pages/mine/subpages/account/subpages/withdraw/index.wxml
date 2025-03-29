@@ -13,7 +13,7 @@
   <view class="amount">{{NUM.toFixed(amount, 2)}}</view>
 
   <view class="fee-card">
-    <view class="fee-item" wx:if="{{curOptionIdx !== 0 && scene === 2}}">
+    <view class="fee-item" wx:if="{{curOptionIdx !== 0 && (scene === 2 || scene === 3)}}">
       <view class="fee-label">税费（费率6%）</view>
       <view class="fee-amount">¥{{NUM.toFixed(taxFee, 2)}}</view>
     </view>
@@ -53,7 +53,7 @@
     <view>2. 举例：提现100元，扣取提现手续费每笔1元，实际到账99元</view>
     <view>3. 每月25～31号可提现上月的结算收益</view>
   </view>
-  <view class="withdraw-tips" wx:if="{{curOptionIdx !== 0 && scene === 2}}">
+  <view class="withdraw-tips" wx:if="{{curOptionIdx !== 0 && (scene === 2 || scene === 3)}}">
     <view>提现说明：</view>
     <view>1. 提现金额为税前收入，每笔提现按照第三方代扣代缴综合税费6%收取，实际到账为税后收入举例：提现100元，扣取提现手续费每笔1元与综合税费6%（6元），实际到账93元</view>
     <view>2. 提现金额必须大于1元，单笔最高可提现3万。</view>

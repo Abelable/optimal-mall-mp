@@ -27,7 +27,7 @@ Page({
   onLoad(options) {
     const scene = Number(options.scene);
     const amount = Number(options.amount);
-    const taxFee = scene === 2 ? Math.floor(amount * 0.06 * 100) / 100 : 0;
+    const taxFee = (scene === 2 || scene === 3) ? Math.floor(amount * 0.06 * 100) / 100 : 0;
     const actualAmount = amount - taxFee - 1;
     this.setData({
       scene,
