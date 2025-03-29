@@ -94,6 +94,17 @@ Page({
     this.setData({ selectedPackageIdx });
   },
 
+  navigation() {
+    const { name, addressDetail, longitude, latitude } =
+      this.data.orderInfo.pickupAddress;
+    wx.openLocation({
+      latitude: +latitude,
+      longitude: +longitude,
+      name: name || addressDetail,
+      address: addressDetail
+    });
+  },
+
   setCountdown() {
     this.countdownInterval = setInterval(() => {
       if (this.data.countdown === 0) {
@@ -187,8 +198,10 @@ Page({
   },
 
   async checkShippingInfo() {
-    const { packageList, selectedPackageIdx } = this.data
-    const waybillToken = await orderService.getWaybillToken(packageList[selectedPackageIdx].id);
+    const { packageList, selectedPackageIdx } = this.data;
+    const waybillToken = await orderService.getWaybillToken(
+      packageList[selectedPackageIdx].id
+    );
     plugin.openWaybillTracking({ waybillToken });
   },
 

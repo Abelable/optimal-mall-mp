@@ -3,7 +3,7 @@
 <wxs module="NUM" src="/utils/filters/num.wxs" />
 
 <view class="container">
-  <view class="card">
+  <view class="card" wx:if="{{orderInfo.deliveryMode === 1}}">
     <view class="ship-info-wrap" wx:if="{{packageList.length}}">
       <view class="package-info row" wx:if="{{packageList.length > 1}}">
         <scroll-view class="package-list-wrap" scroll-x>
@@ -45,6 +45,17 @@
         </view>
         <view class="address-detail">{{orderInfo.address}}</view>
       </view>
+    </view>
+  </view>
+
+  <view class="card row" wx:if="{{orderInfo.deliveryMode === 2}}" bindtap="navigation">
+    <view class="pickup-address-info">
+      <view class="pickup-address-name">{{orderInfo.pickupAddress.name}}</view>
+      <view class="pickup-address-detail">{{orderInfo.pickupAddress.addressDetail}}</view>
+    </view>
+    <view class="navgation-btn row">
+      <view>导航</view>
+      <image class="navgation-btn-arrow" src="/images/arrow.png" />
     </view>
   </view>
 
