@@ -55,7 +55,7 @@ Page({
       this.setCountdown();
     }
 
-    if (status === 201) {
+    if (status === 201 || status === 302) {
       const giftGoodsIdx = goodsList.findIndex(item => item.isGift);
       if (giftGoodsIdx === -1 && dayjs().diff(dayjs(payTime), "minute") <= 30) {
         this.setData({ refundBtnVisible: true });
@@ -80,6 +80,7 @@ Page({
       202: "退款申请中",
       203: "退款成功",
       301: "待收货",
+      302: "待使用",
       401: "待评价",
       402: "待评价",
       501: "交易完成"

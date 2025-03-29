@@ -152,6 +152,9 @@
   <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder" hover-class="none">
     确认收货
   </button>
+  <button class="btn active" wx:if="{{orderInfo.status === 302}}" bindtap="showQrcodeModal" hover-class="none">
+    查看券码
+  </button>
   <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="showAddressPopup" hover-class="none">
     修改地址
   </button>

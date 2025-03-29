@@ -47,6 +47,12 @@
       >确认收货</button>
       <button 
         class="btn active" 
+        wx:if="{{item.status === 302}}" 
+        catchtap="confirmOrder"
+        hover-class="none"
+      >查看券码</button>
+      <button 
+        class="btn active" 
         wx:if="{{item.status === 101}}" 
         catchtap="payOrder"
         hover-class="none"

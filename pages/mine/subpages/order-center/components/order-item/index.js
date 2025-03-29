@@ -41,7 +41,7 @@ Component({
         this.setCountdown();
       }
 
-      if (status === 201) {
+      if (status === 201 || status === 302) {
         const giftGoodsIdx = goodsList.findIndex(item => item.isGift);
         if (
           giftGoodsIdx === -1 &&

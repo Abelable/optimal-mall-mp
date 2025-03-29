@@ -10,8 +10,10 @@ function statusDesc(status) {
     desc = "退款申请中";
   } else if (status === 203) {
     desc = "退款成功";
-  } else if (status === 301 || status === 302) {
-    desc = "待收货/使用";
+  } else if (status === 301) {
+    desc = "待收货";
+  } else if (status === 302) {
+    desc = "待使用";
   } else if (status === 401 || status === 402 || status === 501) {
     desc = "交易成功";
   }
