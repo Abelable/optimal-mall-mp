@@ -133,6 +133,13 @@ class OrderService extends MineService {
       data: { orderId, addressId },
     });
   }
+
+  async getVerifyCode(orderId) {
+    return await this.get({
+      url: `${this.baseUrl}/order/verify_code`,
+      data: { orderId }
+    });
+  }
 }
 
 export default OrderService;

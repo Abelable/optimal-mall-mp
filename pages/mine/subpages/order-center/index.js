@@ -16,7 +16,9 @@ Page({
     ],
     curMenuIndex: 0,
     orderList: [],
-    finished: false
+    finished: false,
+    verifyCode: "",
+    qrCodeModalVisible: false
   },
 
   async onLoad({ status = "0" }) {
@@ -79,6 +81,20 @@ Page({
         [`orderList[${index}].status`]: statusEmuns[type]
       });
     }
+  },
+
+  showQrCodeModal(e) {
+    const { verifyCode } = e.detail;
+    this.setData({
+      verifyCode,
+      qrCodeModalVisible: true
+    });
+  },
+
+  hideQrCodeModal() {
+    this.setData({
+      qrCodeModalVisible: false
+    });
   },
 
   navigateBack() {

@@ -48,7 +48,7 @@
       <button 
         class="btn active" 
         wx:if="{{item.status === 302}}" 
-        catchtap="confirmOrder"
+        catchtap="checkQrCode"
         hover-class="none"
       >查看券码</button>
       <button 

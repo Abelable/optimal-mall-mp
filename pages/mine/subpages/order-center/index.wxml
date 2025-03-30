@@ -10,8 +10,21 @@
 
 <view class="content" style="margin-top: {{statusBarHeight + 84}}px;">
   <view class="order-list">
-    <order-item wx:for="{{orderList}}" wx:key="index" item="{{item}}" index="{{index}}" bind:update="updateOrderList"/>
+    <order-item 
+      wx:for="{{orderList}}" 
+      wx:key="index" 
+      item="{{item}}" 
+      index="{{index}}" 
+      bind:update="updateOrderList"
+      bind:checkQrCode="showQrCodeModal"
+    />
   </view>
   <empty-illus wx:if="{{finished && !orderList.length}}" desc="暂无订单列表" />
   <view class="no-more-tips" wx:if="{{finished && orderList.length}}">～没有更多了～</view>
 </view>
+
+<qr-code-modal 
+  wx:if="{{qrCodeModalVisible}}"
+  code="{{verifyCode}}" 
+  bind:hide="hideQrCodeModal"
+/>

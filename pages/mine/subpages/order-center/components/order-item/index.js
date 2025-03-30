@@ -111,6 +111,12 @@ Component({
       });
     },
 
+    async checkQrCode() {
+      const { id } = this.properties.item;
+      const verifyCode = await orderService.getVerifyCode(id);
+      this.triggerEvent("checkQrCode", { verifyCode });
+    },
+
     deleteOrder() {
       wx.showModal({
         title: "确定删除该订单吗？",
