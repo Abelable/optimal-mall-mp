@@ -193,6 +193,8 @@ Component({
       });
     },
 
+    verify() {},
+
     navToSetting() {
       checkLogin(() => {
         wx.navigateTo({

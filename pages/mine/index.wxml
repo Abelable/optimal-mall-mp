@@ -150,6 +150,11 @@
       <view class="tool-desc" style="text-align: left;">在线客服</view>
       <image class="arrow" src="./images/arrow.png" />
     </button>
+    <view class="tool-item row" wx:if="{{userInfo.managerId}}" bindtap="verify">
+      <image class="tool-icon" src="./images/verify.png" />
+      <view class="tool-desc">扫码核销</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
     <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToTeamData">
       <image class="tool-icon" src="./images/rural.png" />
       <view class="tool-desc">乡村振兴</view>
