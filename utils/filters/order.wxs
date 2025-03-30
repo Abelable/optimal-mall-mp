@@ -14,7 +14,13 @@ function statusDesc(status) {
     desc = "待收货";
   } else if (status === 302) {
     desc = "待使用";
-  } else if (status === 401 || status === 402 || status === 501) {
+  } else if (
+    status === 401 ||
+    status === 402 ||
+    status === 403 ||
+    status === 501 ||
+    status === 502
+  ) {
     desc = "交易成功";
   }
   return desc;

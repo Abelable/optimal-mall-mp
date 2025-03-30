@@ -63,7 +63,7 @@ Page({
       }
     }
 
-    if ([204, 301, 401, 402, 501].includes(status)) {
+    if ([204, 301, 401, 402, 501, 502].includes(status)) {
       if (packageList.length) {
         this.setData({ packageList });
       } else {
@@ -84,7 +84,8 @@ Page({
       302: "待使用",
       401: "待评价",
       402: "待评价",
-      501: "交易完成"
+      501: "交易完成",
+      502: "交易完成"
     };
     wx.setNavigationBarTitle({
       title: titleEnums[orderInfo.status]
@@ -250,13 +251,13 @@ Page({
   showQrCodeModal() {
     this.setData({
       qrCodeModalVisible: true
-    })
+    });
   },
 
   hideQrCodeModal() {
     this.setData({
       qrCodeModalVisible: false
-    })
+    });
     this.setOrderInfo();
   },
 
