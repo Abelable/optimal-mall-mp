@@ -95,6 +95,7 @@ Page({
     this.setData({
       qrCodeModalVisible: false
     });
+    this.setOrderList(true);
   },
 
   navigateBack() {

@@ -257,6 +257,7 @@ Page({
     this.setData({
       qrCodeModalVisible: false
     })
+    this.setOrderInfo();
   },
 
   onUnload() {

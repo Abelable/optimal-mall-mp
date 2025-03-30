@@ -193,7 +193,19 @@ Component({
       });
     },
 
-    verify() {},
+    verify() {
+      wx.scanCode({
+        success: (res) => {
+          const code = res.result;
+          mineService.verify(code, () => {
+            wx.showToast({
+              title: '核销成功',
+              icon: 'none'
+            });
+          })
+        }
+      })
+    },
 
     navToSetting() {
       checkLogin(() => {

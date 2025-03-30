@@ -48,6 +48,14 @@ class MineService extends BaseService {
       })) || {};
     return list;
   }
+
+  async verify(code, success) {
+    return await this.post({
+      url: `${this.baseUrl}/order/verify`,
+      data: { code },
+      success
+    });
+  }
 }
 
 export default MineService;
