@@ -152,7 +152,7 @@
   <button class="btn active" wx:if="{{orderInfo.status === 301}}" bindtap="confirmOrder" hover-class="none">
     确认收货
   </button>
-  <button class="btn active" wx:if="{{orderInfo.status === 302}}" bindtap="showQrcodeModal" hover-class="none">
+  <button class="btn active" wx:if="{{orderInfo.status === 302}}" bindtap="showQrCodeModal" hover-class="none">
     查看券码
   </button>
   <button class="btn active" wx:if="{{orderInfo.status === 201}}" bindtap="showAddressPopup" hover-class="none">
@@ -184,4 +184,10 @@
   addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
   bind:hide="hideAddressPopup"
+/>
+
+<qr-code-modal 
+  wx:if="{{qrCodeModalVisible}}"
+  code="{{orderInfo.verifyCode}}" 
+  bind:hide="hideQrCodeModal"
 />

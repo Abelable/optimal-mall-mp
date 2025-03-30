@@ -1,0 +1,11 @@
+<view class="modal-mask" bindtap="hide">
+  <view class="qr-code-poster" catchtap="catchtap">
+    <view class="info-wrap">
+      <view class="info-title">核销码</view>
+      <image class="qr-code" src="{{qrCode}}" />
+      <view class="code">{{code}}</view>
+      <view class="tips">为了保证您的权益，请勿提前提供给商家</view>
+    </view>
+    <image class="close-icon" bindtap="hide" src="https://img.ubo.vip/mp/index/close-icon.png" />
+  </view>
+</view>

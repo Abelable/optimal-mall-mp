@@ -14,7 +14,8 @@ Page({
     selectedPackageIdx: 0,
     countdown: 0,
     refundBtnVisible: false,
-    addressPopupVisible: false
+    addressPopupVisible: false,
+    qrCodeModalVisible: false
   },
 
   onLoad({ id }) {
@@ -244,6 +245,18 @@ Page({
         ["orderInfo.mobile"]: mobile,
         ["orderInfo.address"]: address
       });
+  },
+
+  showQrCodeModal() {
+    this.setData({
+      qrCodeModalVisible: true
+    })
+  },
+
+  hideQrCodeModal() {
+    this.setData({
+      qrCodeModalVisible: false
+    })
   },
 
   onUnload() {
