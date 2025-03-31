@@ -181,7 +181,7 @@
 />
 <coupon-popup 
   show="{{couponPopupVisible}}"
-  list="{{preOrderInfo.couponList}}"
+  list="{{preOrderInfo.couponList ? preOrderInfo.couponList : []}}"
   bind:confirm="confirmCouponSelect" 
   bind:hide="hideCouponPopup"
 />
