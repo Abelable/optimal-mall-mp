@@ -7,7 +7,7 @@
       <view class="name">{{ item.nickname }}</view>
       <view class="mobile">{{ mobile }}</view>
       <view class="num-desc" wx:if="{{item.level}}">
-        诚信星球第{{ item.promoterId }}号乡村振兴推广员
+        诚信星球第{{ item.promoterId }}号乡村振兴推荐官
       </view>
     </view>
   </view>
@@ -21,6 +21,6 @@
     class="identity-tag {{['promoter', 'c1', 'c2', 'c3'][item.level - 1]}}"
     wx:if="{{item.level}}"
   >
-    {{ ["推广员", "c1", "c2", "c3"][item.level - 1] }}
+    {{ ["推荐官", "c1", "c2", "c3"][item.level - 1] }}
   </view>
 </view>
