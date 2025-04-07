@@ -50,10 +50,6 @@ Page({
     });
   },
 
-  navToHome() {
-    wx.switchTab({ url: "/pages/tab-bar-pages/home/index" });
-  },
-
   toast() {
     wx.showToast({
       title: "请先阅读并同意诚信星球用户服务协议",
