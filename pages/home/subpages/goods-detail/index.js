@@ -1,6 +1,6 @@
 import { createStoreBindings } from "mobx-miniprogram-bindings";
-import dayjs from "dayjs";
 import { store } from "../../../../store/index";
+import dayjs from "dayjs";
 import { checkLogin } from "../../../../utils/index";
 import HomeService from "../../utils/homeService";
 
