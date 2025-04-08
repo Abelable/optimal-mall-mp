@@ -76,7 +76,7 @@ Page({
       })
       return
     }
-    const errRegionCodeIdx = this.regionCodeList.findIndex(item => item.length !== 6)
+    const errRegionCodeIdx = regionCodeList.findIndex(item => item.length !== 6)
     if (errRegionCodeIdx !== -1) {
       wx.showToast({
         title: "省市区获取异常，请手动选择省市区",
