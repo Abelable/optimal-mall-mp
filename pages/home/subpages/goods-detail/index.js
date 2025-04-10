@@ -77,7 +77,7 @@ Page({
     await this.setGoodsInfo();
     await this.setEvaluationSummary();
     this.setBottomPrice();
-    this.setCommisstion();
+    this.setCommission();
     this.setCountdown();
     this.setRecommendGoodsList(true);
     this.getCommentTop();
@@ -269,7 +269,7 @@ Page({
   confirmAddressSelect(e) {
     this.addressId = e.detail.id;
     this.setGoodsInfo();
-    this.setCommisstion();
+    this.setCommission();
     this.hideAddressPopup();
   },
 
@@ -446,7 +446,7 @@ Page({
     const { selectedSkuIndex, count: goodsNumber } = e.detail;
     this.setData({ selectedSkuIndex, goodsNumber });
     this.setBottomPrice();
-    this.setCommisstion();
+    this.setCommission();
   },
 
   addCartSuccess(e) {
@@ -458,7 +458,7 @@ Page({
     this.setData({ specPopupVisible: false });
   },
 
-  setCommisstion() {
+  setCommission() {
     // todo 佣金 =（商品价格 * 商品数量 - 优惠券）* 商品佣金
 
     const { goodsInfo, selectedSkuIndex } = this.data;
