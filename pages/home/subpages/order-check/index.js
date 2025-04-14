@@ -21,7 +21,8 @@ Page({
     couponPopupVisible: false
   },
 
-  async onLoad({ cartGoodsIds, deliveryMethod }) {
+  async onLoad(options) {
+    const { cartGoodsIds, deliveryMethod = 1 } = options || {};
     this.cartGoodsIds = JSON.parse(cartGoodsIds);
 
     const goodsDeliveryMethod = +deliveryMethod;
@@ -234,8 +235,10 @@ Page({
   },
 
   async pay(orderIds) {
-    const { curMenuIdx } = this.data
-    const url = `/pages/mine/subpages/order-center/index?status=${curMenuIdx === 0 ? 2 : 3}`
+    const { curMenuIdx } = this.data;
+    const url = `/pages/mine/subpages/order-center/index?status=${
+      curMenuIdx === 0 ? 2 : 3
+    }`;
     const payParams = await homeService.getPayParams(orderIds);
     if (payParams) {
       wx.requestPayment({
