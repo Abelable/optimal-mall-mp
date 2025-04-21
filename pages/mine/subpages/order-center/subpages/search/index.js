@@ -1,4 +1,3 @@
-import { customBack } from "../../../utils/index";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -78,9 +77,5 @@ Page({
         }
       }
     });
-  },
-
-  navBack() {
-    customBack();
   }
 });
