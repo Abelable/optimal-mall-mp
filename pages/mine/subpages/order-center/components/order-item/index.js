@@ -24,12 +24,15 @@ Component({
 
   data: {
     countdown: 0,
-    refundBtnVisible: false
+    refundBtnVisible: false,
+    editEvaluationBtnContent: "",
+    editEvaluationBtnVisile: false
   },
 
   lifetimes: {
     attached() {
-      const { status, createdAt, payTime, goodsList } = this.properties.item;
+      const { status, createdAt, payTime, goodsList } =
+        this.properties.item;
       if (status === 101) {
         const countdown = Math.floor(
           (dayjs(createdAt).valueOf() +
@@ -156,8 +159,8 @@ Component({
     },
 
     navToEvaluation() {
-      const { id, goodsList } = this.properties.item;
-      const url = `/pages/mine/subpages/order-center/subpages/evaluation/index?orderId=${id}&goodsList=${JSON.stringify(
+      const { id, status, goodsList } = this.properties.item;
+      const url = `/pages/mine/subpages/order-center/subpages/evaluation/index?orderId=${id}&status=${status}&goodsList=${JSON.stringify(
         goodsList
       )}`;
       wx.navigateTo({ url });

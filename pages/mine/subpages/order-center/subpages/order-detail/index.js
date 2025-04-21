@@ -14,6 +14,8 @@ Page({
     selectedPackageIdx: 0,
     countdown: 0,
     refundBtnVisible: false,
+    editEvaluationBtnContent: "",
+    editEvaluationBtnVisile: false,
     addressPopupVisible: false,
     qrCodeModalVisible: false
   },
@@ -209,8 +211,8 @@ Page({
   },
 
   navToEvaluation() {
-    const { id, goodsList } = this.data.orderInfo;
-    const url = `../evaluation/index?orderId=${id}&goodsList=${JSON.stringify(
+    const { id, status, goodsList } = this.data.orderInfo;
+    const url = `../evaluation/index?orderId=${id}&status=${status}&goodsList=${JSON.stringify(
       goodsList
     )}`;
     wx.navigateTo({ url });
