@@ -9,10 +9,14 @@ Page({
     imageList: []
   },
 
-  onLoad({ goodsList, orderId }) {
+  onLoad({ goodsList, orderId, status }) {
     goodsList = JSON.parse(goodsList);
     this.setData({ goodsList });
     this.orderId = orderId;
+
+    if (status == 501) {
+      
+    }
   },
 
   setScore(e) {

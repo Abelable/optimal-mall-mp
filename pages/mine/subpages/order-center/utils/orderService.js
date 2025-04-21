@@ -73,6 +73,22 @@ class OrderService extends MineService {
     });
   }
 
+  async getEvaluation(orderId) {
+    return await this.get({
+      url: `${this.baseUrl}/goods/evaluation/detail`,
+      data: { orderId },
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async editEvaluation(orderId, goodsIds, score, content, imageList, success) {
+    return await this.post({
+      url: `${this.baseUrl}/goods/evaluation/edit`,
+      data: { orderId, goodsIds, score, content, imageList },
+      success
+    });
+  }
+
   async getRefundAmount(orderId, goodsId, couponId) {
     return await this.get({
       url: `${this.baseUrl}/refund/amount`,
@@ -130,7 +146,7 @@ class OrderService extends MineService {
   async modifyOrderAddressInfo(orderId, addressId) {
     return await this.post({
       url: `${this.baseUrl}/order/modify_address_info`,
-      data: { orderId, addressId },
+      data: { orderId, addressId }
     });
   }
 
