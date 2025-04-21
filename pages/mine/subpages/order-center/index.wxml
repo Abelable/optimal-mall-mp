@@ -1,4 +1,11 @@
-<nav-bar title="订单中心" custom bind:navigateBack="navigateBack">
+<view class="header" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar row">
+    <back-icon custom bind:navigateBack="navigateBack" />
+    <view class="search-bar" bindtap="search">
+      <image class="search-icon" src="/images/search.png" />
+      <text class="placeholder">搜索订单</text>
+    </view>
+  </view>
   <view class="menu-wrap">
     <view 
       class="menu-item {{curMenuIndex === index ? 'selected' : ''}} row center" 
@@ -6,7 +13,7 @@
       bindtap="selectMenu" data-index="{{index}}"
     >{{item.name}}</view>
   </view>
-</nav-bar>
+</view>
 
 <view class="content" style="margin-top: {{statusBarHeight + 84}}px;">
   <view class="order-list">

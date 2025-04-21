@@ -1,3 +1,39 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background: #fff;
+  z-index: 100;
+}
+
+.nav-bar {
+  padding: 0 8px;
+  height: 44px;
+}
+
+.search-bar {
+  display: flex;
+  align-items: center;
+  margin-left: 16rpx;
+  padding: 0 22rpx;
+  width: 340rpx;
+  height: 36px;
+  border-radius: 18px;
+  background: #fff;
+  border: 0.5px solid #e1e1e1;
+}
+.search-icon {
+  width: 16px;
+  height: 16px;
+}
+.placeholder {
+  flex: 1;
+  margin-left: 12rpx;
+  color: #a1a9b3;
+  font-size: 26rpx;
+}
+
 .menu-wrap {
   display: flex;
   align-items: center;
