@@ -155,9 +155,15 @@ Component({
     navToOrderCenter(e) {
       checkLogin(() => {
         const { status } = e.currentTarget.dataset;
-        wx.navigateTo({
-          url: `./subpages/order-center/index?status=${status}`
-        });
+        if (status === 4) {
+          wx.navigateTo({
+            url: "./subpages/order-center/subpages/evaluate-orders/index"
+          });
+        } else {
+          wx.navigateTo({
+            url: `./subpages/order-center/index?status=${status}`
+          });
+        }
       });
     },
 

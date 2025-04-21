@@ -1,0 +1,22 @@
+<view class="menu-wrap">
+  <view 
+    class="menu-item {{curMenuIndex === index ? 'selected' : ''}} row center" 
+    wx:for="{{menuList}}" wx:key="index" 
+    bindtap="selectMenu" data-index="{{index}}"
+  >{{item.name}}</view>
+</view>
+
+<view class="content" style="margin-top: {{statusBarHeight + 84}}px;">
+  <view class="order-list">
+    <order-item 
+      wx:for="{{orderList}}" 
+      wx:key="index" 
+      item="{{item}}" 
+      index="{{index}}" 
+      bind:update="updateOrderList"
+      bind:checkQrCode="showQrCodeModal"
+    />
+  </view>
+  <empty-illus wx:if="{{finished && !orderList.length}}" desc="暂无订单列表" />
+  <view class="no-more-tips" wx:if="{{finished && orderList.length}}">～没有更多了～</view>
+</view>

@@ -23,6 +23,7 @@
     "pages/mine/subpages/address-list/subpages/edit/index",
     "pages/mine/subpages/order-center/index",
     "pages/mine/subpages/order-center/subpages/order-detail/index",
+    "pages/mine/subpages/order-center/subpages/evaluate-orders/index",
     "pages/mine/subpages/order-center/subpages/evaluation/index",
     "pages/mine/subpages/order-center/subpages/shipping/index",
     "pages/mine/subpages/order-center/subpages/refund/index",
