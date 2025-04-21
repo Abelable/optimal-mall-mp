@@ -34,7 +34,7 @@ Page({
       return;
     }
     orderService.saveKeywords(keywords);
-    this.setOrderList(true);
+    this.setOrderList();
     this.setData({ isSearching: true });
   },
 
@@ -51,7 +51,7 @@ Page({
   async setOrderList() {
     const { keywords } = this.data;
     const orderList = (await orderService.searchOrderList(keywords)) || [];
-    this.setData(orderList);
+    this.setData({ orderList });
   },
 
   async setHistoryKeywords() {
