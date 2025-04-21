@@ -1,0 +1,55 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+<wxs module="ARRAY" src="/utils/filters/array.wxs" />
+
+<view class="header">
+  <view class="search-bar">
+    <view class="search-content row">
+      <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+      <input 
+        class="search-input"
+        value="{{keywords}}" 
+        bindinput="setKeywords" 
+        bindconfirm="search" 
+        placeholder="请输入搜索关键字" 
+        type="text" 
+        confirm-type="search" 
+      />
+      <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+        <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+      </view>
+      <button class="search-btn" bindtap="search">搜索</button>
+    </view>
+  </view>
+</view>
+
+<view class="history-keywords-wrap" wx:if="{{!isSearching}}">
+  <view class="title row between">
+    <view>历史搜索</view>
+    <image class="delete-icon" wx:if="{{historyKeywords.length}}" src="https://img.ubo.vip/mp/selection/search/del-history.png" bindtap="clearHistoryKeywords" />
+  </view>
+  <view class="keywords-list" wx:if="{{historyKeywords.length}}">
+    <view 
+      class="keywords" 
+      wx:for="{{historyKeywords}}" wx:key="index" 
+      bindtap="selectKeywords" data-keywords="{{item}}"
+    >
+      {{item}}
+    </view>
+  </view>
+  <empty-illus wx:if="{{!historyKeywords.length}}" desc="暂无历史搜索" height="300rpx" />
+</view>
+
+<view class="list-wrap" wx:if="{{isSearching}}">
+  <view class="order-list">
+    <order-item 
+      wx:for="{{orderList}}" 
+      wx:key="index" 
+      item="{{item}}" 
+      index="{{index}}" 
+      bind:update="updateOrderList"
+      bind:checkQrCode="showQrCodeModal"
+    />
+  </view>
+  <empty-illus wx:if="{{!orderList.length}}" desc="暂无订单列表" />
+  <view class="no-more-tips" wx:if="{{orderList.length}}">～没有更多了～</view>
+</view>

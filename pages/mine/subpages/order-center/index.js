@@ -98,6 +98,12 @@ Page({
     this.setOrderList(true);
   },
 
+  search() {
+    wx.navigateTo({
+      url: "./subpages/search/index"
+    });
+  },
+
   navigateBack() {
     wx.switchTab({
       url: "/pages/mine/index"

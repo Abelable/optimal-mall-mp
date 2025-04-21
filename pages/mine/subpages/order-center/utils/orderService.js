@@ -140,6 +140,34 @@ class OrderService extends MineService {
       data: { orderId }
     });
   }
+
+  async getHistoryKeywords() {
+    return await this.get({
+      url: `${this.baseUrl}/order/keyword/list`,
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async saveKeywords(keywords) {
+    return await this.post({
+      url: `${this.baseUrl}/order/keyword/add`,
+      data: { keywords }
+    });
+  }
+
+  async clearHistoryKeywords() {
+    return await this.post({
+      url: `${this.baseUrl}/order/keyword/clear`
+    });
+  }
+
+  async searchOrderList(keywords) {
+    return await this.get({
+      url: `${this.baseUrl}/order/search`,
+      data: { keywords },
+      loadingTitle: "加载中..."
+    });
+  }
 }
 
 export default OrderService;
