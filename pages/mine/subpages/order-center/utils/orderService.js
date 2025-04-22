@@ -59,6 +59,7 @@ class OrderService extends MineService {
   }
 
   async submitEvaluation(
+    status,
     orderId,
     goodsIds,
     score,
@@ -67,7 +68,7 @@ class OrderService extends MineService {
     success
   ) {
     return await this.post({
-      url: `${this.baseUrl}/goods/evaluation/add`,
+      url: `${this.baseUrl}/goods/evaluation/${status === 501 ? 'edit' : 'add'}`,
       data: { orderId, goodsIds, score, content, imageList },
       success
     });
@@ -78,14 +79,6 @@ class OrderService extends MineService {
       url: `${this.baseUrl}/goods/evaluation/detail`,
       data: { orderId },
       loadingTitle: "加载中..."
-    });
-  }
-
-  async editEvaluation(orderId, goodsIds, score, content, imageList, success) {
-    return await this.post({
-      url: `${this.baseUrl}/goods/evaluation/edit`,
-      data: { orderId, goodsIds, score, content, imageList },
-      success
     });
   }
 

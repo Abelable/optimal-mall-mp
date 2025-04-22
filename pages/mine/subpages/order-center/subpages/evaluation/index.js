@@ -15,9 +15,11 @@ Page({
   onLoad({ goodsList, orderId, status }) {
     goodsList = JSON.parse(goodsList);
     this.setData({ goodsList });
-    this.orderId = orderId;
 
-    if (status == 501) {
+    this.orderId = orderId;
+    this.status = +status;
+
+    if (this.status === 501) {
       this.setEvaluationInfo();
     }
   },
@@ -122,6 +124,7 @@ Page({
     const { score, content, goodsList, imageList } = this.data;
     const goodsIds = goodsList.map(item => item.goodsId);
     orderService.submitEvaluation(
+      this.status,
       this.orderId,
       goodsIds,
       score,
