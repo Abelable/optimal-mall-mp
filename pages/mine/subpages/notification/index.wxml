@@ -18,7 +18,7 @@
 
 <view class="container" style="margin-top: {{statusBarHeight + 44}}px;">
   <view class="notification-list" wx:if="{{notificationList.length}}">
-    <view 
+    <!-- <view 
       class="notification row" 
       wx:for="{{notificationList}}" 
       wx:key="index"
@@ -34,7 +34,31 @@
         <view class="notification-time">{{TIME.timeDiff(item.createdAt)}}</view>
         <view class="notification-news-count row {{item.status === 1 ? 'hide' : ''}}">{{item.contentNum}}</view>
       </view>
+    </view> -->
+    <view wx:for="{{notificationList}}" wx:key="id">
+      <van-swipe-cell bind:close="delete" data-id="{{item.id}}" data-index="{{index}}" async-close right-width="{{ 65 }}">
+        <view 
+        class="notification row"
+          bindtap="check"
+          data-info="{{item}}"
+        >
+          <image class="notification-icon" src="./images/{{item.icon}}.png" />
+          <view class="notification-info">
+            <view class="notification-title">{{item.title}}</view>
+            <view class="notification-content">{{item.content}}</view>
+          </view>
+          <view class="notification-time-wrap">
+            <view class="notification-time">{{TIME.timeDiff(item.createdAt)}}</view>
+            <view class="notification-news-count row {{item.status === 1 ? 'hide' : ''}}">{{item.contentNum}}</view>
+          </view>
+        </view>
+        <button class="swipe-cell-delete-btn" slot="right" hover-class="none">删除</button>
+      </van-swipe-cell>
     </view>
   </view>
+
+  
+
+
   <empty-illus wx:if="{{!notificationList.length}}" desc="暂无消息" />
 </view>

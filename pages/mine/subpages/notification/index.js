@@ -55,21 +55,24 @@ Page({
   },
 
   clear(id) {
-    const id = e.detail.id;
     notificationService.clearNotification(id, () => {
       this.init();
     });
   },
 
-  delete(id) {
-    const id = e.detail.id;
-    notificationService.deleteNotification(id, () => {
-      this.init();
-    });
+  delete(e) {
+    const { id } = e.currentTarget.dataset;
+    const { position, instance } = e.detail;
+    if (position === "right") {
+      notificationService.deleteNotification(id, () => {
+        this.init();
+        instance.close();
+      });
+    }
   },
 
   check(e) {
-    const { id, type, referenceId } = e.currentTarget.dataset;
+    const { id, type, referenceId } = e.currentTarget.dataset.info;
     switch (type) {
       case 1:
       case 2:

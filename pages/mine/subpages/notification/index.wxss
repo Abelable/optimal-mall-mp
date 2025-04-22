@@ -68,3 +68,11 @@
 .notification-news-count.hide {
   opacity: 0;
 }
+
+.swipe-cell-delete-btn {
+  width: 65px;
+  height: 100%;
+  color: #fff;
+  font-size: 28rpx;
+  background: #fd0807;
+}
