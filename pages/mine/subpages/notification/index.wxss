@@ -65,3 +65,6 @@
   background: #E34D59;
   border-radius: 16rpx;
 }
+.notification-news-count.hide {
+  opacity: 0;
+}

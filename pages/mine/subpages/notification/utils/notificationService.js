@@ -8,23 +8,26 @@ class NotificationService extends MineService {
     });
   }
 
-  async clearAllNotifications() {
+  async clearAllNotifications(success) {
     return await this.post({
-      url: `${this.baseUrl}/notification/clear_all`
+      url: `${this.baseUrl}/notification/clear_all`,
+      success
     });
   }
 
-  async clearNotification(id) {
+  async clearNotification(id, success) {
     return await this.post({
       url: `${this.baseUrl}/notification/clear`,
-      data: { id }
+      data: { id },
+      success
     });
   }
 
-  async deleteNotification(id) {
+  async deleteNotification(id, success) {
     return await this.post({
       url: `${this.baseUrl}/notification/delete`,
-      data: { id }
+      data: { id },
+      success
     });
   }
 }

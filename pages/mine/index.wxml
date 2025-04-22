@@ -125,16 +125,6 @@
   <image class="integrity-school" bindtap="navToIntegritySchool" src="./images/integrity-school.png" />
 
   <view class="tool-list">
-    <view class="tool-item row" bindtap="navToAddress">
-      <image class="tool-icon" src="./images/address.png" />
-      <view class="tool-desc">收货地址</view>
-      <image class="arrow" src="./images/arrow.png" />
-    </view>
-    <view class="tool-item row" bindtap="navToSetting">
-      <image class="tool-icon" src="./images/account.png" />
-      <view class="tool-desc">账户设置</view>
-      <image class="arrow" src="./images/arrow.png" />
-    </view>
     <view class="tool-item row" bindtap="navToNotification">
       <image class="tool-icon" src="./images/message.png" />
       <view class="tool-desc">消息中心</view>
@@ -143,9 +133,19 @@
       </view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
+    <view class="tool-item row" bindtap="navToAddress">
+      <image class="tool-icon" src="./images/address.png" />
+      <view class="tool-desc">收货地址</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
     <view class="tool-item row" bindtap="navToCoupon">
       <image class="tool-icon" src="./images/coupon.png" />
       <view class="tool-desc">我的礼券</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+     <view class="tool-item row" bindtap="navToSetting">
+      <image class="tool-icon" src="./images/account.png" />
+      <view class="tool-desc">账户设置</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
     <button class="tool-item" open-type="contact" session-from="sessionFrom" hover-class="none">

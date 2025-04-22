@@ -105,8 +105,9 @@ Component({
     },
 
     async setUnreadNotificationCount() {
-      const unreadNotificationCount = await mineService.getUnreadNotificationCount();
-      this.setData({ unreadNotificationCount })
+      const unreadNotificationCount =
+        await mineService.getUnreadNotificationCount();
+      this.setData({ unreadNotificationCount });
     },
 
     onPullDownRefresh() {
@@ -208,16 +209,16 @@ Component({
 
     verify() {
       wx.scanCode({
-        success: (res) => {
+        success: res => {
           const code = res.result;
           mineService.verify(code, () => {
             wx.showToast({
-              title: '核销成功',
-              icon: 'none'
+              title: "核销成功",
+              icon: "none"
             });
-          })
+          });
         }
-      })
+      });
     },
 
     navToSetting() {

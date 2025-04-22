@@ -1,3 +1,5 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="nav-bar-wrap" style="padding-top: {{statusBarHeight}}px;">
   <view class="nav-bar row">
     <view style="flex: 1;">
@@ -6,28 +8,28 @@
     <view class="title row center">
       <view>
         <text>消息</text>
-        <text wx:if="{{newsCount}}">({{newsCount}})</text>
+        <text wx:if="{{unreadNotificationCount}}">({{unreadNotificationCount}})</text>
       </view>
-      <image class="clear-icon" wx:if="{{newsCount}}" src="./images/clear.png" />
+      <image class="clear-icon" wx:if="{{unreadNotificationCount}}" bindtap="clearAll" src="./images/clear.png" />
     </view>
     <view style="flex: 1;"></view>
   </view>
 </view>
 
 <view class="container" style="margin-top: {{statusBarHeight + 44}}px;">
-  <view class="notification-list" wx:if="{{newsList.length}}">
-    <!-- <view class="notification row">
-      <image class="notification-icon" src="./images/business.png" />
+  <view class="notification-list" wx:if="{{notificationList.length}}">
+    <view class="notification row" wx:for="{{notificationList}}" wx:key="index">
+      <image class="notification-icon" src="./images/{{item.icon}}.png" />
       <view class="notification-info">
-        <view class="notification-title">经营概况</view>
-        <view class="notification-content">2029-08-21店铺日报统计结果已出。</view>
+        <view class="notification-title">{{item.title}}</view>
+        <view class="notification-content">{{item.content}}</view>
       </view>
       <view class="notification-time-wrap">
-        <view class="notification-time">16小时前</view>
-        <view class="notification-news-count row">99+</view>
+        <view class="notification-time">{{TIME.timeDiff(item.createdAt)}}</view>
+        <view class="notification-news-count row {{item.status === 1 ? 'hide' : ''}}">{{item.contentNum}}</view>
       </view>
     </view>
-    <view class="notification row">
+    <!-- <view class="notification row">
       <image class="notification-icon" src="./images/logistics.png" />
       <view class="notification-info">
         <view class="notification-title">交易物流</view>
@@ -50,5 +52,5 @@
       </view>
     </view> -->
   </view>
-  <empty-illus wx:if="{{!newsList.length}}" desc="暂无消息" />
+  <empty-illus wx:if="{{!notificationList.length}}" desc="暂无消息" />
 </view>
