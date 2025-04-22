@@ -138,6 +138,9 @@
     <view class="tool-item row" bindtap="navToNotification">
       <image class="tool-icon" src="./images/message.png" />
       <view class="tool-desc">消息中心</view>
+      <view class="notification-count" wx:if="{{unreadNotificationCount}}">
+        {{unreadNotificationCount}}
+      </view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
     <view class="tool-item row" bindtap="navToCoupon">

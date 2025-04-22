@@ -30,6 +30,7 @@ Component({
       { en: "done", zh: "评价", total: 0 },
       { en: "refund", zh: "售后", total: 0 }
     ],
+    unreadNotificationCount: 0,
     authInfoPopupVisible: false,
     authInfoModalVisible: false,
     posterInfo: null,
@@ -71,6 +72,7 @@ Component({
         }
 
         this.setOrderListTotals();
+        this.setUnreadNotificationCount();
       }, false);
     },
 
@@ -100,6 +102,11 @@ Component({
       orderStatusList[3].total = orderTotals[3];
       orderStatusList[4].total = orderTotals[4];
       this.setData({ orderStatusList });
+    },
+
+    async setUnreadNotificationCount() {
+      const unreadNotificationCount = await mineService.getUnreadNotificationCount();
+      this.setData({ unreadNotificationCount })
     },
 
     onPullDownRefresh() {

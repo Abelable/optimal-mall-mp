@@ -232,12 +232,12 @@ page {
   top: -15rpx;
   min-width: 35rpx;
   height: 35rpx;
-  line-height: 35rpx;
-  border-radius: 50%;
-  text-align: center;
-  background-color: red;
   color: #fff;
   font-size: 20rpx;
+  line-height: 35rpx;
+  text-align: center;
+  border-radius: 50%;
+  background-color: red;
 }
 .count-stamp.nearby {
   right: 20rpx;
@@ -300,6 +300,16 @@ page {
   flex: 1;
   color: #14191F;
   font-size: 32rpx;
+}
+.notification-count {
+  min-width: 35rpx;
+  height: 35rpx;
+  color: #fff;
+  font-size: 20rpx;
+  line-height: 35rpx;
+  text-align: center;
+  border-radius: 50%;
+  background-color: red;
 }
 .arrow {
   width: 32rpx;
