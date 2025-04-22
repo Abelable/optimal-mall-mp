@@ -56,6 +56,12 @@ class MineService extends BaseService {
       success
     });
   }
+
+  async getUnreadNotificationCount() {
+    return await this.get({
+      url: `${this.baseUrl}/notification/unread_count`
+    });
+  }
 }
 
 export default MineService;
