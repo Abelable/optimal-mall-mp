@@ -1,3 +1,4 @@
+import dayjs from "dayjs";
 import OrderService from "../../utils/orderService";
 
 const orderService = new OrderService();
@@ -6,7 +7,9 @@ Page({
   data: {
     goodsList: [],
     score: 0,
-    imageList: []
+    content: "",
+    imageList: [],
+    submitBtnVisible: true
   },
 
   onLoad({ goodsList, orderId, status }) {
@@ -15,8 +18,25 @@ Page({
     this.orderId = orderId;
 
     if (status == 501) {
-      
+      this.setEvaluationInfo();
     }
+  },
+
+  async setEvaluationInfo() {
+    const { createdAt, score, content, imageList } =
+      await orderService.getEvaluation(this.orderId);
+    if (dayjs().diff(dayjs(createdAt), "day") > 30 || score == 5) {
+      this.setData({ submitBtnVisible: false });
+    }
+    this.setData({
+      score,
+      content,
+      imageList: imageList.map(url => ({
+        status: "done",
+        message: "上传成功",
+        url
+      }))
+    });
   },
 
   setScore(e) {
@@ -24,7 +44,8 @@ Page({
   },
 
   setContent(e) {
-    this.content = e.detail.value;
+    const content = e.detail.value;
+    this.setData({ content });
   },
 
   uploadImage(e) {
@@ -65,7 +86,7 @@ Page({
   },
 
   submit() {
-    const { score } = this.data;
+    const { score, content } = this.data;
     if (!score) {
       wx.showToast({
         title: "给商品评个分吧！",
@@ -73,7 +94,7 @@ Page({
       });
       return;
     }
-    if (!this.content) {
+    if (!content) {
       wx.showToast({
         title: "商品评价不能为空哦！",
         icon: "none"
@@ -98,13 +119,13 @@ Page({
   },
 
   evaluate() {
-    const { score, goodsList, imageList } = this.data;
+    const { score, content, goodsList, imageList } = this.data;
     const goodsIds = goodsList.map(item => item.goodsId);
     orderService.submitEvaluation(
       this.orderId,
       goodsIds,
       score,
-      this.content,
+      content,
       imageList.map(item => item.url),
       () => {
         wx.showToast({
