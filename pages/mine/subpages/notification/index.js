@@ -1,3 +1,4 @@
+import { WEBVIEW_BASE_URL } from "../../../../config";
 import NotificationService from "./utils/notificationService";
 
 const notificationService = new NotificationService();
@@ -53,17 +54,49 @@ Page({
     });
   },
 
-  clear(e) {
+  clear(id) {
     const id = e.detail.id;
     notificationService.clearNotification(id, () => {
       this.init();
     });
   },
 
-  delete(e) {
+  delete(id) {
     const id = e.detail.id;
     notificationService.deleteNotification(id, () => {
       this.init();
     });
+  },
+
+  check(e) {
+    const { id, type, referenceId } = e.currentTarget.dataset;
+    switch (type) {
+      case 1:
+      case 2:
+        wx.navigateTo({
+          url: `/pages/mine/subpages/order-center/subpages/order-detail/index?id=${referenceId}`
+        });
+        break;
+
+      case 3:
+        wx.navigateTo({
+          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`
+        });
+        break;
+
+      case 4:
+        wx.navigateTo({
+          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team/certification`
+        });
+        break;
+
+      case 5:
+        wx.navigateTo({
+          url: "/pages/mine/subpages/account/subpages/withdraw-record/index"
+        });
+        break;
+    }
+
+    this.clear(id);
   }
 });
