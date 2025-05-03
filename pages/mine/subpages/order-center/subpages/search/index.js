@@ -13,7 +13,6 @@ Page({
 
   onLoad() {
     this.setHistoryKeywords();
-    this.setHotKeywords();
   },
 
   setKeywords(e) {
@@ -57,11 +56,6 @@ Page({
   async setHistoryKeywords() {
     const historyKeywords = await orderService.getHistoryKeywords();
     this.setData({ historyKeywords });
-  },
-
-  async setHotKeywords() {
-    const hotKeywords = await orderService.getHotKeywords();
-    this.setData({ hotKeywords });
   },
 
   clearHistoryKeywords() {
