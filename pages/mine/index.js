@@ -34,7 +34,7 @@ Component({
     authInfoPopupVisible: false,
     authInfoModalVisible: false,
     posterInfo: null,
-    posterModelVisible: false
+    posterModalVisible: false
   },
 
   pageLifetimes: {

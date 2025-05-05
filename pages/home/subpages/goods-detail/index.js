@@ -34,7 +34,7 @@ Page({
     specPopupVisible: false,
     actionMode: 0,
     posterInfo: null,
-    posterModelVisible: false,
+    posterModalVisible: false,
     topBtnVisible: false,
     addressPopupVisible: false
   },

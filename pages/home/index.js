@@ -28,7 +28,7 @@ Component({
     adInfo: null,
     adModalVisible: false,
     posterInfo: null,
-    posterModelVisible: false
+    posterModalVisible: false
   },
 
   methods: {

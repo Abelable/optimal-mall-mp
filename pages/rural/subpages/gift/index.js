@@ -12,7 +12,7 @@ Page({
     livestockList: [],
     giftList: [],
     posterInfo: null,
-    posterModelVisible: false
+    posterModalVisible: false
   },
 
   async onLoad(options) {

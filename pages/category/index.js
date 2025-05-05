@@ -20,7 +20,7 @@ Component({
     curCategoryIdx: 0,
     goodsLists: [],
     posterInfo: null,
-    posterModelVisible: false
+    posterModalVisible: false
   },
 
   methods: {
