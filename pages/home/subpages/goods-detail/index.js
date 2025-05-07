@@ -252,18 +252,18 @@ Page({
     });
   },
 
-  showAddressPopup() {
-    this.setData({
-      addressPopupVisible: true
-    });
-  },
-
   showServicePopup() {
     this.setData({ servicePopupVisible: true });
   },
 
   hideServicePopup() {
     this.setData({ servicePopupVisible: false });
+  },
+
+  showAddressPopup() {
+    this.setData({
+      addressPopupVisible: true
+    });
   },
 
   confirmAddressSelect(e) {
