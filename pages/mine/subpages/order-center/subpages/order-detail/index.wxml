@@ -187,7 +187,6 @@
 
 <address-popup 
   show="{{addressPopupVisible}}" 
-  addressId="{{preOrderInfo.addressInfo.id || 0}}" 
   bind:confirm="confirmAddressSelect" 
   bind:hide="hideAddressPopup"
 />
