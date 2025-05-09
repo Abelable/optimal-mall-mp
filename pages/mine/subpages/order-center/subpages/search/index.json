@@ -3,6 +3,7 @@
   "usingComponents": {
     "empty-illus": "/components/empty-illus/index",
     "fall-flow": "/components/fall-flow/index",
-    "order-item": "../../components/order-item/index"
+    "order-item": "../../components/order-item/index",
+    "qr-code-modal": "../../components/qr-code-modal/index"
   }
 }

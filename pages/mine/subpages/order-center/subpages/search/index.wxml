@@ -53,3 +53,9 @@
   <empty-illus wx:if="{{!orderList.length}}" desc="暂无订单列表" />
   <view class="no-more-tips" wx:if="{{orderList.length}}">～没有更多了～</view>
 </view>
+
+<qr-code-modal 
+  wx:if="{{qrCodeModalVisible}}"
+  code="{{verifyCode}}" 
+  bind:hide="hideQrCodeModal"
+/>

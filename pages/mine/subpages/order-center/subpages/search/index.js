@@ -8,7 +8,9 @@ Page({
     keywords: "",
     isSearching: false,
     orderList: [],
-    finished: false
+    finished: false,
+    verifyCode: "",
+    qrCodeModalVisible: false
   },
 
   onLoad() {
@@ -71,5 +73,39 @@ Page({
         }
       }
     });
+  },
+
+  updateOrderList(e) {
+    const statusEmuns = {
+      cancel: 102,
+      pay: 201,
+      refund: 203,
+      confirm: 401
+    };
+    const { type, index } = e.detail;
+    const { curMenuIndex, orderList } = this.data;
+    if (type === "delete" || curMenuIndex !== 0) {
+      orderList.splice(index, 1);
+      this.setData({ orderList });
+    } else {
+      this.setData({
+        [`orderList[${index}].status`]: statusEmuns[type]
+      });
+    }
+  },
+
+  showQrCodeModal(e) {
+    const { verifyCode } = e.detail;
+    this.setData({
+      verifyCode,
+      qrCodeModalVisible: true
+    });
+  },
+
+  hideQrCodeModal() {
+    this.setData({
+      qrCodeModalVisible: false
+    });
+    this.setOrderList(true);
   }
 });
