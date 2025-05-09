@@ -106,6 +106,6 @@ Page({
     this.setData({
       qrCodeModalVisible: false
     });
-    this.setOrderList(true);
+    this.setOrderList();
   }
 });
