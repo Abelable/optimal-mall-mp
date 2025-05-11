@@ -5,7 +5,7 @@
       <view class="auth-modal-list">
         <view class="modal-list-title">头像</view>
         <button class="avatar-wrapper" bind:chooseavatar="chooseAvatar" open-type="chooseAvatar" hover-class="none">
-          <image class="avatar-img" src="{{avatar || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
+          <image class="avatar-img" src="{{avatar || 'https://static.chengxinxingqiu.cn/mp/default_avatar.png'}}" />
           <image class="arrow" src="/images/arrow.png" />
         </button> 
       </view>

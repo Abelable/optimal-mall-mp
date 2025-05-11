@@ -7,7 +7,7 @@
 }
 .nav-bar.show-bg {
   overflow: hidden;
-  background-image: url("https://static.youbozhenxuan.cn/mp/rural_bg.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/rural_bg.png");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -24,7 +24,7 @@
 .header {
   padding: 0 26rpx;
   height: 856rpx;
-  background-image: url("https://static.youbozhenxuan.cn/mp/rural_bg.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/rural_bg.png");
   background-size: 100%;
   background-repeat: no-repeat;
 }
@@ -47,10 +47,10 @@
   background-repeat: no-repeat;
 }
 .module.adopt {
-  background-image: url("https://static.youbozhenxuan.cn/mp/rural_module_adopt.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/rural_module_adopt.png");
 }
 .module.bag {
-  background-image: url("https://static.youbozhenxuan.cn/mp/rural_module_bag.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/rural_module_bag.png");
 }
 .module-title {
   margin-top: 22rpx;

@@ -27,7 +27,7 @@
   position: relative;
   padding: 24rpx;
   min-height: 100vh;
-  background-image: url("https://static.youbozhenxuan.cn/mp/account_bg.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/account_bg.png");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;
@@ -43,7 +43,7 @@
   position: relative;
   padding: 32rpx;
   height: 180rpx;
-  background-image: url('https://static.youbozhenxuan.cn/mp/account_amount_bg.png');
+  background-image: url('https://static.chengxinxingqiu.cn/mp/account_amount_bg.png');
   background-position: -20rpx -20rpx;
   background-size: calc(100% + 40rpx) calc(100% + 40rpx);
   background-repeat: no-repeat;

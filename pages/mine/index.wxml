@@ -9,12 +9,12 @@
 
 <view class="container level-{{userInfo.level || 0}}" style="padding-top: {{statusBarHeight + 60}}px;">
   <view class="user-info-wrap" wx:if="{{!userInfo}}" bindtap="register">
-    <image class="avatar" src="https://static.youbozhenxuan.cn/mp/default_avatar.png" />
+    <image class="avatar" src="https://static.chengxinxingqiu.cn/mp/default_avatar.png" />
     <view class="register-btn">点击登录</view>
   </view>
 
   <view class="user-info-wrap" wx:if="{{userInfo}}" bindtap="updateUserInfo">
-    <image class="avatar" src="{{userInfo.avatar || 'https://static.youbozhenxuan.cn/mp/default_avatar.png'}}" />
+    <image class="avatar" src="{{userInfo.avatar || 'https://static.chengxinxingqiu.cn/mp/default_avatar.png'}}" />
     <view class="user-info">
       <view class="user-name">{{userInfo.nickname}}</view>
       <view class="user-mobile">{{NUM.mobileFormat(userInfo.mobile)}}</view>

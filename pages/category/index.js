@@ -169,7 +169,7 @@ Component({
         ? `/pages/home/index?superiorId=${id}`
         : "/pages/home/index";
       const imageUrl =
-        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+        "https://static.chengxinxingqiu.cn/mp/home_share_cover.png";
       return { title, imageUrl, path };
     },
 
@@ -179,7 +179,7 @@ Component({
       const title = `${nickname} ${signature || "让时间见证信任"}`;
       const path = `/pages/home/index?superiorId=${id}`;
       const imageUrl =
-        "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+        "https://static.chengxinxingqiu.cn/mp/home_share_cover.png";
       return { title, imageUrl, path };
     }
   }

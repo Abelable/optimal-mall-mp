@@ -1,4 +1,4 @@
-<image class="bg" src="https://static.youbozhenxuan.cn/mp/village_gift_bg.png" mode="widthFix" />
+<image class="bg" src="https://static.chengxinxingqiu.cn/mp/village_gift_bg.png" mode="widthFix" />
 
 <view class="goods-list">
   <top-goods-item wx:for="{{topGoodsList}}" wx:key="index" item="{{item}}" />

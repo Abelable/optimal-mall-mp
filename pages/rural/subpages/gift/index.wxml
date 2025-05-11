@@ -15,7 +15,7 @@
       wx:for="{{4}}"
       wx:key="index"
     >
-      <image class="bg-img" mode="aspectFill" src="https://static.youbozhenxuan.cn/mp/gift_bg_{{index + 1}}.png" lazy-load />
+      <image class="bg-img" mode="aspectFill" src="https://static.chengxinxingqiu.cn/mp/gift_bg_{{index + 1}}.png" lazy-load />
     </swiper-item>
   </swiper>
 </view>

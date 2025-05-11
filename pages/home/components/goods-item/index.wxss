@@ -48,7 +48,7 @@
   justify-content: center;
   width: 100%;
   height: 40rpx;
-  background-image: url('https://static.youbozhenxuan.cn/mp/group-buying-tag-bg.png');
+  background-image: url('https://static.chengxinxingqiu.cn/mp/group-buying-tag-bg.png');
   background-size: cover;
   background-position: -4rpx;
   background-repeat: no-repeat;

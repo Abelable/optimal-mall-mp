@@ -110,7 +110,7 @@ Page({
     const path = id
       ? `/pages/rural/subpages/gift/index?superiorId=${id}`
       : "/pages/rural/subpages/gift/index";
-    const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+    const imageUrl = "https://static.chengxinxingqiu.cn/mp/home_share_cover.png";
     return { title, imageUrl, path };
   },
 
@@ -120,7 +120,7 @@ Page({
       ? `${nickname} ${signature || "让时间见证信任"}`
       : "让时间见证信任";
     const query = id ? `superiorId=${id}` : "";
-    const imageUrl = "https://static.youbozhenxuan.cn/mp/home_share_cover.png";
+    const imageUrl = "https://static.chengxinxingqiu.cn/mp/home_share_cover.png";
     return { query, title, imageUrl };
   }
 });

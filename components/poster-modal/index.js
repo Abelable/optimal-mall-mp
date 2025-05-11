@@ -49,7 +49,7 @@ Component({
         275,
         555,
         8,
-        `https://static.youbozhenxuan.cn/mp/home_poster_bg_${
+        `https://static.chengxinxingqiu.cn/mp/home_poster_bg_${
           Math.floor(Math.random() * 3) + 1
         }.png`
       );
@@ -59,7 +59,7 @@ Component({
         100,
         38,
         0,
-        "https://static.youbozhenxuan.cn/mp/home_poster_logo.png"
+        "https://static.chengxinxingqiu.cn/mp/home_poster_logo.png"
       );
 
       if (store.promoterInfo) {
@@ -80,7 +80,7 @@ Component({
           24,
           24,
           12,
-          avatar || "https://static.youbozhenxuan.cn/mp/logo.png"
+          avatar || "https://static.chengxinxingqiu.cn/mp/logo.png"
         );
         this.setText(10, "#000", 195, 26, nickname || "诚信星球", "left");
         this.setText(7, "#6A6F75", 195, 37, signature || "让时间见证信任");

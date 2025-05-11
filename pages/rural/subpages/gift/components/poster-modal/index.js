@@ -42,7 +42,7 @@ Component({
       const { qrcode } = this.properties.info || {};
 
       await this.drawImage(
-        "https://static.youbozhenxuan.cn/mp/gift_poster_bg.png",
+        "https://static.chengxinxingqiu.cn/mp/gift_poster_bg.png",
         0,
         0,
         275,

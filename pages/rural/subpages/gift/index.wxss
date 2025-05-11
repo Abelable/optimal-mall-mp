@@ -20,16 +20,16 @@ page {
   background-repeat: no-repeat;
 }
 .nav-bar.show-bg-0 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/gift_bg_1.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/gift_bg_1.png");
 }
 .nav-bar.show-bg-1 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/gift_bg_2.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/gift_bg_2.png");
 }
 .nav-bar.show-bg-2 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/gift_bg_3.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/gift_bg_3.png");
 }
 .nav-bar.show-bg-3 {
-  background-image: url("https://static.youbozhenxuan.cn/mp/gift_bg_4.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/gift_bg_4.png");
 }
 .nav-bar-inner {
   display: flex;

@@ -52,14 +52,14 @@ Component({
       } = this.properties.info || {};
 
       await this.drawImage(
-        "https://static.youbozhenxuan.cn/mp/poster_bg.png",
+        "https://static.chengxinxingqiu.cn/mp/poster_bg.png",
         0,
         0,
         300,
         533
       );
       await this.drawImage(
-        "https://static.youbozhenxuan.cn/mp/poster_logo.png",
+        "https://static.chengxinxingqiu.cn/mp/poster_logo.png",
         12,
         14,
         96,
@@ -82,7 +82,7 @@ Component({
         await this.roundRect(190, 18, 24, 24, 12, avatar);
         this.setText(10, "#000", 217, 29, nickname, 'left');
       } else {
-        await this.roundRect(190, 18, 24, 24, 12, "https://static.youbozhenxuan.cn/mp/logo.png");
+        await this.roundRect(190, 18, 24, 24, 12, "https://static.chengxinxingqiu.cn/mp/logo.png");
         this.setText(10, "#000", 217, 29, '诚信星球', 'left');
       }
       this.setText(7, "#6A6F75", 217, 40, "为您推荐优质好物");
@@ -92,7 +92,7 @@ Component({
 
       if (isGift) {
         await this.drawImage(
-          "https://static.youbozhenxuan.cn/mp/rural-promote-tag.png",
+          "https://static.chengxinxingqiu.cn/mp/rural-promote-tag.png",
           177,
           282,
           97,

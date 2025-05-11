@@ -3,7 +3,7 @@
   <view class="goods-item {{ list.length > 1 ? 'scroll' : '' }}" wx:for="{{list}}" wx:key="index" item="{{item}}" bindtap="navToGoodsDetail" data-id="{{item.id}}">
     <view class="cover-wrap {{ list.length > 1 ? 'scroll' : '' }}">
       <image class="cover" mode="aspectFill" src="{{item.cover}}" lazy-load />
-      <image class="promote-tag" src="https://static.youbozhenxuan.cn/mp/rural-promote-tag.png" />
+      <image class="promote-tag" src="https://static.chengxinxingqiu.cn/mp/rural-promote-tag.png" />
     </view>
     <view class="content">
       <view class="goods-title omit single">{{item.name}}</view>

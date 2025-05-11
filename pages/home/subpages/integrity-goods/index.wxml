@@ -1,4 +1,4 @@
-<image class="bg" mode="widthFix" src="https://static.youbozhenxuan.cn/mp/integrity_bg.jpg" />
+<image class="bg" mode="widthFix" src="https://static.chengxinxingqiu.cn/mp/integrity_bg.jpg" />
 
 <view class="goods-list">
   <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />

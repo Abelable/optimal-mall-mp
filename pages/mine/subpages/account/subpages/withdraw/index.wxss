@@ -28,7 +28,7 @@
   padding: 24rpx;
   padding-bottom: calc(142rpx + env(safe-area-inset-bottom));
   min-height: 100vh;
-  background-image: url("https://static.youbozhenxuan.cn/mp/account_bg.png");
+  background-image: url("https://static.chengxinxingqiu.cn/mp/account_bg.png");
   background-position: top center;
   background-size: cover;
   background-repeat: no-repeat;

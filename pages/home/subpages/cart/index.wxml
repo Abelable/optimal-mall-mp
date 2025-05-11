@@ -10,7 +10,7 @@
 <view style="padding-top: {{statusBarHeight + 44}}px; padding-bottom: {{(cartList.length || newYearCartList.length) ? 'calc(100rpx + env(safe-area-inset-bottom))' : 0}};">
   <view class="new-year-goods-list-wrap" wx:if="{{newYearCartList.length}}">
     <view class="new-year-bar">
-      <image class="new-year-bar-bg" mode="widthFix" src="https://static.youbozhenxuan.cn/mp/new_year_top_bg.png" />
+      <image class="new-year-bar-bg" mode="widthFix" src="https://static.chengxinxingqiu.cn/mp/new_year_top_bg.png" />
       <div class="new-year-bar-title">年货节礼包</div>
     </view>
     <view class="new-year-goods-list">

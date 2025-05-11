@@ -3,7 +3,7 @@
 <view class="goods-item" bindtap="navToGoodsDetail">
   <view class="cover-wrap {{item.isGift ? 'is-gift' : ''}}">
     <image class="cover" src="{{item.cover}}" mode="aspectFit" lazy-load />
-    <image class="promote-tag" wx:if="{{item.isGift}}" src="https://static.youbozhenxuan.cn/mp/rural-promote-tag.png" />
+    <image class="promote-tag" wx:if="{{item.isGift}}" src="https://static.chengxinxingqiu.cn/mp/rural-promote-tag.png" />
     <view class="activity-tag" wx:if="{{item.activityInfo && ((item.activityInfo.status === 0 && item.activityInfo.startTime) || (item.activityInfo.status === 1 && item.activityInfo.endTime))}}">
       <view class="notice-time" wx:if="{{item.activityInfo.status === 0}}">{{TIME.transform(item.activityInfo.startTime, 'MM.DD hh:mm开抢')}}</view>
       <view class="end-time" wx:if="{{item.activityInfo.status === 1}}">{{TIME.transform(item.activityInfo.endTime, 'MM.DD hh:mm结束')}}</view>

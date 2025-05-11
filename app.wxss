@@ -96,9 +96,3 @@ switch {
 .omit.single {
   -webkit-line-clamp: 1;
 }
-
-.avatar-default {
-  background-image: url('https://static.youbozhenxuan.cn/img/default-avatar.png');
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-}
