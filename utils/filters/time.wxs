@@ -5,6 +5,11 @@ function format(time) {
 
 function transform(timeStamp, statement) {
   if (timeStamp) {
+    if (timeStamp.indexOf(" ") !== -1) {
+      console.log('timeStamp1', timeStamp)
+      timeStamp = timeStamp.replace(" ", "T");
+    }
+
     var year = getDate(timeStamp).getFullYear();
     var month = format(getDate(timeStamp).getMonth() + 1);
     var day = format(getDate(timeStamp).getDate());
