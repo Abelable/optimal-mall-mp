@@ -32,8 +32,10 @@ function paymentDesc(status) {
     desc = "需付款";
   } else if (
     status === 201 ||
+    status === 202 ||
     status === 204 ||
     status === 301 ||
+    status === 302 ||
     status === 401 ||
     status === 402 ||
     status === 403
