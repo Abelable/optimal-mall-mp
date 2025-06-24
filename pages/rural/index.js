@@ -10,7 +10,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["userInfo", "promoterInfo"]
+    fields: ["userInfo"]
   },
 
   data: {
@@ -27,7 +27,7 @@ Component({
       { icon: "heart", width: "56rpx", height: "50rpx", name: "IP赋能" },
       { icon: "shape", width: "58rpx", height: "58rpx", name: "专属社群" },
       { icon: "id", width: "58rpx", height: "48rpx", name: "专属身份" },
-      { icon: "vip", width: "58rpx", height: "54rpx", name: "1V1服务" },
+      { icon: "vip", width: "58rpx", height: "54rpx", name: "1V1服务" }
     ]
   },
 
@@ -35,6 +35,14 @@ Component({
     onLoad() {
       this.setBannerList();
       this.setPromoterList();
+    },
+
+    onShow() {
+      if (this.timeout) {
+        clearTimeout(this.timeout);
+        this.resetAnimation();
+        this.startAnimation();
+      }
     },
 
     async setBannerList() {
@@ -70,7 +78,7 @@ Component({
         animationData: animation.export()
       });
 
-      setTimeout(() => {
+      this.timeout = setTimeout(() => {
         this.resetAnimation();
         this.startAnimation();
       }, duration);
