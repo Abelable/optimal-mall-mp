@@ -44,9 +44,10 @@ Component({
 
     async setPromoterList() {
       const { list: promoterList, total: promoterTotal } =
-        await ruralService.getPromoterList(1, 80);
-      this.setData({ promoterList, promoterTotal });
-      this.initAnimation();
+        await ruralService.getPromoterList(1, 68);
+      this.setData({ promoterList, promoterTotal }, () => {
+        this.initAnimation();
+      });
     },
 
     initAnimation() {
@@ -64,7 +65,7 @@ Component({
         duration,
         timingFunction: "linear"
       });
-      animation.translateX(-this.promoterListWidth / 2).step();
+      animation.translateX(-this.promoterListWidth).step();
       this.setData({
         animationData: animation.export()
       });

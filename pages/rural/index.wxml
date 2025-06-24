@@ -65,7 +65,7 @@
     </view>
 
     <view class="card">
-      <view class="jion-us-btn row center" bindtap="navToGiftPage">
+      <view class="jion-us-btn row center" bindtap="checkLivestock">
         <text>成为乡村振兴推荐官</text>
         <image class="arrow" src="https://static.tiddler.cn/mp/promoter/arrow.png" />
       </view>
