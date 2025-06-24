@@ -1,0 +1,66 @@
+<view class="nav-bar {{ navBarBgVisible ? 'show-bg' : '' }}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar-inner row">
+    <view style="flex: 1;">
+      <back-icon />
+    </view>
+    <view class="nav-bar-title">诚信乡村</view>
+    <view style="flex: 1;" />
+  </view>
+</view>
+
+<view class="header" style="padding-top: {{statusBarHeight + 44}}px;">
+  <image class="theme-title" style="margin-top" src="./images/title.png" />
+  <view class="module-wrap">
+    <view class="module adopt" bindtap="checkLivestock">
+      <view class="module-title">乡村认养</view>
+      <view class="check-btn">去查看</view>
+    </view>
+    <view class="module bag" bindtap="checkGift">
+      <view class="module-title">乡村礼包</view>
+      <view class="check-btn">去查看</view>
+    </view>
+  </view>
+  <swiper class="banner" style="height: 194rpx;" autoplay circular indicator-dots	indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
+    <swiper-item 
+      class="banner-item"
+      wx:for="{{bannerList}}"
+      wx:key="index"
+      bindtap="linkTo"
+      data-scene="{{item.scene}}"
+      data-param="{{item.param}}"
+    >
+      <image class="banner-img" mode="aspectFill" src="{{item.cover}}" lazy-load />
+    </swiper-item>
+  </swiper>
+</view>
+
+<view class="container">
+  <view class="region-menu-wrap">
+    <scroll-view class="region-menu" scroll-left="{{curRegionIdx * 83}}" scroll-with-animation scroll-x>
+      <view 
+        class="regin-item {{curRegionIdx === index ? 'selected' : ''}}" 
+        wx:for="{{regionOptions}}" 
+        wx:key="index"
+        bindtap="selectRegion"
+        data-index="{{index}}"
+      >
+        {{item.name}}
+      </view>
+    </scroll-view>
+    <image class="all-menu" bindtap="showRegionPickerModal" src="./images/menu.png" />
+  </view>
+
+  <view class="goods-list">
+    <fall-flow list="{{goodsList}}" generic:item="goods-item" />
+    <empty-illus wx:if="{{!goodsList.length}}" desc="暂无商品" />
+    <view class="no-more-tips" wx:if="{{goodsList.length}}">～没有更多了～</view>
+  </view>
+</view>
+
+<region-picker-modal 
+  wx:if="{{regionPickerModalVisible}}" 
+  options="{{regionOptions}}" 
+  pickedIdx="{{curRegionIdx}}" 
+  bind:confirm="confirmRegionPick" 
+  bind:hide="hideRegionPickerModal" 
+/>

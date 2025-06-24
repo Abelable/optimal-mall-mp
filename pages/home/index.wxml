@@ -89,6 +89,33 @@
     <activity-goods-item wx:for="{{activityGoodsLists[curMenuIdx]}}" wx:key="id" item="{{item}}" bind:refresh="init" />
   </view>
   <empty-illus wx:if="{{!activityGoodsLists[curMenuIdx].length}}" desc="暂无活动商品" height="400rpx" />
+
+  <view class="hometown-wrap" bindtap="navToHometown">
+    <view class="more-btn row">
+      <view>更多地区</view>
+      <image class="more-arrow" src="/images/arrow.png" />
+    </view>
+    <view class="hometown-list row between">
+      <view 
+        class="hometown-item" 
+        wx:for="{{hometownList}}" 
+        wx:key="index"
+        catchtap="navToHometown"
+        data-name="{{item.name}}"
+      >
+        <view class="hometown-cover">
+          <image 
+            style="width: 128rpx;"
+            src="https://static.chengxinxingqiu.cn/mp/hometown/{{item.cover}}.png" 
+            mode="widthFix"
+          />
+        </view>
+        <view class="hometown-name">{{item.name}}</view>
+        <view class="hometown-desc">{{item.desc}}</view>
+      </view>
+    </view>
+  </view>
+
   <view class="split-title row">
     <view>星球精选</view>
     <image class="praise-icon" src="./images/praise-icon.png" />

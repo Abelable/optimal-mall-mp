@@ -23,6 +23,11 @@ Component({
     middleBannerList: [],
     curDot: 1,
     activityGoodsLists: [[], [], []],
+    hometownList: [
+      { cover: "neimeng", name: "内蒙", desc: "辽阔草原风" },
+      { cover: "hangzhou", name: "杭州", desc: "西湖映古今" },
+      { cover: "wuhan", name: "武汉", desc: "江城烟雨浓" }
+    ],
     goodsList: [],
     finished: false,
     adInfo: null,
@@ -213,6 +218,13 @@ Component({
     navToIntegrityGoods() {
       wx.navigateTo({
         url: "./subpages/integrity-goods/index"
+      });
+    },
+
+    navToHometown(e) {
+      const { name = '' } = e.currentTarget.dataset
+      wx.navigateTo({
+        url: `./subpages/hometown/index?name=${name}`
       });
     },
 

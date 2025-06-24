@@ -184,6 +184,56 @@ page {
   height: 16rpx;
 }
 
+.hometown-wrap {
+  margin-bottom: 24rpx;
+  padding-top: 114rpx;
+  height: 610rpx;
+  background-image: url('https://static.chengxinxingqiu.cn/mp/hometown/bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+.more-btn {
+  margin-left: 48rpx;
+  color: #14191F;
+  font-size: 24rpx;
+}
+.more-arrow {
+  width: 24rpx;
+  height: 24rpx;
+}
+
+.hometown-list {
+  margin: 70rpx 40rpx 0;
+}
+.hometown-item {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding-top: 18rpx;
+  width: 192rpx;
+  height: 260rpx;
+  background: #FFFFFF;
+  box-shadow: 0rpx 4rpx 20rpx 0rpx rgba(51,62,91,0.5);
+  border-radius: 16rpx;
+}
+.hometown-cover {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: 130rpx;
+}
+.hometown-name {
+  margin-top: 8rpx;
+  color: #14191F;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.hometown-desc {
+  margin-top: 8rpx;
+  color: #14191F;
+  font-size: 20rpx;
+}
+
 .split-title {
   margin-bottom: 14rpx;
   color: #14191f;
