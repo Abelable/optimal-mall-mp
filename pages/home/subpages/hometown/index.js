@@ -7,7 +7,7 @@ Page({
   data: {
     statusBarHeight,
     navBarBgVisible: false,
-    bannerList: [],
+    menuFixed: false,
     regionOptions: [],
     curRegionIdx: 0,
     regionPickerModalVisible: false,
@@ -16,9 +16,17 @@ Page({
 
   async onLoad(options) {
     this.curRegionName = options.name || "";
-    this.setBannerList();
     await this.setRegionOptions();
+    this.setMenuTop();
     this.setGoodsList();
+  },
+
+  setMenuTop() {
+    const query = wx.createSelectorQuery();
+    query.select(".region-menu-wrap").boundingClientRect();
+    query.exec(res => {
+      this.menuTop = res[0].top;
+    });
   },
 
   selectRegion(e) {
@@ -38,11 +46,6 @@ Page({
   confirmRegionPick(e) {
     this.setData({ curRegionIdx: e.detail, regionPickerModalVisible: false });
     this.setGoodsList();
-  },
-
-  async setBannerList() {
-    const bannerList = await ruralService.getBannerList(4);
-    this.setData({ bannerList });
   },
 
   async setRegionOptions() {
@@ -71,43 +74,22 @@ Page({
   },
 
   onPageScroll(e) {
+    const { navBarBgVisible, menuFixed } = this.data;
+
     if (e.scrollTop >= 10) {
-      if (!this.data.navBarBgVisible) {
+      if (!navBarBgVisible) {
         this.setData({ navBarBgVisible: true });
       }
     } else {
-      if (this.data.navBarBgVisible) {
+      if (navBarBgVisible) {
         this.setData({ navBarBgVisible: false });
       }
     }
-  },
 
-  linkTo(e) {
-    const { scene, param } = e.currentTarget.dataset;
-    switch (scene) {
-      case 1:
-        wx.navigateTo({
-          url: `/pages/common/webview/index?url=${param}`
-        });
-        break;
-
-      case 2:
-        wx.navigateTo({
-          url: `/pages/home/subpages/goods-detail/index?id=${param}`
-        });
-        break;
+    if (e.scrollTop >= this.menuTop - statusBarHeight - 44) {
+      if (!menuFixed) this.setData({ menuFixed: true });
+    } else {
+      if (menuFixed) this.setData({ menuFixed: false });
     }
-  },
-
-  checkLivestock() {
-    wx.navigateTo({
-      url: "/pages/rural/subpages/gift/index"
-    });
-  },
-
-  checkGift() {
-    wx.navigateTo({
-      url: "/pages/rural/subpages/gift/index?type=2"
-    });
   }
 });

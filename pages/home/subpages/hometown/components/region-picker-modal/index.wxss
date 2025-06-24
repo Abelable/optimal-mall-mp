@@ -5,6 +5,7 @@
   width: 100vw;
   height: 100vh;
   background: rgba(0, 0, 0, 0.3);
+  z-index: 100;
 }
 .region-picker-modal {
   position: absolute;
