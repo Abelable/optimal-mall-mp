@@ -1,11 +1,4 @@
 {
   "navigationStyle": "custom",
-  "navigationBarTextStyle": "white",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "fall-flow": "/components/fall-flow/index",
-    "goods-item": "/components/goods-item/index",
-    "empty-illus": "/components/empty-illus/index",
-    "region-picker-modal": "./components/region-picker-modal/index"
-  }
+  "navigationBarTextStyle": "white"
 }

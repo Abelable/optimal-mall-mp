@@ -1,5 +1,4 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
-<wxs module="ARRAY" src="/utils/filters/array.wxs" />
 
 <view class="header">
   <view class="search-bar">

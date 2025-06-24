@@ -1,18 +1,10 @@
 import BaseService from "../../../services/baseService";
 
 class RuralService extends BaseService {
-  async getRegionOptions() {
+  async getPromoterList(page, limit = 10) {
     return await this.get({
-      url: `${this.baseUrl}/rural/region_options`,
-      loadingTitle: "加载中..."
-    });
-  }
-
-  async getGoodsList(regionId) {
-    return await this.get({
-      url: `${this.baseUrl}/rural/goods_list`,
-      data: { regionId },
-      loadingTitle: "加载中..."
+      url: `${this.baseUrl}/promoter/list`,
+      data: { page, limit }
     });
   }
 }
