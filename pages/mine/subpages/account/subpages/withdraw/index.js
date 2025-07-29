@@ -27,7 +27,8 @@ Page({
   onLoad(options) {
     const scene = Number(options.scene);
     const amount = Number(options.amount);
-    const taxFee = (scene === 2 || scene === 3) ? Math.floor(amount * 0.06 * 100) / 100 : 0;
+    const taxFee =
+      scene === 2 || scene === 3 ? Math.floor(amount * 0.06 * 100) / 100 : 0;
     const actualAmount = amount - taxFee - 1;
     this.setData({
       scene,
@@ -108,35 +109,47 @@ Page({
       amount: withdrawAmount,
       pathOptions,
       curOptionIdx,
-      remark
+      remark,
+      bancCardInfo
     } = this.data;
+
     if (!btnActive) {
       return;
     }
-    if (store.userInfo.authInfoId) {
-      const path = pathOptions[curOptionIdx].value;
-      accountService.applyWithdraw(
-        { scene, withdrawAmount, path, remark },
-        () => {
-          if (curOptionIdx === 0) {
-            this.setData({ amount: 0 });
-            wx.showToast({
-              title: "提现成功",
-              icon: "none"
-            });
-            setTimeout(() => {
-              wx.navigateBack();
-            }, 2000);
-          } else {
-            wx.navigateTo({
-              url: "./subpages/withdraw-result/index"
-            });
-          }
-        }
-      );
-    } else {
+
+    if (!store.userInfo.authInfoId) {
       this.setData({ authModalVisible: true });
+      return;
     }
+
+    const path = pathOptions[curOptionIdx].value;
+    if (path === 2 && !bancCardInfo) {
+      wx.showToast({
+        title: "尚未绑定银行卡账号",
+        icon: "none"
+      });
+      return;
+    }
+
+    accountService.applyWithdraw(
+      { scene, withdrawAmount, path, remark },
+      () => {
+        if (path === 3) {
+          this.setData({ amount: 0 });
+          wx.showToast({
+            title: "提现成功",
+            icon: "none"
+          });
+          setTimeout(() => {
+            wx.navigateBack();
+          }, 2000);
+        } else {
+          wx.navigateTo({
+            url: "./subpages/withdraw-result/index"
+          });
+        }
+      }
+    );
   },
 
   hideAuthModal() {
