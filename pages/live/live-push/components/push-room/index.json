@@ -4,7 +4,7 @@
     "modal-mask": "/components/modal-mask/index",
     "back-icon": "/components/back-icon-white/index",
     "poster-modal": "/components/poster-modal/index",
-    "input-popup": "../../../../components/input-popup/index",
+    "input-popup": "../../../components/input-popup/index",
     "anchor-capsule": "../../../components/anchor-capsule/index",
     "comment-showcase": "../../../components/comment-showcase/index",
     "praise-animation": "../../../components/praise-animation/index",

@@ -1,5 +1,6 @@
 import BaseService from "./services/baseService";
 import { store } from "./store/index";
+import tim from "./utils/tim/index";
 
 const baseService = new BaseService();
 
@@ -18,6 +19,9 @@ App({
     }
 
     if (wx.getStorageSync("token")) {
+      const { userId, sdkAppId, userSig } = await baseService.getTimLoginInfo();
+      tim.init(Number(sdkAppId), String(userId), userSig);
+      
       const userInfo = await baseService.getUserInfo();
       if (userInfo.level) {
         store.setPromoterInfo(userInfo);

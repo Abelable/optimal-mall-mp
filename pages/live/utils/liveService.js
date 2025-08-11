@@ -3,7 +3,7 @@ import BaseService from "../../../services/baseService";
 class LiveService extends BaseService {
   async createLive(roomInfo, success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/create`,
+      url: `${this.baseUrl}/live/create`,
       data: roomInfo,
       success
     });
@@ -11,48 +11,48 @@ class LiveService extends BaseService {
 
   async getNoticeRoomInfo() {
     return await this.get({
-      url: `${this.baseUrl}/media/live/notice_room`,
+      url: `${this.baseUrl}/live/notice_room`,
       loadingTitle: "加载中"
     });
   }
 
   async deleteNoticeRoom(success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/delete_notice_room`,
+      url: `${this.baseUrl}/live/delete_notice_room`,
       success
     });
   }
 
   async getPushRoomInfo() {
     return await this.get({
-      url: `${this.baseUrl}/media/live/push_room`,
+      url: `${this.baseUrl}/live/push_room`,
       loadingTitle: "加载中"
     });
   }
 
   async startLive() {
     return await this.post({
-      url: `${this.baseUrl}/media/live/start`
+      url: `${this.baseUrl}/live/start`
     });
   }
 
   async stopLive(success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/stop`,
+      url: `${this.baseUrl}/live/stop`,
       success
     });
   }
 
   async savePraiseCount(id, count) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/praise`,
+      url: `${this.baseUrl}/live/praise`,
       data: { id, count }
     });
   }
 
   async getPushRoomGoodsList(status) {
     return await this.get({
-      url: `${this.baseUrl}/media/live/push_room_goods_list`,
+      url: `${this.baseUrl}/live/push_room_goods_list`,
       data: { status },
       loadingTitle: "加载中"
     });
@@ -60,7 +60,7 @@ class LiveService extends BaseService {
 
   async listingGoods(goodsIds, success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/listing_goods`,
+      url: `${this.baseUrl}/live/listing_goods`,
       data: { goodsIds },
       success
     });
@@ -68,7 +68,7 @@ class LiveService extends BaseService {
 
   async delistingGoods(goodsIds, success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/de_listing_goods`,
+      url: `${this.baseUrl}/live/de_listing_goods`,
       data: { goodsIds },
       success
     });
@@ -76,7 +76,7 @@ class LiveService extends BaseService {
 
   async setHotGoods(goodsId, success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/set_hot_goods`,
+      url: `${this.baseUrl}/live/set_hot_goods`,
       data: { goodsId },
       success
     });
@@ -84,7 +84,7 @@ class LiveService extends BaseService {
 
   async cancelHotGoods(goodsId, success) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/cancel_hot_goods`,
+      url: `${this.baseUrl}/live/cancel_hot_goods`,
       data: { goodsId },
       success
     });
@@ -92,23 +92,30 @@ class LiveService extends BaseService {
 
   async getRoomList(id, page, limit = 10) {
     return await this.get({
-      url: `${this.baseUrl}/media/live/list`,
+      url: `${this.baseUrl}/live/list`,
       data: { id, page, limit }
     });
   }
 
   async joinRoom(id) {
     return await this.post({
-      url: `${this.baseUrl}/media/live/join_room`,
+      url: `${this.baseUrl}/live/join_room`,
       data: { id }
     });
   }
 
   async getRoomGoodsList(id, page, limit = 10) {
     return await this.get({
-      url: `${this.baseUrl}/media/live/goods_list`,
+      url: `${this.baseUrl}/live/goods_list`,
       data: { id, page, limit },
       loadingTitle: "加载中"
+    });
+  }
+
+  async saveLiveChatMsg(id, content, identity) {
+    return await this.post({
+      url: `${this.baseUrl}/live/comment`,
+      data: { id, content, identity }
     });
   }
 }

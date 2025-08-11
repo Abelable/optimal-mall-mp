@@ -5,7 +5,7 @@
   "usingComponents": {
     "back-icon": "/components/back-icon-white/index",
     "modal-mask": "/components/modal-mask/index",
-    "input-popup": "../../components/input-popup/index",
+    "input-popup": "../components/input-popup/index",
     "poster-modal": "/components/poster-modal/index",
     "play-room": "./components/play-room/index",
     "live-notice": "./components/live-notice/index",

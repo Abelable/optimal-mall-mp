@@ -70,6 +70,10 @@ class BaseService extends Base {
     });
   }
 
+  async getTimLoginInfo() {
+    return await this.get({ url: `${this.baseUrl}/user/tim_login_info` });
+  }
+
   async getOssConfig() {
     if (wx.getStorageSync("ossConfig")) {
       const ossConfig = JSON.parse(wx.getStorageSync("ossConfig"));

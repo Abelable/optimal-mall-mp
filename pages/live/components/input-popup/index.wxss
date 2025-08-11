@@ -1,0 +1,28 @@
+.input-wrap {
+  position: fixed;
+  padding: 12px;
+  width: 100%;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+}
+.input {
+  flex: 1;
+  padding: 0 15px;
+  height: 36px;
+  font-size: 13px;
+  background: #F1F5F7;
+  border-radius: 18px;
+}
+.send-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 15px;
+  width: 70px;
+  height: 36px;
+  color: #fff;
+  font-size: 14px;
+  font-weight: bold;
+  background: var(--blue-1);
+  border-radius: 18px;
+}

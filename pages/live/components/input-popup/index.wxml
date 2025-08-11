@@ -1,0 +1,21 @@
+<view class="input-wrap row" style="bottom: {{containerBottom}}px;">
+  <input 
+    class="input" 
+    placeholder-style="color: #cdcdcd;" 
+    bindfocus="setContainerBottom" 
+    bindinput='bindInput' 
+    bindconfirm="filterMsg" 
+    bindblur="setFocus"
+    bindkeyboardheightchange="setFocus"
+    focus="{{focus}}"
+    placeholder="{{nickname ? '回复 @' + nickname : '说点什么...'}}" 
+    type="text" 
+    confirm-type="send"
+    hold-keyboard
+    confirm-hold
+    always-embed
+    adjust-position="{{false}}" 
+    cursor-spacing='9' 
+  />
+  <view class="send-btn" bindtap="filterMsg">发送</view>
+</view>

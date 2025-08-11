@@ -106,7 +106,7 @@ Page({
       wx.getStorageSync("token") && store.superiorInfo
         ? `${id}-${store.superiorInfo.id}`
         : `${id}`;
-    const page = "pages/subpages/home/media/live/live-play/index";
+    const page = "pages/subpages/home/live/live-play/index";
     const qrCode = await liveService.getQrCode(scene, page);
 
     this.setData({
@@ -149,8 +149,8 @@ Page({
     const roomInfo = roomList[curRoomIdx];
     const { id, title, cover: imageUrl } = roomInfo;
     const path = superiorId
-      ? `/pages/subpages/home/media/live/live-play/index?id=${id}&superiorId=${superiorId}`
-      : `/pages/subpages/home/media/live/live-play/index?id=${id}}`;
+      ? `/pages/subpages/home/live/live-play/index?id=${id}&superiorId=${superiorId}`
+      : `/pages/subpages/home/live/live-play/index?id=${id}}`;
     return { path, title, imageUrl };
   },
 
