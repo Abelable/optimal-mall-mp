@@ -55,6 +55,17 @@
           <image class="more-icon" src="./images/arrow.png" />
         </view>
       </view>
+      <swiper class="live-list" autoplay circular>
+        <swiper-item 
+          class="live-item" 
+          wx:for="{{bannerList}}"
+          wx:key="index"
+          bindtap="linkToLive"
+          data-id="{{item.id}}"
+        >
+          <image class="live-cover" mode="aspectFill" src="{{ item.cover }}" lazy-load />
+        </swiper-item>
+      </swiper>
     </view>
     <view class="integrity-part {{liveList.length ? '' : 'row'}}">
       <image class="integrity-illus" bindtap="navToRuralPage" src="https://static.chengxinxingqiu.cn/mp/home/integrity-village.png" />

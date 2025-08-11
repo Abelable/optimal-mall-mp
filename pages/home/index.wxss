@@ -157,6 +157,18 @@ page {
   width: 20rpx;
   height: 20rpx;
 }
+.live-list {
+  margin-top: 20rpx;
+  height: 240rpx;
+}
+.live-item {
+  position: relative;
+}
+.live-cover {
+  width: 100%;
+  height: 100%;
+  border-radius: 12rpx;
+}
 
 .integrity-illus {
   display: block;
