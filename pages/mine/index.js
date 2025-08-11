@@ -203,14 +203,14 @@ Component({
       const statusInfo = await mineService.getRoomStatus();
       if (!statusInfo) {
         wx.navigateTo({
-          url: "/pages/subpages/home/media/live/create-live/index"
+          url: "/pages/live/create-live/index"
         });
       } else {
         const { status, direction } = statusInfo;
         const url =
           status === 3
-            ? "/pages/subpages/home/media/live/live-notice/index"
-            : `/pages/subpages/home/media/live/live-push/${
+            ? "/pages/live/live-notice/index"
+            : `/pages/live/live-push/${
                 direction === 1 ? "vertical" : "horizontal"
               }-screen/index`;
         wx.navigateTo({ url });
