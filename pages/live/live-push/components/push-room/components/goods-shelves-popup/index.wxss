@@ -27,7 +27,7 @@
   height: 3px;
   content: "";
   border-radius: 1.5px;
-  background: var(--blue-1);
+  background: var(--theme-color);
 }
 
 .multiple-switch {
@@ -65,7 +65,7 @@
   color: #fff;
   font-size: 12px;
   line-height: 1;
-  background: var(--blue-1);
+  background: var(--theme-color);
   border-radius: 15px;
 }
 .all-pick-icon {

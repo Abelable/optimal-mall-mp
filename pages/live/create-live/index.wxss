@@ -129,5 +129,5 @@
   color: #fff;
   font-size: 32rpx;
   border-radius: 44rpx;
-  background: var(--blue-1);
+  background: var(--theme-color);
 }

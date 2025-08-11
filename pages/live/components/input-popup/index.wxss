@@ -23,6 +23,6 @@
   color: #fff;
   font-size: 14px;
   font-weight: bold;
-  background: var(--blue-1);
+  background: var(--theme-color);
   border-radius: 18px;
 }
