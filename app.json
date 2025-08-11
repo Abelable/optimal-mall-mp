@@ -43,16 +43,16 @@
     {
       "root": "pages/subpages/",
       "pages": [
-        "pages/live/create-live/index",
-        "pages/live/live-notice/index",
-        "pages/live/live-push/vertical-screen/index",
-        "pages/live/live-push/horizontal-screen/index",
-        "pages/live/live-play/index",
-        "pages/common/register/index",
-        "pages/common/webview/index",
-        "pages/common/cropper/index",
-        "pages/common/search/index",
-        "pages/common/promoter/index"
+        "live/create-live/index",
+        "live/live-notice/index",
+        "live/live-push/vertical-screen/index",
+        "live/live-push/horizontal-screen/index",
+        "live/live-play/index",
+        "common/register/index",
+        "common/webview/index",
+        "common/cropper/index",
+        "common/search/index",
+        "common/promoter/index"
       ]
     }
   ],
