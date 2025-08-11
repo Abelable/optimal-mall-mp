@@ -157,13 +157,13 @@ Component({
 
     checkPromoterInfo() {
       wx.navigateTo({
-        url: "/pages/common/promoter/index"
+        url: "/pages/subpages/common/promoter/index"
       });
     },
 
     search() {
       wx.navigateTo({
-        url: "/pages/common/search/index"
+        url: "/pages/subpages/common/search/index"
       });
     },
 
@@ -173,7 +173,7 @@ Component({
         switch (scene) {
           case 1:
             wx.navigateTo({
-              url: `/pages/common/webview/index?url=${param}`
+              url: `/pages/subpages/common/webview/index?url=${param}`
             });
             break;
 
@@ -231,7 +231,7 @@ Component({
 
     checkLimitedTimeActivity() {
       wx.navigateTo({
-        url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
+        url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
       });
     },
 

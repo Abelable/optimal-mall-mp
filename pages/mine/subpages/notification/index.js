@@ -83,13 +83,13 @@ Page({
 
       case 3:
         wx.navigateTo({
-          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`
+          url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`
         });
         break;
 
       case 4:
         wx.navigateTo({
-          url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team/certification`
+          url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/team/certification`
         });
         break;
 

@@ -46,7 +46,7 @@ Page({
 
   serviceAgreement() {
     wx.navigateTo({
-      url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/agreements/user_service`
+      url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/agreements/user_service`
     });
   },
 

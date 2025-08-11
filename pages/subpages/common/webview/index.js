@@ -45,7 +45,7 @@ Page({
 
   onShareAppMessage() {
     const { id } = store.promoterInfo || {};
-    const originalPath = `/pages/common/webview/index?url=${this.webviewUrl.replace(
+    const originalPath = `/pages/subpages/common/webview/index?url=${this.webviewUrl.replace(
       "?",
       "&"
     )}`;

@@ -249,7 +249,7 @@ Component({
 
     navToTeamData() {
       wx.navigateTo({
-        url: `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/team`
+        url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/team`
       });
     },
 
@@ -260,7 +260,7 @@ Component({
     },
 
     register() {
-      wx.navigateTo({ url: "/pages/common/register/index" });
+      wx.navigateTo({ url: "/pages/subpages/common/register/index" });
     },
 
     async share() {

@@ -40,7 +40,7 @@ Page({
   },
 
   checkAuthInfo() {
-    const url = `/pages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
+    const url = `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/auth`;
     wx.navigateTo({ url });
   },
 
