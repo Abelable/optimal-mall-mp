@@ -1,0 +1,42 @@
+<wxs module="IMG" src="/utils/filters/img.wxs" />
+
+<swiper class="rooms-wrap" bindchange="changeRoom" vertical>
+  <swiper-item wx:for="{{roomList}}" wx:key="index">
+    <image 
+      class="bg" 
+      wx:if="{{index > (curRoomIdx - 2) && index < (curRoomIdx + 4)}}" 
+      src="{{IMG.resize(item.cover, 10)}}" 
+      mode="aspectFill" 
+      lazy-load 
+    />
+    <block wx:if="{{index === curRoomIdx}}">
+      <play-room 
+        wx:if="{{item.status === 1}}" 
+        roomInfo="{{item}}"
+        bind:showInputPopup="showInputPopup"
+        bind:showGoodsPopup="showGoodsPopup"
+        bind:share="share"
+        bind:showSubscribeModal="showSubscribeModal"
+      />
+      <live-notice
+        wx:if="{{item.status === 3}}" 
+        roomInfo="{{item}}"
+        bind:share="share"
+      />
+    </block>
+  </swiper-item>
+</swiper>
+
+<back-icon class="back-icon" style="top: {{statusBarHeight}}px;"/>
+<goods-popup wx:if="{{goodsPopupVisible}}" roomId="{{roomList[curRoomIdx].id}}" bind:hide="hideGoodsPopup" />
+
+<modal-mask 
+  wx:if="{{inputPopupVisible || subscribeModalVisible}}" 
+  opacity="{{!inputPopupVisible ? 0.3 : 0}}" 
+  filter="{{posterModalVisible}}"
+  catchtap="hideModal"
+/>
+<input-popup wx:if="{{inputPopupVisible}}" roomInfo="{{roomList[curRoomIdx]}}" bind:finish="hideModal" />
+<subscribe-modal  wx:if="{{subscribeModalVisible}}" anchorId="{{roomList[curRoomIdx].anchorInfo.id}}" bind:hide="hideModal" />
+<poster-modal wx:if="{{posterModalVisible}}" scene="1" info="{{posterInfo}}" bind:hide="hideModal" />
+

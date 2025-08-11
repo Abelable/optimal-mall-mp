@@ -1,0 +1,29 @@
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+<wxs module="STRING" src="/utils/filters/string.wxs" />
+
+<view class="live-notice" style="padding-top: {{statusBarHeight + 44}}px;">
+  <view class="cover-wrap">
+    <image class="cover" src="{{roomInfo.cover}}" mode="aspectFill" />
+    <view class="tag row center">预告</view>
+  </view>
+
+  <view class="title omit single">{{roomInfo.title}}</view>
+
+  <view class="anchor-info" bindtap="navToUserCenter">
+    <view class="avatar-wrap">
+      <image class="anchor-avatar avatar-default" src="{{roomInfo.anchorInfo.avatar}}" />
+      <image class="follow-icon" wx:if="{{!isFollow}}" bindtap="follow" src="./images/follow.png" />
+    </view>
+    <view class="anchor-name omit single">{{roomInfo.anchorInfo.nickname}}</view>
+  </view>
+
+  <view class="time-wrap">
+    <view>开始时间：{{TIME.transform(roomInfo.noticeTime, 'YYYY-MM-DD hh:mm')}}</view>
+    <view>倒计时：{{TIME.countdown(countDown, 'd天hh时mm分ss秒')}}</view>
+  </view>
+
+  <view class="btn-wrap row between">
+    <button class="subscribe-btn" bindtap="subscribe" hover-class="none">点击预约</button>
+    <button class="share-btn" bindtap="share" hover-class="none">点击分享</button>
+  </view>
+</view>

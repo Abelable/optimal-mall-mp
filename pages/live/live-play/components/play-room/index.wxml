@@ -1,0 +1,77 @@
+<wxs module="NUM" src="/utils/filters/num.wxs" />
+
+<view class="room {{!srcIniting ? 'show' : ''}}">
+  <player wx:if="{{!liveEnd}}" horizontal="{{roomInfo.direction === 2}}" src="{{roomInfo.playUrl || ''}}" bind:statechange="statechange">
+    <swiper class="swiper" wx:if="{{userInfo}}" slot="{{fullScreen ? 'inside' : 'outside'}}">
+      <swiper-item class="inner-wrap" bindtap="dbTap">
+        <view class="praise-animation-wrap {{fullScreen ? 'full-screen' : ''}}">
+          <praise-animation count="{{praiseCount || 0}}" manual="{{manualPraise}}" />
+        </view>
+        
+        <view 
+          class="inner {{roomInfo.direction === 2 ? 'horizontal' : ''}}"
+          style="top: {{roomInfo.direction === 2 ? 8 : statusBarHeight}}px;"
+        >
+          <view class="nav-bar row between">
+            <anchor-capsule anchorInfo="{{roomInfo.anchorInfo}}" isFollow="{{isFollow}}" />
+            <image 
+              class="exsit-full-screen-icon" 
+              wx:if="{{fullScreen}}" 
+              catchtap="exitFullScreen" 
+              src="https://img.ubo.vip/mp/index/room/exit-fullscreen-icon.png" 
+            />
+          </view>
+
+          <hot-goods 
+            wx:if="{{hotGoods && hotGoodsVisible}}" 
+            goodsInfo="{{hotGoods}}" 
+            bind:hide="hideHotGoods"
+          />
+  
+          <image 
+            class="full-screen-icon" 
+            wx:if="{{roomInfo.direction === 2 && !fullScreen}}" 
+            catchtap="setFullScreen" 
+            src="https://img.ubo.vip/mp/index/room/request-fullscreen-icon.png" 
+          />
+  
+          <view class="footer">
+            <view class="audience-action-tips {{audienceActionTips.type}} {{showAudienceActionTips ? 'show' : ''}}">{{audienceActionTips.message}}</view>
+            <comment-showcase />
+            <view class="btns-wrap row">
+              <view class="input-btn row" catchtap="showInputPopup">
+                <image class="chat-icon" src="../../../images/chat.png" />
+                <text>说点什么...</text>
+              </view>
+              <view class="row">
+                <view class="feature-btn row center" wx:if="{{roomInfo.anchorInfo.shopId}}" catchtap="showGoodsPopup" >
+                  <image class="goods-icon" src="../../../images/goods.png" />
+                </view>
+                <view class="feature-btn row center" catchtap="showSharePopup" >
+                  <image class="share-icon" src="../../../images/share.png" />
+                </view>
+                <view class="feature-btn row center" catchtap="praise">
+                  <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="../../../images/praise.png" />
+                  <view class="praise-count" wx:if="{{praiseCount}}">{{NUM.over(praiseCount, 100000)}}</view>
+                </view>
+              </view>
+            </view>
+          </view>
+        </view>
+      </swiper-item>
+      <swiper-item></swiper-item>
+    </swiper>
+    <button class="login-btn" wx:else catchtap="login" slot="outside">登录参与直播互动</button>
+  </player>
+
+  <!-- 双击爱心 -->
+  <image class="praise-heart" style="{{item.style}}" wx:for="{{praiseHeartArr}}" wx:key="index" src="{{item.url}}" />
+</view>
+
+<!-- 直播中断 -->
+<live-loading wx:if="{{liveLoading}}" />
+
+<!-- 直播结束 -->
+<live-end wx:if="{{liveEnd}}" anchorInfo="{{roomInfo.anchorInfo}}" liveDuration="{{liveDuration}}" />
+
+ 

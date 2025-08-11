@@ -1,0 +1,5 @@
+<view class="subscribe-modal">
+  <view class="subscribe-title">开播提醒</view>
+  <view class="subscribe-content">点击后可在下次主播直播时收到消息提醒</view>
+  <view class="subscribe-btn" catchtap="subscribe">下次开播提醒我</view>
+</view>

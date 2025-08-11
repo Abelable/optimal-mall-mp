@@ -1,0 +1,11 @@
+.ctx {
+  position: absolute;
+  width: 100vw;
+  height: 100vh;
+}
+.ctx.horizontal {
+  height: 426rpx;
+}
+.ctx.merge {
+  height: 650rpx;
+}

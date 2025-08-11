@@ -1,0 +1,49 @@
+<popup bind:hide="hide">
+  <scroll-view class="features-popup" scroll-y>
+    <view class="title">更多功能</view>
+    <view class="list">
+      <view class="item" catchtap="click" data-type="beauty">
+        <view class="icon-wrap">
+          <image class="icon" src="./images/beauty.png" />
+        </view>
+        <view class="desc">美颜</view>
+      </view>
+      <view class="item" catchtap="click" data-type="hd">
+        <view class="icon-wrap">
+          <image class="icon" src="./images/hd.png" />
+        </view>
+        <view class="desc">清晰度</view>
+      </view>
+      <view class="item" catchtap="click" data-type="reverse">
+        <view class="icon-wrap {{devicePosition !== 'front' ? 'active' : ''}}">
+          <image class="icon" src="./images/reverse{{devicePosition !== 'front' ? '-active' : ''}}.png" />
+        </view>
+        <view class="desc">镜头反转</view>
+      </view>
+      <view class="item" catchtap="click" data-type="mirror">
+        <view class="icon-wrap {{localMirror !== 'auto' ? 'active' : ''}}">
+          <image class="icon" src="./images/mirror{{localMirror !== 'auto' ? '-active' : ''}}.png" />
+        </view>
+        <view class="desc">镜像</view>
+      </view>
+      <view class="item" catchtap="click" data-type="mute">
+        <view class="icon-wrap {{muted ? 'active' : ''}}">
+          <image class="icon" src="./images/mute{{muted ? '-active' : ''}}.png" />
+        </view>
+        <view class="desc">静音</view>
+      </view>
+      <view class="item" catchtap="click" data-type="lamp">
+        <view class="icon-wrap {{lampVisible ? 'active' : ''}}">
+          <image class="icon" src="./images/lamp{{lampVisible ? '-active' : ''}}.png" />
+        </view>
+        <view class="desc">闪光灯</view>
+      </view>
+      <view class="item" catchtap="click" data-type="subscribe">
+        <view class="icon-wrap">
+          <image class="icon" src="./images/subscribe.png" />
+        </view>
+        <view class="desc">提醒订阅</view>
+      </view>
+    </view>
+  </scroll-view>
+</popup>

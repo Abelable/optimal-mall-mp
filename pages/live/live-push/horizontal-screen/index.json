@@ -1,0 +1,10 @@
+{
+  "disableScroll": true,
+  "disableSwipeBack": true,
+  "navigationStyle": "custom",
+  "navigationBarTextStyle": "white",
+  "pageOrientation": "landscape",
+  "usingComponents": {
+    "push-room": "../components/push-room/index"
+  }
+}

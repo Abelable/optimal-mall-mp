@@ -1,0 +1,10 @@
+<popup bind:hide="hide">
+  <view class="start-remind-popup">
+    <view class="title">开播提醒</view>
+    <scroll-view class="content" scroll-y>
+      <view class="tips">推送后，用户的观看页面将弹出弹窗，引导用户订阅下次开播的推送消息。</view>
+      <image class="example" mode="widthFix" src="./images/start-remind.png" />
+    </scroll-view>
+    <view class="notice-btn" catchtap="pushRemind">推送开播提醒</view>
+  </view>
+</popup>

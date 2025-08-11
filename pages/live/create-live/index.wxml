@@ -1,0 +1,89 @@
+<view class="container">
+  <view class="card row between">
+    <view class="cover-uploader row center" bindtap="cropCover">
+      <block wx:if="{{!cover && !uploadCoverLoading}}">
+        <image class="uploader-icon" src="https://img.ubo.vip/mp/sass/create-live/plus.png" />
+        <view class="uploader-size">比例2:3</view>
+        <view class="uploader-tips">上传列表封面</view>
+      </block>
+      <block wx:if="{{uploadCoverLoading}}">
+        <view class="loading" />
+        <view class="uploader-tips">封面上传中</view>
+      </block>
+      <image wx:if="{{!uploadCoverLoading && cover}}" style="width: 100%; height: 100%;" src="{{cover}}" />
+    </view>
+    <view class="share-cover-uploader row center" bindtap="cropShareCover">
+      <block wx:if="{{!shareCover && !uploadShareCoverLoading}}">
+        <image class="uploader-icon" src="https://img.ubo.vip/mp/sass/create-live/plus.png" />
+        <view class="uploader-size">比例1:1</view>
+        <view class="uploader-tips">上传分享封面</view>
+      </block>
+      <block wx:if="{{uploadShareCoverLoading}}">
+        <view class="loading" />
+        <view class="uploader-tips">封面上传中</view>
+      </block>
+      <image wx:if="{{!uploadShareCoverLoading && shareCover}}" style="width: 100%; height: 100%;" src="{{shareCover}}" />
+    </view>
+  </view>
+
+  <view class="card">
+    <view class="title">直播分辨率</view>
+    <view class="resolution-selections row between">
+      <view 
+        class="resolution-selection {{curResolutionIdx === index ? 'active' : ''}}" 
+        wx:for="{{resolutionList}}"
+        wx:key="index"
+        bindtap="selectResolution"
+        data-index="{{index}}"
+        >
+        <view class="resolution-name">{{item.name}}</view>
+        <view class="resolution-detail">{{item.detail}}</view>
+      </view>
+    </view>
+  </view>
+  
+  <view class="card" style="padding-top: 0; padding-bottom: 0;">
+    <view class="list row">
+      <view class="title">直播标题</view>
+      <input class="list-input" value="{{title}}" bindinput="setTitle" placeholder="请输入直播标题" />
+    </view>
+    <view class="list row between">
+      <view class="title">展示方式</view>
+      <view class="list-seletion row">
+        <view class="selection-item row" wx:for="{{['竖屏', '横屏']}}" wx:key="index" bindtap="selectDirection" data-direction="{{index + 1}}">
+          <image class="selection-icon" src="https://img.ubo.vip/mp/sass/create-live/{{direction === (index + 1) ? 'selected' : 'unselected'}}.png" />
+          <text>{{item}}</text>
+        </view>
+      </view>
+    </view>
+    <view class="list row between" wx:if="{{userInfo.merchantId}}">
+      <view class="title">添加商品</view>
+      <view class="list-picker row" bindtap="showGoodsPickerPopup">
+        <text>{{pickedGoodsIds.length ? ('已选' + pickedGoodsIds.length + '件商品') : '请选择商品'}}</text>
+        <image class="arrow" src="https://img.ubo.vip/mp/sass/mine/gray-arrow.png" />
+      </view>
+    </view>
+  </view>
+
+  <view class="card" style="padding-top: 0; padding-bottom: 0;">
+    <view class="list row between">
+      <view class="title">创建预告</view>
+      <switch color="#09AFFF" bindchange="toggleIsNotice" />
+    </view>
+    <view class="list row between" wx:if="{{isNotice}}">
+      <view class="title row">预告时间</view>
+      <date-picker value="{{noticeTimeString}}" bind:change="setNoticeTime">
+        <view class="list-picker row">
+          <text>{{ noticeTimeString || '选择时间' }}</text>
+          <image class="arrow" src="https://img.ubo.vip/mp/sass/mine/gray-arrow.png" />
+        </view>
+      </date-picker>
+    </view>
+  </view>
+</view>
+
+<button class="create-btn" bindtap="startLive">{{isNotice ? '创建预告' : '开始直播'}}</button>
+
+<count-down wx:if="{{countDownVisible}}" />
+
+<goods-picker-popup show="{{goodsPickerPopupVisible}}" bind:confirm="setGoodsIds" bind:hide="hideGoodsPickerPopup" />

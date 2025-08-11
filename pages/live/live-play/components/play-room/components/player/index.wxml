@@ -1,0 +1,13 @@
+<live-player 
+  id="live-player" 
+  class="live-player {{horizontal ? 'horizontal' : ''}}" 
+  style="top: {{horizontal ? ('calc(260rpx + ' + statusBarHeight + 'px)') : 0}};"
+  src="{{src}}" 
+  autoplay 
+  picture-in-picture-mode="{{mode}}"
+  object-fit="{{fullScreen ? 'contain' : 'fillCrop'}}" 
+  bindstatechange="statechange">
+  <slot name="inside"></slot>
+</live-player>
+
+<slot name="outside"></slot>

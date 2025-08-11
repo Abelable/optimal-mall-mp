@@ -1,0 +1,17 @@
+<popup bind:hide="hide">
+  <view class="hd-popup">
+    <view class="title">选择清晰度</view>
+    <view class="resolution-selections row between">
+      <view 
+        class="resolution-selection {{definitionIndex === index ? 'active' : ''}}" 
+        wx:for="{{resolutionList}}"
+        wx:key="index"
+        bindtap="selectResolution"
+        data-index="{{index}}"
+        >
+        <view class="resolution-name">{{item.name}}</view>
+        <view class="resolution-detail">{{item.detail}}</view>
+      </view>
+    </view>
+  </view>
+</popup>
