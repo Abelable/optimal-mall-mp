@@ -410,17 +410,15 @@ Page({
       muted: !this.data.muted
     });
   },
-
-  fullScreenPlay() {
-    const { video } = this.data.goodsInfo;
-    const url = `/pages/common/video-play/index?url=${video}`;
-    wx.navigateTo({ url });
-  },
-
-  // 图片预览
-  previewImage(e) {
-    const { current, urls } = e.currentTarget.dataset;
-    wx.previewImage({ current, urls });
+  
+  previewMedia(e) {
+    const { current } = e.currentTarget.dataset;
+    const { video, imageList } = this.data.goodsInfo;
+    const sources = imageList.map(url => ({ url, type: "image" }));
+    wx.previewMedia({
+      sources: video ? [{ url: video, type: "video" }, ...sources] : sources,
+      current
+    });
   },
 
   // 通过遮罩关闭弹窗
@@ -518,7 +516,9 @@ Page({
 
   checkRealImages() {
     const { realImageList } = this.data.goodsInfo;
-    const url = `./subpages/real-images/index?images=${JSON.stringify(realImageList)}`;
+    const url = `./subpages/real-images/index?images=${JSON.stringify(
+      realImageList
+    )}`;
     wx.navigateTo({ url });
   },
 

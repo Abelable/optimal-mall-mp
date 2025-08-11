@@ -1,7 +1,0 @@
-{
-  "navigationStyle": "custom",
-  "navigationBarTextStyle": "white",
-  "usingComponents": {
-    "back-icon": "/components/back-icon-white/index"
-  }
-}
