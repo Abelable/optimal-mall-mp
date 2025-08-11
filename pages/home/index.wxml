@@ -21,7 +21,7 @@
 </view>
 
 <view class="banner-wrap">
-  <swiper class="banner" wx:if="{{bannerList.length}}" bindchange="bannerChange" style="height: 530rpx;" autoplay circular>
+  <swiper class="banner" wx:if="{{bannerList.length}}" bindchange="bannerChange" style="height: 530rpx;" autoplay circular interval="8000">
     <swiper-item 
       class="banner-item" 
       wx:for="{{bannerList}}"
@@ -55,7 +55,7 @@
           <image class="more-icon" src="./images/arrow.png" />
         </view>
       </view>
-      <swiper class="live-list" autoplay circular>
+      <swiper class="live-list small-dots" autoplay circular indicator-dots indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
         <swiper-item 
           class="live-item" 
           wx:for="{{bannerList}}"
