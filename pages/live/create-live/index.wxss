@@ -74,7 +74,7 @@
 .resolution-selection.active {
   position: relative;
   color: #fff;
-  background: var(--blue-linear-3);
+  background: var(--theme-color-btn-bg);
 }
 .resolution-name {
   margin-top: 16rpx;
