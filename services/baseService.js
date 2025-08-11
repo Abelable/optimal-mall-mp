@@ -291,6 +291,10 @@ class BaseService extends Base {
       success
     });
   }
+
+  async getRoomStatus() {
+    return await this.get({ url: `${this.baseUrl}/live/room_status` });
+  }
 }
 
 export default BaseService;
