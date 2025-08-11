@@ -44,14 +44,14 @@ Page({
   cropCover() {
     this.uploadingCover = true;
     wx.navigateTo({
-      url: "/pages/subpages/common/cropper/index?height=300",
+      url: "/pages/common/cropper/index?height=300",
     });
   },
 
   cropShareCover() {
     this.uploadingShareCover = true;
     wx.navigateTo({
-      url: "/pages/subpages/common/cropper/index",
+      url: "/pages/common/cropper/index",
     });
   },
 
