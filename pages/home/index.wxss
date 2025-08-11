@@ -144,8 +144,9 @@ page {
   background: #fff;
   border-radius: 18rpx;
 }
+
 .live-overview-title {
-  color: #333;
+  color: #000;
   font-size: 26rpx;
   font-weight: 500;
 }
