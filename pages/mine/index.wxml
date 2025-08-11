@@ -143,16 +143,6 @@
       <view class="tool-desc">我的礼券</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
-     <view class="tool-item row" bindtap="navToSetting">
-      <image class="tool-icon" src="./images/account.png" />
-      <view class="tool-desc">账户设置</view>
-      <image class="arrow" src="./images/arrow.png" />
-    </view>
-    <button class="tool-item" open-type="contact" session-from="sessionFrom" hover-class="none">
-      <image class="tool-icon" src="./images/cs.png" />
-      <view class="tool-desc" style="text-align: left;">在线客服</view>
-      <image class="arrow" src="./images/arrow.png" />
-    </button>
     <view class="tool-item row" wx:if="{{userInfo.managerId}}" bindtap="verify">
       <image class="tool-icon" src="./images/verify.png" />
       <view class="tool-desc">扫码核销</view>
@@ -166,6 +156,21 @@
     <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToBalance">
       <image class="tool-icon" src="./images/balance.png" />
       <view class="tool-desc">我的余额</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToLive">
+      <image class="tool-icon" src="./images/live.png" />
+      <view class="tool-desc">我的直播</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </view>
+    <button class="tool-item" open-type="contact" session-from="sessionFrom" hover-class="none">
+      <image class="tool-icon" src="./images/cs.png" />
+      <view class="tool-desc" style="text-align: left;">在线客服</view>
+      <image class="arrow" src="./images/arrow.png" />
+    </button>
+    <view class="tool-item row" bindtap="navToSetting">
+      <image class="tool-icon" src="./images/account.png" />
+      <view class="tool-desc">账户设置</view>
       <image class="arrow" src="./images/arrow.png" />
     </view>
   </view>
