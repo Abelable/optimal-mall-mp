@@ -133,12 +133,33 @@ page {
   height: 116rpx;
   border-radius: 12rpx;
 }
-.integrity-part {
-  display: flex;
-  justify-content: space-between;
+
+.live-overview-wrap {
   margin-top: 20rpx;
 }
+.live-overview {
+  padding: 20rpx;
+  width: 347rpx;
+  height: 340rpx;
+  background: #fff;
+  border-radius: 18rpx;
+}
+.live-overview-title {
+  color: #333;
+  font-size: 26rpx;
+  font-weight: 500;
+}
+.live-overview-more {
+  color: #999;
+  font-size: 20rpx;
+}
+.more-icon {
+  width: 20rpx;
+  height: 20rpx;
+}
+
 .integrity-illus {
+  display: block;
   width: 347rpx;
   height: 160rpx;
   border-radius: 12rpx;

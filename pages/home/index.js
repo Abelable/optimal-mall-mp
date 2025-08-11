@@ -21,6 +21,7 @@ Component({
     curMenuIdx: 0,
     bannerList: [],
     middleBannerList: [],
+    liveList: [1],
     curDot: 1,
     activityGoodsLists: [[], [], []],
     hometownList: [

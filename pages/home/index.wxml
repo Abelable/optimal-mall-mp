@@ -40,14 +40,31 @@
 
 <view class="container">
   <view class="village-part">
-    <image class="village-illus" bindtap="navToVillageGrain" src="./images/village-grain.png" />
-    <image class="village-illus" bindtap="navToVillageFresh" src="./images/village-fresh.png" />
-    <image class="village-illus" bindtap="navToVillageSnack" src="./images/village-snack.png" />
-    <image class="village-illus" bindtap="navToVillageGift" src="./images/village-gift.png" />
+    <image class="village-illus" bindtap="navToVillageGrain" src="https://static.chengxinxingqiu.cn/mp/home/village-grain.png" />
+    <image class="village-illus" bindtap="navToVillageFresh" src="https://static.chengxinxingqiu.cn/mp/home/village-fresh.png" />
+    <image class="village-illus" bindtap="navToVillageSnack" src="https://static.chengxinxingqiu.cn/mp/home/village-snack.png" />
+    <image class="village-illus" bindtap="navToVillageGift" src="https://static.chengxinxingqiu.cn/mp/home/village-gift.png" />
   </view>
-  <view class="integrity-part">
-    <image class="integrity-illus" bindtap="navToRuralPage" src="./images/integrity-village.png" />
-    <image class="integrity-illus" bindtap="navToIntegrityGoods" src="./images/integrity-goods.png" />
+
+  <view class="live-overview-wrap row between">
+    <view class="live-overview" wx:if="{{liveList.length}}">
+      <view class="row between">
+        <view class="live-overview-title">诚信直播</view>
+        <view class="live-overview-more row">
+          <view>全部直播</view>
+          <image class="more-icon" src="./images/arrow.png" />
+        </view>
+      </view>
+    </view>
+    <view class="integrity-part {{liveList.length ? '' : 'row'}}">
+      <image class="integrity-illus" bindtap="navToRuralPage" src="https://static.chengxinxingqiu.cn/mp/home/integrity-village.png" />
+      <image 
+        class="integrity-illus" 
+        style="margin-top: {{liveList.length ? 20 : 0}}rpx;margin-left: {{liveList.length ? 0 : 18}}rpx;" 
+        bindtap="navToIntegrityGoods" 
+        src="https://static.chengxinxingqiu.cn/mp/home/integrity-goods.png" 
+      />
+    </view>
   </view>
 
   <swiper 
