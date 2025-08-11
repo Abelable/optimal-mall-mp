@@ -13,11 +13,6 @@
     "pages/home/subpages/goods-detail/subpages/evaluation-list/index",
     "pages/home/subpages/goods-detail/subpages/real-images/index",
     "pages/home/subpages/order-check/index",
-    "pages/live/create-live/index",
-    "pages/live/live-notice/index",
-    "pages/live/live-push/vertical-screen/index",
-    "pages/live/live-push/horizontal-screen/index",
-    "pages/live/live-play/index",
     "pages/category/index",
     "pages/rural/index",
     "pages/rural/subpages/gift/index",
@@ -42,12 +37,24 @@
     "pages/mine/subpages/coupon-list/index",
     "pages/mine/subpages/notification/index",
     "pages/mine/subpages/customer/index",
-    "pages/mine/subpages/balance/index",
-    "pages/common/register/index",
-    "pages/common/webview/index",
-    "pages/common/cropper/index",
-    "pages/common/search/index",
-    "pages/common/promoter/index"
+    "pages/mine/subpages/balance/index"
+  ],
+  "subPackages": [
+    {
+      "root": "pages/subpages/",
+      "pages": [
+        "pages/live/create-live/index",
+        "pages/live/live-notice/index",
+        "pages/live/live-push/vertical-screen/index",
+        "pages/live/live-push/horizontal-screen/index",
+        "pages/live/live-play/index",
+        "pages/common/register/index",
+        "pages/common/webview/index",
+        "pages/common/cropper/index",
+        "pages/common/search/index",
+        "pages/common/promoter/index"
+      ]
+    }
   ],
   "tabBar": {
     "color": "#6A6F75",
