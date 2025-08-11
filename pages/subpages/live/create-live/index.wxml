@@ -56,7 +56,7 @@
         </view>
       </view>
     </view>
-    <view class="list row between" wx:if="{{userInfo.merchantId}}">
+    <view class="list row between">
       <view class="title">添加商品</view>
       <view class="list-picker row" bindtap="showGoodsPickerPopup">
         <text>{{pickedGoodsIds.length ? ('已选' + pickedGoodsIds.length + '件商品') : '请选择商品'}}</text>
@@ -68,7 +68,7 @@
   <view class="card" style="padding-top: 0; padding-bottom: 0;">
     <view class="list row between">
       <view class="title">创建预告</view>
-      <switch color="#09AFFF" bindchange="toggleIsNotice" />
+      <switch color="#F5701D" bindchange="toggleIsNotice" />
     </view>
     <view class="list row between" wx:if="{{isNotice}}">
       <view class="title row">预告时间</view>

@@ -1,3 +1,6 @@
+<wxs module="NUM" src="/utils/filters/num.wxs" />
+<wxs module="TIME" src="/utils/filters/time.wxs" />
+
 <view class="nav-bar {{ navBarBgVisible ? 'show-bg' : ''  }}" style="padding-top: {{statusBarHeight}}px;">
   <view class="nav-bar-inner">
     <view class="promoter-info" wx:if="{{promoterInfo}}" bindtap="checkPromoterInfo">
@@ -64,6 +67,28 @@
           data-id="{{item.id}}"
         >
           <image class="live-cover" mode="aspectFill" src="{{ item.cover }}" lazy-load />
+          <view class="status-wrap row">
+            <view class="status row {{item.status === 1 ? 'live' : 'notice'}}">
+              <image class="live-icon" wx:if="{{item.status === 1}}" src="https://static.tiddler.cn/mp/live_status.gif" />
+              <view class="notice-spot" wx:if="{{item.status === 3}}" />
+              <text>{{item.status === 1 ? '直播' : '预告'}}</text>
+            </view>
+            <view class="status-desc">
+              {{item.status === 1 ? (NUM.over(item.viewersNumber || 0, 100000) + '人观看') : TIME.transform(item.noticeTime, 'MM月DD日hh:mm开始')}}
+            </view>
+          </view>
+          <view class="live-info-wrap">
+            <view class="live-title omit">{{item.title}}</view>
+            <view class="live-info row">
+              <image class="anchor-avatar avatar-default" src="{{item.anchorInfo.avatar}}" lazy-load mode="aspectFill" />
+              <view class="anchor-name omit single">{{item.anchorInfo.nickname}}</view>
+              <view class="praise-info row" wx:if="{{item.status === 1}}">
+                <image class="praise-icon" src="./images/fire.png" />
+                <text>{{NUM.over(item.praiseNumber, 100000)}}</text>
+              </view>
+              <button class="notice-btn" wx:if="{{item.status === 3}}" bindtap="subscribe">预约</button>
+            </view>
+          </view>
         </swiper-item>
       </swiper>
     </view>
