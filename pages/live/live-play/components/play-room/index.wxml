@@ -40,18 +40,18 @@
             <comment-showcase />
             <view class="btns-wrap row">
               <view class="input-btn row" catchtap="showInputPopup">
-                <image class="chat-icon" src="../../../images/chat.png" />
+                <image class="chat-icon" src="https://static.chengxinxingqiu.cn/mp/live/chat.png" />
                 <text>说点什么...</text>
               </view>
               <view class="row">
                 <view class="feature-btn row center" wx:if="{{roomInfo.anchorInfo.shopId}}" catchtap="showGoodsPopup" >
-                  <image class="goods-icon" src="../../../images/goods.png" />
+                  <image class="goods-icon" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
                 </view>
                 <view class="feature-btn row center" catchtap="showSharePopup" >
-                  <image class="share-icon" src="../../../images/share.png" />
+                  <image class="share-icon" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
                 </view>
                 <view class="feature-btn row center" catchtap="praise">
-                  <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="../../../images/praise.png" />
+                  <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="https://static.chengxinxingqiu.cn/mp/live/praise.png" />
                   <view class="praise-count" wx:if="{{praiseCount}}">{{NUM.over(praiseCount, 100000)}}</view>
                 </view>
               </view>
