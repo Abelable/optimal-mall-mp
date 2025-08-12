@@ -50,10 +50,10 @@ class LiveService extends BaseService {
     });
   }
 
-  async getPushRoomGoodsList(status) {
+  async getPushRoomGoodsList(status, page, limit = 0) {
     return await this.get({
       url: `${this.baseUrl}/live/push_room_goods_list`,
-      data: { status },
+      data: { status, page, limit },
       loadingTitle: "加载中"
     });
   }

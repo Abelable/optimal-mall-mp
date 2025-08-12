@@ -14,7 +14,7 @@
       </view>
     </view>
 
-    <scroll-view class="goods-list-wrap" scroll-y bindscrolltolower="scrolltolowerFn">
+    <scroll-view class="goods-list-wrap" scroll-y bindscrolltolower="loadMore">
       <view class="all-pick-bar row between" wx:if="{{multiple}}">
         <view class="row" bindtap="toggleAllSelected">
           <image class="select-icon" src="{{allSelected ? './images/selected.png' : './images/unselected.png'}}"  />
