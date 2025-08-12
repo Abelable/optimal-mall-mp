@@ -54,6 +54,33 @@ function week(timeStamp) {
   }
 }
 
+function countdown(timeStamp, statement) {
+  var days = Math.floor(timeStamp / (24 * 60 * 60));
+  var hours = format(Math.floor((timeStamp % (24 * 60 * 60)) / (60 * 60)));
+  var minutes = format(Math.floor((timeStamp % (60 * 60)) / 60));
+  var seconds = format(Math.floor(timeStamp % 60));
+  if (statement.indexOf("d") !== -1) {
+    if (days) {
+      return statement
+        .replace("d", days)
+        .replace("hh", hours)
+        .replace("mm", minutes)
+        .replace("ss", seconds);
+    } else {
+      return statement
+        .slice(2)
+        .replace("hh", hours)
+        .replace("mm", minutes)
+        .replace("ss", seconds);
+    }
+  } else {
+    return statement
+      .replace("hh", hours)
+      .replace("mm", minutes)
+      .replace("ss", seconds);
+  }
+}
+
 function countdownUnit(timeStamp) {
   var days = Math.floor(timeStamp / (24 * 60 * 60));
   var hours = format(Math.floor((timeStamp % (24 * 60 * 60)) / (60 * 60)));
@@ -148,6 +175,7 @@ module.exports = {
   format: format,
   transform: transform,
   week: week,
+  countdown: countdown,
   countdownUnit: countdownUnit,
   countdownFormat: countdownFormat,
   timeDiff: timeDiff,

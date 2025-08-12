@@ -133,6 +133,11 @@
       </view>
       <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
     </view>
+    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToLive">
+      <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/live.png" />
+      <view class="tool-desc">我的直播</view>
+      <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
+    </view>
     <view class="tool-item row" bindtap="navToAddress">
       <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/address.png" />
       <view class="tool-desc">收货地址</view>
@@ -156,11 +161,6 @@
     <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToBalance">
       <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/balance.png" />
       <view class="tool-desc">我的余额</view>
-      <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
-    </view>
-    <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToLive">
-      <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/live.png" />
-      <view class="tool-desc">我的直播</view>
       <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
     </view>
     <button class="tool-item" open-type="contact" session-from="sessionFrom" hover-class="none">

@@ -55,7 +55,7 @@ Page({
 
   navBack() {
     wx.switchTab({
-      url: '/pages/tab-bar-pages/mine/index'
+      url: '/pages/mine/index'
     })
   },
 

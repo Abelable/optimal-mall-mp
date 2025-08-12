@@ -6,12 +6,12 @@
   <view class="nav-bar row" style="margin-top: {{statusBarHeight}}px;">
     <view class="nav-bar-btn row between">
       <image class="nav-back-icon" bindtap="navBack" src="https://img.ubo.vip/mp/i-back-icon/back-icon.png" />
-      <image class="share-icon" bindtap="navBack" src="./images/share.png" />
+      <image class="share-icon" bindtap="share" src="./images/share.png" />
     </view>
   </view>
 
   <view class="cover-wrap">
-    <image class="cover" src="{{roomInfo.cover}}" mode="aspectFill" />
+    <image class="cover" src="{{roomInfo.shareCover}}" />
     <view class="tag row center">预告</view>
   </view>
 
