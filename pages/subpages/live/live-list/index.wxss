@@ -1,3 +1,6 @@
+.container {
+  padding: 20rpx;
+}
 
 .no-more-tips {
   margin-top: 36rpx;
