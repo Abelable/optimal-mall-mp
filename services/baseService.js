@@ -295,6 +295,13 @@ class BaseService extends Base {
   async getRoomStatus() {
     return await this.get({ url: `${this.baseUrl}/live/room_status` });
   }
+
+  async getLiveList(page, limit = 10, id = 0) {
+    return await this.get({
+      url: `${this.baseUrl}/live/list`,
+      data: { page, limit, id }
+    });
+  }
 }
 
 export default BaseService;

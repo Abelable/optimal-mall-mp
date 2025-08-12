@@ -61,12 +61,12 @@
       <swiper class="live-list small-dots" autoplay circular indicator-dots indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
         <swiper-item 
           class="live-item" 
-          wx:for="{{bannerList}}"
+          wx:for="{{liveList}}"
           wx:key="index"
           bindtap="linkToLive"
           data-id="{{item.id}}"
         >
-          <image class="live-cover" mode="aspectFill" src="{{ item.cover }}" lazy-load />
+          <image class="live-cover" mode="aspectFill" src="{{ item.shareCover }}" lazy-load />
           <view class="status-wrap row">
             <view class="status row {{item.status === 1 ? 'live' : 'notice'}}">
               <image class="live-icon" wx:if="{{item.status === 1}}" src="https://static.tiddler.cn/mp/live_status.gif" />

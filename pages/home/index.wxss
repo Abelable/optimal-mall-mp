@@ -214,13 +214,14 @@ page {
 }
 .live-title {
   color: #fff;
-  font-size: 26rpx;
+  font-size: 24rpx;
   font-weight: bold;
+  text-shadow: 0 0 1px #999;
 }
 .live-info {
   display: flex;
   align-items: center;
-  margin-top: 18rpx;
+  margin-top: 12rpx;
 }
 .anchor-avatar {
   margin-right: 8rpx;
@@ -232,7 +233,7 @@ page {
   flex: 1;
   color: #fff;
   font-size: 22rpx;
-  font-weight: 600;
+  font-weight: 500;
 }
 .praise-info {
   display: flex;
@@ -248,13 +249,11 @@ page {
 .notice-btn {
   margin-left: 8rpx;
   padding: 0 18rpx;
-  height: 40rpx;
-  color: var(--gold-1);
-  font-size: 20rpx;
-  font-weight: bold;
-  line-height: 1;
+  height: 36rpx;
+  color: #fff;
+  font-size: 18rpx;
   border-radius: 8rpx;
-  background: var(--blue-linear-2);
+  background: var(--theme-color-btn-bg);
 }
 
 .integrity-illus {

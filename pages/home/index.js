@@ -21,7 +21,7 @@ Component({
     curMenuIdx: 0,
     bannerList: [],
     middleBannerList: [],
-    liveList: [1],
+    liveList: [],
     curDot: 1,
     activityGoodsLists: [[], [], []],
     hometownList: [
@@ -61,6 +61,7 @@ Component({
       wx.showLoading({ title: "加载中..." });
       await this.setBannerList();
       await this.setMiddleBannerList();
+      await this.setLiveList();
       await this.setMenuList();
       await this.setActivityGoodsList();
       this.setGoodsList(true);
@@ -126,6 +127,11 @@ Component({
     async setMiddleBannerList() {
       const middleBannerList = await homeService.getBannerList(2);
       this.setData({ middleBannerList });
+    },
+
+    async setLiveList() {
+      const { list: liveList } = await homeService.getLiveList(1, 3);
+      this.setData({ liveList });
     },
 
     bannerChange(event) {
@@ -223,7 +229,7 @@ Component({
     },
 
     navToHometown(e) {
-      const { name = '' } = e.currentTarget.dataset
+      const { name = "" } = e.currentTarget.dataset;
       wx.navigateTo({
         url: `./subpages/hometown/index?name=${name}`
       });
@@ -233,6 +239,12 @@ Component({
       wx.navigateTo({
         url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
       });
+    },
+
+    linkToLive(e) {
+      const { id } = e.currentTarget.dataset;
+      const url = `/pages/subpages/live/live-play/index?id=${id}`;
+      wx.navigateTo({ url });
     },
 
     hideAdModal() {
