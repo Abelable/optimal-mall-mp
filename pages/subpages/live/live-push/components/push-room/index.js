@@ -213,7 +213,7 @@ Component({
           },
         });
       } else {
-        wx.switchTab({ url: "//pages/mine/index" });
+        wx.switchTab({ url: "/pages/mine/index" });
       }
     },
 

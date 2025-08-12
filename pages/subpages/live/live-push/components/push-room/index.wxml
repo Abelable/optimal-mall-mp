@@ -13,7 +13,7 @@
       <view class="close-icon row center" bindtap="confirmStopLive">
         <image style="width: 18px; height: 18px;" src="https://img.ubo.vip/tiddler/nav-icon/close.png" />
       </view>
-      <anchor-capsule anchorInfo="{{userInfo}}" isLivePush />
+      <anchor-capsule anchorInfo="{{userInfo || null}}" isLivePush />
     </view>
 
     <hot-goods 
