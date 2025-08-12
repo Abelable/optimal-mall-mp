@@ -1,0 +1,5 @@
+<view class="container">
+  <fall-flow list="{{liveList}}" generic:item="live-item" />
+  <empty-illus wx:if="{{finished && !liveList.length}}" desc="暂无直播" />
+  <view class="no-more-tips" wx:if="{{finished && liveList.length}}">～没有更多了～</view>
+</view>

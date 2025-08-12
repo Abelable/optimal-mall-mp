@@ -53,7 +53,7 @@
     <view class="live-overview" wx:if="{{liveList.length}}">
       <view class="row between">
         <view class="live-overview-title">诚信直播</view>
-        <view class="live-overview-more row">
+        <view class="live-overview-more row" bindtap="checkMoreLive">
           <view>全部直播</view>
           <image class="more-icon" src="./images/arrow.png" />
         </view>

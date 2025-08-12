@@ -47,6 +47,7 @@
         "live/live-notice/index",
         "live/live-push/vertical-screen/index",
         "live/live-push/horizontal-screen/index",
+        "live/live-list/index",
         "live/live-play/index",
         "common/register/index",
         "common/webview/index",

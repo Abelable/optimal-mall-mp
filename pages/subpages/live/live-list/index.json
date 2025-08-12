@@ -1,0 +1,9 @@
+{
+  "navigationBarTitleText": "诚信直播",
+  "enablePullDownRefresh": true,
+  "usingComponents": {
+    "empty-illus": "/components/empty-illus/index",
+    "fall-flow": "/components/fall-flow/index",
+    "live-item": "./components/live-item/index"
+  }
+}

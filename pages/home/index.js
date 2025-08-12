@@ -130,7 +130,10 @@ Component({
     },
 
     async setLiveList() {
-      const { list: liveList } = await homeService.getLiveList(1, 3);
+      const { list: liveList } = await homeService.getLiveList({
+        page: 1,
+        limit: 3
+      });
       this.setData({ liveList });
     },
 
@@ -238,6 +241,12 @@ Component({
     checkLimitedTimeActivity() {
       wx.navigateTo({
         url: `/pages/subpages/common/webview/index?url=${WEBVIEW_BASE_URL}/activity/limited_time_recruit`
+      });
+    },
+
+    checkMoreLive() {
+      wx.navigateTo({
+        url: '/pages/subpages/live/live-list/index'
       });
     },
 
