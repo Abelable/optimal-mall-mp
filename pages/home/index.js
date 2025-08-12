@@ -246,13 +246,24 @@ Component({
 
     checkMoreLive() {
       wx.navigateTo({
-        url: '/pages/subpages/live/live-list/index'
+        url: "/pages/subpages/live/live-list/index"
       });
     },
 
     linkToLive(e) {
-      const { id } = e.currentTarget.dataset;
-      const url = `/pages/subpages/live/live-play/index?id=${id}`;
+      const { id, anchorInfo, status, direction } =
+        e.currentTarget.dataset.info;
+      let url;
+      if (anchorInfo.id === store.userInfo.id) {
+        url =
+          status === 3
+            ? "/pages/subpages/live/live-notice/index"
+            : `/pages/subpages/live/live-push/${
+                direction === 1 ? "vertical" : "horizontal"
+              }-screen/index`;
+      } else {
+        url = `/pages/subpages/live/live-play/index?id=${id}`;
+      }
       wx.navigateTo({ url });
     },
 

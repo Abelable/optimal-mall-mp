@@ -64,7 +64,7 @@
           wx:for="{{liveList}}"
           wx:key="index"
           bindtap="linkToLive"
-          data-id="{{item.id}}"
+          data-info="{{item}}"
         >
           <image class="live-cover" mode="aspectFill" src="{{ item.shareCover }}" lazy-load />
           <view class="status-wrap row">
@@ -83,7 +83,7 @@
               <image class="anchor-avatar avatar-default" src="{{item.anchorInfo.avatar}}" lazy-load mode="aspectFill" />
               <view class="anchor-name omit single">{{item.anchorInfo.nickname}}</view>
               <view class="praise-info row" wx:if="{{item.status === 1}}">
-                <image class="praise-icon" src="./images/fire.png" />
+                <image class="praise-icon" src="/images/fire.png" />
                 <text>{{NUM.over(item.praiseNumber, 100000)}}</text>
               </view>
               <button class="notice-btn" wx:if="{{item.status === 3}}" bindtap="subscribe">预约</button>

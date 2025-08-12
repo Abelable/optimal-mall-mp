@@ -4,7 +4,7 @@
   width: 350rpx;
   height: 525rpx;
   font-size: 0;
-  border-radius: 32rpx;
+  border-radius: 16rpx;
   overflow: hidden;
   opacity: 0;
 }
@@ -111,10 +111,10 @@
   margin-left: 8rpx;
   padding: 0 18rpx;
   height: 40rpx;
-  color: var(--gold-1);
+  color: #fff;
   font-size: 20rpx;
   font-weight: bold;
   line-height: 1;
   border-radius: 8rpx;
-  background: var(--blue-linear-2);
+  background: var(--theme-color-btn-bg);
 }
