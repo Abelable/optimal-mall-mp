@@ -5,7 +5,6 @@
   align-items: center;
   width: 100vw;
   height: 100vh;
-
 }
 
 .cover-wrap {
@@ -56,13 +55,14 @@
 }
 .follow-icon {
   position: absolute;
-  right: 0;
-  bottom: 0;
-  width: 36rpx;
-  height: 36rpx;
+  left: 50%;
+  bottom: -20rpx;
+  transform: translateX(-50%);
+  width: 40rpx;
+  height: 40rpx;
 }
 .anchor-name {
-  margin-top: 12rpx;
+  margin-top: 16rpx;
   max-width: 300rpx;
   color: #fff;
   font-size: 28rpx;
@@ -93,7 +93,8 @@
   height: 80rpx;
   color: #fff;
   font-size: 28rpx;
+  font-weight: bold;
   border-radius: 40rpx;
-  border: 1rpx solid #fff;
+  background: rgba(0, 0, 0, 0.1);
 }
 

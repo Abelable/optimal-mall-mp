@@ -1,10 +1,10 @@
 {
   "component": true,
   "usingComponents": {
-    "anchor-capsule": "../../../components/anchor-capsule/index",
-    "comment-showcase": "../../../components/comment-showcase/index",
-    "praise-animation": "../../../components/praise-animation/index",
-    "hot-goods": "../../../components/hot-goods/index",
+    "anchor-capsule": "/pages/subpages/live/components/anchor-capsule/index",
+    "comment-showcase": "/pages/subpages/live/components/comment-showcase/index",
+    "praise-animation": "/pages/subpages/live/components/praise-animation/index",
+    "hot-goods": "/pages/subpages/live/components/hot-goods/index",
     "player": "./components/player/index",
     "live-end": "./components/live-end/index",
     "live-loading": "./components/live-loading/index"

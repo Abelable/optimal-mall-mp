@@ -1,4 +1,4 @@
-import { checkLogin } from "../../../../../../../../utils/index";
+import { checkLogin } from "../../../../../../utils/index";
 import LiveService from "../../../utils/liveService";
 
 const liveService = new LiveService();

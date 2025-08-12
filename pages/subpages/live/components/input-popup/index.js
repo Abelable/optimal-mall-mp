@@ -1,5 +1,5 @@
-import { store } from "../../../../../../store/index";
-import tim from "../../../../../../utils/tim/index";
+import tim from "../../../../../utils/tim/index";
+import { store } from "../../../../../store/index";
 import LiveService from "../../utils/liveService";
 
 const liveService = new LiveService();

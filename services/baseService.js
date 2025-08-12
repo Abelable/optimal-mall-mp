@@ -302,6 +302,37 @@ class BaseService extends Base {
       data: { page, limit, id }
     });
   }
+
+  async followAuthor(authorId, success) {
+    return await this.post({
+      url: `${this.baseUrl}/fan/follow`,
+      data: { authorId },
+      success
+    });
+  }
+
+  async cancelFollowAuthor(authorId, success) {
+    return await this.post({
+      url: `${this.baseUrl}/fan/cancel_follow`,
+      data: { authorId },
+      success
+    });
+  }
+
+  async getFollowStatus(authorId) {
+    return await this.get({
+      url: `${this.baseUrl}/fan/follow_status`,
+      data: { authorId }
+    });
+  }
+
+  async subscribeAnchor(anchorId, success) {
+    return await this.post({
+      url: `${this.baseUrl}/live/subscribe`,
+      data: { anchorId },
+      success
+    });
+  }
 }
 
 export default BaseService;

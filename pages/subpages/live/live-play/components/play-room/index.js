@@ -1,7 +1,7 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
-import { store } from "../../../../../../../../store/index";
-import { checkLogin } from "../../../../../../../../utils/index";
-import tim from "../../../../../../../../utils/tim/index";
+import { store } from "../../../../../../store/index";
+import { checkLogin } from "../../../../../../utils/index";
+import tim from "../../../../../../utils/tim/index";
 import {
   MSG_TYPE_HOT_GOODS,
   MSG_TYPE_LIVE_END,
