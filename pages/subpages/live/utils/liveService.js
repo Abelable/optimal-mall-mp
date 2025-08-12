@@ -90,13 +90,6 @@ class LiveService extends BaseService {
     });
   }
 
-  async getRoomList(id, page, limit = 10) {
-    return await this.get({
-      url: `${this.baseUrl}/live/list`,
-      data: { id, page, limit }
-    });
-  }
-
   async joinRoom(id) {
     return await this.post({
       url: `${this.baseUrl}/live/join_room`,
