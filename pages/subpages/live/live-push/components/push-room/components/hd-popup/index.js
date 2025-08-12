@@ -1,5 +1,5 @@
-import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
-import { store } from '../../../../../../../../../../store/index'
+import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
+import { store } from "../../../../../../../../store/index";
 
 Component({
   options: {
@@ -10,7 +10,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ['definitionIndex'],
+    fields: ["definitionIndex"]
   },
 
   properties: {
@@ -22,18 +22,18 @@ Component({
     resolutionList: [
       { name: "标清", detail: "480P/1000kbps" },
       { name: "高清", detail: "720P/1500kbps" },
-      { name: "超清", detail: "1080P/1800kbps" },
-    ],
+      { name: "超清", detail: "1080P/1800kbps" }
+    ]
   },
-  
-  methods: { 
+
+  methods: {
     selectResolution(e) {
-      const { index } = e.currentTarget.dataset
-      store.setDefinitionIndex(Number(index))
+      const { index } = e.currentTarget.dataset;
+      store.setDefinitionIndex(Number(index));
     },
 
     hide() {
-      this.triggerEvent('hide')
+      this.triggerEvent("hide");
     }
   }
-})
+});

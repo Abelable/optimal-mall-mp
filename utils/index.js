@@ -51,7 +51,7 @@ export const getQueryString = (url, name) => {
  */
 export const customBack = (needInitPrePageData = false) => {
   const registerPageRoute = "pages/subpages/common/register/index";
-  const minePageRoute = "pages/tab-bar-pages/mine/index";
+  const minePageRoute = "/pages/mine/index";
 
   const curPages = getCurrentPages();
   const curPage = curPages[curPages.length - 1];

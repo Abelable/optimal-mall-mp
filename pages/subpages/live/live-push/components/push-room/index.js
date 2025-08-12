@@ -1,6 +1,6 @@
 import { storeBindingsBehavior } from "mobx-miniprogram-bindings";
-import { store } from "../../../../../store/index";
-import tim from "../../../../../utils/tim/index";
+import { store } from "../../../../../../store/index";
+import tim from "../../../../../../utils/tim/index";
 import { MSG_TYPE_JOIN_ROOM, MSG_TYPE_PRAISE } from "../../../utils/msgType";
 import LiveService from "../../../utils/liveService";
 
@@ -207,13 +207,13 @@ Component({
               store.setAudienceCount(0);
               store.setPraiseCount(0);
               liveService.stopLive(() => {
-                wx.switchTab({ url: "/pages/tab-bar-pages/mine/index" });
+                wx.switchTab({ url: "/pages/mine/index" });
               });
             }
           },
         });
       } else {
-        wx.switchTab({ url: "/pages/tab-bar-pages/mine/index" });
+        wx.switchTab({ url: "//pages/mine/index" });
       }
     },
 

@@ -1,5 +1,5 @@
 import { storeBindingsBehavior } from 'mobx-miniprogram-bindings'
-import { store } from '../../../../../../../../../../store/index'
+import { store } from '../../../../../../../../store/index';
 
 const { statusBarHeight } = getApp().globalData.systemInfo;
 

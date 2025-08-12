@@ -36,7 +36,7 @@ Component({
           const renderHeight = res[0].height;
           ctx = canvas.getContext("2d");
 
-          const dpr = wx.getWindowInfo().pixelRatio;
+          const dpr = getApp().globalData.systemInfo.pixelRatio;
           canvas.width = renderWidth * dpr;
           canvas.height = renderHeight * dpr;
           ctx.scale(dpr, dpr);

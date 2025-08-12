@@ -34,6 +34,14 @@ Page({
     }, 1000);
   },
 
+  startLive() {
+    const { direction } = this.data.roomInfo;
+    const url = `../live-push/${
+      direction === 1 ? "vertical" : "horizontal"
+    }-screen/index`;
+    wx.navigateTo({ url });
+  },
+
   deleteLiveNotice() {
     wx.showModal({
       content: "确定删除直播预告吗？",
