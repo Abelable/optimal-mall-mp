@@ -31,6 +31,7 @@ Component({
       { en: "refund", zh: "售后", total: 0 }
     ],
     unreadNotificationCount: 0,
+    liveVisible: false,
     authInfoPopupVisible: false,
     authInfoModalVisible: false,
     posterInfo: null,
@@ -71,9 +72,17 @@ Component({
           this.setCustomerData();
         }
 
+        this.setLiveVisible();
         this.setOrderListTotals();
         this.setUnreadNotificationCount();
       }, false);
+    },
+
+    async setLiveVisible() {
+      const liveUserIds = await mineService.getLiveUserIds();
+      if (liveUserIds.includes(store.userInfo.id)) {
+        this.setData({ liveVisible: true });
+      }
     },
 
     async setCommissionSumInfo() {

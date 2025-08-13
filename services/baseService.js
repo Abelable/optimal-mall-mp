@@ -292,6 +292,10 @@ class BaseService extends Base {
     });
   }
 
+    async getLiveUserIds() {
+    return await this.get({ url: `${this.baseUrl}/live/user_ids` });
+  }
+
   async getRoomStatus() {
     return await this.get({ url: `${this.baseUrl}/live/room_status` });
   }
