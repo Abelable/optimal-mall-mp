@@ -11,7 +11,7 @@
       <view class="notice-spot" wx:if="{{item.status === 3}}" />
       <text>{{item.status === 1 ? '直播' : '预告'}}</text>
     </view>
-    <view class="status-desc">{{item.status === 1 ? (NUM.over(item.viewersNumber, 100000) + '人观看') : TIME.transform(item.noticeTime, 'MM月DD日hh:mm开始')}}</view>
+    <view class="status-desc">{{item.status === 1 ? (NUM.over(item.viewersNumber || 0, 100000) + '人观看') : TIME.transform(item.noticeTime, 'MM月DD日hh:mm开始')}}</view>
   </view>
 
   <view class="info-wrap">
@@ -21,7 +21,7 @@
       <view class="anchor-name omit single">{{item.anchorInfo.nickname}}</view>
       <view class="praise-info row" wx:if="{{item.status === 1}}">
         <image class="praise-icon" src="/images/fire.png" />
-        <text>{{NUM.over(item.praiseNumber, 100000)}}</text>
+        <text>{{NUM.over(item.praiseNumber || 0, 100000)}}</text>
       </view>
       <button class="notice-btn" wx:if="{{item.status === 3}}" bindtap="subscribe">预约</button>
     </view>

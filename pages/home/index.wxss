@@ -241,7 +241,7 @@ page {
   color: #fff;
   font-size: 22rpx;
 }
-.praise-icon {
+.live-praise-icon {
   margin-right: 4rpx;
   width: 26rpx;
   height: 24rpx;
