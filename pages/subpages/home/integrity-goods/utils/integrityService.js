@@ -1,6 +1,6 @@
-import BaseService from "../../../../../services/baseService";
+import HomeService from "../../utils/homeService";
 
-class IntegrityGoodsService extends BaseService {
+class IntegrityGoodsService extends HomeService {
   async getRegionOptions() {
     return await this.get({
       url: `${this.baseUrl}/integrity/region_options`,

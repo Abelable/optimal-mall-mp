@@ -227,7 +227,7 @@ Component({
 
     navToIntegrityGoods() {
       wx.navigateTo({
-        url: "./subpages/integrity-goods/index"
+        url: "/pages/subpages/home/integrity-goods/index"
       });
     },
 

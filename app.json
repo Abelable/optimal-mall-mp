@@ -1,7 +1,6 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/home/subpages/integrity-goods/index",
     "pages/home/subpages/hometown/index",
     "pages/home/subpages/cart/index",
     "pages/home/subpages/goods-detail/index",
@@ -39,6 +38,7 @@
     {
       "root": "pages/subpages/",
       "pages": [
+        "home/integrity-goods/index",
         "home/village-grain/index",
         "home/village-fresh/index",
         "home/village-snack/index",

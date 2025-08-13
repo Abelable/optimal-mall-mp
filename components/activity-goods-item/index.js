@@ -1,7 +1,7 @@
 import dayjs from "dayjs";
-import HomeService from "../../utils/homeService";
+import BaseService from "../../services/baseService";
 
-const homeService = new HomeService();
+const baseService = new BaseService();
 
 Component({
   options: {
@@ -84,7 +84,7 @@ Component({
     subscribe() {
       const { id, isSubscribed } = this.properties.item.activityInfo;
       if (!isSubscribed) {
-        homeService.subscribeActivity(id, () => {
+        baseService.subscribeActivity(id, () => {
           this.setData({
             ["item.activityInfo.isSubscribed"]: 1
           });
@@ -97,7 +97,7 @@ Component({
     },
 
     async addCart() {
-      const cartGoodsNumber = await homeService.addCart(
+      const cartGoodsNumber = await baseService.addCart(
         this.properties.item.id
       );
       if (cartGoodsNumber) {
