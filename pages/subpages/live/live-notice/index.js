@@ -62,7 +62,14 @@ Page({
   },
 
   navBack() {
-    wx.navigateBack();
+    const pagesLength = getCurrentPages().length;
+    const prePage = getCurrentPages()[pagesLength - 2];
+    const prePageRoute = prePage ? prePage.route : "";
+    if (prePageRoute === "pages/subpages/live/create-live/index") {
+      wx.switchTab({ url: "/pages/mine/index" });
+    } else {
+      wx.navigateBack();
+    }
   },
 
   onUnload() {
