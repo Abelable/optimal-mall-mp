@@ -1,5 +1,4 @@
-// import TIM from "tim-wx-sdk";
-import TIM from '@tencentcloud/chat';
+import TIM from "@tencentcloud/chat";
 import { store } from "../../store/index";
 
 // 加群
