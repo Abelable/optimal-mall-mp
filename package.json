@@ -1,10 +1,10 @@
 {
   "dependencies": {
+    "@tencentcloud/chat": "^3.5.7",
     "@vant/weapp": "^1.11.0",
     "dayjs": "^1.11.5",
     "mobx-miniprogram": "^4.13.2",
     "mobx-miniprogram-bindings": "^2.1.5",
-    "tim-upload-plugin": "^1.4.3",
-    "tim-wx-sdk": "^2.27.6"
+    "tim-upload-plugin": "^1.4.3"
   }
 }

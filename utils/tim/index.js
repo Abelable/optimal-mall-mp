@@ -1,4 +1,5 @@
-import TIM from "tim-wx-sdk";
+// import TIM from "tim-wx-sdk";
+import TIM from '@tencentcloud/chat';
 import TIMUploadPlugin from "tim-upload-plugin";
 import { store } from "../../store/index";
 import {

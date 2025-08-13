@@ -1,4 +1,4 @@
-import HomeService from "../../utils/homeService";
+import HomeService from "../utils/homeService";
 
 const homeService = new HomeService();
 
@@ -13,7 +13,7 @@ Page({
   },
 
   async setGoodsList() {
-    const goodsList = (await homeService.getGiftGoodsList()) || [];
+    const goodsList = (await homeService.getSnackGoodsList()) || [];
     if (goodsList.length) {
       this.setData({
         topGoodsList: goodsList.slice(0, 2),

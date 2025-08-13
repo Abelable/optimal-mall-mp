@@ -197,25 +197,25 @@ Component({
 
     navToVillageGrain() {
       wx.navigateTo({
-        url: "./subpages/village-grain/index"
+        url: "/pages/subpages/home/village-grain/index"
       });
     },
 
     navToVillageFresh() {
       wx.navigateTo({
-        url: "./subpages/village-fresh/index"
+        url: "/pages/subpages/home/village-fresh/index"
       });
     },
 
     navToVillageSnack() {
       wx.navigateTo({
-        url: "./subpages/village-snack/index"
+        url: "/pages/subpages/home/village-snack/index"
       });
     },
 
     navToVillageGift() {
       wx.navigateTo({
-        url: "./subpages/village-gift/index"
+        url: "/pages/subpages/home/village-gift/index"
       });
     },
 

@@ -1,10 +1,6 @@
 {
   "pages": [
     "pages/home/index",
-    "pages/home/subpages/village-grain/index",
-    "pages/home/subpages/village-fresh/index",
-    "pages/home/subpages/village-snack/index",
-    "pages/home/subpages/village-gift/index",
     "pages/home/subpages/integrity-goods/index",
     "pages/home/subpages/hometown/index",
     "pages/home/subpages/cart/index",
@@ -43,6 +39,10 @@
     {
       "root": "pages/subpages/",
       "pages": [
+        "home/village-grain/index",
+        "home/village-fresh/index",
+        "home/village-snack/index",
+        "home/village-gift/index",
         "live/create-live/index",
         "live/live-notice/index",
         "live/live-push/vertical-screen/index",
