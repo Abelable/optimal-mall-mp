@@ -1,6 +1,6 @@
-import BaseService from "../../../../services/baseService";
+import HomeService from "../../utils/homeService";
 
-const baseService = new BaseService();
+const homeService = new HomeService();
 
 Component({
   options: {
@@ -45,7 +45,7 @@ Component({
 
   methods: {
     async addCart() {
-      const cartGoodsNumber = await baseService.addCart(
+      const cartGoodsNumber = await homeService.addCart(
         this.properties.item.id
       );
       if (cartGoodsNumber) {
