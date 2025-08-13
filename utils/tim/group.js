@@ -54,7 +54,7 @@ export const handleLiveCustomMsg = data => {
 let liveChatMsgCache = [];
 let setLiveMsgListTimeout = null;
 export const handleLiveChatMsg = payload => {
-  const liveChatMsg = JSON.parse(payload.data);
+  const liveChatMsg = JSON.parse(payload.text);
   liveChatMsg && liveChatMsgCache.push(liveChatMsg);
 
   if (!setLiveMsgListTimeout) {
