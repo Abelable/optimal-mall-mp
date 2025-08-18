@@ -156,8 +156,8 @@ Component({
       } = this.properties.roomInfo;
 
       const scene = `id=${id}`;
-      const page = "pages/tab-bar-pages/home/index";
-      const qrCode = await liveService.getQrCode(scene, page);
+      const page = "pages/subpages/live/live-play/index";
+      const qrCode = await liveService.getQRCode(scene, page);
 
       this.setData({
         posterModalVisible: true,
