@@ -10,11 +10,29 @@
       </view>
       <view class="multiple-switch row">
         <view>多选：</view>
-        <switch bindchange="switchMultiple" color="#169dfe" />
+        <switch bindchange="switchMultiple" color="#F5701D" />
       </view>
     </view>
 
     <scroll-view class="goods-list-wrap" scroll-y bindscrolltolower="loadMore">
+      <view class="search-bar" wx:if="{{curMenuIdx === 1}}">
+        <view class="search-content row">
+          <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+          <input 
+            class="search-input"
+            value="{{keywords}}" 
+            bindinput="setKeywords" 
+            bindconfirm="search" 
+            placeholder="请输入搜索关键字" 
+            type="text" 
+            confirm-type="search" 
+          />
+          <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+            <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+          </view>
+          <button class="search-btn" bindtap="search">搜索</button>
+        </view>
+      </view>
       <view class="all-pick-bar row between" wx:if="{{multiple}}">
         <view class="row" bindtap="toggleAllSelected">
           <image class="select-icon" src="{{allSelected ? './images/selected.png' : './images/unselected.png'}}"  />

@@ -9,6 +9,7 @@ Component({
 
   data: {
     curMenuIdx: 0,
+    keywords: "",
     goodsList: [],
     multiple: false,
     allSelected: false
@@ -27,19 +28,40 @@ Component({
       this.setGoodsList(true);
     },
 
+    setKeywords(e) {
+      this.setData({
+        keywords: e.detail.value
+      });
+    },
+
+    search() {
+      const { keywords } = this.data;
+      if (!keywords) {
+        return;
+      }
+      this.setGoodsList(true);
+    },
+
+    cancelSearch() {
+      this.setData({ keywords: "" });
+      this.setGoodsList(true);
+    },
+
     loadMore() {
       if (this.data.curMenuIdx === 1) {
         this.setGoodsList();
       }
     },
 
-    async setGoodsList(init = true) {
+    async setGoodsList(init = false) {
       if (init) {
         this.page = 0;
+        this.setData({ goodsList: [] });
       }
-      const { curMenuIdx, goodsList } = this.data;
+      const { curMenuIdx, keywords, goodsList } = this.data;
       const res = await liveService.getPushRoomGoodsList(
         curMenuIdx === 0 ? 1 : 0,
+        keywords,
         ++this.page
       );
       if (curMenuIdx === 0) {
@@ -50,7 +72,7 @@ Component({
       } else {
         const list = res.list.map(item => ({ ...item, checked: false }));
         this.setData({
-          goodsList: init ? list : [...goodsList, list],
+          goodsList: init ? list : [...goodsList, ...list],
           allSelected: false
         });
       }

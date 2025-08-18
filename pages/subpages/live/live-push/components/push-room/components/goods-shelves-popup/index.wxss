@@ -35,6 +35,53 @@
   font-size: 14px;
 }
 
+.search-bar {
+  margin-top: 12px;
+  border-top: 1px solid #eee;
+}
+.search-content {
+  position: relative;
+  padding-right: 60px;
+  height: 36px;
+  background: #fff;
+  border-radius: 18px;
+  border: 1px solid #F5701D;
+}
+.search-icon {
+  margin-left: 10px;
+  width: 15px;
+  height: 15px;
+}
+.search-input {
+  padding-left: 5px;
+  flex: 1;
+  height: 36px;
+  color: #333;
+  font-size: 13px;
+}
+.cancel-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 30px;
+  height: 30px;
+}
+.cancel-icon {
+  width: 16px;
+  height: 16px;
+}
+.search-btn {
+  position: absolute;
+  top: -1px;
+  right: -1px;
+  width: 60px;
+  height: 36px;
+  font-size: 13px;
+  color: #fff;
+  border-radius: 18px;
+  background: #F5701D;
+}
+
 .goods-list-wrap {
   padding: 0 12px;
   height: 500px;
@@ -44,7 +91,8 @@
 
 .all-pick-bar {
   margin-top: 12px;
-  padding: 0 15px;
+  padding-left: 12px;
+  padding-right: 8px;
   height: 36px;
   background: #fff;
   border-radius: 18px;

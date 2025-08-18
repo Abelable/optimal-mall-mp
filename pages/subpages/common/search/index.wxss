@@ -6,6 +6,7 @@
   background: #fff;
   z-index: 100;
 }
+
 .search-bar {
   padding: 18rpx 24rpx;
   border-top: 1px solid #eee;
