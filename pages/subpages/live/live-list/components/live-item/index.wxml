@@ -11,7 +11,7 @@
       <view class="notice-spot" wx:if="{{item.status === 3}}" />
       <text>{{item.status === 1 ? '直播' : '预告'}}</text>
     </view>
-    <view class="status-desc">{{item.status === 1 ? (NUM.over(item.viewersNumber || 0, 100000) + '人观看') : TIME.transform(item.noticeTime, 'MM月DD日hh:mm开始')}}</view>
+    <view class="status-desc">{{item.status === 1 ? (NUM.over(item.views || 0, 100000) + '人观看') : TIME.transform(item.noticeTime, 'MM月DD日hh:mm开始')}}</view>
   </view>
 
   <view class="info-wrap">

@@ -5,7 +5,7 @@ import tim from "../../../../../../utils/tim/index";
 import {
   MSG_TYPE_HOT_GOODS,
   MSG_TYPE_LIVE_END,
-  MSG_TYPE_SUBSCRIBE_REMIND,
+  MSG_TYPE_SUBSCRIBE_REMIND
 } from "../../../utils/msgType";
 import LiveService from "../../../utils/liveService";
 
@@ -14,7 +14,7 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
 
   behaviors: [storeBindingsBehavior],
@@ -26,14 +26,13 @@ Component({
       "srcIniting",
       "liveLoading",
       "fullScreen",
-      "audienceCount",
-      "praiseCount",
+      "praiseCount"
     ],
-    actions: ["setFullScreen", "exitFullScreen"],
+    actions: ["setFullScreen", "exitFullScreen"]
   },
 
   properties: {
-    roomInfo: Object,
+    roomInfo: Object
   },
 
   data: {
@@ -47,7 +46,7 @@ Component({
     showAudienceActionTips: false,
     praiseHeartArr: [],
     liveEnd: false,
-    liveDuration: 0,
+    liveDuration: 0
   },
 
   observers: {
@@ -56,7 +55,7 @@ Component({
         checkLogin(() => {
           this.init();
         }, false);
-    },
+    }
   },
 
   lifetimes: {
@@ -66,7 +65,7 @@ Component({
 
     detached() {
       store.resetRoomData();
-    },
+    }
   },
 
   pageLifetimes: {
@@ -75,31 +74,26 @@ Component({
         checkLogin(() => {
           this.init();
         }, false);
-    },
+    }
   },
 
   methods: {
     async init() {
       const { id, groupId } = this.properties.roomInfo;
-      const {
-        viewersNumber,
-        praiseNumber,
-        hotGoods,
-        historyChatMsgList,
-        isFollow,
-      } = (await liveService.joinRoom(id)) || {};
-      store.setAudienceCount(viewersNumber);
+      const { views, praiseNumber, hotGoods, historyChatMsgList, isFollow } =
+        (await liveService.joinRoom(id)) || {};
+      store.setAudienceCount(views);
       store.setPraiseCount(praiseNumber);
       store.setLiveMsgList([
         ...historyChatMsgList,
         {
           content:
-            "平台依法对直播内容进行24小时巡查，倡导绿色直播，维护网络文明健康。切勿与他人私下交易，非官方活动谨慎参与，避免上当受骗。",
-        },
+            "平台依法对直播内容进行24小时巡查，倡导绿色直播，维护网络文明健康。切勿与他人私下交易，非官方活动谨慎参与，避免上当受骗。"
+        }
       ]);
       if (hotGoods) {
         this.setData({
-          hotGoods,
+          hotGoods
         });
       }
       this.setData({ hotGoods, isFollow });
@@ -124,9 +118,9 @@ Component({
               this.setData({
                 audienceActionTips: {
                   type: "coming",
-                  message: `${nickname}进入直播间`,
+                  message: `${nickname}进入直播间`
                 },
-                showAudienceActionTips: true,
+                showAudienceActionTips: true
               });
               setTimeout(() => {
                 this.setData({ showAudienceActionTips: false });
@@ -172,11 +166,11 @@ Component({
               style: `top: ${y - 40}px; left: ${
                 x - 40
               }px; transform: rotate(${deg}deg); animation: float 0.6s linear;`,
-              url: "https://img.ubo.vip/mp/praise-heart.png",
+              url: "https://img.ubo.vip/mp/praise-heart.png"
             };
             this.setData({
               [`praiseHeartArr[${this.data.praiseHeartArr.length}]`]:
-                praiseHeartItem,
+                praiseHeartItem
             });
             this.praise();
             if (this.clearPraiseHeartArrTimeout)
@@ -238,6 +232,6 @@ Component({
 
     login() {
       wx.navigateTo({ url: "/pages/subpages/common/register/index" });
-    },
-  },
+    }
+  }
 });

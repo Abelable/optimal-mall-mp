@@ -9,18 +9,18 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 
 Component({
   options: {
-    addGlobalClass: true,
+    addGlobalClass: true
   },
 
   behaviors: [storeBindingsBehavior],
 
   storeBindings: {
     store,
-    fields: ["userInfo"],
+    fields: ["userInfo", "praiseCount"]
   },
 
   properties: {
-    roomInfo: Object,
+    roomInfo: Object
   },
 
   data: {
@@ -40,45 +40,44 @@ Component({
     beautyPopupVisible: false,
     hdPopupVisible: false,
     subscribeRemindPopupVisible: false,
-    goodsShelvesPopupVisible: false,
+    goodsShelvesPopupVisible: false
   },
 
   observers: {
     roomInfo: function (info) {
       if (info) {
-        const { status, viewersNumber, praiseNumber, historyChatMsgList } =
-          info;
+        const { status, views, praiseNumber, historyChatMsgList } = info;
 
         if (status === 1) {
           this.startLive();
-          store.setAudienceCount(viewersNumber);
+          store.setAudienceCount(views);
           store.setPraiseCount(praiseNumber);
           store.setLiveMsgList([
             ...historyChatMsgList,
             {
               content:
-                "平台依法对直播内容进行24小时巡查，倡导绿色直播，维护网络文明健康。切勿与他人私下交易，非官方活动谨慎参与，避免上当受骗。",
-            },
+                "平台依法对直播内容进行24小时巡查，倡导绿色直播，维护网络文明健康。切勿与他人私下交易，非官方活动谨慎参与，避免上当受骗。"
+            }
           ]);
         }
       }
-    },
+    }
   },
 
   lifetimes: {
     attached() {
       getApp().onLiveCustomMsgReceive(this.handleCustomMsg.bind(this));
-    },
+    }
   },
 
   methods: {
     startCountdown() {
       this.setData({
-        countdownVisible: true,
+        countdownVisible: true
       });
       setTimeout(() => {
         this.setData({
-          countdownVisible: false,
+          countdownVisible: false
         });
         this.startLive();
       }, 5000);
@@ -102,46 +101,46 @@ Component({
 
     shopInputPopup() {
       this.setData({
-        inputPopupVisible: true,
+        inputPopupVisible: true
       });
     },
 
     showSubscribeRemindPopup() {
       this.setData({
         moreFeaturesPopupVisible: false,
-        subscribeRemindPopupVisible: true,
+        subscribeRemindPopupVisible: true
       });
     },
 
     showMoreFeaturesPopup() {
       this.setData({
-        moreFeaturesPopupVisible: true,
+        moreFeaturesPopupVisible: true
       });
     },
 
     showBeautyPopup() {
       this.setData({
         moreFeaturesPopupVisible: false,
-        beautyPopupVisible: true,
+        beautyPopupVisible: true
       });
     },
 
     showHdPopup() {
       this.setData({
         moreFeaturesPopupVisible: false,
-        hdPopupVisible: true,
+        hdPopupVisible: true
       });
     },
 
     showGoodsShelvesPopup() {
       this.setData({
-        goodsShelvesPopupVisible: true,
+        goodsShelvesPopupVisible: true
       });
     },
 
     showTrafficRechargePopup() {
       this.setData({
-        trafficRechargePopupVisible: true,
+        trafficRechargePopupVisible: true
       });
     },
 
@@ -155,11 +154,11 @@ Component({
         noticeTime,
         startTime
       } = this.properties.roomInfo;
-  
+
       const scene = `id=${id}`;
       const page = "pages/tab-bar-pages/home/index";
       const qrCode = await liveService.getQrCode(scene, page);
-  
+
       this.setData({
         posterModalVisible: true,
         posterInfo: {
@@ -182,7 +181,7 @@ Component({
         beautyPopupVisible,
         hdPopupVisible,
         subscribeRemindPopupVisible,
-        goodsShelvesPopupVisible,
+        goodsShelvesPopupVisible
       } = this.data;
       if (inputPopupVisible) this.setData({ inputPopupVisible: false });
       if (posterModalVisible) this.setData({ posterModalVisible: false });
@@ -201,7 +200,7 @@ Component({
         wx.showModal({
           content: "确定结束直播吗？",
           showCancel: true,
-          success: (result) => {
+          success: result => {
             if (result.confirm) {
               this.setData({ stop: true });
               store.setAudienceCount(0);
@@ -210,7 +209,7 @@ Component({
                 wx.switchTab({ url: "/pages/mine/index" });
               });
             }
-          },
+          }
         });
       } else {
         wx.switchTab({ url: "/pages/mine/index" });
@@ -253,9 +252,9 @@ Component({
               this.setData({
                 audienceActionTips: {
                   type: "coming",
-                  message: `${nickname}进入直播间`,
+                  message: `${nickname}进入直播间`
                 },
-                showAudienceActionTips: true,
+                showAudienceActionTips: true
               });
               setTimeout(() => {
                 this.setData({ showAudienceActionTips: false });
@@ -276,6 +275,6 @@ Component({
       }
     },
 
-    async setRecommendGoods() {},
-  },
+    async setRecommendGoods() {}
+  }
 });
