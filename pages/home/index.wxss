@@ -239,7 +239,7 @@ page {
   display: flex;
   align-items: center;
   color: #fff;
-  font-size: 22rpx;
+  font-size: 20rpx;
 }
 .live-praise-icon {
   margin-right: 4rpx;
