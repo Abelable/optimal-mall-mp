@@ -11,7 +11,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["promoterInfo"]
+    fields: ["promoterInfo", "userInfo"]
   },
 
   data: {
@@ -135,6 +135,20 @@ Component({
         limit: 3
       });
       this.setData({ liveList });
+    },
+
+    subscribe(e) {
+      const { id } = e.currentTarget.dataset;
+      if (id !== store.userInfo.id) {
+        checkLogin(() => {
+          liveService.subscribeAnchor(id, () => {
+            wx.showToast({
+              title: "预约成功",
+              icon: "none"
+            });
+          });
+        });
+      }
     },
 
     bannerChange(event) {

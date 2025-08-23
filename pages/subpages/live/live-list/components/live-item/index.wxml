@@ -23,7 +23,7 @@
         <image class="praise-icon" src="/images/fire.png" />
         <text>{{NUM.over(item.praiseNumber || 0, 100000)}}</text>
       </view>
-      <button class="notice-btn" wx:if="{{item.status === 3}}" bindtap="subscribe">预约</button>
+      <button class="notice-btn" wx:if="{{item.status === 3 && item.anchorInfo.id !== userInfo.id}}" bindtap="subscribe">预约</button>
     </view>
   </view>
 </view>

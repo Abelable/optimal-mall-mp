@@ -1,4 +1,4 @@
-import { ACTIVITY_TEMPLATE_ID } from "../config";
+import { ACTIVITY_TEMPLATE_ID, LIVE_TEMPLATE_ID } from "../config";
 import { store } from "../store/index";
 import { cleanObject, randomNickname } from "../utils/index";
 import Base from "./base/index";
@@ -292,7 +292,7 @@ class BaseService extends Base {
     });
   }
 
-    async getLiveUserIds() {
+  async getLiveUserIds() {
     return await this.get({ url: `${this.baseUrl}/live/user_ids` });
   }
 
@@ -336,6 +336,23 @@ class BaseService extends Base {
       data: { anchorId },
       success
     });
+  }
+
+  async subscribeAnchor(anchorId, success, fail) {
+    const wxSubRes = await this.requestSubscribeMessage(LIVE_TEMPLATE_ID);
+    if (wxSubRes[LIVE_TEMPLATE_ID] === "accept") {
+      return this.post({
+        url: `${this.baseUrl}/live/subscribe`,
+        data: { anchorId },
+        success,
+        fail
+      });
+    } else
+      wx.showToast({
+        title: "订阅失败，如未点击取消，请到小程序的设置中打开授权",
+        icon: "none",
+        duration: 3000
+      });
   }
 }
 

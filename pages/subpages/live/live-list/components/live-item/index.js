@@ -14,7 +14,7 @@ Component({
 
   storeBindings: {
     store,
-    fields: ["activeMediaItem"],
+    fields: ["activeMediaItem", "userInfo"],
   },
 
   properties: {
