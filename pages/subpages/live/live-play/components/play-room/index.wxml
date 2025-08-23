@@ -44,7 +44,7 @@
                 <text>说点什么...</text>
               </view>
               <view class="row">
-                <view class="feature-btn row center" wx:if="{{roomInfo.anchorInfo.shopId}}" catchtap="showGoodsPopup" >
+                <view class="feature-btn row center" catchtap="showGoodsPopup" >
                   <image class="goods-icon" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
                 </view>
                 <view class="feature-btn row center" catchtap="showSharePopup" >
