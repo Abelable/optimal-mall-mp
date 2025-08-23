@@ -1,5 +1,24 @@
 <van-popup show="{{show}}" round position="bottom" bind:close="hide">
   <view class="goods-picker-popup">
+    <view class="search-bar">
+      <view class="search-content row">
+        <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+        <input 
+          class="search-input"
+          value="{{keywords}}" 
+          bindinput="setKeywords" 
+          bindconfirm="search" 
+          placeholder="请输入搜索关键字" 
+          type="text" 
+          confirm-type="search" 
+        />
+        <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
+          <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+        </view>
+        <button class="search-btn" bindtap="search">搜索</button>
+      </view>
+    </view>
+
     <scroll-view class="goods-list-wrap" bindscrolltolower="loadMore" scroll-y>
       <view class="goods-list">
         <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" bindtap="toggleChecked" data-index="{{index}}">

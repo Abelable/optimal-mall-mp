@@ -19,25 +19,75 @@ Component({
   },
 
   data: {
+    keywords: "",
     goodsList: [],
     allChecked: false
   },
 
   methods: {
+    setKeywords(e) {
+      this.setData({
+        keywords: e.detail.value
+      });
+    },
+
+    search() {
+      const { keywords } = this.data;
+      if (!keywords) {
+        return;
+      }
+      this.setGoodsList(true);
+    },
+
+    cancelSearch() {
+      this.setData({ keywords: "" });
+      this.setGoodsList(true);
+    },
+
     loadMore() {
       this.setGoodsList();
     },
 
     async setGoodsList(init = false) {
       if (init) this.page = 0;
-      const list = (await liveService.getGoodsList(++this.page)) || {};
-      const goodsList = list.map(item => ({
+      const { keywords, goodsList } = this.data;
+
+      let list = [];
+      if (keywords) {
+        list =
+          (await liveService.searchGoodsList({
+            keywords,
+            page: ++this.page
+          })) || [];
+      } else {
+        list = (await liveService.getGoodsList({ page: ++this.page })) || [];
+      }
+
+      const processedList = list.map(item => ({
         ...item,
         checked: false
       }));
       this.setData({
-        goodsList: init ? goodsList : [...this.data.goodsList, ...goodsList]
+        goodsList: init ? processedList : [...goodsList, ...processedList]
       });
+
+      // if (init) this.page = 0;
+      // const { keywords, goodsList } = this.data;
+      // this.page += 1;
+
+      // const api = keywords
+      //   ? liveService.searchGoodsList
+      //   : liveService.getGoodsList;
+      // const params = keywords
+      //   ? { keywords, page: this.page }
+      //   : { page: this.page };
+      // const list = (await api(params)) || [];
+
+      // const processedList = list.map(item => ({ ...item, checked: false }));
+
+      // this.setData({
+      //   goodsList: init ? processedList : [...goodsList, ...processedList]
+      // });
     },
 
     toggleChecked(e) {
