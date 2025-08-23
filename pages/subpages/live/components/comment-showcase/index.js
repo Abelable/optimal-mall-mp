@@ -23,17 +23,17 @@ Component({
     liveMsgList: debounce(function (list) {
       if (list.length && !this.stopScroll) {
         const query = this.createSelectorQuery();
-        const promise_wrap = new Promise(resolve => {
-          query.select(".comment").boundingClientRect(res => {
+        const promiseWrap = new Promise(resolve => {
+          query.select(".comment-showcase").boundingClientRect(res => {
             res && resolve(res.height);
           });
         });
-        const promise_content = new Promise(resolve => {
-          query.select(".msg-lists").boundingClientRect(res => {
+        const promiseContent = new Promise(resolve => {
+          query.select(".comment-list").boundingClientRect(res => {
             res && resolve(res.height);
           });
         });
-        Promise.all([promise_wrap, promise_content]).then(res => {
+        Promise.all([promiseWrap, promiseContent]).then(res => {
           this.setData({
             scrollTop: res[1] - res[0]
           });
