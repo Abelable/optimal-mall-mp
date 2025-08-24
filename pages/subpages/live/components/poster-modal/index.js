@@ -133,7 +133,7 @@ Component({
         ["直播中", "回放", "预告"][status - 1]
       );
 
-      this.setWrapText(16, "#333", 24, 420, title, 22, 250, false, 2);
+      this.setWrapText(16, "#333", 24, 420, title, 22, 180, false, 1);
 
       const time = `直播时间：${dayjs(
         status === 3 ? noticeTime : startTime
