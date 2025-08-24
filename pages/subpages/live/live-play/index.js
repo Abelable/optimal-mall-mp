@@ -18,22 +18,10 @@ Page({
   },
 
   async onLoad(options) {
-    const { id, scene = "" } = options || {};
-    const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
-    this.roomId = +id || decodedSceneList[0];
-    this.superiorId = decodedSceneList[1] || "";
-
-    getApp().onLaunched(async () => {
-      if (this.superiorId && !store.superiorInfo) {
-        wx.setStorageSync("superiorId", this.superiorId);
-        const superiorInfo = await liveService.getUserInfo(this.superiorId);
-        if (superiorInfo.promoterInfo) {
-          store.setSuperiorInfo(superiorInfo);
-        }
-      }
+    wx.showShareMenu({
+      withShareTicket: true,
+      menus: ["shareAppMessage", "shareTimeline"]
     });
-
-    this.setRoomList();
 
     this.storeBindings = createStoreBindings(this, {
       store,
@@ -41,10 +29,20 @@ Page({
       actions: ["setLiveMsgList"]
     });
 
-    wx.showShareMenu({
-      withShareTicket: true,
-      menus: ["shareAppMessage", "shareTimeline"]
+    const { id, scene = "" } = options || {};
+    const decodedSceneList = scene ? decodeURIComponent(scene).split("-") : [];
+    this.roomId = +id || decodedSceneList[0];
+    this.superiorId = decodedSceneList[1] || "";
+
+    getApp().onLaunched(async () => {
+      if (this.superiorId && !store.promoterInfo) {
+        wx.setStorageSync("superiorId", this.superiorId);
+        const superiorInfo = await liveService.getSuperiorInfo(this.superiorId);
+        store.setPromoterInfo(superiorInfo);
+      }
     });
+
+    this.setRoomList();
   },
 
   onShow() {
@@ -72,7 +70,8 @@ Page({
   async setRoomList() {
     if (!this.page) this.page = 0;
     const { list = [] } =
-      (await liveService.getLiveList({id: this.roomId, page: ++this.page})) || {};
+      (await liveService.getLiveList({ id: this.roomId, page: ++this.page })) ||
+      {};
     this.setData({
       roomList: [...this.data.roomList, ...list]
     });
@@ -95,7 +94,7 @@ Page({
     const {
       id,
       status,
-      shareCover: cover,
+      cover,
       title,
       anchorInfo: authorInfo,
       noticeTime,
@@ -103,11 +102,11 @@ Page({
     } = roomList[curRoomIdx];
 
     const scene =
-      wx.getStorageSync("token") && store.superiorInfo
-        ? `${id}-${store.superiorInfo.id}`
+      wx.getStorageSync("token") && store.promoterInfo
+        ? `${id}-${store.promoterInfo.id}`
         : `${id}`;
     const page = "pages/subpages/live/live-play/index";
-    const qrCode = await liveService.getQRCode(scene, page);
+    const qrcode = await liveService.getQRCode(scene, page);
 
     this.setData({
       posterModalVisible: true,
@@ -118,7 +117,7 @@ Page({
         authorInfo,
         noticeTime,
         startTime,
-        qrCode
+        qrcode
       }
     });
   },
@@ -144,7 +143,7 @@ Page({
   },
 
   onShareAppMessage() {
-    const { id: superiorId } = store.superiorInfo || {};
+    const { id: superiorId } = store.promoterInfo || {};
     const { roomList, curRoomIdx } = this.data;
     const roomInfo = roomList[curRoomIdx];
     const { id, title, cover: imageUrl } = roomInfo;
@@ -155,11 +154,11 @@ Page({
   },
 
   onShareTimeline() {
-    const { id: superiorId } = store.superiorInfo || {};
+    const { id: superiorId } = store.promoterInfo || {};
     const { roomList, curRoomIdx } = this.data;
     const roomInfo = roomList[curRoomIdx];
     const { id, title, cover: imageUrl } = roomInfo;
-    title = `有播直播间：${title}`;
+    title = `诚信星球直播间：${title}`;
     const query = superiorId ? `id=${id}&superiorId=${superiorId}` : `id=${id}`;
     return { query, title, imageUrl };
   }

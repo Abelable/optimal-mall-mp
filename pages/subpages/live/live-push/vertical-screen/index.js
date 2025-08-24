@@ -1,47 +1,53 @@
-import LiveService from '../../utils/liveService'
+import { store } from "../../../../../store/index";
+import LiveService from "../../utils/liveService";
 
-const liveService = new LiveService()
+const liveService = new LiveService();
 
 Page({
   data: {
-    roomInfo: null,
+    roomInfo: null
   },
 
   async onLoad() {
     wx.showShareMenu({
       withShareTicket: false,
-      menus: ['shareAppMessage', 'shareTimeline']
-    })
+      menus: ["shareAppMessage", "shareTimeline"]
+    });
 
-    this.setRoomInfo()
+    this.setRoomInfo();
   },
 
   async setRoomInfo() {
-    const roomInfo = await liveService.getPushRoomInfo()
-    this.setData({ roomInfo })
+    const roomInfo = await liveService.getPushRoomInfo();
+    this.setData({ roomInfo });
   },
 
   onShow() {
     wx.setKeepScreenOn({
       keepScreenOn: true
-    })
+    });
   },
 
   onHide() {
     wx.setKeepScreenOn({
       keepScreenOn: false
-    })
+    });
   },
 
   onShareAppMessage() {
-    const { id, title, shareCover: imageUrl } = this.data.roomInfo
-    const path = `/pages/subpages/live/live-play/index?id=${id}`
-    return { path, title, imageUrl }
+    const { id: superiorId } = store.promoterInfo || {};
+    const { id, title, shareCover: imageUrl } = this.data.roomInfo;
+    const path = superiorId
+      ? `/pages/subpages/live/live-play/index?id=${id}&superiorId=${superiorId}`
+      : `/pages/subpages/live/live-play/index?id=${id}}`;
+    return { path, title, imageUrl };
   },
 
   onShareTimeline() {
-    const { id, title, shareCover: imageUrl } = this.data.roomInfo
-    const query = `id=${id}`
-    return { query, title, imageUrl }
-  },
-})
+    const { id: superiorId } = store.promoterInfo || {};
+    const { id, title, cover: imageUrl } = this.data.roomInfo;
+    title = `诚信星球直播间：${title}`;
+    const query = superiorId ? `id=${id}&superiorId=${superiorId}` : `id=${id}`;
+    return { query, title, imageUrl };
+  }
+});

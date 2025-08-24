@@ -38,5 +38,5 @@
 />
 <input-popup wx:if="{{inputPopupVisible}}" roomInfo="{{roomList[curRoomIdx]}}" bind:finish="hideModal" />
 <subscribe-modal  wx:if="{{subscribeModalVisible}}" anchorId="{{roomList[curRoomIdx].anchorInfo.id}}" bind:hide="hideModal" />
-<poster-modal wx:if="{{posterModalVisible}}" scene="1" info="{{posterInfo}}" bind:hide="hideModal" />
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hideModal" />
 

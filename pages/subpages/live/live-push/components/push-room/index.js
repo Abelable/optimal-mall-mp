@@ -148,16 +148,18 @@ Component({
       const {
         id,
         status,
-        shareCover: cover,
+        cover,
         title,
-        anchorInfo: authorInfo,
         noticeTime,
         startTime
       } = this.properties.roomInfo;
 
-      const scene = `id=${id}`;
+      const scene =
+        wx.getStorageSync("token") && store.promoterInfo
+          ? `${id}-${store.promoterInfo.id}`
+          : `${id}`;
       const page = "pages/subpages/live/live-play/index";
-      const qrCode = await liveService.getQRCode(scene, page);
+      const qrcode = await liveService.getQRCode(scene, page);
 
       this.setData({
         posterModalVisible: true,
@@ -165,10 +167,10 @@ Component({
           status,
           cover,
           title,
-          authorInfo,
+          authorInfo: store.userInfo,
           noticeTime,
           startTime,
-          qrCode
+          qrcode
         }
       });
     },

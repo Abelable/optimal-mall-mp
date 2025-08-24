@@ -1,4 +1,7 @@
 {
   "navigationStyle": "custom",
-  "navigationBarTextStyle": "white"
+  "navigationBarTextStyle": "white",
+  "usingComponents": {
+    "poster-modal": "../components/poster-modal/index"
+  }
 }

@@ -27,3 +27,5 @@
     <button class="start-btn" bindtap="startLive" hover-class="none">开始直播</button>
   </view>
 </view>
+
+<poster-modal wx:if="{{posterModalVisible}}" info="{{posterInfo}}" bind:hide="hidePosterModal" />
