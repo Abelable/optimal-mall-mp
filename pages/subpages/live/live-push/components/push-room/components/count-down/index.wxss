@@ -13,7 +13,7 @@
   justify-content: center;
   width: fit-content;
   height: fit-content;
-  color: #EE3769;
+  color: var(--theme-color);
   font-size: 100px;
   font-weight: bold;
 }
@@ -35,7 +35,6 @@
       opacity: 1;
       transform: scale(1);
   }
-  
   20%{
       opacity: 0;
       transform: scale(0.4);
