@@ -1,5 +1,41 @@
+.nav-bar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+}
+.nav-bar.show-bg {
+  overflow: hidden;
+  background-position: top center;
+  background-size: cover;
+  background-repeat: no-repeat;
+}
+.nav-bar.show-bg {
+  background-image: url("https://static.chengxinxingqiu.cn/mp/live/bg.png");
+}
+.nav-bar-inner {
+  display: flex;
+  align-items: center;
+  padding-left: 12px;
+  height: 44px;
+}
+.nav-bar-title {
+  margin-right: 44px;
+  flex: 1;
+  color: #000;
+  font-size: 34rpx;
+  font-weight: 500;
+  text-align: center;
+}
+
 .container {
+  position: relative;
   padding: 20rpx;
+  min-height: 100vh;
+  background-image: url("https://static.chengxinxingqiu.cn/mp/live/bg.png");
+  background-size: 100%;
+  background-repeat: no-repeat;
 }
 
 .no-more-tips {

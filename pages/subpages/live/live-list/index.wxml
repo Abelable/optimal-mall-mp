@@ -1,4 +1,11 @@
-<view class="container">
+<view class="nav-bar {{navBarBgVisible ? 'show-bg' : ''}}" style="padding-top: {{statusBarHeight}}px;">
+  <view class="nav-bar-inner">
+    <back-icon />
+    <view class="nav-bar-title">诚信直播</view>
+  </view>
+</view>
+
+<view class="container" style="padding-top: {{statusBarHeight + 55}}px;">
   <fall-flow list="{{liveList}}" generic:item="live-item" />
   <empty-illus wx:if="{{finished && !liveList.length}}" desc="暂无直播" />
   <view class="no-more-tips" wx:if="{{finished && liveList.length}}">～没有更多了～</view>
