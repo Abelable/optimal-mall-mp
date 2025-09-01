@@ -1,10 +1,13 @@
+.goods-shelves-popup {
+  position: relative;
+}
+
 .header {
   padding: 6px 12px;
   background: #fff;
   border-radius: 15px 15px 0 0;
 }
-
-.menu-wrap {
+.menu {
   padding: 0 6px;
   height: 40px;
 }
@@ -37,7 +40,6 @@
 
 .search-bar {
   margin-top: 12px;
-  border-top: 1px solid #eee;
 }
 .search-content {
   position: relative;
@@ -45,7 +47,7 @@
   height: 36px;
   background: #fff;
   border-radius: 18px;
-  border: 1px solid #F5701D;
+  border: 1px solid #f5701d;
 }
 .search-icon {
   margin-left: 10px;
@@ -79,7 +81,7 @@
   font-size: 13px;
   color: #fff;
   border-radius: 18px;
-  background: #F5701D;
+  background: #f5701d;
 }
 
 .goods-list-wrap {
@@ -89,22 +91,119 @@
   overflow-y: scroll;
 }
 
-.all-pick-bar {
+.goods-list {
   margin-top: 12px;
-  padding-left: 12px;
-  padding-right: 8px;
-  height: 36px;
+  padding-bottom: calc(50px + env(safe-area-inset-bottom));
+}
+.goods-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 12px;
+  padding: 15px;
+  background: #ffffff;
+  border-radius: 24px;
+}
+.goods-item.is-hot {
+  background: #FFF5E8;
+}
+.goods-item .select-icon {
+  margin-right: 12px;
+}
+.goods-img-wrap {
+  position: relative;
+  width: 96px;
+  height: 96px;
+  font-size: 0;
+  border-radius: 12px;
+  overflow: hidden;
+}
+.goods-img {
+  width: 96px;
+  height: 96px;
+}
+
+.goods-index {
+  position: absolute;
+  left: 0;
+  top: 0;
+  padding: 5px 10px;
+  color: #fff;
+  font-size: 10px;
+  line-height: 1;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px 0px 12px 0px;
+}
+.goods-index.is-hot {
+  background: var(--theme-color-btn-bg);
+}
+
+.goods-info-wrap {
+  display: flex;
+  flex-direction: column;
+  margin-left: 15px;
+  flex: 1;
+  height: 96px;
+}
+.goods-name {
+  color: #333;
+  font-size: 14px;
+  font-weight: 500;
+}
+
+.goods-stock {
+  margin-top: 4px;
+  flex: 1;
+  color: #999;
+  font-size: 12px;
+}
+
+.recommend-btn {
+  display: flex;
+  align-items: center;
+  padding: 0 10px;
+  height: 24px;
+  color: #fff;
+  font-size: 11px;
+  border-radius: 12px;
+  background: linear-gradient(90deg, #40AFFF 0%, #2C75FC 100%);
+}
+.recommend-btn.invalid {
+  color: #666;
+  background: #ddd;
+}
+
+.goods-pick-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-left: 8px;
+  width: 40px;
+  height: 24px;
+  border-radius: 12px;
+  background: var(--theme-color-btn-bg);
+}
+.goods-pick-icon {
+  width: 14px;
+  height: 14px;
+}
+
+.all-pick-bar {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  padding: 12px;
+  padding-bottom: calc(12px + env(safe-area-inset-bottom));
+  width: 100%;
   background: #fff;
-  border-radius: 18px;
 }
 .select-icon {
   width: 16px;
   height: 16px;
 }
 .all-pick-title {
-  margin-left: 12px;
+  margin-left: 8px;
   color: #333;
-  font-size: 14px;
+  font-size: 12px;
 }
 .all-pick-btn {
   padding-left: 8px;
@@ -120,88 +219,4 @@
   margin-left: 3px;
   width: 16px;
   height: 16px;
-}
-
-.goods-list {
-  margin-top: 12px;
-}
-.goods-item {
-  display: flex;
-  align-items: center;
-  margin-bottom: 12px;
-  padding: 15px;
-  height: 126px;
-  background: #FFFFFF;
-  border-radius: 12px;
-}
-.goods-item .select-icon{
-  margin-right: 12px;
-}
-.goods-img-wrap {
-  position: relative;
-  width: 96px;
-  height: 96px;
-  font-size: 0;
-  border-radius: 10px;
-  overflow: hidden;
-}
-.goods-img {
-  width: 96px;
-  height: 96px;
-}
-
-.goods-index {
-  position: absolute;
-  left: 0;
-  top: 0;
-  padding: 0 7px;
-  height: 16px;
-  color: #fff;
-  font-size: 10px;
-  line-height: 1;
-  background: #000;
-  border-radius: 10px 0px 6px 0px;
-}
-.goods-index.is-hot {
-  background: linear-gradient(90deg, #f71854 0%, #ee5e84 100%);
-}
-
-.goods-info-wrap {
-  display: flex;
-  flex-direction: column;
-  margin-left: 15px;
-  flex: 1;
-  height: 96px;
-}
-.goods-name {
-  color: #333;
-  font-size: 14px;
-}
-
-.goods-stock {
-  margin-top: 4px;
-  flex: 1;
-  color: #999;
-  font-size: 12px;
-}
-
-.recommend-btn {
-  padding: 0 10px;
-  height: 24px;
-  color: #fff;
-  font-size: 12px;
-  border-radius: 12px;
-  background: linear-gradient(90deg, #f71854 0%, #ee5e84 100%);
-}
-.recommend-btn.invalid {
-  color: #666;
-  background: #E4E4E4;
-}
-
-.goods-pick-btn {
-  box-sizing: content-box;
-  margin-right: -8px;
-  padding: 2px 8px;
-  width: 20px;
-  height: 20px;
 }

@@ -1,20 +1,19 @@
-<popup bind:hide="hide" background="#f5f6f7">
+<popup bind:hide="hide" background="#f5f6f7" showSafeArea="{{false}}">
   <view class="goods-shelves-popup">
-    <view class="header row between">
-      <view class="menu-wrap row">
-        <view 
-          class="memu-item row {{curMenuIdx === index ? 'selected' : ''}}" 
-          wx:for="{{['上架中商品', '未上架商品']}}" wx:key="index" 
-          bindtap="selectMenu" data-index="{{index}}"
-        >{{item}}</view>
+    <view class="header">
+      <view class="menu-wrap row between">
+        <view class="menu row">
+          <view 
+            class="memu-item row {{curMenuIdx === index ? 'selected' : ''}}" 
+            wx:for="{{['上架中商品', '未上架商品']}}" wx:key="index" 
+            bindtap="selectMenu" data-index="{{index}}"
+          >{{item}}</view>
+        </view>
+        <view class="multiple-switch row">
+          <view>多选：</view>
+          <switch bindchange="switchMultiple" color="#F5701D" />
+        </view>
       </view>
-      <view class="multiple-switch row">
-        <view>多选：</view>
-        <switch bindchange="switchMultiple" color="#F5701D" />
-      </view>
-    </view>
-
-    <scroll-view class="goods-list-wrap" scroll-y bindscrolltolower="loadMore">
       <view class="search-bar" wx:if="{{curMenuIdx === 1}}">
         <view class="search-content row">
           <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
@@ -33,22 +32,15 @@
           <button class="search-btn" bindtap="search">搜索</button>
         </view>
       </view>
-      <view class="all-pick-bar row between" wx:if="{{multiple}}">
-        <view class="row" bindtap="toggleAllSelected">
-          <image class="select-icon" src="{{allSelected ? './images/selected.png' : './images/unselected.png'}}"  />
-          <view class="all-pick-title">全选商品一键{{curMenuIdx === 0 ? '下架' : '上架'}}</view>
-        </view>
-        <view class="all-pick-btn row center" bindtap="{{curMenuIdx === 0 ? 'delistingSelectedGoods' : 'listingSelectedGoods'}}">
-          <view>{{curMenuIdx === 0 ? '下架' : '上架'}}</view>
-          <image class="all-pick-icon" src="{{curMenuIdx === 0 ? './images/down.png' : './images/up.png' }}" />
-        </view>
-      </view>
+    </view>
+
+    <scroll-view class="goods-list-wrap" scroll-y bindscrolltolower="loadMore">
       <view class="goods-list">
-        <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" >
-          <image class="select-icon" wx:if="{{multiple}}" bindtap="select" data-index="{{index}}" src="{{item.checked  ? './images/selected.png' : './images/unselected.png'}}" />
+        <view class="goods-item {{item.isHot ? 'is-hot' : ''}}" wx:for="{{goodsList}}" wx:key="index" >
+          <image class="select-icon" wx:if="{{multiple}}" bindtap="select" data-index="{{index}}" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{item.checked ? '' : 'un'}}selected.png" />
           <view class="goods-img-wrap">
             <image class="goods-img" src="{{item.cover}}" />
-            <view class="goods-index row {{item.isHot ? 'is-hot' : ''}}">{{index + 1}}{{item.isHot ? ' · 讲解中' : ''}}</view>
+            <view class="goods-index row {{item.isHot ? 'is-hot' : ''}}" wx:if="{{curMenuIdx === 0}}">{{index + 1}}{{item.isHot ? ' · 讲解中' : ''}}</view>
           </view>
           <view class="goods-info-wrap">
             <view class="goods-name omit">{{item.name}}</view>
@@ -56,17 +48,22 @@
             <view class="row between">
               <price-unit price="{{item.price || 0}}" fontSize="12px" integerFontSize="16px" />
               <view class="row">
-                <button 
+                <view 
                   class="recommend-btn {{item.isHot ? 'invalid' : ''}}" 
                   wx:if="{{curMenuIdx === 0}}" 
                   bindtap="{{item.isHot ? 'cancelHot' : 'setHot'}}" 
                   data-id="{{item.id}}"
                   data-index="{{index}}"
-                  hover-class="none"
                 >
                   {{item.isHot ? '取消讲解' : '讲解'}}
-                </button>
-                <image class="goods-pick-btn" bindtap="{{curMenuIdx === 0 ? 'delistingGoods' : 'listingGoods'}}" data-id="{{item.id}}" src="{{curMenuIdx === 0 ? './images/down.png' : './images/up.png'}}" />
+                </view>
+                <view 
+                  class="goods-pick-btn"
+                  catchtap="{{curMenuIdx === 0 ? 'delistingGoods' : 'listingGoods'}}" 
+                  data-id="{{item.id}}" 
+                >
+                  <image class="goods-pick-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{curMenuIdx === 0 ? 'down' : 'up'}}.png" />
+                </view>
               </view>
             </view>
           </view>
@@ -74,5 +71,19 @@
       </view>
       <empty-illus wx:if="{{!goodsList.length}}" desc="暂无商品" />
     </scroll-view>
+
+    <view class="all-pick-bar row between" wx:if="{{multiple}}">
+      <view class="row" bindtap="toggleAllSelected">
+        <image class="select-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{allSelected ? '' : 'un'}}selected.png"  />
+        <view class="all-pick-title">全选商品一键{{curMenuIdx === 0 ? '下架' : '上架'}}</view>
+      </view>
+      <view 
+        class="goods-pick-btn"
+        catchtap="{{curMenuIdx === 0 ? 'delistingSelectedGoods' : 'listingSelectedGoods'}}" 
+        data-id="{{item.id}}" 
+      >
+        <image class="goods-pick-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{curMenuIdx === 0 ? 'down' : 'up'}}.png" />
+      </view>
+    </view>
   </view>
 </popup>

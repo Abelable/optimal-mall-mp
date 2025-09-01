@@ -3,6 +3,10 @@ Component({
     background: {
       type: String,
       value: '#fff'
+    },
+    showSafeArea: {
+      type: Boolean,
+      value: true
     }
   },
 

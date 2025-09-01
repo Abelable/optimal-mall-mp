@@ -1,4 +1,8 @@
 <view class="mask {{show ? 'show' : ''}}" catchtap="hide" />
-<view class="popup {{show ? 'show' : ''}}" style="background: {{background}};" catchtap="catchtap">
+<view 
+  class="popup {{showSafeArea ? 'show-safe-area' : ''}} {{show ? 'show' : ''}}" 
+  style="background: {{background}};" 
+  catchtap="catchtap"
+>
   <slot />
 </view>
