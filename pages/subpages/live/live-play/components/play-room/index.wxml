@@ -45,7 +45,7 @@
               </view>
               <view class="row">
                 <image class="feature-btn" catchtap="showGoodsPopup" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
-                <image class="feature-btn" catchtap="showSharePopup" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
+                <image class="feature-btn" catchtap="share" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
                 <view class="feature-btn row center" catchtap="praise">
                   <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="https://static.chengxinxingqiu.cn/mp/live/praise.png" />
                   <view class="praise-count" wx:if="{{praiseCount}}">{{NUM.over(praiseCount, 100000)}}</view>
