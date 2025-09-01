@@ -4,7 +4,10 @@
 <view class="live-notice" style="padding-top: {{statusBarHeight + 44}}px;">
   <view class="cover-wrap">
     <image class="cover" src="{{roomInfo.cover}}" mode="aspectFill" />
-    <view class="tag row center">预告</view>
+    <view class="tag row center">
+      <view class="spot" />
+      <view>预告</view>
+    </view>
   </view>
 
   <view class="title omit single">{{roomInfo.title}}</view>

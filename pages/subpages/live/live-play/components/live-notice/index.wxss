@@ -20,11 +20,18 @@
   top: 20rpx;
   left: 20rpx;
   width: 80rpx;
-  height: 50rpx;
+  height: 40rpx;
   color: #fff;
-  font-size: 24rpx;
-  background: #3F5F9A;
-  border-radius: 4rpx;
+  font-size: 22rpx;
+  background: linear-gradient( 90deg, #40AFFF 0%, #2C75FC 100%);
+  border-radius: 8rpx;
+}
+.spot {
+  margin-right: 6rpx;
+  width: 8rpx;
+  height: 8rpx;
+  border-radius: 50%;
+  background: #fff;
 }
 
 .title {
