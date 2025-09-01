@@ -44,7 +44,6 @@ Component({
     manualPraise: false,
     audienceActionTips: "",
     showAudienceActionTips: false,
-    praiseHeartArr: [],
     liveEnd: false,
     liveDuration: 0
   },
@@ -157,27 +156,10 @@ Component({
 
     dbTap(e) {
       checkLogin(() => {
-        const { timeStamp, detail } = e;
+        const { timeStamp } = e;
         if (this.lastTimeStamp) {
           if (timeStamp - this.lastTimeStamp < 300) {
-            const { x, y } = detail;
-            const deg = Math.floor(Math.random() * 60) - 30;
-            const praiseHeartItem = {
-              style: `top: ${y - 40}px; left: ${
-                x - 40
-              }px; transform: rotate(${deg}deg); animation: float 0.6s linear;`,
-              url: "https://img.ubo.vip/mp/praise-heart.png"
-            };
-            this.setData({
-              [`praiseHeartArr[${this.data.praiseHeartArr.length}]`]:
-                praiseHeartItem
-            });
             this.praise();
-            if (this.clearPraiseHeartArrTimeout)
-              clearTimeout(this.clearPraiseHeartArrTimeout);
-            this.clearPraiseHeartArrTimeout = setTimeout(() => {
-              this.setData({ praiseHeartArr: [] });
-            }, 2000);
           }
           this.lastTimeStamp = 0;
         } else {

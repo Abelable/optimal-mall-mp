@@ -8,6 +8,7 @@
   <view 
     class="inner {{roomInfo.direction === 2 ? 'horizontal' : ''}}"
     style="top: {{roomInfo.direction === 2 ? 8 : statusBarHeight}}px;"
+    bindtap="dbTap"
   >
     <view class="nav-bar row">
       <view class="close-icon row center" bindtap="confirmStopLive">

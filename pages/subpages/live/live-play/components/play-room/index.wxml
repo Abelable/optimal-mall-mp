@@ -44,12 +44,8 @@
                 <text>说点什么...</text>
               </view>
               <view class="row">
-                <view class="feature-btn row center" catchtap="showGoodsPopup" >
-                  <image class="goods-icon" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
-                </view>
-                <view class="feature-btn row center" catchtap="showSharePopup" >
-                  <image class="share-icon" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
-                </view>
+                <image class="feature-btn" catchtap="showGoodsPopup" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
+                <image class="feature-btn" catchtap="showSharePopup" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
                 <view class="feature-btn row center" catchtap="praise">
                   <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="https://static.chengxinxingqiu.cn/mp/live/praise.png" />
                   <view class="praise-count" wx:if="{{praiseCount}}">{{NUM.over(praiseCount, 100000)}}</view>
@@ -63,9 +59,6 @@
     </swiper>
     <button class="login-btn" wx:else catchtap="login" slot="outside">登录参与直播互动</button>
   </player>
-
-  <!-- 双击爱心 -->
-  <image class="praise-heart" style="{{item.style}}" wx:for="{{praiseHeartArr}}" wx:key="index" src="{{item.url}}" />
 </view>
 
 <!-- 直播中断 -->

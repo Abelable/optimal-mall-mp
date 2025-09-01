@@ -145,14 +145,8 @@ Component({
     },
 
     async share() {
-      const {
-        id,
-        status,
-        cover,
-        title,
-        noticeTime,
-        startTime
-      } = this.properties.roomInfo;
+      const { id, status, cover, title, noticeTime, startTime } =
+        this.properties.roomInfo;
 
       const scene =
         wx.getStorageSync("token") && store.promoterInfo
@@ -215,6 +209,18 @@ Component({
         });
       } else {
         wx.switchTab({ url: "/pages/mine/index" });
+      }
+    },
+
+    dbTap(e) {
+      const { timeStamp } = e;
+      if (this.lastTimeStamp) {
+        if (timeStamp - this.lastTimeStamp < 300) {
+          this.praise();
+        }
+        this.lastTimeStamp = 0;
+      } else {
+        this.lastTimeStamp = timeStamp;
       }
     },
 

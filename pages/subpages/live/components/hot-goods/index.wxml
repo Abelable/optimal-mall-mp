@@ -3,9 +3,7 @@
     <view class="dot" />
     <view>讲解中</view>
   </view>
-  <view class="close-btn row center" catchtap="hide">
-    <image class="close-icon" src="https://img.ubo.vip/tiddler/nav-icon/close.png" />
-  </view>
+  <image class="close-btn" catchtap="hide" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/close.png" />
   <image class="goods-image" src="{{goodsInfo.cover}}" mode="aspectFill" />
   <view class="goods-name omit">{{goodsInfo.name}}</view>
   <view class="price-bar row between">
@@ -13,6 +11,6 @@
       <text style="font-size: 11px;">¥</text>
       <text>{{goodsInfo.price}}</text>
     </view>
-    <view class="go-icon">抢</view>
+   <image class="go-icon" catchtap="hide" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/go.png" />
   </view>
 </view>
