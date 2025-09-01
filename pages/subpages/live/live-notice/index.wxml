@@ -3,28 +3,31 @@
 <view class="container">
   <image class="bg" src="{{roomInfo.cover}}" mode="aspectFill" />
 
-  <view class="nav-bar row" style="margin-top: {{statusBarHeight}}px;">
-    <view class="nav-bar-btn row between">
-      <image class="nav-back-icon" bindtap="navBack" src="https://img.ubo.vip/mp/i-back-icon/back-icon.png" />
-      <image class="share-icon" bindtap="share" src="./images/share.png" />
+  <back-icon class="back-icon" style="top: {{statusBarHeight}}px;"/>
+
+  <view class="info-wrap" style="margin-top: {{statusBarHeight + 60}}px;">
+    <view class="cover-wrap">
+      <image class="cover" src="{{roomInfo.shareCover}}" mode="aspectFill" />
+      <view class="tag row center">
+        <view class="spot" />
+        <view>预告</view>
+      </view>
+    </view>
+  
+    <view class="title omit single">{{roomInfo.title}}</view>
+  
+    <view class="time-wrap">
+      <view>开始时间：{{TIME.transform(roomInfo.noticeTime, 'YYYY-MM-DD hh:mm')}}</view>
+      <view>倒计时：{{TIME.countdown(countDown, 'd天hh时mm分ss秒')}}</view>
     </view>
   </view>
 
-  <view class="cover-wrap">
-    <image class="cover" src="{{roomInfo.shareCover}}" />
-    <view class="tag row center">预告</view>
-  </view>
-
-  <view class="title omit single">{{roomInfo.title}}</view>
-
-  <view class="time-wrap">
-    <view>开始时间：{{TIME.transform(roomInfo.noticeTime, 'YYYY-MM-DD hh:mm')}}</view>
-    <view>倒计时：{{TIME.countdown(countDown, 'd天hh时mm分ss秒')}}</view>
-  </view>
-
-  <view class="btn-wrap row between">
+  <view class="btn-wrap">
+    <view class="row between">
+      <button class="share-btn" bindtap="share" hover-class="none">分享直播</button>
+      <button class="start-btn" bindtap="startLive" hover-class="none">开始直播</button>
+    </view>
     <button class="delete-btn" bindtap="deleteLiveNotice" hover-class="none">删除预告</button>
-    <button class="start-btn" bindtap="startLive" hover-class="none">开始直播</button>
   </view>
 </view>
 
