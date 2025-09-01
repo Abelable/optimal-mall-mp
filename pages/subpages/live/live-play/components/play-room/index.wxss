@@ -68,39 +68,37 @@
 .audience-action-tips {
   display: flex;
   align-items: center;
-  margin-bottom: 5rpx;
-  padding: 0 15rpx;
-  font-size: 26rpx;
+  margin-bottom: 2.5px;
+  padding: 0 8px;
   width: fit-content;
-  height: 44rpx;
-  border-radius: 8rpx;
+  height: 30px;
   color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  border-radius: 15px;
   opacity: 0;
   transform: translateX(-100%);
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 .audience-action-tips.coming {
-  background: rgba(11,157,59,0.6);
+  background: rgba(97, 94, 255, 0.8);
 }
 .audience-action-tips.follow {
-  background: rgba(251,28,28,0.6);
+  background: rgba(251, 28, 28, 0.6);
 }
 .audience-action-tips.buy {
-  background: rgba(114,0,251,0.6);
+  background: rgba(255, 172, 64, 0.8);
 }
 .audience-action-tips.cart {
-  background: rgba(255,168,41,0.6);
+  background: rgba(255, 168, 41, 0.6);
 }
 .audience-action-tips.share {
-  background: rgba(19,47,199,0.6);
-}
-.audience-action-tips.packet {
-  background: rgba(251,85,28,0.6);
+  background: rgba(255, 81, 166, 0.8);
 }
 .audience-action-tips.show {
   opacity: 1;
   transform: translateX(0);
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 
 .btns-wrap {

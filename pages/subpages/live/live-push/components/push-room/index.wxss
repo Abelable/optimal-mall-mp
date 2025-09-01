@@ -113,11 +113,12 @@
   align-items: center;
   margin-bottom: 2.5px;
   padding: 0 8px;
-  font-size: 13px;
   width: fit-content;
-  height: 22px;
-  border-radius: 4px;
+  height: 30px;
   color: #fff;
+  font-size: 13px;
+  line-height: 30px;
+  border-radius: 15px;
   opacity: 0;
   transform: translateX(-100%);
   transition: 0.3s linear;
