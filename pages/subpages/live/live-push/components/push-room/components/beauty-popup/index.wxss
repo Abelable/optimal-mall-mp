@@ -1,6 +1,5 @@
 .beauty-popup {
   padding-bottom: env(safe-area-inset-bottom);
-  background: #1A1919;
 }
 .header {
   display: flex;
@@ -8,7 +7,7 @@
   justify-content: space-between;
   padding-left: 6px;
   padding-right: 15px;
-  height: 38px;
+  height: 50px;
 }
 .menu-wrap {
   display: flex;
@@ -40,6 +39,7 @@
 
 .reset-btn {
   display: flex;
+  align-items: center;
   color: #8C8C8C;
   font-size: 12px;
 }
@@ -92,26 +92,39 @@
   margin-right: 10px;
 }
 .visual-filter-item.selected {
-  color: #FF3E4A;
+  color: var(--theme-color);
+}
+.visual-filter-icon-wrap {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 6px;
+  width: 52px; 
+  height: 70px;
+  background: #373738;
+  border-radius: 6px;
+  border: 1px solid transparent;
+}
+.visual-filter-item.selected .visual-filter-icon-wrap {
+  border-color: var(--theme-color);
 }
 .visual-filter-icon {
-  width: 54px; 
-  height: 54px;
-  border-radius: 50%;
+  width: 100%; 
+  height: 100%;
 }
-.visual-filter-item.selected .visual-filter-icon {
-  border: 1px solid #FF3E4A;
+.visual-filter-icon.default {
+  width: 20px; 
+  height: 20px;
 }
+
 
 .sound-filter-item {
   display: inline-block;
   vertical-align: top;
   margin-left: 5px;
-  color: #fff;
-  font-size: 0;
-  width: 54px; 
-  height: 54px;
-  border-radius: 50%;
+  width: 52px; 
+  height: 70px;
+  border-radius: 6px;
 }
 .sound-filter-item:first-child {
   margin-left: 10px;
@@ -119,24 +132,24 @@
 .sound-filter-item:last-child {
   margin-right: 10px;
 }
-.sound-filter-item.selected {
-  color: #FF3E4A;
-  border: 1px solid #FF3E4A;
-}
 .sound-filter-item-inner {
   display: flex;
   align-items: center;
   justify-content: center;
+  color: #fff;
   font-size: 11px;
   width: 52px; 
-  height: 52px;
-  border-radius: 50%;
+  height: 70px;
+  border-radius: 6px;
   background: #373738;
+  border: 1px solid #373738;
+}
+.sound-filter-item-inner.selected {
+  color: var(--theme-color);
+  border-color: var(--theme-color);
 }
 .sound-filter-icon {
-  display: block;
-  width: 52px;
-  height: 52px;
-  border-radius: 50%;
+  width: 20px;
+  height: 20px;
 }
 

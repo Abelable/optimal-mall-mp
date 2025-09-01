@@ -1,4 +1,4 @@
-<popup bind:hide="hide">
+<popup bind:hide="hide" background="#1A1919">
   <view class="beauty-popup">
     <view class="header">
       <view class="menu-wrap">
@@ -29,20 +29,24 @@
           catchtap="setVisualFilter" 
           data-index="{{index}}"
         >
-          <image class="visual-filter-icon" style="" src="https://img.ubo.vip/mp/sass/live-push/beauty-popup/visual-filter-{{index}}.png" />
+          <view class="visual-filter-icon-wrap">
+            <image class="visual-filter-icon {{index === 0 ? 'default' : ''}}" src="https://static.chengxinxingqiu.cn/mp/live/beauty/{{index}}.png" />
+          </view>
           <view>{{item}}</view>
         </view>
       </scroll-view>
       <scroll-view class="sound-filter-wrap" hidden="{{curMenuIndex !== 2}}" scroll-x>
         <view 
-          class="sound-filter-item {{soundFilterValue === index ? 'selected' : ''}}" 
+          class="sound-filter-item" 
           wx:for="{{['', 'KTV', '小房间', '大会堂', '低沉', '洪亮', '金属声', '磁性']}}" 
           wx:key="index" 
           catchtap="setSoundFilter" 
           data-index="{{index}}"
         >
-          <image wx:if="{{index === 0}}" class="sound-filter-icon" src="https://img.ubo.vip/mp/sass/live-push/beauty-popup/visual-filter-0.png" />
-          <view class="sound-filter-item-inner" wx:else>{{item}}</view>
+          <view class="sound-filter-item-inner {{soundFilterValue === index ? 'selected' : ''}}">
+            <image class="sound-filter-icon" wx:if="{{index === 0}}" src="https://static.chengxinxingqiu.cn/mp/live/beauty/0.png" />
+            <view wx:else>{{item}}</view>
+          </view>
         </view>
       </scroll-view>
     </view>
