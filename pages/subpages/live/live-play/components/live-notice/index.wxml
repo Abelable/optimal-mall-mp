@@ -2,27 +2,27 @@
 <wxs module="STRING" src="/utils/filters/string.wxs" />
 
 <view class="live-notice" style="padding-top: {{statusBarHeight + 44}}px;">
-  <view class="cover-wrap">
-    <image class="cover" src="{{roomInfo.cover}}" mode="aspectFill" />
-    <view class="tag row center">
-      <view class="spot" />
-      <view>预告</view>
+  <view class="info-wrap">
+    <view class="cover-wrap">
+      <image class="cover" src="{{roomInfo.shareCover}}" mode="aspectFill" />
+      <view class="tag row center">
+        <view class="spot" />
+        <view>预告</view>
+      </view>
     </view>
-  </view>
+  
+    <view class="title omit single">{{roomInfo.title}}</view>
 
-  <view class="title omit single">{{roomInfo.title}}</view>
-
-  <view class="anchor-info" bindtap="navToUserCenter">
-    <view class="avatar-wrap">
-      <image class="anchor-avatar avatar-default" src="{{roomInfo.anchorInfo.avatar}}" />
-      <image class="follow-icon" wx:if="{{!isFollow}}" bindtap="follow" src="./images/follow.png" />
+    <view class="anchor-info" bindtap="navToUserCenter">
+      <image class="anchor-avatar" src="{{roomInfo.anchorInfo.avatar}}" />
+      <view class="anchor-name omit single">{{roomInfo.anchorInfo.nickname}}</view>
+      <view class="follow-btn" wx:if="{{!isFollow}}" bindtap="follow">关注</view>
     </view>
-    <view class="anchor-name omit single">{{roomInfo.anchorInfo.nickname}}</view>
-  </view>
-
-  <view class="time-wrap">
-    <view>开始时间：{{TIME.transform(roomInfo.noticeTime, 'YYYY-MM-DD hh:mm')}}</view>
-    <view>倒计时：{{TIME.countdown(countDown, 'd天hh时mm分ss秒')}}</view>
+  
+    <view class="time-wrap">
+      <view>开始时间：{{TIME.transform(roomInfo.noticeTime, 'YYYY-MM-DD hh:mm')}}</view>
+      <view>倒计时：{{TIME.countdown(countDown, 'd天hh时mm分ss秒')}}</view>
+    </view>
   </view>
 
   <view class="btn-wrap row between">
