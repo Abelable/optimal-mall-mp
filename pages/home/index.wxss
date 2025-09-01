@@ -187,10 +187,10 @@ page {
   border-radius: 12rpx;
 }
 .status.live {
-  background: linear-gradient(90deg, #f96ba2 0%, #f12356 100%);
+  background: var(--theme-color-btn-bg);
 }
 .status.notice {
-  background: linear-gradient(90deg, #1895F5 0%, #097FE6 100%);
+  background: linear-gradient(90deg, #40AFFF 0%, #2C75FC 100%);
 }
 .live-icon {
   margin-right: 6rpx;

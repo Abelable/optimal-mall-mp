@@ -23,7 +23,7 @@
   height: 40rpx;
   color: #fff;
   font-size: 22rpx;
-  background: linear-gradient( 90deg, #40AFFF 0%, #2C75FC 100%);
+  background: linear-gradient(90deg, #40AFFF 0%, #2C75FC 100%);
   border-radius: 8rpx;
 }
 .spot {
