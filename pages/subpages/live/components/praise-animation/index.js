@@ -41,7 +41,7 @@ Component({
           canvas.height = renderHeight * dpr;
           ctx.scale(dpr, dpr);
 
-          for (let i = 1; i < 18; i++) {
+          for (let i = 1; i < 20; i++) {
             const likeImgae = canvas.createImage();
             likeImgae.src = `./images/${i}.png`;
             likeImgae.onload = () => {

@@ -41,15 +41,16 @@
           <text>说点什么...</text>
         </view>
         <view class="row">
-          <view class="feature-btn row center" catchtap="showGoodsShelvesPopup" >
-            <image class="goods-icon" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
-          </view>
-          <view class="feature-btn row center" catchtap="showMoreFeaturesPopup" >
-            <image class="more-icon" src="https://static.chengxinxingqiu.cn/mp/live/more.png" />
-          </view>
-           <view class="feature-btn row center" catchtap="share" >
-            <image class="share-icon" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
-          </view>
+          <!-- <view class="feature-btn row center"  >
+          </view> -->
+          <image class="feature-btn" catchtap="showGoodsShelvesPopup" src="https://static.chengxinxingqiu.cn/mp/live/goods.png" />
+          <image class="feature-btn" catchtap="showMoreFeaturesPopup" src="https://static.chengxinxingqiu.cn/mp/live/more.png" />
+          <image class="feature-btn" catchtap="share" src="https://static.chengxinxingqiu.cn/mp/live/share.png" />
+
+          <!-- <view class="feature-btn row center"  >
+          </view> -->
+           <!-- <view class="feature-btn row center" >
+          </view> -->
           <view class="feature-btn row center" catchtap="praise">
             <image class="praise-icon" hover-class="hover" hover-stop-propagation="false" src="https://static.chengxinxingqiu.cn/mp/live/praise.png" />
             <view class="praise-count" wx:if="{{praiseCount}}">{{NUM.over(praiseCount, 100000)}}</view>
