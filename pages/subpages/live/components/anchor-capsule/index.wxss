@@ -35,5 +35,5 @@
   color: #fff;
   font-size: 11px;
   border-radius: 13px;
-  background: #EE3769;
+  background: var(--theme-color-btn-bg);
 }

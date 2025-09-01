@@ -28,7 +28,7 @@
   height: 32px;
   border-radius: 50%;
   background: rgba(0, 0, 0, 0.3);
-  border: 0.5px solid rgba(255,255,255,0.3);
+  border: 0.5px solid rgba(255, 255, 255, 0.3);
 }
 
 .footer {
@@ -76,9 +76,9 @@
   height: 35px;
 }
 .praise-icon.hover {
-  animation: scaleDraw 1s ease-in-out; 
+  animation: scaleDraw 1s ease-in-out;
 }
-@keyframes scaleDraw{
+@keyframes scaleDraw {
   0% {
     transform: scale(1);
   }
@@ -99,7 +99,7 @@
   transform: translateX(-50%);
   padding: 0 5px;
   font-size: 9px;
-  color: #F94950;
+  color: #f94950;
   height: 14px;
   line-height: 14px;
   border-radius: 7px;
@@ -120,25 +120,25 @@
   color: #fff;
   opacity: 0;
   transform: translateX(-100%);
-  transition: .3s linear;
+  transition: 0.3s linear;
 }
 .audience-action-tips.coming {
-  background: rgba(238, 55, 105, 0.6);
+  background: rgba(97, 94, 255, 0.8);
 }
 .audience-action-tips.follow {
-  background: rgba(251,28,28,0.6);
+  background: rgba(251, 28, 28, 0.6);
 }
 .audience-action-tips.buy {
-  background: rgba(114,0,251,0.6);
+  background: rgba(255, 172, 64, 0.8);
 }
 .audience-action-tips.cart {
-  background: rgba(255,168,41,0.6);
+  background: rgba(255, 168, 41, 0.6);
 }
 .audience-action-tips.share {
-  background: rgba(19,47,199,0.6);
+  background: rgba(255, 81, 166, 0.8);
 }
 .audience-action-tips.show {
   opacity: 1;
   transform: translateX(0);
-  transition: .3s linear;
+  transition: 0.3s linear;
 }

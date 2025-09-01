@@ -3,7 +3,7 @@ page {
   min-height: 100vh;
   background-color: #f5f6f8;
   --theme-color: #F5701D;
-  --theme-color-btn-bg: linear-gradient(135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  --theme-color-btn-bg: linear-gradient( 90deg, #FFAC40 0%, #F5701D 100%);
 }
 
 view, text, image, scroll-view, navigator, swiper, swiper-item {

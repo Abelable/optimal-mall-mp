@@ -46,9 +46,9 @@
   line-height: 18px;
   border-radius: 3px;
 }
-.tag.anchor {
-  color: #FFE5BD;
-  background: linear-gradient(128deg, #404A5C 0%, #0F131A 100%);
+.tag.anchor { 
+  color: #fff;
+  background: var(--theme-color-btn-bg);
 }
 .tag.assistant {
   color: #404A5C;
