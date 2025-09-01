@@ -17,17 +17,20 @@
   display: flex;
   align-items: center;
   margin-bottom: 12px;
-  padding: 15px;
-  height: 126px;
+  padding: 12px;
   background: #FFFFFF;
-  border-radius: 12px;
+  border-radius: 24px;
 }
+.goods-item.is-hot {
+  background: #FFF5E8;
+}
+
 .goods-img-wrap {
   position: relative;
   width: 96px;
   height: 96px;
   font-size: 0;
-  border-radius: 10px;
+  border-radius: 12px;
   overflow: hidden;
 }
 .goods-img {
@@ -38,16 +41,15 @@
   position: absolute;
   left: 0;
   top: 0;
-  padding: 0 7px;
-  height: 16px;
+  padding: 5px 10px;
   color: #fff;
   font-size: 10px;
   line-height: 1;
-  background: #000;
-  border-radius: 10px 0px 6px 0px;
+  background: rgba(0, 0, 0, 0.8);
+  border-radius: 10px 0px 12px 0px;
 }
 .goods-index.is-hot {
-  background: linear-gradient(90deg, #f71854 0%, #ee5e84 100%);
+  background: var(--theme-color-btn-bg);
 }
 .goods-info-wrap {
   display: flex;
@@ -59,6 +61,7 @@
 .goods-name {
   color: #333;
   font-size: 14px;
+  font-weight: 500;
 }
 
 .goods-stock {
@@ -72,8 +75,9 @@
   width: 64px;
   height: 24px;
   color: #fff;
-  font-size: 12px;
-  background: var(--theme-color);
+  font-size: 11px;
+  font-weight: 500;
+  background: var(--theme-color-btn-bg);
   border-radius: 12px;
 }
 

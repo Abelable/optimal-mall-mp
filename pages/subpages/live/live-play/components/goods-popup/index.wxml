@@ -1,8 +1,8 @@
 <popup background="#f5f6f7" bind:hide="hide">
   <view class="goods-popup">
-    <view class="popup-title row">全部商品（{{total}}）</view>
+    <view class="popup-title row">全部商品({{total}})</view>
     <scroll-view class="goods-list" scroll-y bindscrolltolower="loadMore">
-      <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" catchtap="navToGoodsDetail" data-id="{{item.id}}">
+      <view class="goods-item {{item.isHot ? 'is-hot' : ''}}" wx:for="{{goodsList}}" wx:key="index" catchtap="navToGoodsDetail" data-id="{{item.id}}">
         <view class="goods-img-wrap">
           <image class="goods-img" src="{{item.cover}}" />
           <view class="goods-index row {{item.isHot ? 'is-hot' : ''}}">{{index + 1}}{{item.isHot ? ' · 讲解中' : ''}}</view>

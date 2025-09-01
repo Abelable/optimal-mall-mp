@@ -110,10 +110,10 @@
 .delete-btn {
   margin-top: 32rpx;
   width: 100%;
-  height: 80rpx;
+  height: 82rpx;
   color: var(--theme-color);
   font-size: 28rpx;
   font-weight: bold;
-  border-radius: 40rpx;
+  border-radius: 41rpx;
   border: 1px solid var(--theme-color);
 }
