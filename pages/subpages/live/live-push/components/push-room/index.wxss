@@ -127,13 +127,13 @@
   background: rgba(97, 94, 255, 0.8);
 }
 .audience-action-tips.follow {
-  background: rgba(251, 28, 28, 0.6);
+  background: rgba(0, 182, 142, 0.8);
 }
 .audience-action-tips.buy {
   background: rgba(255, 172, 64, 0.8);
 }
 .audience-action-tips.cart {
-  background: rgba(255, 168, 41, 0.6);
+  background: rgba(0, 200, 255, 0.8);
 }
 .audience-action-tips.share {
   background: rgba(255, 81, 166, 0.8);
