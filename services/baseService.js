@@ -300,10 +300,11 @@ class BaseService extends Base {
     return await this.get({ url: `${this.baseUrl}/live/room_status` });
   }
 
-  async getLiveList({ id = 0, page, limit = 10 }) {
+  async getLiveList({ id = 0, status = 0, page, limit = 10, loadingTitle }) {
     return await this.get({
       url: `${this.baseUrl}/live/list`,
-      data: { page, limit, id }
+      data: { id, status, page, limit },
+      loadingTitle
     });
   }
 
