@@ -1,5 +1,5 @@
 page {
-  background: #f7f7fa;
+  background: #f0f0f0;
 }
 
 .nav-bar {
@@ -138,14 +138,17 @@ page {
   margin-top: 20rpx;
 }
 .live-overview {
-  padding: 20rpx;
+  padding: 16rpx 20rpx;
   width: 347rpx;
-  height: 340rpx;
-  background: #fff;
+  height: 462rpx;
   border-radius: 18rpx;
+  background-image: url('https://static.chengxinxingqiu.cn/mp/live/showcase_bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
 }
 
 .live-overview-title {
+  margin-left: 32rpx;
   color: #000;
   font-size: 28rpx;
   font-weight: 550;
@@ -159,8 +162,8 @@ page {
   height: 22rpx;
 }
 .live-list {
-  margin-top: 20rpx;
-  height: 240rpx;
+  margin-top: 10rpx;
+  height: 378rpx;
 }
 .live-item {
   position: relative;
@@ -207,7 +210,7 @@ page {
 .live-info-wrap {
   position: absolute;
   bottom: 0;
-  padding: 16rpx;
+  padding: 16rpx 16rpx 32rpx;
   width: 100%;
   border-radius: 0 0 12rpx 12rpx;
   background: linear-gradient(180deg, rgba(0, 0, 0, 0) 0%, rgba(0, 0, 0, 0.5) 100%);
@@ -259,7 +262,7 @@ page {
 .integrity-illus {
   display: block;
   width: 347rpx;
-  height: 160rpx;
+  height: 220rpx;
   border-radius: 12rpx;
 }
 

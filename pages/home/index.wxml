@@ -58,7 +58,7 @@
           <image class="more-icon" src="./images/arrow.png" />
         </view>
       </view>
-      <swiper class="live-list small-dots" autoplay circular indicator-dots indicator-color="rgba(66, 121, 112, 0.3)" indicator-active-color="#427970">
+      <swiper class="live-list small-dots" autoplay circular indicator-dots indicator-color="rgba(255, 255, 255, 0.5)" indicator-active-color="rgba(255, 255, 255, 1)">
         <swiper-item 
           class="live-item" 
           wx:for="{{liveList}}"
@@ -100,12 +100,12 @@
       </swiper>
     </view>
     <view class="integrity-part {{liveList.length ? '' : 'row'}}">
-      <image class="integrity-illus" bindtap="navToRuralPage" src="https://static.chengxinxingqiu.cn/mp/home/integrity-village.png" />
+      <image class="integrity-illus" bindtap="navToRuralPage" src="https://static.chengxinxingqiu.cn/mp/home/integrity_village.png" />
       <image 
         class="integrity-illus" 
         style="margin-top: {{liveList.length ? 20 : 0}}rpx;margin-left: {{liveList.length ? 0 : 18}}rpx;" 
         bindtap="navToIntegrityGoods" 
-        src="https://static.chengxinxingqiu.cn/mp/home/integrity-goods.png" 
+        src="https://static.chengxinxingqiu.cn/mp/home/integrity_goods.png" 
       />
     </view>
   </view>
