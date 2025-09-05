@@ -6,13 +6,8 @@
         <view class="uploader-size">封面限制比例2:3</view>
       </view>
       <view class="cover-uploader row center">
-        <block wx:if="{{!cover && !uploadCoverLoading}}">
-          <image class="uploader-icon" src="https://img.ubo.vip/mp/sass/create-live/plus.png" />
-        </block>
-        <block wx:if="{{uploadCoverLoading}}">
-          <view class="loading" />
-          <view class="uploader-tips">封面上传中</view>
-        </block>
+        <image class="uploader-icon" wx:if="{{!cover && !uploadCoverLoading}}" src="./images/plus.png" />
+        <view class="loading" wx:if="{{uploadCoverLoading}}" />
         <image wx:if="{{!uploadCoverLoading && cover}}" style="width: 100%; height: 100%;" src="{{cover}}" />
       </view>
       <image class="arrow" src="./images/gray-arrow.png" />
@@ -23,14 +18,9 @@
         <view class="uploader-size">封面限制比例1:1</view>
       </view>
       <view class="share-cover-uploader row center">
-        <block wx:if="{{!cover && !uploadCoverLoading}}">
-          <image class="uploader-icon" src="https://img.ubo.vip/mp/sass/create-live/plus.png" />
-        </block>
-        <block wx:if="{{uploadCoverLoading}}">
-          <view class="loading" />
-          <view class="uploader-tips">封面上传中</view>
-        </block>
-        <image wx:if="{{!uploadCoverLoading && cover}}" style="width: 100%; height: 100%;" src="{{cover}}" />
+        <image class="uploader-icon" wx:if="{{!shareCover && !uploadShareCoverLoading}}" src="./images/plus.png" />
+        <view class="loading" wx:if="{{uploadShareCoverLoading}}"  />
+        <image wx:if="{{!uploadShareCoverLoading && shareCover}}" style="width: 100%; height: 100%;" src="{{shareCover}}" />
       </view>
       <image class="arrow" src="./images/gray-arrow.png" />
     </view>
