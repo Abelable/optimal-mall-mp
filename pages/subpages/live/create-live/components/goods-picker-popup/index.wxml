@@ -2,7 +2,7 @@
   <view class="goods-picker-popup">
     <view class="search-bar">
       <view class="search-content row">
-        <image class="search-icon" src="https://img.ubo.vip/mp/index/search/index-search.png" />
+        <image class="search-icon" src="./images/index-search.png" />
         <input 
           class="search-input"
           value="{{keywords}}" 
@@ -13,7 +13,7 @@
           confirm-type="search" 
         />
         <view class="cancel-btn" wx:if="{{keywords}}" bindtap="cancelSearch">
-          <image class="cancel-icon" src="https://img.ubo.vip/mp/search/clear-search.png" />
+          <image class="cancel-icon" src="./images/clear-search.png" />
         </view>
         <button class="search-btn" bindtap="search">搜索</button>
       </view>
@@ -22,11 +22,14 @@
     <scroll-view class="goods-list-wrap" bindscrolltolower="loadMore" scroll-y>
       <view class="goods-list">
         <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" bindtap="toggleChecked" data-index="{{index}}">
-          <image class="goods-img" src="{{item.cover}}" mode="aspectFill" lazy-load />
-          <view class="goods-name omit single">{{item.name}}</view>
-          <view class="goods-price-wrap">
-            <price-unit price="{{item.price || 0}}" />
-            <image class="pick-icon" src="./images/{{item.checked ? 'checked' : 'unchecked'}}.png" />
+          <image class="pick-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{item.checked ? '' : 'un'}}selected.png" />
+          <image class="goods-img" src="{{item.cover}}" />
+          <view class="goods-info-wrap">
+            <view class="goods-name omit">{{item.name}}</view>
+            <view class="goods-price-wrap row between">
+              <view class="goods-stock">库存：{{item.stock}}</view>
+              <price-unit price="{{item.price || 0}}" fontSize="12px" integerFontSize="16px" />
+            </view>
           </view>
         </view>
       </view>
@@ -36,7 +39,7 @@
     <view class="bottom-bar">
       <view class="btn-wrap row between">
         <view class="row" bindtap="toggleAllChecked">
-          <image class="pick-icon" src="./images/{{allChecked ? 'checked' : 'unchecked'}}.png" />
+          <image class="pick-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{allChecked ? '' : 'un'}}selected.png" />
           <view class="select-all-tips">全选</view>
         </view>
         <button class="confirm-btn active" bindtap="confirm">确定</button>

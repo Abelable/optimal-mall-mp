@@ -4,42 +4,54 @@
 
 .card {
   margin-bottom: 24rpx;
-  padding: 24rpx;
+  padding: 0 32rpx;
   font-size: 28rpx;
   background: #fff;
   border-radius: 16rpx;
 }
+
 .title {
   color: #333;
+  font-size: 30rpx;
   font-weight: bold;
 }
 
+.cover-uploader-wrap {
+  padding: 32rpx 0;
+  border-bottom: 1px solid #f5f6f8;
+}
+.cover-uploader-wrap:last-child {
+  border-bottom: none;
+}
+.uploader-info {
+  flex: 1;
+}
+.uploader-size {
+  margin-top: 8rpx;
+  color: #999;
+  font-size: 26rpx;
+}
+.uploader-tips {
+  margin-top: 12rpx;
+  color: #7a7b7c;
+  font-size: 24rpx;
+}
 .cover-uploader, .share-cover-uploader {
-  flex-direction: column;
-  height: 378rpx;
+  margin-right: 12rpx;
+  width: 100rpx;
   border-radius: 16rpx;
   background: #F3F4F5;
   overflow: hidden;
 }
 .cover-uploader {
-  width: 252rpx;
+  height: 150rpx;
 }
 .share-cover-uploader {
-  width: 378rpx;
+  height: 100rpx;
 }
 .uploader-icon {
   width: 36rpx;
   height: 36rpx;
-}
-.uploader-size {
-  margin-top: 12rpx;
-  color: #333;
-  font-size: 28rpx;
-}
-.uploader-tips {
-  margin-top: 16rpx;
-  color: #7A7B7C;
-  font-size: 28rpx;
 }
 
 .loading {
@@ -59,36 +71,9 @@
   }
 }
 
-
-.resolution-selections {
-  margin-top: 20rpx;
-}
-.resolution-selection {
-  width: 204rpx;
-  height: 100rpx;
-  color: #999;
-  text-align: center;
-  background: #F5F6F7;
-  border-radius: 8rpx;
-}
-.resolution-selection.active {
-  position: relative;
-  color: #fff;
-  background: var(--theme-color-btn-bg);
-}
-.resolution-name {
-  margin-top: 16rpx;
-  font-size: 24rpx;
-  font-weight: bold;
-}
-.resolution-detail {
-  margin-top: 6rpx;
-  font-size: 20rpx;
-}
-
 .list {
   height: 110rpx;
-  border-bottom: 1px solid #F5F6F7;
+  border-bottom: 1px solid #F5F6F8;
 }
 .list:last-child {
   border-bottom: none;
@@ -119,6 +104,29 @@
   height: 32rpx;
 }
 
+.resolution-selection {
+  height: 110rpx;
+  border-bottom: 1px solid #F5F6F8;
+}
+.resolution-selection:last-child {
+  border-bottom: none;
+}
+.resolution-name {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: 500;
+}
+.resolution-detail {
+  margin-left: 20rpx;
+  flex: 1;
+  color: #666;
+  font-size: 24rpx;
+}
+.pick-icon {
+  width: 36rpx;
+  height: 36rpx;
+}
+
 .create-btn {
   position: fixed;
   left: 50%;
@@ -129,5 +137,5 @@
   color: #fff;
   font-size: 32rpx;
   border-radius: 44rpx;
-  background: var(--theme-color);
+  background: var(--theme-color-btn-bg);
 }

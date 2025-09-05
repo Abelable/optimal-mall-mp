@@ -70,24 +70,6 @@ Component({
       this.setData({
         goodsList: init ? processedList : [...goodsList, ...processedList]
       });
-
-      // if (init) this.page = 0;
-      // const { keywords, goodsList } = this.data;
-      // this.page += 1;
-
-      // const api = keywords
-      //   ? liveService.searchGoodsList
-      //   : liveService.getGoodsList;
-      // const params = keywords
-      //   ? { keywords, page: this.page }
-      //   : { page: this.page };
-      // const list = (await api(params)) || [];
-
-      // const processedList = list.map(item => ({ ...item, checked: false }));
-
-      // this.setData({
-      //   goodsList: init ? processedList : [...goodsList, ...processedList]
-      // });
     },
 
     toggleChecked(e) {
