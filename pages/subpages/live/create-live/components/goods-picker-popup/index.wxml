@@ -27,7 +27,7 @@
           <view class="goods-info-wrap">
             <view class="goods-name omit">{{item.name}}</view>
             <view class="goods-price-wrap row between">
-              <view class="goods-stock">库存：{{item.stock}}</view>
+              <view class="goods-stock">库存: {{item.stock}}</view>
               <price-unit price="{{item.price || 0}}" fontSize="12px" integerFontSize="16px" />
             </view>
           </view>
