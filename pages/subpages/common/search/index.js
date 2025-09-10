@@ -1,4 +1,4 @@
-import { customBack } from "../../../utils/index";
+import { customBack } from "../../../../utils/index";
 import BaseService from "../../../../services/baseService";
 
 const baseService = new BaseService();
