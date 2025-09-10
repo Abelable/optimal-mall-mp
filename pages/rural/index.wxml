@@ -25,7 +25,7 @@
 
   <view class="main">
     <view class="promoter-info">
-      <image class="user-avatar" src="{{userInfo.avatar}}" />
+      <image class="user-avatar" src="{{userInfo.avatar || 'https://static.chengxinxingqiu.cn/mp/default_avatar.png'}}" />
       <view class="user-name">{{userInfo.nickname}}</view>
       <view class="promoter-level">
         {{userInfo.level ? ['乡村振兴推荐官', '乡村振兴服务商C1', '乡村振兴服务商C2', '乡村振兴服务商C3'][userInfo.level - 1] : '非乡村振兴推荐官'}}
