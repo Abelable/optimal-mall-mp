@@ -21,7 +21,14 @@
 
     <scroll-view class="goods-list-wrap" bindscrolltolower="loadMore" scroll-y>
       <view class="goods-list">
-        <view class="goods-item" wx:for="{{goodsList}}" wx:key="index" bindtap="toggleChecked" data-index="{{index}}">
+        <view 
+          class="goods-item" 
+          wx:for="{{goodsList}}" 
+          wx:key="index" 
+          bindtap="toggleChecked" 
+          data-index="{{index}}" 
+          data-id="{{item.id}}"
+        >
           <image class="pick-icon" src="https://static.chengxinxingqiu.cn/mp/live/explain_goods/{{item.checked ? '' : 'un'}}selected.png" />
           <image class="goods-img" src="{{item.cover}}" />
           <view class="goods-info-wrap">

@@ -65,7 +65,7 @@ Component({
 
       const processedList = list.map(item => ({
         ...item,
-        checked: false
+        checked: (this.pickedGoodsIds || []).includes(item.id)
       }));
       this.setData({
         goodsList: init ? processedList : [...goodsList, ...processedList]
@@ -73,13 +73,23 @@ Component({
     },
 
     toggleChecked(e) {
+      const { goodsList } = this.data;
       const { index } = e.currentTarget.dataset;
+      const { id, checked } = goodsList[index];
       this.setData({
-        [`goodsList[${index}].checked`]: !this.data.goodsList[+index].checked
+        [`goodsList[${index}].checked`]: !checked,
+        allChecked: goodsList.findIndex(item => !item.checked) === -1
       });
-      this.setData({
-        allChecked: this.data.goodsList.findIndex(item => !item.checked) === -1
-      });
+
+      if (!this.pickedGoodsIds) {
+        this.pickedGoodsIds = [];
+      }
+      const idIdx = this.pickedGoodsIds.findIndex(item => item === id);
+      if (idIdx !== -1) {
+        this.pickedGoodsIds.splice(idIdx, 1);
+      } else {
+        this.pickedGoodsIds.push(id);
+      }
     },
 
     toggleAllChecked() {
@@ -89,13 +99,13 @@ Component({
         goodsList,
         allChecked: !allChecked
       });
+      this.pickedGoodsIds = goodsList
+        .filter(item => item.checked)
+        .map(item => item.id);
     },
 
     confirm() {
-      const goodsIds = this.data.goodsList
-        .filter(item => item.checked)
-        .map(item => item.id);
-      this.triggerEvent("confirm", goodsIds);
+      this.triggerEvent("confirm", this.pickedGoodsIds || []);
     },
 
     hide() {
