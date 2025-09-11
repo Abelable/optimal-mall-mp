@@ -146,7 +146,7 @@ Page({
     const { id: superiorId } = store.promoterInfo || {};
     const { roomList, curRoomIdx } = this.data;
     const roomInfo = roomList[curRoomIdx];
-    const { id, title, cover: imageUrl } = roomInfo;
+    const { id, title, shareCover: imageUrl } = roomInfo;
     const path = superiorId
       ? `/pages/subpages/live/live-play/index?id=${id}&superiorId=${superiorId}`
       : `/pages/subpages/live/live-play/index?id=${id}}`;
@@ -157,7 +157,7 @@ Page({
     const { id: superiorId } = store.promoterInfo || {};
     const { roomList, curRoomIdx } = this.data;
     const roomInfo = roomList[curRoomIdx];
-    const { id, title, cover: imageUrl } = roomInfo;
+    const { id, title, shareCover: imageUrl } = roomInfo;
     title = `诚信星球直播间：${title}`;
     const query = superiorId ? `id=${id}&superiorId=${superiorId}` : `id=${id}`;
     return { query, title, imageUrl };

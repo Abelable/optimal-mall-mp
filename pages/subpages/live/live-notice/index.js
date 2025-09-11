@@ -128,7 +128,7 @@ Page({
 
   onShareTimeline() {
     const { id: superiorId } = store.promoterInfo || {};
-    const { id, title, cover: imageUrl } = this.data.roomInfo;
+    const { id, title, shareCover: imageUrl } = this.data.roomInfo;
     title = `诚信星球直播间：${title}`;
     const query = superiorId ? `id=${id}&superiorId=${superiorId}` : `id=${id}`;
     return { query, title, imageUrl };
