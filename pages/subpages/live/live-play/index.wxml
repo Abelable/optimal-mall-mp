@@ -10,14 +10,15 @@
       lazy-load 
     />
     <block wx:if="{{index === curRoomIdx}}">
-      <play-room 
+      <!-- todo 临时注销 -->
+      <!-- <play-room 
         wx:if="{{item.status === 1}}" 
         roomInfo="{{item}}"
         bind:showInputPopup="showInputPopup"
         bind:showGoodsPopup="showGoodsPopup"
         bind:share="share"
         bind:showSubscribeModal="showSubscribeModal"
-      />
+      /> -->
       <live-notice
         wx:if="{{item.status === 3}}" 
         roomInfo="{{item}}"

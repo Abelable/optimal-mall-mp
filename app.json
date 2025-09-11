@@ -46,6 +46,7 @@
         "live/create-live/index",
         "live/live-notice/index",
         "live/live-list/index",
+        "live/live-play/index",
         "common/register/index",
         "common/webview/index",
         "common/cropper/index",
