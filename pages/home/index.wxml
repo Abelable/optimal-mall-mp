@@ -67,7 +67,7 @@
           bindtap="linkToLive"
           data-info="{{item}}"
         >
-          <image class="live-cover" mode="aspectFill" src="{{ item.shareCover }}" lazy-load />
+          <image class="live-cover" mode="aspectFill" src="{{ item.cover }}" lazy-load />
           <view class="status-wrap row">
             <view class="status row {{item.status === 1 ? 'live' : 'notice'}}">
               <image class="live-icon" wx:if="{{item.status === 1}}" src="https://static.tiddler.cn/mp/live_status.gif" />
