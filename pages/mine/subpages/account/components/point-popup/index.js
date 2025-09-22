@@ -31,7 +31,7 @@ Component({
 
       accountService.applyExchangePoint(amount, () => {
         wx.showToast({
-          title: "退换成功",
+          title: "兑换成功",
           icon: "none"
         });
         setTimeout(() => {
