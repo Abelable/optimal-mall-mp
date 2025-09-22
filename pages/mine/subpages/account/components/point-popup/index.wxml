@@ -1,0 +1,24 @@
+<van-popup show="{{show}}" round position="bottom" closeable safe-area-inset-bottom="{{false}}" bind:close="hide">
+  <view class="point-popup">
+    <image class="illus" src="https://static.chengxinxingqiu.cn/mp/points/illus.png" />
+    <view class="title">是否兑换为诚信积分？</view>
+    <view class="desc">兑换后不可撤回，可用于下单抵扣、积分商城福利换购</view>
+    <view class="amount-wrap">
+      <view class="cash-desc">
+        <text>即将把</text>
+        <text class="cash"> 3.5元 </text>
+        <text>兑换为</text>
+      </view>
+      <view class="point-amount">350积分</view>
+    </view>
+    <view class="btn-wrap">
+      <view class="cancel-btn">暂不兑换</view>
+      <view class="confirm-btn">确认兑换</view>
+    </view>
+    <view class="agreement">
+      <checkbox class="checkbox" checked="{{agree}}" bindtap="toggleAgree" color="#F5701D" />
+      <text>阅读并同意</text> 
+      <text style="color: #F5701D;" bindtap="checkService">《诚信星球积分兑换协议》</text>
+    </view>
+  </view>
+</van-popup>

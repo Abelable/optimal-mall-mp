@@ -20,7 +20,8 @@ Page({
     curDateIdx: 0,
     timeData: null,
     orderList: [],
-    finished: false
+    finished: false,
+    pointPopupVisible: true
   },
 
   onShow() {

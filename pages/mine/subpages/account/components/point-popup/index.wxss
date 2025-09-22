@@ -1,0 +1,90 @@
+.point-popup {
+  padding: 60rpx 32rpx 0;
+  height: 800rpx;
+  background-image: url('https://static.chengxinxingqiu.cn/mp/points/bg.png');
+  background-size: 100% 100%;
+  background-repeat: no-repeat;
+}
+
+.illus {
+  display: block;
+  margin: 0 auto;
+  width: 140rpx;
+  height: 130rpx;
+}
+.title {
+  margin-top: 24rpx;
+  padding-left: 12rpx;
+  color: #333;
+  font-size: 32rpx;
+  font-weight: bold;
+  text-align: center;
+}
+.desc {
+  margin-top: 32rpx;
+  color: #666;
+  font-size: 26rpx;
+  text-align: center;
+}
+
+.amount-wrap {
+  margin-top: 24rpx;
+  padding: 24rpx 0 20rpx;
+  text-align: center;
+  background: #fdf6f0;
+  border-radius: 24rpx;
+}
+.cash-desc {
+  color: #666;
+  font-size: 26rpx;
+}
+.cash {
+  color: #333;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.point-amount {
+  margin-top: 12rpx;
+  color: #a75300;
+  font-size: 36rpx;
+  font-weight: bolder;
+}
+
+.btn-wrap {
+  display: flex;
+  margin-top: 100rpx;
+}
+.cancel-btn, .confirm-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  height: 80rpx;
+  font-size: 28rpx;
+  font-weight: bold;
+  border-radius: 24rpx;
+}
+.cancel-btn {
+  margin-right: 12rpx;
+  color: #666;
+  background: #f1f1f1;
+}
+.confirm-btn {
+  margin-left: 12rpx;
+  color: #fff;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+}
+
+.agreement {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-top: 24rpx;
+  color: #333;
+  font-size: 22rpx;
+  font-weight: 400;
+  text-align: center;
+}
+.checkbox {
+  transform: scale(0.6);
+}

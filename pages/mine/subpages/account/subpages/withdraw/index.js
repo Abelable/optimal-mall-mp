@@ -13,8 +13,11 @@ Page({
     amount: 0,
     taxFee: 0,
     actualAmount: 0,
+    // pathOptions: [
+    //   { cn: "余额（立即到账）", en: "balance", value: 3 },
+    //   { cn: "银行卡（预计1-3个工作日到账）", en: "card", value: 2 }
+    // ],
     pathOptions: [
-      { cn: "余额（立即到账）", en: "balance", value: 3 },
       { cn: "银行卡（预计1-3个工作日到账）", en: "card", value: 2 }
     ],
     curOptionIdx: 0,

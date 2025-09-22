@@ -20,6 +20,16 @@
         <text>{{cashInfo ? NUM.toFixed(cashInfo.selfPurchase + cashInfo.share, 2) : '0.00'}}</text>
       </view>
     </view>
+    <view class="points-exchange row">
+      <view class="points-info">
+        <view class="points-title row">
+          <image class="point-icon" src="https://static.chengxinxingqiu.cn/mp/points/icon.png" />
+          <view>兑换为{{(cashInfo.selfPurchase + cashInfo.share) * 100}}积分</view>
+        </view>
+        <view class="points-desc">可用于下单抵扣，积分商城福利换购</view>
+      </view>
+      <view class="exchange-btn">兑换</view>
+    </view>
     <view class="amount-type-wrap row">
       <view class="amount-type-item">
         <view class="amount-type-name">自购返现</view>
@@ -125,3 +135,5 @@
   <view class="no-more-tips" wx:if="{{finished && orderList.length}}">～没有更多了～</view>
   <empty-illus wx:if="{{!orderList.length}}" desc="暂无订单记录" height="500rpx" />
 </view>
+
+<point-popup show="{{pointPopupVisible}}" />

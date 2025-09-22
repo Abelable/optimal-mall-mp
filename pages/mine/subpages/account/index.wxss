@@ -70,6 +70,40 @@
   font-weight: bold;
 }
 
+.points-exchange {
+  padding: 32rpx;
+}
+.points-info {
+  flex: 1;
+}
+.point-icon {
+  margin-right: 6rpx;
+  width: 36rpx;
+  height: 36rpx;
+}
+.points-title {
+  color: #333;
+  font-size: 30rpx;
+  font-weight: bold;
+}
+.points-desc {
+  margin-top: 8rpx;
+  color: #666;
+  font-size: 24rpx;
+  font-weight: 300;
+}
+.exchange-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 116rpx;
+  height: 48rpx;
+  color: #fff;
+  font-size: 24rpx;
+  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  border-radius: 24rpx;
+}
+
 .amount-type-wrap {
   padding: 32rpx 40rpx;
   background: #fff;
