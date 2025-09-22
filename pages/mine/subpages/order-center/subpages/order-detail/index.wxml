@@ -100,7 +100,7 @@
       </view>
     </view>
     <view class="list row between" wx:if="{{orderInfo.deductionBalance}}">
-      <view class="title">余额抵扣</view>
+      <view class="title">积分抵扣（-{{NUM.toFixed(orderInfo.deductionBalance * 100, 0)}}）</view>
       <view class="row">
         <text>-</text>
         <price-unit price="{{orderInfo.deductionBalance}}" color="#333" fontSize="20rpx" integerFontSize="28rpx" />
