@@ -1,4 +1,5 @@
 <wxs module="TIME" src="/utils/filters/time.wxs" />
+<wxs module="NUM" src="/utils/filters/num.wxs" />
 
 <view class="container">
   <view class="card err row" wx:if="{{preOrderInfo.errMsg}}">
@@ -93,9 +94,9 @@
   </view>
 
   <view class="card row between" wx:if="{{preOrderInfo.accountBalance}}">
-    <view class="row baseline">
-      <view class="balance">可用余额：</view>
-      <price-unit price="{{preOrderInfo.accountBalance || 0}}" color="#333" />
+    <view class="balance row baseline">
+      <view class="">可用积分：</view>
+      <view class="balance-amount">{{NUM.toFixed(preOrderInfo.accountBalance * 100, 0)}}</view>
     </view>
     <switch style="transform: scale(0.8)" bindchange="toggleUseBalance" color="#F5701D" />
   </view>
@@ -127,7 +128,7 @@
     </view>
     <view class="list row between" wx:if="{{preOrderInfo.deductionBalance}}">
       <view class="list-title">
-        <text>余额抵扣</text>
+        <text>积分抵扣（-{{NUM.toFixed(preOrderInfo.deductionBalance * 100, 0)}}）</text>
       </view>
       <view class="row">
         <text style="color: #ff5040">-</text>

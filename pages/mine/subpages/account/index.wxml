@@ -24,7 +24,7 @@
       <view class="points-info">
         <view class="points-title row">
           <image class="point-icon" src="https://static.chengxinxingqiu.cn/mp/points/icon.png" />
-          <view>兑换为{{(cashInfo.selfPurchase + cashInfo.share) * 100}}积分</view>
+          <view>兑换为{{NUM.toFixed((cashInfo.selfPurchase + cashInfo.share) * 100, 0)}}积分</view>
         </view>
         <view class="points-desc">可用于下单抵扣，积分商城福利换购</view>
       </view>

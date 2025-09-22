@@ -320,6 +320,9 @@
   font-size: 28rpx;
   font-weight: 500;
 }
+.balance-amount {
+  font-size: 32rpx;
+}
 
 .bottom-bar {
   position: fixed;
