@@ -1,4 +1,5 @@
 import { WEBVIEW_BASE_URL } from "../../../../config";
+import { store } from "../../../../store/index";
 import AccountService from "./utils/accountService";
 
 const accountService = new AccountService();
@@ -21,10 +22,23 @@ Page({
     timeData: null,
     orderList: [],
     finished: false,
-    pointPopupVisible: true
+    pointPopupVisible: false,
+    authModalVisible: false,
+    btnActive: false
+  },
+
+  onLoad() {
+    const date = new Date().getDate();
+    if (date >= 25) {
+      this.setData({ btnActive: true });
+    }
   },
 
   onShow() {
+    this.init();
+  },
+
+  init() {
     this.setCashInfo();
     this.setTimeData();
     this.setOrderList(true);
@@ -86,11 +100,42 @@ Page({
 
   withdraw(e) {
     const { scene } = e.currentTarget.dataset;
-    const { selfPurchase, share } = this.data.cashInfo;
+    const { btnActive, cashInfo } = this.data;
+    const { selfPurchase, share } = cashInfo;
+
+    if (!btnActive) {
+      return;
+    }
+    if (!store.userInfo.authInfoId) {
+      this.setData({ authModalVisible: true });
+      return;
+    }
+
     const amount = scene === 1 ? selfPurchase : share;
     wx.navigateTo({
       url: `./subpages/withdraw/index?scene=${scene}&amount=${amount}`
     });
+  },
+
+  showPointPopup() {
+    const { btnActive } = this.data;
+    if (!btnActive) {
+      return;
+    }
+    if (!store.userInfo.authInfoId) {
+      this.setData({ authModalVisible: true });
+      return;
+    }
+    this.setData({ pointPopupVisible: true });
+  },
+
+  exchangeSuccess() {
+    this.init();
+    this.setData({ pointPopupVisible: false });
+  },
+
+  hidePointPopup() {
+    this.setData({ pointPopupVisible: false });
   },
 
   onReachBottom() {
@@ -112,6 +157,10 @@ Page({
         this.setData({ navBarBgVisible: false });
       }
     }
+  },
+
+  hideAuthModal() {
+    this.setData({ authModalVisible: false });
   },
 
   checkWithdrawRecord() {

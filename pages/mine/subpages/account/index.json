@@ -4,6 +4,7 @@
   "usingComponents": {
     "back-icon": "/components/back-icon/index",
     "empty-illus": "/components/empty-illus/index",
-    "point-popup": "./components/point-popup/index"
+    "point-popup": "./components/point-popup/index",
+    "auth-modal": "/components/auth-modal/index"
   }
 }

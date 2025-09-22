@@ -40,6 +40,14 @@ class AccountService extends MineService {
     })
   }
 
+  async applyExchangePoint(withdrawAmount, success) {
+    await this.post({
+      url: `${this.baseUrl}/withdraw/exchange_point`,
+      data: { withdrawAmount },
+      success
+    })
+  }
+
   async getBankCardInfo() {
     return await this.get({
       url: `${this.baseUrl}/bank_card/detail`

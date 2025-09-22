@@ -35,7 +35,7 @@
 
 .amount-card {
   margin-top: 24rpx;
-  background: linear-gradient( 90deg, #FFF8F7 0%, #FFEBE6 100%);
+  background: linear-gradient(90deg, #fff8f7 0%, #ffebe6 100%);
   border-radius: 20rpx;
   overflow: hidden;
 }
@@ -43,13 +43,13 @@
   position: relative;
   padding: 32rpx;
   height: 180rpx;
-  background-image: url('https://static.chengxinxingqiu.cn/mp/account_amount_bg.png');
+  background-image: url("https://static.chengxinxingqiu.cn/mp/account_amount_bg.png");
   background-position: -20rpx -20rpx;
   background-size: calc(100% + 40rpx) calc(100% + 40rpx);
   background-repeat: no-repeat;
 }
 .amount-title {
-  color: #14191F;
+  color: #14191f;
   font-size: 28rpx;
 }
 .withdraw-record-btn {
@@ -58,14 +58,14 @@
   justify-content: center;
   width: 130rpx;
   height: 48rpx;
-  color: #FF4747;
+  color: #ff4747;
   font-size: 24rpx;
-  background: #FDF8F7;
+  background: #fdf8f7;
   border-radius: 24rpx;
 }
 .amount {
   margin-top: 12rpx;
-  color: #14191F;
+  color: #14191f;
   font-size: 44rpx;
   font-weight: bold;
 }
@@ -98,10 +98,14 @@
   justify-content: center;
   width: 116rpx;
   height: 48rpx;
-  color: #fff;
+  color: #999;
   font-size: 24rpx;
-  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  background: #e9e9e9;
   border-radius: 24rpx;
+}
+.exchange-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #ffa266 0%, #ff3d39 64%, #ff3636 100%);
 }
 
 .amount-type-wrap {
@@ -113,12 +117,12 @@
   margin-right: 152rpx;
 }
 .amount-type-name {
-  color: #3C3F42;
+  color: #3c3f42;
   font-size: 24rpx;
 }
 .type-amount {
   margin-top: 20rpx;
-  color: #14191F;
+  color: #14191f;
   font-size: 40rpx;
   font-weight: bold;
 }
@@ -129,23 +133,27 @@
   margin-top: 24rpx;
   width: 116rpx;
   height: 48rpx;
-  color: #fff;
+  color: #999;
   font-size: 24rpx;
-  background: linear-gradient( 135deg, #FFA266 0%, #FF3D39 64%, #FF3636 100%);
+  background: #f1f1f1;
   border-radius: 24rpx;
+}
+.type-withdraw-btn.active {
+  color: #fff;
+  background: linear-gradient(135deg, #ffa266 0%, #ff3d39 64%, #ff3636 100%);
 }
 .withdraw-tips-wrap {
   padding: 24rpx 20rpx;
 }
 .withdraw-time-tips {
   flex: 1;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 24rpx;
 }
 .withdraw-rules-btn {
   display: flex;
   align-items: center;
-  color: #F5701D;
+  color: #f5701d;
   font-size: 24rpx;
 }
 .arrow {
@@ -162,12 +170,12 @@
   justify-content: center;
   flex: 1;
   height: 140rpx;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 28rpx;
 }
 .menu-tab.active {
   position: relative;
-  color: #14191F;
+  color: #14191f;
   font-size: 32rpx;
   font-weight: 550;
 }
@@ -196,15 +204,15 @@
   justify-content: center;
   width: 116rpx;
   height: 56rpx;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 28rpx;
   border-radius: 28rpx;
   border: 1px solid transparent;
 }
 .date.selected {
-  color: #F5701D;
-  background: #FFF3EC;
-  border: 1px solid #F5701D;
+  color: #f5701d;
+  background: #fff3ec;
+  border: 1px solid #f5701d;
 }
 
 .daily-data-list {
@@ -225,7 +233,7 @@
 }
 .daily-data-desc {
   margin-top: 16rpx;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 24rpx;
 }
 
@@ -247,7 +255,7 @@
 }
 .order-sn-wrap {
   flex: 1;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 24rpx;
 }
 .order-sn {
@@ -271,18 +279,18 @@
   align-items: flex-end;
 }
 .order-commission {
-  color: #14191F;
+  color: #14191f;
   font-size: 32rpx;
-  font-weight: 550;  
+  font-weight: 550;
 }
 .order-type {
   margin-top: 8rpx;
   padding: 6rpx 10rpx;
   width: fit-content;
-  color: #A1A9B3;
+  color: #a1a9b3;
   font-size: 20rpx;
   line-height: 1;
-  border: 1px solid #A1A9B3;
+  border: 1px solid #a1a9b3;
   border-radius: 8rpx;
 }
 .goods-info-wrap {
@@ -303,18 +311,18 @@
   height: 150rpx;
 }
 .goods-name {
-  color: #14191F;
+  color: #14191f;
   font-size: 26rpx;
   font-weight: 550;
 }
 .goods-spec {
   margin: 4rpx;
   flex: 1;
-  color: #6A6F75;
+  color: #6a6f75;
   font-size: 22rpx;
 }
 .goods-commission {
-  color: #F5701D;
+  color: #f5701d;
   font-size: 24rpx;
 }
 

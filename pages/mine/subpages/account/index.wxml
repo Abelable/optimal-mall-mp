@@ -28,7 +28,7 @@
         </view>
         <view class="points-desc">可用于下单抵扣，积分商城福利换购</view>
       </view>
-      <view class="exchange-btn">兑换</view>
+      <view class="exchange-btn {{btnActive ? 'active' : ''}}" bindtap="showPointPopup">兑换</view>
     </view>
     <view class="amount-type-wrap row">
       <view class="amount-type-item">
@@ -37,7 +37,7 @@
           <text style="font-size: 28rpx;">¥</text>
           <text>{{cashInfo ? NUM.toFixed(cashInfo.selfPurchase, 2) : '0.00'}}</text>
         </view>
-        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="{{1}}">提现</view>
+        <view class="type-withdraw-btn {{btnActive ? 'active' : ''}}" bindtap="withdraw" data-scene="{{1}}">提现</view>
       </view>
       <view class="amount-type-item">
         <view class="amount-type-name">分享奖励</view>
@@ -45,7 +45,7 @@
           <text style="font-size: 28rpx;">¥</text>
           <text>{{cashInfo ? NUM.toFixed(cashInfo.share, 2) : '0.00'}}</text>
         </view>
-        <view class="type-withdraw-btn" bindtap="withdraw" data-scene="{{2}}">提现</view>
+        <view class="type-withdraw-btn {{btnActive ? 'active' : ''}}" bindtap="withdraw" data-scene="{{2}}">提现</view>
       </view>
     </view>
     <view class="withdraw-tips-wrap row">
@@ -136,4 +136,5 @@
   <empty-illus wx:if="{{!orderList.length}}" desc="暂无订单记录" height="500rpx" />
 </view>
 
-<point-popup show="{{pointPopupVisible}}" />
+<point-popup show="{{pointPopupVisible}}" amount="{{cashInfo.selfPurchase + cashInfo.share}}" bind:success="exchangeSuccess" bind:hide="hidePointPopup" />
+<auth-modal wx:if="{{authModalVisible}}" bind:hide="hideAuthModal" />

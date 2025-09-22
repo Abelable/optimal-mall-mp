@@ -1,3 +1,5 @@
+<wxs module="NUM" src="/utils/filters/num.wxs" />
+
 <van-popup show="{{show}}" round position="bottom" closeable safe-area-inset-bottom="{{false}}" bind:close="hide">
   <view class="point-popup">
     <image class="illus" src="https://static.chengxinxingqiu.cn/mp/points/illus.png" />
@@ -6,14 +8,14 @@
     <view class="amount-wrap">
       <view class="cash-desc">
         <text>即将把</text>
-        <text class="cash"> 3.5元 </text>
+        <text class="cash"> {{NUM.toFixed(amount, 2)}}元 </text>
         <text>兑换为</text>
       </view>
-      <view class="point-amount">350积分</view>
+      <view class="point-amount">{{amount * 100}}积分</view>
     </view>
     <view class="btn-wrap">
-      <view class="cancel-btn">暂不兑换</view>
-      <view class="confirm-btn">确认兑换</view>
+      <view class="cancel-btn" bindtap="hide">暂不兑换</view>
+      <view class="confirm-btn" bindtap="exchange">确认兑换</view>
     </view>
     <view class="agreement">
       <checkbox class="checkbox" checked="{{agree}}" bindtap="toggleAgree" color="#F5701D" />
