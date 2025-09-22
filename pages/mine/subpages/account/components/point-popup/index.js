@@ -26,11 +26,17 @@ Component({
           title: "请阅读并同意积分兑换协议",
           icon: "none"
         });
-        return
+        return;
       }
 
       accountService.applyExchangePoint(amount, () => {
-        this.triggerEvent("success");
+        wx.showToast({
+          title: "退换成功",
+          icon: "none"
+        });
+        setTimeout(() => {
+          this.triggerEvent("success");
+        }, 2000);
       });
     },
 
