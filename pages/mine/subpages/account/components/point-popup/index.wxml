@@ -11,7 +11,7 @@
         <text class="cash"> {{NUM.toFixed(amount, 2)}}元 </text>
         <text>兑换为</text>
       </view>
-      <view class="point-amount">{{amount * 100}}积分</view>
+      <view class="point-amount">{{NUM.toFixed(amount * 100, 0)}}积分</view>
     </view>
     <view class="btn-wrap">
       <view class="cancel-btn" bindtap="hide">暂不兑换</view>
