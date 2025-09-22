@@ -24,9 +24,6 @@
 }
 .balance {
   color: #fff;
-  font-size: 50rpx;
-}
-.integer {
   font-size: 100rpx;
   font-weight: bold;
 }

@@ -5,7 +5,8 @@
   <view class="withdraw-record-item" wx:for="{{recordList}}" wx:key="index">
     <view class="record-content">
       <view class="record-status-wrap">
-        <view class="record-path">提现至{{['微信', '银行卡', '余额'][item.path - 1]}}</view>
+        <view class="record-path" wx:if="{{item.path === 3}}">兑换积分</view>
+        <view class="record-path" wx:if="{{item.path !== 3}}">提现至{{['微信', '银行卡'][item.path - 1]}}</view>
         <image class="record-status {{['waiting', 'success', 'fail'][item.status]}}" src="./images/status_{{['waiting', 'success', 'fail'][item.status]}}.png" />
       </view>
       <view class="record-time">{{TIME.transform(item.createdAt, 'YYYY-MM-DD hh:mm:ss')}}</view>

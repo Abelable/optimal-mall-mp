@@ -159,8 +159,8 @@
       <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
     </view>
     <view class="tool-item row" wx:if="{{userInfo.level}}" bindtap="navToBalance">
-      <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/balance.png" />
-      <view class="tool-desc">我的余额</view>
+      <image class="tool-icon" src="https://static.chengxinxingqiu.cn/mp/mine/point.png" />
+      <view class="tool-desc">我的积分</view>
       <image class="arrow" src="https://static.chengxinxingqiu.cn/mp/mine/arrow.png" />
     </view>
     <button class="tool-item" open-type="contact" session-from="sessionFrom" hover-class="none">

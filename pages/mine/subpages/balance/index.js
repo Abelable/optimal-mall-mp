@@ -6,8 +6,7 @@ const { statusBarHeight } = getApp().globalData.systemInfo;
 Page({
   data: {
     statusBarHeight,
-    integerPart: "",
-    floatPart: "",
+    balance: 0,
     recordList: [],
     finished: false
   },
@@ -21,7 +20,7 @@ Page({
     const { id, balance } = await accountService.getAccountInfo();
     this.accountId = id;
     const list = `${balance.toFixed(2)}`.split(".");
-    this.setData({ integerPart: list[0], floatPart: list[1] });
+    this.setData({ balance });
   },
 
   async setRecordList(init = false) {
