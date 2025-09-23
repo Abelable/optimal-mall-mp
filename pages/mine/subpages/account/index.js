@@ -122,10 +122,6 @@ Page({
     if (!btnActive) {
       return;
     }
-    if (!store.userInfo.authInfoId) {
-      this.setData({ authModalVisible: true });
-      return;
-    }
     this.setData({ pointPopupVisible: true });
   },
 
