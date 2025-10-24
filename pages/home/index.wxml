@@ -53,9 +53,6 @@
       data-scene="{{item.scene}}"
       data-param="{{item.param || item.id}}"
     />
-    <!-- <image class="village-illus" bindtap="navToVillageFresh" src="https://static.chengxinxingqiu.cn/mp/home/village-fresh.png" />
-    <image class="village-illus" bindtap="navToVillageSnack" src="https://static.chengxinxingqiu.cn/mp/home/village-snack.png" />
-    <image class="village-illus" bindtap="navToVillageGift" src="https://static.chengxinxingqiu.cn/mp/home/village-gift.png" /> -->
   </view>
 
   <view class="live-overview-wrap row between">

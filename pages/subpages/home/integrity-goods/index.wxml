@@ -1,7 +1,0 @@
-<image class="bg" mode="widthFix" src="https://static.chengxinxingqiu.cn/mp/integrity_bg.jpg" />
-
-<view class="goods-list">
-  <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
-  <empty-illus wx:if="{{!goodsList.length}}" desc="暂无商品" />
-  <view class="no-more-tips" wx:if="{{goodsList.length}}">～没有更多了～</view>
-</view>

@@ -1,8 +1,0 @@
-<image class="bg" src="https://static.chengxinxingqiu.cn/mp/village_gift_bg.png" mode="widthFix" />
-
-<view class="goods-list">
-  <top-goods-item wx:for="{{topGoodsList}}" wx:key="index" item="{{item}}" />
-  <goods-item wx:for="{{goodsList}}" wx:key="index" item="{{item}}" />
-  <empty-illus wx:if="{{!topGoodsList.length}}" desc="暂无商品" />
-  <view class="no-more-tips" wx:if="{{topGoodsList.length}}">～没有更多了～</view>
-</view>

@@ -1,8 +1,0 @@
-{
-  "navigationBarTitleText": "诚信臻品",
-  "enablePullDownRefresh": true,
-  "usingComponents": {
-    "goods-item": "../components/goods-item/index",
-    "empty-illus": "/components/empty-illus/index"
-  }
-}

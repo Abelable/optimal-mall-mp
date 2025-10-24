@@ -54,8 +54,8 @@ Page({
 
   onShareAppMessage() {
     const { id } = store.promoterInfo || {};
-    const originalPath = "/pages/subpages/home/theme-zone/index";
-    const path = id ? `${originalPath}?superiorId=${id}` : originalPath;
+    const originalPath = `/pages/subpages/home/theme-zone/index?id=${this.themeId}`;
+    const path = id ? `${originalPath}&superiorId=${id}` : originalPath;
     return { path, title: this.data.themeInfo.name };
   }
 });

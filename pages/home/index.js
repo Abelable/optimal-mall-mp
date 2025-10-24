@@ -223,42 +223,6 @@ Component({
       }
     },
 
-    navToVillageGrain() {
-      wx.navigateTo({
-        url: "/pages/subpages/home/village-grain/index"
-      });
-    },
-
-    navToVillageFresh() {
-      wx.navigateTo({
-        url: "/pages/subpages/home/village-fresh/index"
-      });
-    },
-
-    navToVillageSnack() {
-      wx.navigateTo({
-        url: "/pages/subpages/home/village-snack/index"
-      });
-    },
-
-    navToVillageGift() {
-      wx.navigateTo({
-        url: "/pages/subpages/home/village-gift/index"
-      });
-    },
-
-    navToRuralPage() {
-      wx.switchTab({
-        url: "/pages/rural/index"
-      });
-    },
-
-    navToIntegrityGoods() {
-      wx.navigateTo({
-        url: "/pages/subpages/home/integrity-goods/index"
-      });
-    },
-
     navToHometown(e) {
       const { name = "" } = e.currentTarget.dataset;
       wx.navigateTo({
