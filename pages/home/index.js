@@ -18,6 +18,7 @@ Component({
     liveVisible: false, // todo 用于前期提交审核隐藏部分功能，后期需要删除
     statusBarHeight,
     navBarBgVisible: false,
+    themeZoneList: [],
     menuList: [],
     curMenuIdx: 0,
     bannerList: [],
@@ -67,11 +68,17 @@ Component({
     async init() {
       wx.showLoading({ title: "加载中..." });
       await this.setBannerList();
+      await this.setThemeZoneList();
       await this.setMiddleBannerList();
       await this.setLiveList();
       await this.setMenuList();
       await this.setActivityGoodsList();
       this.setGoodsList(true);
+    },
+
+    async setThemeZoneList() {
+      const themeZoneList = (await homeService.getThemeZoneList()) || [];
+      this.setData({ themeZoneList });
     },
 
     selectMenu(e) {
@@ -286,6 +293,36 @@ Component({
         url = `/pages/subpages/live/live-play/index?id=${id}`;
       }
       wx.navigateTo({ url });
+    },
+
+    checkThemeZone(e) {
+      const { scene, param } = e.currentTarget.dataset || {};
+      if (scene) {
+        switch (scene) {
+          case 1:
+            wx.navigateTo({
+              url: `/pages/subpages/common/webview/index?url=${param}`
+            });
+            break;
+
+          case 2:
+            wx.navigateTo({
+              url: `/pages/subpages/common/webview/index?url=${param}`
+            });
+            break;
+
+          case 3:
+            wx.navigateTo({
+              url: param,
+              fail: () => {
+                wx.switchTab({
+                  url: param
+                });
+              }
+            });
+            break;
+        }
+      }
     },
 
     hideAdModal() {

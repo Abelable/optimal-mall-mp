@@ -2,6 +2,12 @@ import { cleanObject } from "../../../utils/index";
 import BaseService from "../../../services/baseService";
 
 class HomeService extends BaseService {
+  async getThemeZoneList() {
+    return await this.get({
+      url: `${this.baseUrl}/mall/theme_zone/list`
+    });
+  }
+
   async getActivityTagOptions() {
     return await this.get({
       url: `${this.baseUrl}/mall/activity_tag_options`
