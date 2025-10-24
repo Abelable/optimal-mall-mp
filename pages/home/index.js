@@ -301,7 +301,7 @@ Component({
         switch (scene) {
           case 1:
             wx.navigateTo({
-              url: `/pages/subpages/common/webview/index?url=${param}`
+              url: `/pages/subpages/home/theme-zone/index?id=${param}`
             });
             break;
 

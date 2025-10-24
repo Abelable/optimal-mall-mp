@@ -1,6 +1,22 @@
 import BaseService from "../../../../services/baseService";
 
 class HomeService extends BaseService {
+  async getThemeZoneInfo(id) {
+    return await this.get({
+      url: `${this.baseUrl}/mall/theme_zone/detail`,
+      data: { id },
+      loadingTitle: "加载中..."
+    });
+  }
+
+  async getThemeZoneGoodsList(themeId) {
+    return await this.get({
+      url: `${this.baseUrl}/mall/theme_zone/goods_list`,
+      data: { themeId },
+      loadingTitle: "加载中..."
+    });
+  }
+
   async getGrainGoodsList() {
     return await this.get({
       url: `${this.baseUrl}/mall/grain_goods_list`,

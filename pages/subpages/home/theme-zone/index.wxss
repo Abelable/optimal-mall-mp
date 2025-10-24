@@ -1,0 +1,49 @@
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 100;
+  transition: background-color .2s ease;
+}
+.header.show {
+  background-color: #fff;
+  transition: background-color .2s ease;
+}
+.nav-bar {
+  padding-left: 8px;
+  padding-right: 40px;
+  height: 44px;
+}
+.nav-bar-title {
+  flex: 1;
+  color: #000;
+  font-size: 34rpx;
+  font-weight: bold;
+  text-align: center;
+  opacity: 0;
+  transition: opacity .2s ease;
+}
+.nav-bar-title.show {
+  opacity: 1;
+  transition: opacity .2s ease;
+}
+
+.bg {
+  display: block;
+  width: 100%;
+}
+
+.goods-list {
+  margin-top: -24rpx;
+  padding: 24rpx;
+  background: #f5f6f8;
+  border-radius: 24rpx 24rpx 0 0;
+}
+
+.no-more-tips {
+  margin-top: 36rpx;
+  color: #999;
+  font-size: 24rpx;
+  text-align: center;
+}

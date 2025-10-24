@@ -124,7 +124,7 @@
         src="{{themeZoneList[5].cover}}"
         bindtap="checkThemeZone" 
         data-scene="{{themeZoneList[5].scene}}"
-        data-param="{{themeZoneList[5].param || themeZoneList[4].id}}"
+        data-param="{{themeZoneList[5].param || themeZoneList[5].id}}"
       />
     </view>
   </view>

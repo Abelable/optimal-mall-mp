@@ -38,9 +38,9 @@
     {
       "root": "pages/subpages/",
       "pages": [
+        "home/theme-zone/index",
         "home/integrity-goods/index",
         "home/village-grain/index",
-        "home/village-fresh/index",
         "home/village-snack/index",
         "home/village-gift/index",
         "live/create-live/index",
